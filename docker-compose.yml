@@ -1,0 +1,24 @@
+# LifeOS Phase 0 - the only infrastructure is the authoritative store.
+# Architecture v0.9.1 §1: single authoritative source = PostgreSQL 16 + pgvector.
+# No app/worker/studio containers in Phase 0 (skeleton = "a bootable empty system").
+
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: lifeos-postgres
+    environment:
+      POSTGRES_USER: lifeos
+      POSTGRES_PASSWORD: lifeos
+      POSTGRES_DB: lifeos
+    ports:
+      - "5432:5432"
+    volumes:
+      - lifeos-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U lifeos -d lifeos"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+volumes:
+  lifeos-pgdata:

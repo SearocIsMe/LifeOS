@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+.tox/
+_*/
+cache_task1/
+output/
+
+# Virtualenvs
+.venv/
+venv/
+env/
+
+# Secrets / local config — never commit (coding-rules #8: no hard-coded credentials)
+.env
+.env.*
+config/config.yaml
+config/config.local.yaml
+log/
+
+# Local data stores (raw_* parquet, sqlite dev db, redis dump)
+data/
+*.parquet
+*.duckdb
+*.sqlite3
+!tests/**/fixtures/**/*.parquet
+
+# vcrpy cassettes ARE committed (replayable records) — do NOT ignore:
+!tests/**/cassettes/*.yaml
+
+# IDE / OS
+.idea/
+.vscode/*
+!.vscode/settings.json
+.DS_Store
+Thumbs.db
+_*.*
+*.log

@@ -1,0 +1,114 @@
+{
+  "generated_at": "2026-09-15T05:59:24.805199+00:00",
+  "schema_version": "0.1.0",
+  "policy_version": "0.1.0",
+  "rules_version": "0.1.0",
+  "checks": [
+    {
+      "name": "schema_roundtrip",
+      "status": "pass",
+      "detail": {
+        "entities": 15,
+        "problems": []
+      }
+    },
+    {
+      "name": "pipeline_roundtrip",
+      "status": "pass",
+      "detail": {
+        "problems": [],
+        "l1": 5,
+        "l2": 5,
+        "memories": 3,
+        "outbox": 3
+      }
+    },
+    {
+      "name": "replay_consistency",
+      "status": "pass",
+      "detail": {
+        "replay": {
+          "life_id": "life-demo",
+          "from_seq": 0,
+          "to_seq": null,
+          "total": 5,
+          "matched": 5,
+          "mismatched": [],
+          "consistency_rate": 1.0,
+          "pass": true
+        }
+      }
+    },
+    {
+      "name": "policy_no_side_effect",
+      "status": "pass",
+      "detail": {
+        "problems": []
+      }
+    },
+    {
+      "name": "llm_boundary",
+      "status": "pass",
+      "detail": {
+        "problems": []
+      }
+    },
+    {
+      "name": "isolation",
+      "status": "pass",
+      "detail": {
+        "problems": []
+      }
+    },
+    {
+      "name": "db_tier",
+      "status": "pass",
+      "detail": {
+        "tables_found": 16,
+        "missing": [],
+        "append_only_privileges": "pass"
+      }
+    }
+  ],
+  "gate_criteria": {
+    "1_roundtrip": "pass",
+    "2_replay_100pct": "pass",
+    "3_llm_cannot_write_authoritative": "pass",
+    "4_policy_reject_zero_side_effect": "pass"
+  },
+  "gold_sets": {
+    "core_facts": {
+      "file": "data/goldset/core_facts/core_facts_v0.1.yaml",
+      "status": "pending_human_authoring",
+      "note": "materials are human-authored + dual-reviewed (phases/phase-0/03 doc); AI MUST NOT author them"
+    },
+    "behavior_scenario": {
+      "file": "data/goldset/behavior_scenarios/behavior_scenarios_v0.1.yaml",
+      "status": "pending_human_authoring",
+      "note": "materials are human-authored + dual-reviewed (phases/phase-0/03 doc); AI MUST NOT author them"
+    }
+  },
+  "environment": {
+    "docker": {
+      "version": null,
+      "compose_version": null
+    },
+    "postgres": {
+      "reachable": true,
+      "pgvector_extension": true
+    },
+    "gpu": {
+      "nvidia_smi": true,
+      "gpus": "NVIDIA GeForce RTX 4060 Laptop GPU, 8188 MiB"
+    },
+    "provider_keys": {
+      "configured": [],
+      "names_only": true,
+      "note": "key VALUES are never printed"
+    },
+    "python": "3.12.7",
+    "overall": "incomplete"
+  },
+  "verdict": "INCOMPLETE",
+  "verdict_note": "engineering checks pass; gold set materials pending human authoring (AC-09)"
+}

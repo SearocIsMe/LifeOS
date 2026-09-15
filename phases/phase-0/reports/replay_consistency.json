@@ -1,0 +1,12 @@
+{
+  "replay": {
+    "life_id": "life-demo",
+    "from_seq": 0,
+    "to_seq": null,
+    "total": 5,
+    "matched": 5,
+    "mismatched": [],
+    "consistency_rate": 1.0,
+    "pass": true
+  }
+}

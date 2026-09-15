@@ -1,0 +1,21 @@
+{
+  "docker": {
+    "version": null,
+    "compose_version": null
+  },
+  "postgres": {
+    "reachable": true,
+    "pgvector_extension": true
+  },
+  "gpu": {
+    "nvidia_smi": true,
+    "gpus": "NVIDIA GeForce RTX 4060 Laptop GPU, 8188 MiB"
+  },
+  "provider_keys": {
+    "configured": [],
+    "names_only": true,
+    "note": "key VALUES are never printed"
+  },
+  "python": "3.12.7",
+  "overall": "incomplete"
+}

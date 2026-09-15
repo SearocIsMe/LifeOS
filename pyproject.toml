@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lifeos"
+version = "0.1.0"
+description = "LifeOS Phase 0 - contract & replayable skeleton (15-entity schema, L0/L1/L2 event protocol, deterministic_commit, minimal Policy Engine, replay forensics, gold set tooling)"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Apache-2.0" }
+dependencies = [
+    "pydantic>=2.7",
+    "PyYAML>=6.0",
+    "SQLAlchemy>=2.0",
+    "alembic>=1.13",
+    "psycopg[binary]>=3.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.4",
+    "pre-commit>=3.6",
+]
+
+[project.scripts]
+lifeos = "lifeos.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "db: tests that require a running PostgreSQL (docker compose up -d postgres)",
+]
+addopts = "-m 'not db'"
+
+[tool.ruff]
+line-length = 100
+src = ["src", "tests"]

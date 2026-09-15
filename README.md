@@ -67,7 +67,16 @@ Only after the decision gate — proving "it's still it" — does expansion begi
 
 ## Repository Layout
 
-- `doc/` — the current product specification: [LifeOS FuncSpec v0.6](/doc\LifeOS_产品规格说明书_v0.6.md) (v0.6, Chinese).
+- `doc/` — current documents (v0.9.1, Chinese):
+  - Product specification: [LifeOS_产品规格说明书_v0.9.1](/doc/LifeOS_产品规格说明书_v0.9.1.md)
+  - Architecture design: [LifeOS_架构设计_v0.9.1](/doc/LifeOS_架构设计_v0.9.1.md)
+  - R&D roadmap: [LifeOS_研发路线图_v0.9.1](/doc/LifeOS_研发路线图_v0.9.1.md)
+  - Innovation literature baseline: [adadmic_innovation_v0.9.1](/doc/adadmic_innovation_v0.9.1.md) (literature survey date 2026-08-05); earlier versions (v0.5–v0.9) retained for lineage.
+- `phases/` — per-phase design docs, ADRs and acceptance reports:
+  - `phases/phase-0/` — Phase 0 (contract & replayable skeleton): detailed design, execution plan with acceptance cases AC-01…AC-10, human-authoring spec for the 50 core facts / 30 behavior scenarios, Gate 0 report.
+- `src/lifeos/` — Phase 0 code skeleton (15-entity schema, L0/L1/L2 event pipeline, `deterministic_commit`, minimal Policy Engine, replay forensics, gold set validator/registry, verification CLI).
+- `tests/` `scripts/` `data/goldset/` `alembic/` `docker-compose.yml` — the Phase 0 engineering skeleton (see `phases/phase-0/README.md` for commands).
+- `paper/` — downloaded papers referenced by the literature baseline.
 - `draft/` — earlier specification drafts (Draft 0.2, 0.3, v0.5).
 
 ## Licensing Strategy
