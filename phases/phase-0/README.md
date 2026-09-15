@@ -22,7 +22,7 @@
 |---|---|---|
 | [01_详细设计.md](01_详细设计.md) | 阶段 0 全部契约与模块的详细设计（15 实体、事件协议、`deterministic_commit`、Policy、隔离、事务、回放、gold set 落库） | 全体成员 |
 | [02_工程设计执行方案.md](02_工程设计执行方案.md) | 按周/天的任务分解与执行步骤；10 个验收 case（AC-01～AC-10）的精确定义与验证命令；Gate 0 报告流程 | 工程执行者 |
-| [03_核心事实集与行为场景编写规范.md](03_核心事实集与行为场景编写规范.md) | 「50 条核心事实必须人工编写」的原因、要求、规格定义、双人互审流程与校验器清单 | 事实/场景编写人与审校人 |
+| [03_核心事实集与行为场景编写规范.md](03_核心事实集与行为场景编写规范.md) | 「50 条核心事实必须人工编写」的原因、要求、规格定义、双人互审流程与校验器清单；§1.4/1.5 论证「为什么恰好是 50/30」（数字来源与可挑战路径）；§7 业界 persona 材料赛道对位（PersonaChat/CharacterEval/PersonaGym 等） | 事实/场景编写人与审校人 |
 | [adr/ADR-0001_阶段0边界参数确认.md](adr/ADR-0001_阶段0边界参数确认.md) | Day 1 必须落档的边界参数记录 | 决策层 |
 | [adr/ADR-0002_Gate0环境检查记录.md](adr/ADR-0002_Gate0环境检查记录.md) | GPU/模型候选/Provider key/Docker 版本实测记录（**须由负责人实测填写，禁止虚构**） | 工程负责人 |
 
@@ -57,14 +57,18 @@ bash scripts/gate0_check.sh --with-db  # 含 DB 层（需 Docker）
 
 ## 当前状态（诚实记录，随进度更新）
 
-- [x] 阶段 0 详细设计文档（01/02/03 + ADR-0001/0002）
+- [x] 阶段 0 详细设计文档（01/02/03 + ADR-0001/0002/0003）
 - [x] 工程骨架代码（15 实体 Schema、事件管线、`deterministic_commit`、Policy 最小骨架、回放取证、gold set 校验器/注册、CLI、27 项自动化测试）
-- [x] 工程验证实际跑通（2026-09-15）：tier A 25/25 PASS；PostgreSQL 16+pgvector 容器启动、alembic 0001 迁移应用、tier B 2/2 PASS；Gate 0 四条判据全部 pass
-- [x] Gate 0 报告已生成：`reports/gate0_report.json`（verdict=**INCOMPLETE**——工程判据全过，仅 gold set 材料待人工编写，见下两条）
-- [ ] **50 条核心事实集人工编写 + 双人互审**（等待团队执行，规范见 03 文档；任何 LLM 不得代写，本仓库亦不会预置代写内容）
-- [ ] **30 个行为场景人工编写 + 双人互审**
+- [x] 材料编制（**ADR-0003 P2 路径**，2026-09-15）：AI 起草候选池（draft.1→draft.2，来源与逐条 notes 完整留痕）→ 独立质疑式审核（《[LifeOS_Phase0_评审与80条候选材料](LifeOS_Phase0_评审与80条候选材料.md)》）→ 结构校验全过（配额/唯一性/中文占比零错误零警告）→ **具名负责人逐条审定签署**（author=Jiang Haipeng ／ reviewer=Searoc，2026-09-15）→ 阶段化 `data/goldset/core_facts/core_facts_v0.1.yaml` 与 `data/goldset/behavior_scenarios/behavior_scenarios_v0.1.yaml`
+- [x] AC-09 注册冻结（2026-09-15）：`core_facts` v0.1.0（50 条，content_hash `506c9f4c…`）与 `behavior_scenario` v0.1.0（30 个，content_hash `e4bef442…`）已写入 `GoldSetRegistry`；manifest 见 `reports/goldset_core_facts_v0.1.0.manifest.json`、`reports/goldset_behavior_scenarios_v0.1.0.manifest.json`
+- [x] 工程验证（2026-09-15）：tier A 25/25 PASS；PostgreSQL 16+pgvector 容器、alembic 0001 迁移、tier B 2/2 PASS；Gate 0 四条判据全 pass；`reports/gate0_report.json` verdict=**PASS**（13:52Z）
 - [ ] ADR-0002 剩余字段补测（本地模型候选清单 2～3 个、云 Provider key 与计费告警；GPU/Postgres/Docker 已实测记录）
-- [ ] Gate 0 报告签署（材料齐 + 补测齐后重跑 `bash scripts/gate0_check.sh --with-db`，verdict 转 PASS 后双人签署）
+- [ ] **Gate 0 报告双人签署**（AC-10 最后一道人工动作：架构负责人 + 1 名非编写成员复核签署 `reports/gate0_report.json`）
+- [ ] P2 收尾（ADR-0003）：划定未用于调试的独立保留集（建议 ≥10 条事实 + ≥6 个场景），防止「调参与评测同集」
+
+> 运行环境注意：Docker 位于 WSL2 内（Windows 主机 PATH 无 docker 命令）。WSL 下一键自检：
+> `wsl bash -c "cd /mnt/c/00-work/07-Self/LifeOS && PYTHON=/mnt/c/00-work/07-Self/LifeOS/.venv/Scripts/python.exe bash scripts/gate0_check.sh --with-db"`
+> 材料注册后已冻结：任何修订 = 新版本号 + 重新走签署与注册（不可原地改 `v0.1.0`）。
 
 > 运行环境注意：Docker 位于 WSL2 内（Windows 主机 PATH 无 docker 命令）。WSL 下一键自检：
 > `wsl bash -c "cd /mnt/c/00-work/07-Self/LifeOS && PYTHON=/mnt/c/00-work/07-Self/LifeOS/.venv/Scripts/python.exe bash scripts/gate0_check.sh --with-db"`

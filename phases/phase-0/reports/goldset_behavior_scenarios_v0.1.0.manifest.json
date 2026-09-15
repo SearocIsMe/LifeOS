@@ -1,0 +1,42 @@
+{
+  "gold_set_id": "behavior_scenario",
+  "kind": "behavior_scenario",
+  "version": "0.1.0",
+  "item_count": 30,
+  "content_hash": "e4bef4424bda8f91a8223755dbca909ab27e9d5e01ec1f8568abfa45636aa059",
+  "frozen_at": "2026-09-15T13:51:22.643339+00:00",
+  "review": {
+    "author": "Jiang Haipeng",
+    "reviewer": "Searoc",
+    "arbitrator": "",
+    "review_date": "2026-09-15",
+    "conflicts_resolved": 0,
+    "notes": "AI原创候选（草稿v0.1.0-draft.1经整库review与修订后的合并版）；未独立互审；无签署；全部intent_target为候选期望，待Planner/Policy规则定标后逐条回验；不得据此宣称AC-09或任何Gate通过；已接受全集不存在，全部条目完成合并和审查。；已按 ADR-0003 P2 阶段化（staged）；待具名负责人逐条审定并签署后注册。"
+  },
+  "notes": "ADR-0003 P2: AI-draft(provenance in file) + independent review(评审报告) + named-approver signatures",
+  "validation_report": {
+    "kind": "behavior_scenario",
+    "valid": true,
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "total": 30,
+      "intents": {
+        "greet": 5,
+        "comfort": 5,
+        "play_invite": 5,
+        "share_observation": 5,
+        "respect_space": 5,
+        "reconnect": 5
+      },
+      "situations": {
+        "normal": 14,
+        "sensitive_present": 5,
+        "low_energy": 4,
+        "post_conflict": 3,
+        "high_social_need": 4
+      }
+    }
+  },
+  "persisted": true
+}

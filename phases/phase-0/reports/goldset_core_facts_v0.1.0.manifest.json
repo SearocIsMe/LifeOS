@@ -1,0 +1,40 @@
+{
+  "gold_set_id": "core_facts",
+  "kind": "core_facts",
+  "version": "0.1.0",
+  "item_count": 50,
+  "content_hash": "506c9f4c192ffa5613cc0fb5a8197b4eb55fd71bd7cd477e0e6db79065f16e6b",
+  "frozen_at": "2026-09-15T13:51:21.834686+00:00",
+  "review": {
+    "author": "jiang haipeng",
+    "reviewer": "Searoc",
+    "arbitrator": "N.A",
+    "review_date": "2026-09-15",
+    "conflicts_resolved": 0,
+    "notes": "AI原创候选（草稿v0.1.0-draft.1经整库review与修订后的合并版）；未独立互审；无签署；不得据此宣称AC-09或任何Gate通过；已接受全集不存在，全部条目完成合并和审查。；已按 ADR-0003 P2 阶段化（staged）；待具名负责人逐条审定并签署后注册。"
+  },
+  "notes": "ADR-0003 P2: AI-draft(provenance in file) + independent review(评审报告) + named-approver signatures",
+  "validation_report": {
+    "kind": "core_facts",
+    "valid": true,
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "total": 50,
+      "categories": {
+        "identity_core": 8,
+        "biography": 10,
+        "preference": 10,
+        "relationship": 8,
+        "habit_routine": 7,
+        "value_belief": 4,
+        "sensitive_cases": 3
+      },
+      "sensitive": 3,
+      "episodic": 10,
+      "unique_contents": 50,
+      "unique_probes": 50
+    }
+  },
+  "persisted": true
+}

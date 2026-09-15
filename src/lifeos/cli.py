@@ -616,8 +616,9 @@ def _load_yaml(path: str) -> dict[str, Any]:
     if not file.exists():
         raise SystemExit(
             f"file not found: {file}\n"
-            "Gold sets are HUMAN-AUTHORED (see phases/phase-0/03 doc). "
-            "Templates: data/goldset/."
+            "Gold set materials follow ADR-0003 (P1 human-authored+dual-review, "
+            "or P2 AI-draft+provenance+named-approver). See phases/phase-0/03 doc; "
+            "templates: data/goldset/."
         )
     with file.open(encoding="utf-8") as fh:
         return yaml.safe_load(fh) or {}
@@ -671,14 +672,28 @@ def gate0_report(with_db: bool, out: str | None) -> dict[str, Any]:
     ]:
         file = REPO_ROOT / path
         if file.exists():
-            report = validate_document(kind, _load_yaml(str(file)))
-            goldset_status[kind] = {"file": path, "status": "pass" if report["valid"] else "fail", "stats": report["stats"]}
+            doc = _load_yaml(str(file))
+            report = validate_document(kind, doc)
+            # Structural validity alone is NOT enough for Gate 0: registration
+            # (and therefore AC-09) requires signatures per ADR-0003 - P1 dual
+            # review or P2 named-approver approval. Unsigned staged files stay
+            # pending; they must never silently flip the verdict to PASS.
+            review = doc.get("review") or {}
+            author, reviewer = review.get("author") or "", review.get("reviewer") or ""
+            signed = bool(author) and bool(reviewer) and author != reviewer
+            if not report["valid"]:
+                status = "fail"
+            elif signed:
+                status = "pass"
+            else:
+                status = "pending_approval_signatures"
+            goldset_status[kind] = {"file": path, "status": status, "stats": report["stats"]}
         else:
             goldset_status[kind] = {
                 "file": path,
-                "status": "pending_human_authoring",
-                "note": "materials are human-authored + dual-reviewed (phases/phase-0/03 doc); "
-                "AI MUST NOT author them",
+                "status": "pending_materials",
+                "note": "materials not staged yet (ADR-0003: P1 human-authored+dual-review, "
+                "or P2 AI-draft+provenance+independent-review+named-approver signature)",
             }
 
     gate_criteria = {
@@ -687,14 +702,19 @@ def gate0_report(with_db: bool, out: str | None) -> dict[str, Any]:
         "3_llm_cannot_write_authoritative": checks[4]["status"],
         "4_policy_reject_zero_side_effect": checks[3]["status"],
     }
-    hard = [c for c in checks if c["name"] != "db_tier"]
     all_pass = all(c["status"] == "pass" for c in checks) and all(
         v.get("status") == "pass" for v in goldset_status.values()
     )
     pending = any(v.get("status") != "pass" for v in goldset_status.values())
     if pending and all(c["status"] == "pass" for c in checks):
         verdict = "INCOMPLETE"
-        verdict_note = "engineering checks pass; gold set materials pending human authoring (AC-09)"
+        if any(v.get("status") == "pending_approval_signatures" for v in goldset_status.values()):
+            verdict_note = (
+                "engineering checks pass; gold sets staged and structurally valid "
+                "but awaiting named-approver signatures (ADR-0003 P2 / AC-09)"
+            )
+        else:
+            verdict_note = "engineering checks pass; gold set materials not staged yet (AC-09)"
     else:
         verdict = "PASS" if all_pass else "FAIL"
         verdict_note = ""

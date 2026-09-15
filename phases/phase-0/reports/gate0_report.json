@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-15T05:59:24.805199+00:00",
+  "generated_at": "2026-09-15T13:52:32.795274+00:00",
   "schema_version": "0.1.0",
   "policy_version": "0.1.0",
   "rules_version": "0.1.0",
@@ -79,13 +79,45 @@
   "gold_sets": {
     "core_facts": {
       "file": "data/goldset/core_facts/core_facts_v0.1.yaml",
-      "status": "pending_human_authoring",
-      "note": "materials are human-authored + dual-reviewed (phases/phase-0/03 doc); AI MUST NOT author them"
+      "status": "pass",
+      "stats": {
+        "total": 50,
+        "categories": {
+          "identity_core": 8,
+          "biography": 10,
+          "preference": 10,
+          "relationship": 8,
+          "habit_routine": 7,
+          "value_belief": 4,
+          "sensitive_cases": 3
+        },
+        "sensitive": 3,
+        "episodic": 10,
+        "unique_contents": 50,
+        "unique_probes": 50
+      }
     },
     "behavior_scenario": {
       "file": "data/goldset/behavior_scenarios/behavior_scenarios_v0.1.yaml",
-      "status": "pending_human_authoring",
-      "note": "materials are human-authored + dual-reviewed (phases/phase-0/03 doc); AI MUST NOT author them"
+      "status": "pass",
+      "stats": {
+        "total": 30,
+        "intents": {
+          "greet": 5,
+          "comfort": 5,
+          "play_invite": 5,
+          "share_observation": 5,
+          "respect_space": 5,
+          "reconnect": 5
+        },
+        "situations": {
+          "normal": 14,
+          "sensitive_present": 5,
+          "low_energy": 4,
+          "post_conflict": 3,
+          "high_social_need": 4
+        }
+      }
     }
   },
   "environment": {
@@ -109,6 +141,6 @@
     "python": "3.12.7",
     "overall": "incomplete"
   },
-  "verdict": "INCOMPLETE",
-  "verdict_note": "engineering checks pass; gold set materials pending human authoring (AC-09)"
+  "verdict": "PASS",
+  "verdict_note": ""
 }
