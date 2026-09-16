@@ -24,7 +24,10 @@
 | [02_工程设计执行方案.md](02_工程设计执行方案.md) | 按周/天的任务分解与执行步骤；10 个验收 case（AC-01～AC-10）的精确定义与验证命令；Gate 0 报告流程 | 工程执行者 |
 | [03_核心事实集与行为场景编写规范.md](03_核心事实集与行为场景编写规范.md) | 「50 条核心事实必须人工编写」的原因、要求、规格定义、双人互审流程与校验器清单；§1.4/1.5 论证「为什么恰好是 50/30」（数字来源与可挑战路径）；§7 业界 persona 材料赛道对位（PersonaChat/CharacterEval/PersonaGym 等） | 事实/场景编写人与审校人 |
 | [adr/ADR-0001_阶段0边界参数确认.md](adr/ADR-0001_阶段0边界参数确认.md) | Day 1 必须落档的边界参数记录 | 决策层 |
-| [adr/ADR-0002_Gate0环境检查记录.md](adr/ADR-0002_Gate0环境检查记录.md) | GPU/模型候选/Provider key/Docker 版本实测记录（**须由负责人实测填写，禁止虚构**） | 工程负责人 |
+| [adr/ADR-0002_Gate0环境检查记录.md](adr/ADR-0002_Gate0环境检查记录.md) | GPU/模型候选/Provider key/基础设施实测记录（**须实测填写，禁止虚构**；2026-09-16 起随 ADR-0004 在新集群重测） | 工程负责人 |
+| [adr/ADR-0003_评测材料来源与签署流程修订.md](adr/ADR-0003_评测材料来源与签署流程修订.md) | 材料来源双路径（P1 人工编写 / P2 AI 起草+具名负责人审定）与签署口径 | 全体成员 |
+| [adr/ADR-0004_部署环境迁移至K8s集群.md](adr/ADR-0004_部署环境迁移至K8s集群.md) | 部署环境迁移决策：`lifeos-dev` 命名空间；`dtc-w1`(3×H200) 推理；`aisi-w7` 数据库；compose 降级为备选 | 决策层/工程 |
+| [HANDOVER_迁移K8s集群交接.md](HANDOVER_迁移K8s集群交接.md) | **迁移交接文档**：背景/状态快照/代码触点/验证顺序/K8s 清单草稿/纪律红线（新环境接手者从 §5 开始） | 接手执行者 |
 
 ## 目录约定
 
@@ -62,7 +65,8 @@ bash scripts/gate0_check.sh --with-db  # 含 DB 层（需 Docker）
 - [x] 材料编制（**ADR-0003 P2 路径**，2026-09-15）：AI 起草候选池（draft.1→draft.2，来源与逐条 notes 完整留痕）→ 独立质疑式审核（《[LifeOS_Phase0_评审与80条候选材料](LifeOS_Phase0_评审与80条候选材料.md)》）→ 结构校验全过（配额/唯一性/中文占比零错误零警告）→ **具名负责人逐条审定签署**（author=Jiang Haipeng ／ reviewer=Searoc，2026-09-15）→ 阶段化 `data/goldset/core_facts/core_facts_v0.1.yaml` 与 `data/goldset/behavior_scenarios/behavior_scenarios_v0.1.yaml`
 - [x] AC-09 注册冻结（2026-09-15）：`core_facts` v0.1.0（50 条，content_hash `506c9f4c…`）与 `behavior_scenario` v0.1.0（30 个，content_hash `e4bef442…`）已写入 `GoldSetRegistry`；manifest 见 `reports/goldset_core_facts_v0.1.0.manifest.json`、`reports/goldset_behavior_scenarios_v0.1.0.manifest.json`
 - [x] 工程验证（2026-09-15）：tier A 25/25 PASS；PostgreSQL 16+pgvector 容器、alembic 0001 迁移、tier B 2/2 PASS；Gate 0 四条判据全 pass；`reports/gate0_report.json` verdict=**PASS**（13:52Z）
-- [ ] ADR-0002 剩余字段补测（本地模型候选清单 2～3 个、云 Provider key 与计费告警；GPU/Postgres/Docker 已实测记录）
+- [ ] **环境迁移执行（ADR-0004，2026-09-16）**：按 [HANDOVER](HANDOVER_迁移K8s集群交接.md) §5–§6 在新集群建 `lifeos-dev`、部署 postgres（`aisi-w7`）与 GPU 探测（`dtc-w1`）、重跑全部验收并重新生成 gate0 报告（接手者：新环境工程执行者）
+- [ ] ADR-0002 全字段在新环境重测（本地模型候选按 H200 重筛 2～3 个、Provider key 以 Secret 配置并配置计费告警；2026-09-15 旧机记录已转为历史存档）
 - [ ] **Gate 0 报告双人签署**（AC-10 最后一道人工动作：架构负责人 + 1 名非编写成员复核签署 `reports/gate0_report.json`）
 - [ ] P2 收尾（ADR-0003）：划定未用于调试的独立保留集（建议 ≥10 条事实 + ≥6 个场景），防止「调参与评测同集」
 

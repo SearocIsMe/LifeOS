@@ -1,6 +1,6 @@
 # ADR-0002：Gate 0 环境检查记录
 
-- 状态：**部分实测（2026-09-15，来源＝`lifeos.cli envcheck` 自动探测 + 本次会话命令输出）；其余字段待负责人补测签署**
+- 状态：**部分实测（2026-09-15）；2026-09-16 起部署环境迁移至 K8s 集群（[ADR-0004](ADR-0004_部署环境迁移至K8s集群.md)），旧机实测记录转为历史存档，全部字段须在新环境重测（见文末追记）**
 - 日期：2026-09-15（首轮实测）
 - 关联：路线图 §2「环境检查项（Gate 0 前置）」；原始数据存档 `phases/phase-0/reports/envcheck.json`、`gate0_report.json`
 
@@ -51,3 +51,28 @@
 - Postgres/基础工具/GPU 探测合格 → 阶段 0 工程验证已实际跑通（见 gate0_report.json，除 gold set 材料外全部 PASS）；
 - **云 Provider key 未配置**：阶段 0 不依赖任何 LLM，不阻塞；阶段 1 前必须配齐并配置计费告警；
 - GPU 8 GB 偏小：不阻塞阶段 0；阶段 1 S2 本地推理部署前须完成候选清单筛选，不达标走路线图 §8 降级路径（Provider B 降级为另一云端固定版本模型，记录偏差）。
+
+---
+
+## 追记（2026-09-16）：部署环境迁移至 K8s 集群（决策：[ADR-0004](ADR-0004_部署环境迁移至K8s集群.md)，决策人 Jiang Haipeng）
+
+决策层认定笔记本 GPU（RTX 4060 8GB）构成阶段 1 本地推理的瓶颈，将 Gate 0 环境与阶段 1 推理目标迁移至 K8s 管理的 H200 集群：
+
+| 项 | 决策值 | 实测状态 |
+|---|---|---|
+| 命名空间 | `lifeos-dev` | 待创建/确认 |
+| `dtc-w1` | 推理 GPU 节点，**3× H200**（阶段 1 Provider B：vLLM/llama.cpp） | 待实测：型号确认/驱动/CUDA/`nvidia-smi` 输出/devicePlugin 容量 |
+| `aisi-w7` | 数据库节点（PostgreSQL 16 + pgvector Pod） | 待实测：规格/存储类/网络策略 |
+| docker-compose | 降级为本地开发备选，不再作为 Gate 0 验收路径 | 历史记录保留（本 ADR 上文） |
+
+**新环境待实测清单（接手者逐项实测回填，禁止凭记忆/估计填写）**：
+
+- [ ] K8s 集群/节点版本（server、`dtc-w1`、`aisi-w7`）
+- [ ] `aisi-w7`：CPU/内存/磁盘/StorageClass；postgres Pod 健康与资源限额
+- [ ] pgvector 扩展在新库可用；alembic 0001 迁移在新库执行成功
+- [ ] `dtc-w1`：3× H200 型号与显存确认、驱动/CUDA、`nvidia.com/gpu` 容量
+- [ ] 云 Provider（Provider A）：候选模型（锁版本目标）、API key 以 K8s Secret 配置（只记名字不记值）、计费告警
+- [ ] 本地模型候选清单 2～3 个（按 H200 显存重筛，引用官方模型卡）
+- [ ] 重跑 `gate0_check --with-db` → 新环境 gate0_report（verdict 须 PASS 后归档）
+
+> 2026-09-15 的旧机记录（上文 §1–§4）保留为历史，不再作为 Gate 0 引用依据；新报告落 `phases/phase-0/reports/`（旧报告归档改名）。
