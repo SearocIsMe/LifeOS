@@ -1,0 +1,58 @@
+# ============================================================================
+# 核心事实集 - 格式示例（模板）
+# ----------------------------------------------------------------------------
+# ⚠️ 本文件是【字段写法演示】，仅 3 条，由仓库创建时的工程样板生成。
+#    - 它不是 gold set 终稿，不计入 50 条，禁止直接注册；
+#    - 终稿必须由团队【人工编写 + 双人互审】后写入 core_facts_v0.1.yaml；
+#    - 任何 LLM 不得代写终稿内容（路线图 §2 动手提示；03 文档 §1）。
+# 规格与质量红线：phases/phase-0/03_核心事实集与行为场景编写规范.md
+# ============================================================================
+
+kind: core_facts
+version: 0.0.0-template      # 模板占位版本；终稿从 0.1.0 开始
+language: zh
+fictional: true              # 全部内容围绕虚构 persona（禁止真实个人信息）
+items:
+  - fact_id: CF-001
+    category: identity_core
+    type: semantic
+    subject_id: user
+    slot_key: user.pet_name
+    content: 用户小林家里养的猫叫咪咪
+    qa_probe:
+      - 小林家的猫叫什么名字？
+    privacy_level: normal
+    importance: 4
+    notes: ""
+
+  - fact_id: CF-002
+    category: preference
+    type: semantic
+    subject_id: user
+    slot_key: preference.food.main
+    content: 用户小林最喜欢吃的菜是西湖醋鱼
+    qa_probe:
+      - 小林在吃的方面最喜欢什么？
+    privacy_level: normal
+    importance: 3
+    notes: ""
+
+  - fact_id: CF-003
+    category: sensitive_cases
+    type: semantic
+    subject_id: user
+    slot_key: user.health_note
+    content: 用户小林正在医院做睡眠问题的治疗
+    qa_probe:
+      - 小林最近在做什么治疗？
+    privacy_level: sensitive   # sensitive 条目用于红线 7（不进主动话题）的测试材料
+    importance: 5
+    notes: ""
+
+review:                       # 终稿必须填写完整后才能注册（author != reviewer）
+  author: ""
+  reviewer: ""
+  arbitrator: ""
+  review_date: ""
+  conflicts_resolved: 0
+  notes: ""

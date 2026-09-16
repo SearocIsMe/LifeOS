@@ -1,0 +1,572 @@
+kind: core_facts
+version: 0.1.0
+language: zh
+fictional: true
+items:
+- fact_id: CF-001
+  category: identity_core
+  type: semantic
+  subject_id: user
+  slot_key: user.nickname
+  content: 用户在日常交流中的称呼是小岚。
+  qa_probe:
+  - 这位使用者平时怎么称呼？
+  privacy_level: normal
+  importance: 5
+  notes: 原创虚构；AI候选（未人工编写、未互审、未签署）；content删元叙述「虚构用户」；完成合并和审查。
+- fact_id: CF-002
+  category: identity_core
+  type: semantic
+  subject_id: user
+  slot_key: user.occupation
+  content: 小岚的职业是博物馆展陈设计师。
+  qa_probe:
+  - 小岚靠哪种专业工作谋生？
+  privacy_level: normal
+  importance: 5
+  notes: 原创虚构；AI候选（未人工编写、未互审、未签署）；复审无实质改动；完成合并和审查。
+- fact_id: CF-003
+  category: identity_core
+  type: semantic
+  subject_id: user
+  slot_key: user.hometown
+  content: 小岚的家乡是榆川。
+  qa_probe:
+  - 小岚来自哪个地方？
+  privacy_level: normal
+  importance: 5
+  notes: 原创虚构；AI候选（未人工编写、未互审、未签署）；content删元叙述「虚构」；完成合并和审查。
+- fact_id: CF-004
+  category: identity_core
+  type: semantic
+  subject_id: user
+  slot_key: user.residence
+  content: 小岚的常住地是澄湾。
+  qa_probe:
+  - 小岚定居在哪座城？
+  privacy_level: normal
+  importance: 5
+  notes: 原创虚构；AI候选（未人工编写、未互审、未签署）；content删元叙述「虚构」；完成合并和审查。
+- fact_id: CF-005
+  category: identity_core
+  type: semantic
+  subject_id: user
+  slot_key: user.dominant_hand
+  content: 小岚使用左手作为惯用手。
+  qa_probe:
+  - 小岚拿笔通常用哪只手？
+  privacy_level: normal
+  importance: 5
+  notes: 原创虚构；AI候选（未人工编写、未互审、未签署）；复审无实质改动；完成合并和审查。
+- fact_id: CF-006
+  category: identity_core
+  type: semantic
+  subject_id: user
+  slot_key: user.native_language
+  content: 小岚的母语是普通话。
+  qa_probe:
+  - 小岚幼年最先学会哪种语言？
+  privacy_level: normal
+  importance: 5
+  notes: 原创虚构；AI候选（未人工编写、未互审、未签署）；probe改从习得视角提问，去「母语」关键词复用；完成合并和审查。
+- fact_id: CF-007
+  category: identity_core
+  type: semantic
+  subject_id: user
+  slot_key: user.pet_name
+  content: 小岚饲养的猫名叫栗团。
+  qa_probe:
+  - 小岚家的猫咪怎么称呼？
+  privacy_level: normal
+  importance: 5
+  notes: 原创虚构；AI候选（未人工编写、未互审、未签署）；复审无实质改动；完成合并和审查。
+- fact_id: CF-008
+  category: identity_core
+  type: semantic
+  subject_id: user
+  slot_key: user.self_identity
+  content: 小岚将自己的创作身份定义为纸艺创作者。
+  qa_probe:
+  - 小岚怎样界定本人的创作角色？
+  privacy_level: normal
+  importance: 5
+  notes: 原创虚构；AI候选（未人工编写、未互审、未签署）；probe「自己」改「本人」拆解四字组重合；完成合并和审查。
+- fact_id: CF-009
+  category: biography
+  type: episodic
+  subject_id: user
+  slot_key: null
+  content: 二〇二三年三月十二日，小岚完成首件纸雕灯。
+  qa_probe:
+  - 小岚在2023年3月首次做成哪件作品？
+  privacy_level: personal
+  importance: 3
+  notes: 原创虚构；AI候选（未人工编写、未互审、未签署）；probe日期锚点改阿拉伯数字写法；完成合并和审查。
+- fact_id: CF-010
+  category: biography
+  type: episodic
+  subject_id: user
+  slot_key: null
+  content: 二〇二三年六月六日，小岚参加了木版水印体验课。
+  qa_probe:
+  - 小岚在2023年6月体验过哪门手艺课？
+  privacy_level: personal
+  importance: 3
+  notes: 原创虚构；AI候选（未人工编写、未互审、未签署）；probe日期锚点改阿拉伯数字写法（原重合率0.50踩线）；完成合并和审查。
+- fact_id: CF-011
+  category: biography
+  type: episodic
+  subject_id: user
+  slot_key: null
+  content: 二〇二三年九月九日，小岚在社区展览获得新锐奖。
+  qa_probe:
+  - 小岚在2023年9月参展获了什么奖？
+  privacy_level: personal
+  importance: 3
+  notes: 原创虚构；AI候选（未人工编写、未互审、未签署）；probe日期锚点改阿拉伯数字写法；完成合并和审查。
+- fact_id: CF-012
+  category: biography
+  type: episodic
+  subject_id: user
+  slot_key: null
+  content: 二〇二三年十一月四日，小岚独自游览过雾石岛。
+  qa_probe:
+  - 小岚在2023年11月独游的目的地是哪？
+  privacy_level: personal
+  importance: 3
+  notes: 原创虚构；AI候选（未人工编写、未互审、未签署）；probe日期锚点改阿拉伯数字写法；完成合并和审查。
+- fact_id: CF-013
+  category: biography
+  type: episodic
+  subject_id: user
+  slot_key: null
+  content: 二〇二四年一月十五日，小岚修复了一架八音盒。
+  qa_probe:
+  - 小岚在2024年1月修好了什么物件？
+  privacy_level: personal
+  importance: 3
+  notes: 原创虚构；AI候选（未人工编写、未互审、未签署）；probe日期锚点改阿拉伯数字写法；完成合并和审查。
+- fact_id: CF-014
+  category: biography
+  type: episodic
+  subject_id: user
+  slot_key: null
+  content: 二〇二四年四月二十日，小岚首次完成夜间观鸟。
+  qa_probe:
+  - 小岚在2024年4月首次参加哪种自然观察？
+  privacy_level: personal
+  importance: 3
+  notes: 原创虚构；AI候选（未人工编写、未互审、未签署）；probe日期锚点改阿拉伯数字写法；完成合并和审查。
+- fact_id: CF-015
+  category: biography
+  type: episodic
+  subject_id: user
+  slot_key: null
+  content: 二〇二四年七月七日，小岚在义卖中捐出一幅拼贴画。
+  qa_probe:
+  - 小岚在2024年7月为义卖贡献了什么？
+  privacy_level: personal
+  importance: 3
+  notes: 原创虚构；AI候选（未人工编写、未互审、未签署）；probe日期锚点改阿拉伯数字写法（原重合率0.50踩线）；完成合并和审查。
+- fact_id: CF-016
+  category: biography
+  type: episodic
+  subject_id: user
+  slot_key: null
+  content: 二〇二四年十月二日，小岚学会制作手工线装本。
+  qa_probe:
+  - 小岚在2024年10月掌握了哪种装订作品？
+  privacy_level: personal
+  importance: 3
+  notes: 原创虚构；AI候选（未人工编写、未互审、未签署）；probe日期锚点改阿拉伯数字写法；完成合并和审查。
+- fact_id: CF-017
+  category: biography
+  type: episodic
+  subject_id: user
+  slot_key: null
+  content: 二〇二五年二月八日，小岚在旧书市买到植物图谱。
+  qa_probe:
+  - 小岚在2025年2月淘到了哪类书？
+  privacy_level: personal
+  importance: 3
+  notes: 原创虚构；AI候选（未人工编写、未互审、未签署）；probe日期锚点改阿拉伯数字写法（原重合率0.50踩线）；完成合并和审查。
+- fact_id: CF-018
+  category: biography
+  type: episodic
+  subject_id: user
+  slot_key: null
+  content: 二〇二五年五月十日，小岚首次登上青螺峰。
+  qa_probe:
+  - 小岚在2025年5月第一次登顶的是哪座山？
+  privacy_level: personal
+  importance: 3
+  notes: 原创虚构；AI候选（未人工编写、未互审、未签署）；probe日期锚点改阿拉伯数字写法；完成合并和审查。
+- fact_id: CF-019
+  category: preference
+  type: semantic
+  subject_id: user
+  slot_key: preference.food.main
+  content: 小岚最喜欢的主食是荞麦面。
+  qa_probe:
+  - 哪种主食最合小岚的口味？
+  privacy_level: normal
+  importance: 3
+  notes: 原创虚构；AI候选（未人工编写、未互审、未签署）；复审无实质改动；完成合并和审查。
+- fact_id: CF-020
+  category: preference
+  type: semantic
+  subject_id: user
+  slot_key: preference.drink
+  content: 小岚首选的日常饮品是桂花乌龙。
+  qa_probe:
+  - 小岚喝东西时首先选什么？
+  privacy_level: normal
+  importance: 3
+  notes: 原创虚构；AI候选（未人工编写、未互审、未签署）；复审无实质改动；完成合并和审查。
+- fact_id: CF-021
+  category: preference
+  type: semantic
+  subject_id: user
+  slot_key: preference.fruit
+  content: 小岚最喜欢的水果是杨桃。
+  qa_probe:
+  - 小岚在水果中最中意哪一种？
+  privacy_level: normal
+  importance: 3
+  notes: 原创虚构；AI候选（未人工编写、未互审、未签署）；复审无实质改动；完成合并和审查。
+- fact_id: CF-022
+  category: preference
+  type: semantic
+  subject_id: user
+  slot_key: preference.music
+  content: 小岚最喜欢的音乐类型是室内乐。
+  qa_probe:
+  - 小岚听音乐偏爱哪个类别？
+  privacy_level: normal
+  importance: 3
+  notes: 原创虚构；AI候选（未人工编写、未互审、未签署）；复审无实质改动；完成合并和审查。
+- fact_id: CF-023
+  category: preference
+  type: semantic
+  subject_id: user
+  slot_key: preference.color
+  content: 小岚最喜欢的颜色是苔绿色。
+  qa_probe:
+  - 哪种色彩最得小岚欢心？
+  privacy_level: normal
+  importance: 3
+  notes: 原创虚构；AI候选（未人工编写、未互审、未签署）；复审无实质改动；完成合并和审查。
+- fact_id: CF-024
+  category: preference
+  type: semantic
+  subject_id: user
+  slot_key: preference.game
+  content: 小岚最喜欢的桌面游戏是七巧板。
+  qa_probe:
+  - 小岚偏爱哪种桌上益智玩法？
+  privacy_level: normal
+  importance: 3
+  notes: 原创虚构；AI候选（未人工编写、未互审、未签署）；复审无实质改动；完成合并和审查。
+- fact_id: CF-025
+  category: preference
+  type: semantic
+  subject_id: user
+  slot_key: preference.reading
+  content: 小岚最喜欢的文学体裁是散文。
+  qa_probe:
+  - 小岚阅读文学时最中意哪类文体？
+  privacy_level: normal
+  importance: 3
+  notes: 原创虚构；AI候选（未人工编写、未互审、未签署）；复审无实质改动；完成合并和审查。
+- fact_id: CF-026
+  category: preference
+  type: semantic
+  subject_id: user
+  slot_key: preference.material
+  content: 小岚做手工时首选的材料是软木。
+  qa_probe:
+  - 小岚制作小物件优先用什么材质？
+  privacy_level: normal
+  importance: 3
+  notes: 原创虚构；AI候选（未人工编写、未互审、未签署）；复审无实质改动；完成合并和审查。
+- fact_id: CF-027
+  category: preference
+  type: semantic
+  subject_id: user
+  slot_key: preference.disliked_flavor
+  content: 小岚不喜欢八角的味道。
+  qa_probe:
+  - 哪种香料的风味不合小岚口味？
+  privacy_level: normal
+  importance: 3
+  notes: 原创虚构；AI候选（未人工编写、未互审、未签署）；复审无实质改动；完成合并和审查。
+- fact_id: CF-028
+  category: preference
+  type: semantic
+  subject_id: user
+  slot_key: preference.weather
+  content: 小岚最喜欢的天气是薄雾天。
+  qa_probe:
+  - 什么天气最让小岚喜欢？
+  privacy_level: normal
+  importance: 3
+  notes: 原创虚构；AI候选（未人工编写、未互审、未签署）；复审无实质改动；完成合并和审查。
+- fact_id: CF-029
+  category: relationship
+  type: semantic
+  subject_id: user_mother
+  slot_key: person.occupation
+  content: 小岚的母亲从事古籍修复工作。
+  qa_probe:
+  - 小岚妈妈的职业领域是什么？
+  privacy_level: personal
+  importance: 4
+  notes: 原创虚构；AI候选（未人工编写、未互审、未签署）；复审无实质改动；完成合并和审查。
+- fact_id: CF-030
+  category: relationship
+  type: semantic
+  subject_id: user_father
+  slot_key: person.occupation
+  content: 小岚的父亲从事钟表维修工作。
+  qa_probe:
+  - 小岚爸爸靠什么手艺工作？
+  privacy_level: personal
+  importance: 4
+  notes: 原创虚构；AI候选（未人工编写、未互审、未签署）；复审无实质改动；完成合并和审查。
+- fact_id: CF-031
+  category: relationship
+  type: semantic
+  subject_id: user_sister
+  slot_key: person.nickname
+  content: 小岚给妹妹起的昵称是小穗。
+  qa_probe:
+  - 小岚怎么昵称自己的妹妹？
+  privacy_level: personal
+  importance: 4
+  notes: 原创虚构；AI候选（未人工编写、未互审、未签署）；复审无实质改动；完成合并和审查。
+- fact_id: CF-032
+  category: relationship
+  type: semantic
+  subject_id: user_friend
+  slot_key: person.connection
+  content: 小岚与好友阿砚相识于陶艺社团。
+  qa_probe:
+  - 小岚和阿砚是在什么组织认识的？
+  privacy_level: personal
+  importance: 4
+  notes: 原创虚构；AI候选（未人工编写、未互审、未签署）；复审无实质改动；完成合并和审查。
+- fact_id: CF-033
+  category: relationship
+  type: semantic
+  subject_id: user_colleague
+  slot_key: person.connection
+  content: 小岚与同事阿禾曾合作完成展厅照明项目。
+  qa_probe:
+  - 小岚和阿禾合作的是哪项任务？
+  privacy_level: personal
+  importance: 4
+  notes: 原创虚构；AI候选（未人工编写、未互审、未签署）；进行态改过去完成态以稳定化（红线5），按用户指示采稳定表述；完成合并和审查。
+- fact_id: CF-034
+  category: relationship
+  type: semantic
+  subject_id: user_neighbor
+  slot_key: person.shared_activity
+  content: 小岚与邻居阿苔共同维护社区种子柜。
+  qa_probe:
+  - 小岚和阿苔一起照管什么公共设施？
+  privacy_level: personal
+  importance: 4
+  notes: 原创虚构；AI候选（未人工编写、未互审、未签署）；复审无实质改动；完成合并和审查。
+- fact_id: CF-035
+  category: relationship
+  type: semantic
+  subject_id: user_mentor
+  slot_key: person.teaching
+  content: 小岚的导师阿衡教授她模型制作。
+  qa_probe:
+  - 阿衡传授给小岚哪项技能？
+  privacy_level: personal
+  importance: 4
+  notes: 原创虚构；AI候选（未人工编写、未互审、未签署）；复审无实质改动；完成合并和审查。
+- fact_id: CF-036
+  category: relationship
+  type: semantic
+  subject_id: user_cousin
+  slot_key: person.gift
+  content: 小岚的表哥阿屿送给她一只陶铃。
+  qa_probe:
+  - 阿屿给小岚的礼物是什么？
+  privacy_level: personal
+  importance: 4
+  notes: 原创虚构；AI候选（未人工编写、未互审、未签署）；复审无实质改动；完成合并和审查。
+- fact_id: CF-037
+  category: habit_routine
+  type: semantic
+  subject_id: user
+  slot_key: routine.wakeup
+  content: 小岚通常在早晨六点四十分起床。
+  qa_probe:
+  - 小岚平日几点开始起床？
+  privacy_level: normal
+  importance: 3
+  notes: 原创虚构；AI候选（未人工编写、未互审、未签署）；复审无实质改动；完成合并和审查。
+- fact_id: CF-038
+  category: habit_routine
+  type: semantic
+  subject_id: user
+  slot_key: routine.weekly_activity
+  content: 小岚每周三晚上练习篆刻。
+  qa_probe:
+  - 小岚周三夜间固定练什么？
+  privacy_level: normal
+  importance: 3
+  notes: 原创虚构；AI候选（未人工编写、未互审、未签署）；复审无实质改动；完成合并和审查。
+- fact_id: CF-039
+  category: habit_routine
+  type: semantic
+  subject_id: user
+  slot_key: routine.commute
+  content: 小岚上班通常乘坐有轨电车。
+  qa_probe:
+  - 小岚日常通勤用哪种交通工具？
+  privacy_level: normal
+  importance: 3
+  notes: 原创虚构；AI候选（未人工编写、未互审、未签署）；复审无实质改动；完成合并和审查。
+- fact_id: CF-040
+  category: habit_routine
+  type: semantic
+  subject_id: user
+  slot_key: routine.bedtime
+  content: 小岚入睡前固定阅读二十分钟。
+  qa_probe:
+  - 小岚睡前留多少时间看书？
+  privacy_level: normal
+  importance: 3
+  notes: 原创虚构；AI候选（未人工编写、未互审、未签署）；复审无实质改动；完成合并和审查。
+- fact_id: CF-041
+  category: habit_routine
+  type: semantic
+  subject_id: user
+  slot_key: routine.planning
+  content: 小岚用方格手账记录每周计划。
+  qa_probe:
+  - 小岚把一周安排记在什么载体上？
+  privacy_level: normal
+  importance: 3
+  notes: 原创虚构；AI候选（未人工编写、未互审、未签署）；复审无实质改动；完成合并和审查。
+- fact_id: CF-042
+  category: habit_routine
+  type: semantic
+  subject_id: user
+  slot_key: routine.weekend
+  content: 小岚每周日早晨清洗画笔。
+  qa_probe:
+  - 小岚周日早上固定打理哪件工具？
+  privacy_level: normal
+  importance: 3
+  notes: 原创虚构；AI候选（未人工编写、未互审、未签署）；复审无实质改动；完成合并和审查。
+- fact_id: CF-043
+  category: habit_routine
+  type: semantic
+  subject_id: user
+  slot_key: routine.arrival
+  content: 小岚回家后把钥匙放进玄关藤篮。
+  qa_probe:
+  - 小岚进门后将钥匙收在哪里？
+  privacy_level: normal
+  importance: 3
+  notes: 原创虚构；AI候选（未人工编写、未互审、未签署）；复审无实质改动；完成合并和审查。
+- fact_id: CF-044
+  category: value_belief
+  type: semantic
+  subject_id: user
+  slot_key: value.repair
+  content: 小岚处理损坏物品时优先选择修理。
+  qa_probe:
+  - 小岚面对坏掉的东西首选怎样处理？
+  privacy_level: normal
+  importance: 4
+  notes: 原创虚构；AI候选（未人工编写、未互审、未签署）；复审无实质改动；完成合并和审查。
+- fact_id: CF-045
+  category: value_belief
+  type: semantic
+  subject_id: user
+  slot_key: value.credit
+  content: 小岚坚持在合作作品中列出全部参与者。
+  qa_probe:
+  - 小岚认为合作成果应署名哪些人？
+  privacy_level: normal
+  importance: 4
+  notes: 原创虚构；AI候选（未人工编写、未互审、未签署）；复审无实质改动；完成合并和审查。
+- fact_id: CF-046
+  category: value_belief
+  type: semantic
+  subject_id: user
+  slot_key: value.consent
+  content: 小岚坚持借用他人物品前先获得同意。
+  qa_probe:
+  - 小岚认为借东西之前必须做什么？
+  privacy_level: normal
+  importance: 4
+  notes: 原创虚构；AI候选（未人工编写、未互审、未签署）；复审无实质改动；完成合并和审查。
+- fact_id: CF-047
+  category: value_belief
+  type: semantic
+  subject_id: user
+  slot_key: value.communication
+  content: 小岚认为发生分歧时应先复述对方观点。
+  qa_probe:
+  - 小岚主张意见不同时先采取哪一步？
+  privacy_level: normal
+  importance: 4
+  notes: 原创虚构；AI候选（未人工编写、未互审、未签署）；复审无实质改动；完成合并和审查。
+- fact_id: CF-048
+  category: sensitive_cases
+  type: semantic
+  subject_id: user
+  slot_key: private.fear
+  content: 小岚害怕在封闭电梯中独处。
+  qa_probe:
+  - 哪种独处环境会让小岚恐惧？
+  privacy_level: sensitive
+  importance: 4
+  notes: 原创虚构；AI候选（未人工编写、未互审、未签署）；复审无实质改动；完成合并和审查。
+- fact_id: CF-049
+  category: sensitive_cases
+  type: semantic
+  subject_id: user
+  slot_key: private.debt_reason
+  content: 小岚尚未清偿的私人借款用于修缮旧屋。
+  qa_probe:
+  - 小岚仍在偿还的借款原本用来做什么？
+  privacy_level: sensitive
+  importance: 4
+  notes: 原创虚构；AI候选（未人工编写、未互审、未签署）；复审无实质改动；完成合并和审查。
+- fact_id: CF-050
+  category: sensitive_cases
+  type: semantic
+  subject_id: user
+  slot_key: private.counseling_topic
+  content: 小岚在私人心理咨询中讨论过丧亲经历。
+  qa_probe:
+  - 小岚曾在保密咨询中谈及哪类经历？
+  privacy_level: sensitive
+  importance: 4
+  notes: 原创虚构；AI候选（未人工编写、未互审、未签署）；复审无实质改动；完成合并和审查。
+review:
+  author: jiang haipeng
+  reviewer: Searoc
+  arbitrator: N.A
+  review_date: '2026-09-15'
+  conflicts_resolved: 0
+  notes: AI原创候选（草稿v0.1.0-draft.1经整库review与修订后的合并版）；未独立互审；无签署；不得据此宣称AC-09或任何Gate通过；已接受全集不存在，全部条目完成合并和审查。；已按 ADR-0003 P2 阶段化（staged）；待具名负责人逐条审定并签署后注册。
+provenance:
+  drafted_by: AI (model identity not recorded; unknown - per ADR-0003 no guessing)
+  draft_chain:
+  - 0.1.0-draft.1
+  - 0.1.0-draft.2
+  candidate_review_report: phases/phase-0/LifeOS_Phase0_评审与80条候选材料.md
+  adr: phases/phase-0/adr/ADR-0003_评测材料来源与签署流程修订.md
+  process: 'ADR-0003 P2: AI-draft + provenance + independent review + named-approver signature'
+  staged_at: '2026-09-15T13:06:23.364706+00:00'
+  note: per-item notes preserve the original AI-candidate declarations verbatim
