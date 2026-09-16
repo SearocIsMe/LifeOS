@@ -33,7 +33,7 @@ where = ["src"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 markers = [
-    "db: tests that require a running PostgreSQL (docker compose up -d postgres)",
+    "db: tests that require PostgreSQL via DATABASE_URL (cluster postgres: in-pod runner or kubectl port-forward)",
 ]
 addopts = "-m 'not db'"
 

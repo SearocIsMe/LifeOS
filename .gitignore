@@ -47,4 +47,7 @@ data/
 .DS_Store
 Thumbs.db
 _*.*
+# Dunder files MUST be tracked - `_*.*` above would otherwise ignore every
+# __init__.py (root cause of the 2026-09-16 migration repo-integrity incident).
+!__init__.py
 *.log

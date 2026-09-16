@@ -31,7 +31,11 @@ from lifeos.entities import (
 from lifeos.store.memory_store import Effects, InMemoryStore
 from lifeos.store.tables import metadata, tables
 
-DEFAULT_DATABASE_URL = "postgresql+psycopg://lifeos:lifeos@localhost:5432/lifeos"
+# Cluster-internal Service DNS (ADR-0004 / HANDOVER §5). The real password lives
+# ONLY in the K8s Secret `lifeos-postgres` (key DATABASE_URL) and is injected at
+# runtime - never commit credentials. Host-side dev: `kubectl port-forward` +
+# exported DATABASE_URL (see scripts/gate0_check.sh --with-db).
+DEFAULT_DATABASE_URL = "postgresql+psycopg://lifeos:CHANGE_ME@postgres.lifeos-dev.svc.cluster.local:5432/lifeos"
 
 
 def get_url() -> str:

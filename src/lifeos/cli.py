@@ -1,7 +1,7 @@
 """LifeOS Phase 0 verification CLI (execution plan §0 tool table).
 
 Subcommands:
-  envcheck          - Gate 0 environment check (Docker/Postgres/GPU/provider keys)
+  envcheck          - Gate 0 environment check (K8s/Postgres/GPU/provider keys, ADR-0004)
   verify schema     - AC-03: 15-entity contract round-trip
   verify roundtrip  - AC-04: event pipeline full round-trip (tier A)
   verify replay     - AC-05: replay consistency + forensic report file
@@ -519,20 +519,82 @@ def verify_isolation() -> dict[str, Any]:
 # ---------------------------------------------------------------------------
 
 
+# K8s probe targets (ADR-0004 / HANDOVER §5-§7).
+K8S_NAMESPACE = "lifeos-dev"
+K8S_POSTGRES_NODE = "aisi-w7"
+K8S_GPU_NODES = ("dtc-w1", "dtc-w2")
+K8S_POSTGRES_LABEL = "app=lifeos-postgres"
+K8S_GPU_POD = "lifeos-ai-stack-0"
+PROVIDER_SECRET_PREFIX = "lifeos-provider"
+
+
 def envcheck() -> dict[str, Any]:
-    out: dict[str, Any] = {"docker": {}, "postgres": {}, "gpu": {}, "provider_keys": {}, "python": sys.version.split()[0]}
+    """Gate 0 environment check against the K8s cluster (AC-01; ADR-0004).
 
-    def _run(cmd: list[str]) -> str | None:
+    kubectl-probe sections (namespace / nodes / postgres pod / GPU exec /
+    provider-Secret existence) need kubectl on the runner (ops host). The
+    direct-connection postgres section works wherever DATABASE_URL reaches the
+    cluster Service. Secret and key VALUES are never printed - names only.
+    """
+    out: dict[str, Any] = {"k8s": {}, "postgres": {}, "gpu": {}, "provider_keys": {}, "python": sys.version.split()[0]}
+
+    def _run(cmd: list[str], timeout: int = 15) -> tuple[bool, str]:
         if shutil.which(cmd[0]) is None:
-            return None
+            return False, "binary not found"
         try:
-            proc = subprocess.run(cmd, capture_output=True, text=True, timeout=15, check=False)
-            return proc.stdout.strip() or proc.stderr.strip() or None
-        except Exception:
-            return None
+            proc = subprocess.run(cmd, capture_output=True, text=True, timeout=timeout, check=False)
+            return proc.returncode == 0, proc.stdout.strip() or proc.stderr.strip()
+        except Exception as exc:  # noqa: BLE001
+            return False, str(exc)[:200]
 
-    out["docker"]["version"] = _run(["docker", "--version", "--format", "{{.Version}}"]) or _run(["docker", "--version"])
-    out["docker"]["compose_version"] = _run(["docker", "compose", "version", "--short"])
+    def _kubectl_json(args: list[str], timeout: int = 15) -> tuple[Any, str]:
+        ok, text_out = _run(["kubectl", *args], timeout=timeout)
+        if not ok:
+            return None, text_out
+        try:
+            return json.loads(text_out), ""
+        except ValueError:
+            return None, f"non-JSON kubectl output: {text_out[:120]}"
+
+    k8s = out["k8s"]
+    if shutil.which("kubectl") is None:
+        k8s["kubectl"] = False
+        k8s["note"] = "kubectl not on PATH - k8s sections not probed (in-pod runner?)"
+    else:
+        k8s["kubectl"] = True
+        ns_doc, ns_err = _kubectl_json(["get", "namespace", K8S_NAMESPACE, "-o", "json"])
+        k8s["namespace"] = {"name": K8S_NAMESPACE, "exists": ns_doc is not None}
+        if ns_doc is None:
+            k8s["namespace"]["error"] = ns_err
+        nodes_doc, _ = _kubectl_json(
+            ["get", "nodes", K8S_POSTGRES_NODE, *K8S_GPU_NODES, "-o", "json"]
+        )
+        nodes: dict[str, Any] = {}
+        for item in (nodes_doc or {}).get("items", []):
+            conds = {c["type"]: c["status"] for c in item.get("status", {}).get("conditions", [])}
+            nodes[item["metadata"]["name"]] = {"ready": conds.get("Ready") == "True"}
+        k8s["nodes"] = nodes
+        pods_doc, _ = _kubectl_json(
+            ["get", "pods", "-n", K8S_NAMESPACE, "-l", K8S_POSTGRES_LABEL, "-o", "json"]
+        )
+        pg_pods: list[dict[str, Any]] = []
+        for item in (pods_doc or {}).get("items", []):
+            conds = {c["type"]: c["status"] for c in item.get("status", {}).get("conditions", [])}
+            pg_pods.append({
+                "name": item["metadata"]["name"],
+                "phase": item.get("status", {}).get("phase"),
+                "ready": conds.get("Ready") == "True",
+            })
+        k8s["postgres_pods"] = pg_pods
+        k8s["postgres_pod_ready"] = bool(pg_pods) and all(p["ready"] for p in pg_pods)
+        provider_secrets: list[str] = []
+        ok_secrets, secrets_out = _run(["kubectl", "-n", K8S_NAMESPACE, "get", "secrets", "-o", "name"])
+        if ok_secrets:
+            provider_secrets = sorted(
+                line.split("/", 1)[1] for line in secrets_out.splitlines()
+                if line.startswith(f"secret/{PROVIDER_SECRET_PREFIX}")
+            )
+        k8s["provider_secret_names"] = provider_secrets
 
     try:
         engine = get_engine()
@@ -547,21 +609,40 @@ def envcheck() -> dict[str, Any]:
     except Exception as exc:  # noqa: BLE001
         out["postgres"] = {"reachable": False, "error": str(exc)[:200]}
 
-    if shutil.which("nvidia-smi"):
-        out["gpu"] = {"nvidia_smi": True, "gpus": _run(
-            ["nvidia-smi", "--query-gpu=name,memory.total", "--format=csv,noheader"]
-        )}
+    if k8s.get("kubectl"):
+        ok_probe, gpu_out = _run(
+            ["kubectl", "-n", K8S_NAMESPACE, "exec", K8S_GPU_POD, "--", "nvidia-smi",
+             "--query-gpu=name,memory.total", "--format=csv,noheader"],
+            timeout=60,
+        )
+        out["gpu"] = {
+            "probe": f"kubectl exec {K8S_GPU_POD} -- nvidia-smi",
+            "gpus": gpu_out if ok_probe else None,
+            "error": None if ok_probe else gpu_out,
+        }
     else:
-        out["gpu"] = {"nvidia_smi": False, "gpus": None}
+        out["gpu"] = {"probe": "kubectl exec (skipped - no kubectl)", "gpus": None, "error": None}
 
     key_vars = [
         "LIFEOS_PROVIDER_A_API_KEY", "OPENAI_API_KEY", "DASHSCOPE_API_KEY",
         "DEEPSEEK_API_KEY", "MOONSHOT_API_KEY", "ZHIPUAI_API_KEY",
     ]
-    found = [v for v in key_vars if os.environ.get(v)]
-    out["provider_keys"] = {"configured": found, "names_only": True, "note": "key VALUES are never printed"}
+    out["provider_keys"] = {
+        "k8s_secret_names": k8s.get("provider_secret_names", []),
+        "env_names": [v for v in key_vars if os.environ.get(v)],
+        "names_only": True,
+        "note": "key VALUES are never printed (K8s Secret existence probe, HANDOVER §5)",
+    }
 
-    ok = bool(out["docker"]["version"]) and out["postgres"].get("reachable", False)
+    probed_nodes = k8s.get("nodes") or {}
+    nodes_ok = bool(probed_nodes) and all(n.get("ready") for n in probed_nodes.values())
+    k8s_ok = (
+        bool(k8s.get("kubectl"))
+        and bool(k8s.get("namespace", {}).get("exists"))
+        and nodes_ok
+        and bool(k8s.get("postgres_pod_ready"))
+    )
+    ok = k8s_ok and out["postgres"].get("reachable", False)
     out["overall"] = "pass" if ok else "incomplete"
     return out
 

@@ -1,0 +1,5 @@
+# LifeOS on K8s (ADR-0004). Apply order: see k8s/README.md or `kubectl apply -k k8s/`.
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: lifeos-dev

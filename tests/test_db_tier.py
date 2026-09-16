@@ -1,8 +1,9 @@
 """Tier-B acceptance (AC-02/AC-04/AC-05/AC-08 against PostgreSQL).
 
-Requires ``docker compose up -d postgres``. Skipped automatically when the DB
-is unreachable - the Gate 0 verdict marks the DB tier INCOMPLETE in that case
-(never silently PASS).
+Requires ``DATABASE_URL`` pointing at the cluster postgres (ADR-0004): run
+in-cluster (ai-stack pod) or on the host via ``kubectl port-forward``. Skipped
+automatically when the DB is unreachable - the Gate 0 verdict marks the DB
+tier INCOMPLETE in that case (never silently PASS).
 """
 
 from __future__ import annotations

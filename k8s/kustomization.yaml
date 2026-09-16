@@ -1,0 +1,10 @@
+# `kubectl apply -k k8s/` - everything except Secrets.
+# Secrets (lifeos-postgres, lifeos-ai-stack) are created out-of-band with real
+# values - see 20-postgres.secret.example.yaml (never commit real credentials).
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - 10-namespace.yaml
+  - 30-postgres.yaml
+  - 40-dev-stack.yaml
+  - 50-work-pvc.yaml

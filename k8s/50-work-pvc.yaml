@@ -1,0 +1,13 @@
+# RWX network work volume for the ai-stack pod (repo lives at /data inside the
+# pod; survives pod drift dtc-w1 <-> dtc-w2). Sized 50Gi (HANDOVER §7.2: "按需定容").
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: lifeos-work-rwx
+  namespace: lifeos-dev
+spec:
+  accessModes: ["ReadWriteMany"]
+  resources:
+    requests:
+      storage: 50Gi
+  storageClassName: huawei-sc
