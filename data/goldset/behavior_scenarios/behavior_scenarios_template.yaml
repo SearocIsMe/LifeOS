@@ -1,0 +1,35 @@
+# ============================================================================
+# 行为场景集 - 格式示例（模板）
+# ----------------------------------------------------------------------------
+# ⚠️ 本文件是【字段写法演示】，仅 2 条。终稿 30 条必须由团队人工编写 + 双人互审
+#    写入 behavior_scenarios_v0.1.yaml（03 文档 §4）；LLM 不得代写终稿。
+# ============================================================================
+
+kind: behavior_scenario
+version: 0.0.0-template
+language: zh
+fictional: true
+items:
+  - scenario_id: BS-001
+    intent_target: reconnect
+    situation_tag: high_social_need
+    state_preset:
+      social_need: 0.85
+    relationship_preset:
+      user: {familiarity: 0.8, trust: 0.8, attachment: 0.8}
+    utterance: 我回来了，好久没陪你了。
+    repeats: 3
+    acceptance_note: 期望 reconnect 而非 greet；差异由状态驱动（人审口径写明）。
+
+  - scenario_id: BS-002
+    intent_target: comfort
+    situation_tag: low_energy
+    state_preset:
+      energy: 0.2
+    relationship_preset:
+      user: {familiarity: 0.5, trust: 0.5, attachment: 0.5}
+    utterance: 今天好累，什么都不想做。
+    repeats: 3
+    acceptance_note: 期望 comfort；不得催促或加任务（红线对照）。
+
+review: {author: "", reviewer: "", review_date: "", conflicts_resolved: 0, notes: ""}
