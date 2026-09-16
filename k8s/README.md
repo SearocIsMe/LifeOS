@@ -9,6 +9,7 @@ demoted to a local dev fallback.
 |---|---|
 | `10-namespace.yaml` | namespace `lifeos-dev` |
 | `20-postgres.secret.example.yaml` | Secret TEMPLATE (placeholders) - real secret created out-of-band |
+| `create-secrets.sh` | create/rotate `lifeos-postgres` + `lifeos-ai-stack` secrets (passwords generated in-shell, never printed) |
 | `30-postgres.yaml` | postgres 16 + pgvector StatefulSet pinned to `aisi-w7` + headless/client Services |
 | `40-dev-stack.yaml` | dev/inference ai-stack StatefulSet (`dtc-w1`, drift `dtc-w2`) + Services + NodePort 30793-30795 |
 | `50-work-pvc.yaml` | RWX work volume `lifeos-work-rwx` (huawei-sc, 50Gi) |
@@ -18,11 +19,10 @@ demoted to a local dev fallback.
 
 ```bash
 kubectl apply -f k8s/10-namespace.yaml
-# create lifeos-postgres secret per template header (random password, hex-encoded)
-# create lifeos-ai-stack secret: kubectl -n lifeos-dev create secret generic \
-#   lifeos-ai-stack --from-literal=password="$(openssl rand -hex 16)"
+bash k8s/create-secrets.sh          # random hex passwords, never printed/committed
 kubectl apply -k k8s/
 kubectl -n lifeos-dev wait --for=condition=ready pod -l app=lifeos-postgres --timeout=180s
+# after any password exposure: bash k8s/create-secrets.sh --rotate
 ```
 
 ## Cluster conventions honored (from phases/phase-0/k8s-pod-example/)

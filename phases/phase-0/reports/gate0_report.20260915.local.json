@@ -1,0 +1,146 @@
+{
+  "generated_at": "2026-09-15T13:52:32.795274+00:00",
+  "schema_version": "0.1.0",
+  "policy_version": "0.1.0",
+  "rules_version": "0.1.0",
+  "checks": [
+    {
+      "name": "schema_roundtrip",
+      "status": "pass",
+      "detail": {
+        "entities": 15,
+        "problems": []
+      }
+    },
+    {
+      "name": "pipeline_roundtrip",
+      "status": "pass",
+      "detail": {
+        "problems": [],
+        "l1": 5,
+        "l2": 5,
+        "memories": 3,
+        "outbox": 3
+      }
+    },
+    {
+      "name": "replay_consistency",
+      "status": "pass",
+      "detail": {
+        "replay": {
+          "life_id": "life-demo",
+          "from_seq": 0,
+          "to_seq": null,
+          "total": 5,
+          "matched": 5,
+          "mismatched": [],
+          "consistency_rate": 1.0,
+          "pass": true
+        }
+      }
+    },
+    {
+      "name": "policy_no_side_effect",
+      "status": "pass",
+      "detail": {
+        "problems": []
+      }
+    },
+    {
+      "name": "llm_boundary",
+      "status": "pass",
+      "detail": {
+        "problems": []
+      }
+    },
+    {
+      "name": "isolation",
+      "status": "pass",
+      "detail": {
+        "problems": []
+      }
+    },
+    {
+      "name": "db_tier",
+      "status": "pass",
+      "detail": {
+        "tables_found": 16,
+        "missing": [],
+        "append_only_privileges": "pass"
+      }
+    }
+  ],
+  "gate_criteria": {
+    "1_roundtrip": "pass",
+    "2_replay_100pct": "pass",
+    "3_llm_cannot_write_authoritative": "pass",
+    "4_policy_reject_zero_side_effect": "pass"
+  },
+  "gold_sets": {
+    "core_facts": {
+      "file": "data/goldset/core_facts/core_facts_v0.1.yaml",
+      "status": "pass",
+      "stats": {
+        "total": 50,
+        "categories": {
+          "identity_core": 8,
+          "biography": 10,
+          "preference": 10,
+          "relationship": 8,
+          "habit_routine": 7,
+          "value_belief": 4,
+          "sensitive_cases": 3
+        },
+        "sensitive": 3,
+        "episodic": 10,
+        "unique_contents": 50,
+        "unique_probes": 50
+      }
+    },
+    "behavior_scenario": {
+      "file": "data/goldset/behavior_scenarios/behavior_scenarios_v0.1.yaml",
+      "status": "pass",
+      "stats": {
+        "total": 30,
+        "intents": {
+          "greet": 5,
+          "comfort": 5,
+          "play_invite": 5,
+          "share_observation": 5,
+          "respect_space": 5,
+          "reconnect": 5
+        },
+        "situations": {
+          "normal": 14,
+          "sensitive_present": 5,
+          "low_energy": 4,
+          "post_conflict": 3,
+          "high_social_need": 4
+        }
+      }
+    }
+  },
+  "environment": {
+    "docker": {
+      "version": null,
+      "compose_version": null
+    },
+    "postgres": {
+      "reachable": true,
+      "pgvector_extension": true
+    },
+    "gpu": {
+      "nvidia_smi": true,
+      "gpus": "NVIDIA GeForce RTX 4060 Laptop GPU, 8188 MiB"
+    },
+    "provider_keys": {
+      "configured": [],
+      "names_only": true,
+      "note": "key VALUES are never printed"
+    },
+    "python": "3.12.7",
+    "overall": "incomplete"
+  },
+  "verdict": "PASS",
+  "verdict_note": ""
+}

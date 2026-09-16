@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-15T13:52:32.795274+00:00",
+  "generated_at": "2026-09-16T03:15:17.758317+00:00",
   "schema_version": "0.1.0",
   "policy_version": "0.1.0",
   "rules_version": "0.1.0",
@@ -121,25 +121,50 @@
     }
   },
   "environment": {
-    "docker": {
-      "version": null,
-      "compose_version": null
+    "k8s": {
+      "kubectl": true,
+      "namespace": {
+        "name": "lifeos-dev",
+        "exists": true
+      },
+      "nodes": {
+        "aisi-w7": {
+          "ready": true
+        },
+        "dtc-w1": {
+          "ready": true
+        },
+        "dtc-w2": {
+          "ready": true
+        }
+      },
+      "postgres_pods": [
+        {
+          "name": "lifeos-postgres-0",
+          "phase": "Running",
+          "ready": true
+        }
+      ],
+      "postgres_pod_ready": true,
+      "provider_secret_names": []
     },
     "postgres": {
       "reachable": true,
       "pgvector_extension": true
     },
     "gpu": {
-      "nvidia_smi": true,
-      "gpus": "NVIDIA GeForce RTX 4060 Laptop GPU, 8188 MiB"
+      "probe": "kubectl exec lifeos-ai-stack-0 -- nvidia-smi",
+      "gpus": "NVIDIA H200 NVL, 143771 MiB",
+      "error": null
     },
     "provider_keys": {
-      "configured": [],
+      "k8s_secret_names": [],
+      "env_names": [],
       "names_only": true,
-      "note": "key VALUES are never printed"
+      "note": "key VALUES are never printed (K8s Secret existence probe, HANDOVER §5)"
     },
-    "python": "3.12.7",
-    "overall": "incomplete"
+    "python": "3.12.14",
+    "overall": "pass"
   },
   "verdict": "PASS",
   "verdict_note": ""

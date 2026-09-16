@@ -17,6 +17,14 @@ spec:
       securityContext:
         runAsUser: 0
         runAsGroup: 0
+      # aisi-w7 carries taint mpc-cpt-role=infra:NoSchedule (tenant isolation).
+      # We tolerate it HERE ONLY - no taint was removed from the shared node,
+      # other tenants' scheduling behavior is unchanged.
+      tolerations:
+        - key: mpc-cpt-role
+          operator: Equal
+          value: infra
+          effect: NoSchedule
       affinity:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
@@ -32,6 +40,12 @@ spec:
           ports: [{ containerPort: 5432, name: pg }]
           envFrom:
             - secretRef: { name: lifeos-postgres }
+          # PGDATA must live in a SUBDIRECTORY: the huawei-sc volume root
+          # exposes a read-only `.snapshot` dir (NAS) which breaks the
+          # postgres entrypoint's chown pass over $PGDATA.
+          env:
+            - name: PGDATA
+              value: /var/lib/postgresql/data/pgdata
           resources:
             requests: { cpu: "2", memory: 4Gi }
             limits:   { cpu: "4", memory: 16Gi }

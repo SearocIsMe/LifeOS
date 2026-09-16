@@ -30,6 +30,11 @@ echo "== [2/4] tier A: CLI verify all =="
 "$PYTHON" -m lifeos.cli verify all
 
 if [[ "${1:-}" == "--with-db" ]]; then
+  # Exit-code-honest DB probe: cli `db wait` always exits 0 (it prints
+  # {"reachable": ...} instead), so the script probes via wait_for_db directly.
+  DB_PROBE='import sys
+from lifeos.store.db import get_engine, wait_for_db
+sys.exit(0 if wait_for_db(get_engine(), timeout_s=2) else 1)'
   echo "== [3/4] tier B: K8s postgres + alembic + pytest -m db =="
   if command -v kubectl >/dev/null 2>&1; then
     kubectl apply -k k8s/
@@ -38,15 +43,15 @@ if [[ "${1:-}" == "--with-db" ]]; then
     echo "kubectl not found - assuming in-cluster runner (stack assumed applied)"
   fi
 
-  if ! "$PYTHON" -m lifeos.cli db wait --timeout 3 >/dev/null 2>&1; then
+  if ! "$PYTHON" -c "$DB_PROBE"; then
     if command -v kubectl >/dev/null 2>&1; then
       echo "DATABASE_URL not reachable - opening port-forward 127.0.0.1:${PF_PORT} -> svc/postgres:5432"
       PG_PASSWORD="$(kubectl -n "$NS" get secret lifeos-postgres -o jsonpath='{.data.POSTGRES_PASSWORD}' | base64 -d)"
       kubectl -n "$NS" port-forward svc/postgres "${PF_PORT}:5432" >/dev/null 2>&1 &
       PF_PID=$!
       export DATABASE_URL="postgresql+psycopg://lifeos:${PG_PASSWORD}@127.0.0.1:${PF_PORT}/lifeos"
-      for _ in $(seq 1 20); do
-        "$PYTHON" -m lifeos.cli db wait --timeout 2 >/dev/null 2>&1 && break
+      for _ in $(seq 1 30); do
+        "$PYTHON" -c "$DB_PROBE" && break
         sleep 1
       done
     else
@@ -54,7 +59,7 @@ if [[ "${1:-}" == "--with-db" ]]; then
       exit 1
     fi
   fi
-  "$PYTHON" -m lifeos.cli db wait --timeout 60 >/dev/null
+  "$PYTHON" -c "$DB_PROBE" || { echo "FATAL: postgres unreachable after setup" >&2; exit 1; }
 
   if "$PYTHON" -m alembic -c alembic.ini upgrade head; then
     echo "alembic: head applied"
