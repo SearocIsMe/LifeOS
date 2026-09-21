@@ -65,14 +65,18 @@ bash scripts/gate0_check.sh --with-db  # 含 DB 层（需 Docker）
 - [x] 材料编制（**ADR-0003 P2 路径**，2026-09-15）：AI 起草候选池（draft.1→draft.2，来源与逐条 notes 完整留痕）→ 独立质疑式审核（《[LifeOS_Phase0_评审与80条候选材料](LifeOS_Phase0_评审与80条候选材料.md)》）→ 结构校验全过（配额/唯一性/中文占比零错误零警告）→ **具名负责人逐条审定签署**（author=Jiang Haipeng ／ reviewer=Searoc，2026-09-15）→ 阶段化 `data/goldset/core_facts/core_facts_v0.1.yaml` 与 `data/goldset/behavior_scenarios/behavior_scenarios_v0.1.yaml`
 - [x] AC-09 注册冻结（2026-09-15）：`core_facts` v0.1.0（50 条，content_hash `506c9f4c…`）与 `behavior_scenario` v0.1.0（30 个，content_hash `e4bef442…`）已写入 `GoldSetRegistry`；manifest 见 `reports/goldset_core_facts_v0.1.0.manifest.json`、`reports/goldset_behavior_scenarios_v0.1.0.manifest.json`
 - [x] 工程验证（2026-09-15）：tier A 25/25 PASS；PostgreSQL 16+pgvector 容器、alembic 0001 迁移、tier B 2/2 PASS；Gate 0 四条判据全 pass；`reports/gate0_report.json` verdict=**PASS**（13:52Z）
-- [ ] **环境迁移执行（ADR-0004，2026-09-16）**：按 [HANDOVER](HANDOVER_迁移K8s集群交接.md) §5–§6 在新集群建 `lifeos-dev`、部署 postgres（`aisi-w7`）与 GPU 探测（`dtc-w1`）、重跑全部验收并重新生成 gate0 报告（接手者：新环境工程执行者）
-- [ ] ADR-0002 全字段在新环境重测（本地模型候选按 H200 重筛 2～3 个、Provider key 以 Secret 配置并配置计费告警；2026-09-15 旧机记录已转为历史存档）
-- [ ] **Gate 0 报告双人签署**（AC-10 最后一道人工动作：架构负责人 + 1 名非编写成员复核签署 `reports/gate0_report.json`）
-- [ ] P2 收尾（ADR-0003）：划定未用于调试的独立保留集（建议 ≥10 条事实 + ≥6 个场景），防止「调参与评测同集」
+- [x] **环境迁移执行（ADR-0004，2026-09-16 完成）**：`lifeos-dev` namespace 建立；postgres（`aisi-w7`，huawei-sc 100Gi）与 ai-stack（`dtc-w1`，gpu.shared）就绪；tier A 25/25 + tier B 2/2 全绿；新环境 `reports/gate0_report.json` **verdict=PASS**（2026-09-16T03:15Z，旧报告归档 `gate0_report.20260915.local.json`）；全程记录见 [reports/migration_20260916_k8s.md](reports/migration_20260916_k8s.md)
+- [x] ADR-0002 全字段在新环境重测（2026-09-16~21，实测回填见该 ADR 追记）：K8s v1.28.15、`dtc-w1` 3×H200 NVL（驱动 570.148.08/CUDA 12.8）、`aisi-w7` 规格、huawei-sc、postgres 限额、本地模型候选（Qwen3.6-35B-A3B-FP8 ✅已部署并冒烟通过；Qwen3.8-Flash-Next-FP8 待新节点 4×H200；Qwen2.5 系按负责人决策移出）、Provider key 以 Secret 配置（`lifeos-provider-a-siliconflow`/`-a-zhipu`/`-b-qwen36`）。**遗留**：两家云端计费告警配置；Qwen3.8 等 4×H200 新节点
+- [x] **Gate 0 报告双人签署（2026-09-21）**：架构负责人 Jiang Haipeng + 非编写成员 Searoc 复核签署新环境 `reports/gate0_report.json`（verdict=PASS，签署记录在该文件 signatures 字段。**注意**：`gate0 report` 重跑会重新生成此文件并清掉 signatures——重跑后须把签署字段重新追加，或先备份 `gate0_report_signatures` 段）
+- [x] P2 收尾（ADR-0003，2026-09-21）：独立保留集 v0.1.0 圈定并签署——`data/goldset/holdout/holdout_v0.1.yaml`（事实 12 条 + 场景 6 个，7 类/5 情境全覆盖，确定性抽样规则可复核，id 引用不改动冻结材料）；校验 `python3 scripts/holdout_check.py`（author=AI GLM 5.3 flash / reviewer=Jiang Haipeng）
 
-> 运行环境注意：Docker 位于 WSL2 内（Windows 主机 PATH 无 docker 命令）。WSL 下一键自检：
-> `wsl bash -c "cd /mnt/c/00-work/07-Self/LifeOS && PYTHON=/mnt/c/00-work/07-Self/LifeOS/.venv/Scripts/python.exe bash scripts/gate0_check.sh --with-db"`
+> 运行环境（2026-09-16 起）：K8s 集群（ADR-0004）。宿主机 aisi-w4 一键自检：
+> `PYTHON="$PWD/.venv/bin/python" bash scripts/gate0_check.sh --with-db`（自动 kubectl apply/wait + port-forward，密码取自 Secret）
+> Pod 内验证：`kubectl -n lifeos-dev exec lifeos-ai-stack-0 -- bash -lc "cd /data/LifeOS && .venv/bin/python -m pytest tests -q -m db"`
+> 本地推理端点（Provider B，2026-09-21 起全本地化、零云成本）：Qwen3.6-35B-A3B-FP8 @ `llm-dev/vllm-qwen36-35b-a3b-fp8:8000`（NodePort 30803）与 Qwen3.8-Flash-Next-FP8 @ `llm-dev/vllm-qwen38-flash-next-2gpus:8000`（NodePort 30806，2×H200），两者冒烟均通过；连接信息在 Secret `lifeos-provider-b-qwen36` / `-qwen38`；云端 Provider 已弃用（Secret 保留作应急兜底）
 > 材料注册后已冻结：任何修订 = 新版本号 + 重新走签署与注册（不可原地改 `v0.1.0`）。
 
-> 运行环境注意：Docker 位于 WSL2 内（Windows 主机 PATH 无 docker 命令）。WSL 下一键自检：
-> `wsl bash -c "cd /mnt/c/00-work/07-Self/LifeOS && PYTHON=/mnt/c/00-work/07-Self/LifeOS/.venv/Scripts/python.exe bash scripts/gate0_check.sh --with-db"`
+> 运行环境（2026-09-16 起）：K8s 集群（ADR-0004）。宿主机 aisi-w4 一键自检：
+> `PYTHON="$PWD/.venv/bin/python" bash scripts/gate0_check.sh --with-db`（自动 kubectl apply/wait + port-forward，密码取自 Secret）
+> Pod 内验证：`kubectl -n lifeos-dev exec lifeos-ai-stack-0 -- bash -lc "cd /data/LifeOS && .venv/bin/python -m pytest tests -q -m db"`
+> 本地推理端点（Provider B）：Qwen3.6-35B-A3B-FP8 @ `llm-dev/vllm-qwen36-35b-a3b-fp8:8000`（NodePort 30803），连接信息在 Secret `lifeos-provider-b-qwen36`，2026-09-21 冒烟通过

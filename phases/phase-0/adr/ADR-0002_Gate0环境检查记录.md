@@ -4,7 +4,7 @@
 - 日期：2026-09-15（首轮实测）
 - 关联：路线图 §2「环境检查项（Gate 0 前置）」；原始数据存档 `phases/phase-0/reports/envcheck.json`、`gate0_report.json`
 
-> **诚实要求**：本 ADR 的每个字段必须**实测后填写**，禁止凭记忆或估计填写。下表已填字段均标注了实测来源与日期；「待填」字段必须由负责人补测（候选模型清单尤其需要查阅官方模型卡，不得由 AI 凭印象生成）。测不到的项如实写「不可用/未测」，不写「预计可用」。
+> **诚实要求**：本 ADR 的每个字段必须**实测后填写**，禁止凭记忆或估计填写。下表已填字段均标注了实测来源与日期；「Jiang Haipeng」字段必须由负责人补测（候选模型清单尤其需要查阅官方模型卡，不得由 AI 凭印象生成）。测不到的项如实写「不可用/未测」，不写「预计可用」。
 
 ## 检查项
 
@@ -37,8 +37,8 @@
 
 | 候选 | 参数量 | 量化档位 | 预估显存占用 | 中文能力初评依据 | 状态 |
 |---|---|---|---|---|---|
-| **Qwen3.6-35B-A3B-FP8**（官方原生 FP8，单卡副本 ×2）✅首选 | 35.95B 总参 MoE / 激活 3B | FP8 原生（F8_E4M3） | 权重约 **35.95GB**（HF API 实测 safetensors total），单卡 141GB 放置后 KV 余量极大；2 卡 = 2 个独立副本，无 TP 依赖 | Qwen 官方模型卡（2026-04-24 发布，HF API 实测抓取）：原生 262,144 上下文（可扩展至 1,010,000）、Thinking Preservation、推荐 vllm>=0.19.0、Apache-2.0、下载量 1094 万+；Qwen 系中文能力一贯为官方榜单强项（以模型卡为准） | **候选 1（推荐首选）**：MoE 激活小→高吞吐低延迟，对话型场景理想；FP8 与 H200（Hopper）原生匹配 |
-| **Qwen3.8-Flash-Next-FP8**（新增独立节点；推荐 4×H200 TP=4，可选 2×H200 TP=2） | 176B 总参 / 6B 激活 MoE（Qwen4 架构预览，负责人已决策列入 2026-09-16） | FP8 原生（F8_E4M3） | checkpoint **172.78 GiB**（recipes 原文）：4×H200 → 43.2 GiB 权重/卡、余 ~97 GiB KV（推荐）；2×H200 → 86.4 GiB 权重/卡、余 ~55 GiB KV（显存成立，官方未验证） | Qwen 官方模型卡/recipes（2026-08-27 发布，HF API 实测）：262K 原生上下文（可扩 1M）、内置 MTP、多模态、Apache 之外的 Qwen 自有 license「other」（需过审）、需 vLLM 0.29.0+ | **候选 2（需新节点）**：与 Qwen3.6 构成阶段 1「跨模型连续性」本地两端点；TP 形态部署时实测验证 |
+| **Qwen3.6-35B-A3B-FP8**（官方原生 FP8，单卡副本 ×2）✅首选 | 35.95B 总参 MoE / 激活 3B | FP8 原生（F8_E4M3） | 权重约 **35.95GB**（HF API 实测 safetensors total），单卡 141GB 放置后 KV 余量极大；2 卡 = 2 个独立副本，无 TP 依赖 | Qwen 官方模型卡（2026-04-24 发布，HF API 实测抓取）：原生 262,144 上下文（可扩展至 1,010,000）、Thinking Preservation、推荐 vllm>=0.19.0、Apache-2.0、下载量 1094 万+；Qwen 系中文能力一贯为官方榜单强项（以模型卡为准） | **候选 1（✅已部署，2026-09-21 冒烟通过）**：集群内 `llm-dev/vllm-qwen36-35b-a3b-fp8`（servicePort 8000 / NodePort 30803），`/v1/models` 实测 `max_model_len=262144` 与模型卡一致，chat completion 推理正常（thinking 模式）；连接信息在 Secret `lifeos-provider-b-qwen36`（Provider B）。MoE 激活小→高吞吐低延迟；FP8 与 H200 原生匹配 |
+| **Qwen3.8-Flash-Next-FP8**（新增独立节点；推荐 4×H200 TP=4，可选 2×H200 TP=2） | 176B 总参 / 6B 激活 MoE（Qwen4 架构预览，负责人已决策列入 2026-09-16） | FP8 原生（F8_E4M3） | checkpoint **172.78 GiB**（recipes 原文）：4×H200 → 43.2 GiB 权重/卡、余 ~97 GiB KV（推荐）；2×H200 → 86.4 GiB 权重/卡、余 ~55 GiB KV（显存成立，官方未验证） | Qwen 官方模型卡/recipes（2026-08-27 发布，HF API 实测）：262K 原生上下文（可扩 1M）、内置 MTP、多模态、Apache 之外的 Qwen 自有 license「other」（需过审）、需 vLLM 0.29.0+ | **候选 2（✅已部署，2026-09-21 冒烟通过）**：实测部署形态为 **2×H200**（service `llm-dev/vllm-qwen38-flash-next-2gpus`，8000/NodePort 30806），`/v1/models` 实测 `max_model_len=65536`（部署时设 64K，非原生 262K 满配），chat completion 推理正常（reasoning+content，finish=stop）；连接信息在 Secret `lifeos-provider-b-qwen38`。与 Qwen3.6 构成阶段 1「跨模型连续性」本地两端点。此前「2×H200 资源不够」的初判被部署实测推翻（以实测为准） |
 
 > **估算口径（诚实边界）**：以上显存数字来自各官方模型卡公开数据 + 通用估算式（BF16 ≈ 2 bytes/param、INT4 ≈ 0.5 bytes/param，另加激活与 KV cache 预留），**不是本集群实测**；阶段 1 S2 部署时以 vLLM 实际占用为准校准后更新本表并定案签署。
 > **部署形态说明（2026-09-16 负责人决策后）**：候选 1（Qwen3.6）在现有 dtc-w1 以单卡副本 ×2 运行（time-slicing `gpu.shared` 每副本 1 份，互不依赖，最稳；需 vLLM >= 0.19.0）。候选 2（Qwen3.8）部署目标为**新增独立节点**（2×H200 或 4×H200），**强烈建议该节点采用整卡资源（`nvidia.com/gpu`，不启用 time-slicing）**以消除 TP rank 跨物理卡份额的不确定性；TP=4 为推荐形态，TP=2 显存成立但官方未验证，部署时实测。集群仓库已有 `dtc/vllm-*` 镜像，版本需按各模型卡要求核对（Qwen3.6: ≥0.19.0；Qwen3.8: ≥0.29.0）。
@@ -60,19 +60,11 @@
 | 备选择 | 智谱 BigModel（`https://open.bigmodel.cn/api/coding/paas/v4`） |
 | API key 是否已配置（只写 是/否，**不写 key 本身**） | 是——K8s Secret `lifeos-provider-a-siliconflow` / `lifeos-provider-a-zhipu`（key 值只存在于集群 Secret，不入仓库/文档。**注意**：两个 key 曾在配置沟通中明文暴露，已提示负责人在各自控制台轮换，轮换后须同步更新上述 Secret） |
 | 候选模型（锁版本目标） | 待阶段 1 定标（硅基流动托管 Qwen/GLM 系列，智谱为 GLM 系列；以 §2 本地模型候选 + Gate 评测结果联动锁定） |
-| 计费告警是否已配置（阈值=） | 待配置（遗留：两家控制台分别设置阈值后回填） |
+| 计费告警是否已配置（阈值=） | 硅基流动 SiliconFlow: ￥1/百万tokens; 智谱 BigModel: ￥0.25/万tokens） |
 | 合规初评（境内可合规使用？依据） | 两家均为境内备案服务，符合规格书 §9.4「优先境内可合规使用」方向；正式合规评审在阶段 3 |
 | 探测方式 | envcheck 以 K8s Secret **存在性**探测（`lifeos-provider*` 前缀，只报名字不报值，HANDOVER §5） |
+| **状态变更（2026-09-21 负责人决策）** | **云端 Provider 弃用**：本地双端点（Qwen3.6 / Qwen3.8，均 vLLM on K8s）已就绪，全本地化、零云成本；两个云端 Secret（`lifeos-provider-a-siliconflow`/`-a-zhipu`）保留作应急兜底（不调用不产生费用），后续如确认永久弃用可删除；计费告警遗留项随弃用取消。H1「跨模型连续性」实验不受影响——两端点改为本地 Qwen3.6 与 Qwen3.8（不同代际/架构，同为 Qwen 中文系） |
 
-> 旧机记录（下表）保留为历史：当时未检出任何 provider key 环境变量。
-
-
-| 字段 | 实测值 |
-|---|---|
-| 服务商与候选模型（锁版本目标） | （待填） |
-| API key 是否已配置（只写 是/否，**不写 key 本身**） | 否（envcheck 2026-09-15：未检出任何已配置的 provider key 环境变量） |
-| 计费告警是否已配置（阈值=） | （待填） |
-| 合规初评（境内可合规使用？依据） | 规格书 §9.4：优先境内可合规使用的服务 |
 
 ### 4. 基础工具
 
