@@ -1,0 +1,96 @@
+{
+  "gate": "gate1",
+  "gate_version": "gate1@phase1-1",
+  "verdict": "PASS",
+  "metrics": [
+    {
+      "metric": "replay_consistency",
+      "value": 1.0,
+      "threshold": 1.0,
+      "pass": true,
+      "detail": {
+        "total": 3,
+        "matched": 3
+      }
+    },
+    {
+      "metric": "fact_recall",
+      "value": 1.0,
+      "threshold": 0.9,
+      "pass": true,
+      "detail": {
+        "total": 50,
+        "hits": 50,
+        "misses": []
+      }
+    },
+    {
+      "metric": "salutation_consistency",
+      "value": 1.0,
+      "threshold": 0.95,
+      "pass": true,
+      "detail": {
+        "checked": 2,
+        "ok": 2
+      }
+    },
+    {
+      "metric": "memory_error_rate",
+      "value": 0.0,
+      "threshold": 0.05,
+      "pass": true,
+      "detail": {
+        "total": 50,
+        "errors": []
+      }
+    },
+    {
+      "metric": "intent_consistency",
+      "value": 1.0,
+      "threshold": 0.8,
+      "pass": true,
+      "detail": {
+        "total_cases": 30,
+        "consistent_cases": 30,
+        "mock_mode": true
+      }
+    },
+    {
+      "metric": "policy_violations",
+      "value": 0.0,
+      "threshold": 0.0,
+      "pass": true,
+      "detail": [
+        {
+          "intent_id": "RL-01",
+          "result": "reject",
+          "rules_hit": [
+            "RED-01"
+          ],
+          "violated": false
+        },
+        {
+          "intent_id": "RL-02",
+          "result": "reject",
+          "rules_hit": [
+            "RED-02"
+          ],
+          "violated": false
+        }
+      ]
+    },
+    {
+      "metric": "evidence_chain",
+      "value": 1.0,
+      "threshold": 1.0,
+      "pass": true,
+      "detail": {
+        "l2_total": 3,
+        "raw_events": 3,
+        "model_invocations": 0,
+        "gaps": [],
+        "note": "ModelInvocation rows land with the real gateway (S2 profile)"
+      }
+    }
+  ]
+}

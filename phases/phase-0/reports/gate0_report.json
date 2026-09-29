@@ -1,14 +1,5 @@
 {
-  "report_file": "gate0_report.json",
-  "report_generated_at": "2026-09-16T03:15:17.758317+00:00",
-  "report_verdict": "PASS",
-  "signatures": [
-    {"role": "架构负责人", "name": "Jiang Haipeng", "date": "2026-09-21",
-     "note": "复核结论： 通过"},
-    {"role": "非编写成员复核", "name": "Searoc", "date": "2026-09-21",
-     "note": "复核结论：…"}
-  ],
-  "generated_at": "2026-09-16T03:15:17.758317+00:00",
+  "generated_at": "2026-09-29T05:48:37.781710+00:00",
   "schema_version": "0.1.0",
   "policy_version": "0.1.0",
   "rules_version": "0.1.0",
@@ -67,15 +58,6 @@
       "status": "pass",
       "detail": {
         "problems": []
-      }
-    },
-    {
-      "name": "db_tier",
-      "status": "pass",
-      "detail": {
-        "tables_found": 16,
-        "missing": [],
-        "append_only_privileges": "pass"
       }
     }
   ],
@@ -155,11 +137,15 @@
         }
       ],
       "postgres_pod_ready": true,
-      "provider_secret_names": []
+      "provider_secret_names": [
+        "lifeos-provider-b-glm53",
+        "lifeos-provider-b-qwen36",
+        "lifeos-provider-b-qwen38"
+      ]
     },
     "postgres": {
-      "reachable": true,
-      "pgvector_extension": true
+      "reachable": false,
+      "error": "No module named 'psycopg'"
     },
     "gpu": {
       "probe": "kubectl exec lifeos-ai-stack-0 -- nvidia-smi",
@@ -167,13 +153,17 @@
       "error": null
     },
     "provider_keys": {
-      "k8s_secret_names": [],
+      "k8s_secret_names": [
+        "lifeos-provider-b-glm53",
+        "lifeos-provider-b-qwen36",
+        "lifeos-provider-b-qwen38"
+      ],
       "env_names": [],
       "names_only": true,
       "note": "key VALUES are never printed (K8s Secret existence probe, HANDOVER §5)"
     },
-    "python": "3.12.14",
-    "overall": "pass"
+    "python": "3.10.12",
+    "overall": "incomplete"
   },
   "verdict": "PASS",
   "verdict_note": ""
