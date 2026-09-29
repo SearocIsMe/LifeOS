@@ -82,16 +82,52 @@ class H1Report:
 
 
 def parse_intent(raw_text: str) -> Mapping[str, Any] | None:
-    """Strict-JSON intent parse; returns None on any parse failure."""
+    """Strict-JSON intent parse; returns None on any parse failure.
+
+    Tolerates output where the JSON object is embedded in surrounding noise
+    (e.g. a truncated reasoning preamble): extracts the balanced {...} span
+    first. Any non-dict or unbalanced span still returns None (fail-closed).
+    """
     import json as _json
 
-    try:
-        intent = _json.loads(raw_text)
-    except _json.JSONDecodeError:
+    def _loads(candidate: str) -> Mapping[str, Any] | None:
+        try:
+            intent = _json.loads(candidate)
+        except _json.JSONDecodeError:
+            return None
+        if not isinstance(intent, dict):
+            return None
+        return intent
+
+    intent = _loads(raw_text)
+    if intent is not None:
+        return intent
+
+    start = raw_text.find("{")
+    if start == -1:
         return None
-    if not isinstance(intent, dict):
-        return None
-    return intent
+    depth = 0
+    in_string = False
+    escape = False
+    for index in range(start, len(raw_text)):
+        char = raw_text[index]
+        if in_string:
+            if escape:
+                escape = False
+            elif char == "\\":
+                escape = True
+            elif char == '"':
+                in_string = False
+            continue
+        if char == '"':
+            in_string = True
+        elif char == "{":
+            depth += 1
+        elif char == "}":
+            depth -= 1
+            if depth == 0:
+                return _loads(raw_text[start:index + 1])
+    return None
 
 
 def judge_pair(intent_a: Mapping[str, Any], intent_b: Mapping[str, Any]) -> bool:

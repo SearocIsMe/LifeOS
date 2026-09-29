@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-29T05:48:37.781710+00:00",
+  "generated_at": "2026-09-29T06:03:24.374552+00:00",
   "schema_version": "0.1.0",
   "policy_version": "0.1.0",
   "rules_version": "0.1.0",
@@ -145,7 +145,7 @@
     },
     "postgres": {
       "reachable": false,
-      "error": "No module named 'psycopg'"
+      "pgvector_extension": null
     },
     "gpu": {
       "probe": "kubectl exec lifeos-ai-stack-0 -- nvidia-smi",
@@ -162,7 +162,7 @@
       "names_only": true,
       "note": "key VALUES are never printed (K8s Secret existence probe, HANDOVER §5)"
     },
-    "python": "3.10.12",
+    "python": "3.12.14",
     "overall": "incomplete"
   },
   "verdict": "PASS",

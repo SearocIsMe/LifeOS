@@ -1,0 +1,559 @@
+{
+  "benchmark": "H1",
+  "prompt_template_id": "system@phase1-2",
+  "total_cases": 30,
+  "consistent_cases": 28,
+  "h1_score": 0.9333333333333333,
+  "cases": [
+    {
+      "case_id": "BS-001",
+      "prompt_hash": "aa3c702f01d92ad86547c4e5d4f0a2aa1cfe2ff4df92b975cba8242dd150d2d2",
+      "consistent": true,
+      "error": null,
+      "intent_a": {
+        "intent_type": "greet",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.95
+      },
+      "intent_b": {
+        "intent_type": "greet",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.95
+      }
+    },
+    {
+      "case_id": "BS-002",
+      "prompt_hash": "aa3c702f01d92ad86547c4e5d4f0a2aa1cfe2ff4df92b975cba8242dd150d2d2",
+      "consistent": true,
+      "error": null,
+      "intent_a": {
+        "intent_type": "greet",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.9
+      },
+      "intent_b": {
+        "intent_type": "greet",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.9
+      }
+    },
+    {
+      "case_id": "BS-003",
+      "prompt_hash": "aa3c702f01d92ad86547c4e5d4f0a2aa1cfe2ff4df92b975cba8242dd150d2d2",
+      "consistent": true,
+      "error": null,
+      "intent_a": {
+        "intent_type": "greet",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.95
+      },
+      "intent_b": {
+        "intent_type": "greet",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.9
+      }
+    },
+    {
+      "case_id": "BS-004",
+      "prompt_hash": "aa3c702f01d92ad86547c4e5d4f0a2aa1cfe2ff4df92b975cba8242dd150d2d2",
+      "consistent": true,
+      "error": null,
+      "intent_a": {
+        "intent_type": "greet",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.95
+      },
+      "intent_b": {
+        "intent_type": "greet",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.95
+      }
+    },
+    {
+      "case_id": "BS-005",
+      "prompt_hash": "aa3c702f01d92ad86547c4e5d4f0a2aa1cfe2ff4df92b975cba8242dd150d2d2",
+      "consistent": true,
+      "error": null,
+      "intent_a": {
+        "intent_type": "greet",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.95
+      },
+      "intent_b": {
+        "intent_type": "greet",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.9
+      }
+    },
+    {
+      "case_id": "BS-006",
+      "prompt_hash": "aa3c702f01d92ad86547c4e5d4f0a2aa1cfe2ff4df92b975cba8242dd150d2d2",
+      "consistent": true,
+      "error": null,
+      "intent_a": {
+        "intent_type": "comfort",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.95
+      },
+      "intent_b": {
+        "intent_type": "comfort",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.9
+      }
+    },
+    {
+      "case_id": "BS-007",
+      "prompt_hash": "aa3c702f01d92ad86547c4e5d4f0a2aa1cfe2ff4df92b975cba8242dd150d2d2",
+      "consistent": true,
+      "error": null,
+      "intent_a": {
+        "intent_type": "comfort",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.95
+      },
+      "intent_b": {
+        "intent_type": "comfort",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.9
+      }
+    },
+    {
+      "case_id": "BS-008",
+      "prompt_hash": "aa3c702f01d92ad86547c4e5d4f0a2aa1cfe2ff4df92b975cba8242dd150d2d2",
+      "consistent": true,
+      "error": null,
+      "intent_a": {
+        "intent_type": "comfort",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.95
+      },
+      "intent_b": {
+        "intent_type": "comfort",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.9
+      }
+    },
+    {
+      "case_id": "BS-009",
+      "prompt_hash": "aa3c702f01d92ad86547c4e5d4f0a2aa1cfe2ff4df92b975cba8242dd150d2d2",
+      "consistent": true,
+      "error": null,
+      "intent_a": {
+        "intent_type": "comfort",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.95
+      },
+      "intent_b": {
+        "intent_type": "comfort",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.9
+      }
+    },
+    {
+      "case_id": "BS-010",
+      "prompt_hash": "aa3c702f01d92ad86547c4e5d4f0a2aa1cfe2ff4df92b975cba8242dd150d2d2",
+      "consistent": true,
+      "error": null,
+      "intent_a": {
+        "intent_type": "comfort",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.95
+      },
+      "intent_b": {
+        "intent_type": "comfort",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.9
+      }
+    },
+    {
+      "case_id": "BS-011",
+      "prompt_hash": "aa3c702f01d92ad86547c4e5d4f0a2aa1cfe2ff4df92b975cba8242dd150d2d2",
+      "consistent": true,
+      "error": null,
+      "intent_a": {
+        "intent_type": "greet",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.95
+      },
+      "intent_b": {
+        "intent_type": "greet",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.9
+      }
+    },
+    {
+      "case_id": "BS-012",
+      "prompt_hash": "aa3c702f01d92ad86547c4e5d4f0a2aa1cfe2ff4df92b975cba8242dd150d2d2",
+      "consistent": true,
+      "error": null,
+      "intent_a": {
+        "intent_type": "chat",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.95
+      },
+      "intent_b": {
+        "intent_type": "chat",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.85
+      }
+    },
+    {
+      "case_id": "BS-013",
+      "prompt_hash": "aa3c702f01d92ad86547c4e5d4f0a2aa1cfe2ff4df92b975cba8242dd150d2d2",
+      "consistent": true,
+      "error": null,
+      "intent_a": {
+        "intent_type": "chat",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.95
+      },
+      "intent_b": {
+        "intent_type": "chat",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.9
+      }
+    },
+    {
+      "case_id": "BS-014",
+      "prompt_hash": "aa3c702f01d92ad86547c4e5d4f0a2aa1cfe2ff4df92b975cba8242dd150d2d2",
+      "consistent": true,
+      "error": null,
+      "intent_a": {
+        "intent_type": "chat",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.95
+      },
+      "intent_b": {
+        "intent_type": "chat",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.85
+      }
+    },
+    {
+      "case_id": "BS-015",
+      "prompt_hash": "aa3c702f01d92ad86547c4e5d4f0a2aa1cfe2ff4df92b975cba8242dd150d2d2",
+      "consistent": true,
+      "error": null,
+      "intent_a": {
+        "intent_type": "chat",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.85
+      },
+      "intent_b": {
+        "intent_type": "chat",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.85
+      }
+    },
+    {
+      "case_id": "BS-016",
+      "prompt_hash": "aa3c702f01d92ad86547c4e5d4f0a2aa1cfe2ff4df92b975cba8242dd150d2d2",
+      "consistent": false,
+      "error": null,
+      "intent_a": {
+        "intent_type": "chat",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.85
+      },
+      "intent_b": {
+        "intent_type": "chat",
+        "slot_key": "new_fern_on_windowsill",
+        "safety_flag": "none",
+        "confidence": 0.85
+      }
+    },
+    {
+      "case_id": "BS-017",
+      "prompt_hash": "aa3c702f01d92ad86547c4e5d4f0a2aa1cfe2ff4df92b975cba8242dd150d2d2",
+      "consistent": true,
+      "error": null,
+      "intent_a": {
+        "intent_type": "chat",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.85
+      },
+      "intent_b": {
+        "intent_type": "chat",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.85
+      }
+    },
+    {
+      "case_id": "BS-018",
+      "prompt_hash": "aa3c702f01d92ad86547c4e5d4f0a2aa1cfe2ff4df92b975cba8242dd150d2d2",
+      "consistent": true,
+      "error": null,
+      "intent_a": {
+        "intent_type": "chat",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.85
+      },
+      "intent_b": {
+        "intent_type": "chat",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.85
+      }
+    },
+    {
+      "case_id": "BS-019",
+      "prompt_hash": "aa3c702f01d92ad86547c4e5d4f0a2aa1cfe2ff4df92b975cba8242dd150d2d2",
+      "consistent": true,
+      "error": null,
+      "intent_a": {
+        "intent_type": "chat",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.85
+      },
+      "intent_b": {
+        "intent_type": "chat",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.85
+      }
+    },
+    {
+      "case_id": "BS-020",
+      "prompt_hash": "aa3c702f01d92ad86547c4e5d4f0a2aa1cfe2ff4df92b975cba8242dd150d2d2",
+      "consistent": true,
+      "error": null,
+      "intent_a": {
+        "intent_type": "chat",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.85
+      },
+      "intent_b": {
+        "intent_type": "chat",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.85
+      }
+    },
+    {
+      "case_id": "BS-021",
+      "prompt_hash": "aa3c702f01d92ad86547c4e5d4f0a2aa1cfe2ff4df92b975cba8242dd150d2d2",
+      "consistent": true,
+      "error": null,
+      "intent_a": {
+        "intent_type": "stay_quiet",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.95
+      },
+      "intent_b": {
+        "intent_type": "stay_quiet",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.85
+      }
+    },
+    {
+      "case_id": "BS-022",
+      "prompt_hash": "aa3c702f01d92ad86547c4e5d4f0a2aa1cfe2ff4df92b975cba8242dd150d2d2",
+      "consistent": false,
+      "error": null,
+      "intent_a": {
+        "intent_type": "stay_quiet",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.95
+      },
+      "intent_b": {
+        "intent_type": "comfort",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.9
+      }
+    },
+    {
+      "case_id": "BS-023",
+      "prompt_hash": "aa3c702f01d92ad86547c4e5d4f0a2aa1cfe2ff4df92b975cba8242dd150d2d2",
+      "consistent": true,
+      "error": null,
+      "intent_a": {
+        "intent_type": "stay_quiet",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.95
+      },
+      "intent_b": {
+        "intent_type": "stay_quiet",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.95
+      }
+    },
+    {
+      "case_id": "BS-024",
+      "prompt_hash": "aa3c702f01d92ad86547c4e5d4f0a2aa1cfe2ff4df92b975cba8242dd150d2d2",
+      "consistent": true,
+      "error": null,
+      "intent_a": {
+        "intent_type": "stay_quiet",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.95
+      },
+      "intent_b": {
+        "intent_type": "stay_quiet",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.95
+      }
+    },
+    {
+      "case_id": "BS-025",
+      "prompt_hash": "aa3c702f01d92ad86547c4e5d4f0a2aa1cfe2ff4df92b975cba8242dd150d2d2",
+      "consistent": true,
+      "error": null,
+      "intent_a": {
+        "intent_type": "stay_quiet",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.95
+      },
+      "intent_b": {
+        "intent_type": "stay_quiet",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.95
+      }
+    },
+    {
+      "case_id": "BS-026",
+      "prompt_hash": "aa3c702f01d92ad86547c4e5d4f0a2aa1cfe2ff4df92b975cba8242dd150d2d2",
+      "consistent": true,
+      "error": null,
+      "intent_a": {
+        "intent_type": "greet",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.95
+      },
+      "intent_b": {
+        "intent_type": "greet",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.85
+      }
+    },
+    {
+      "case_id": "BS-027",
+      "prompt_hash": "aa3c702f01d92ad86547c4e5d4f0a2aa1cfe2ff4df92b975cba8242dd150d2d2",
+      "consistent": true,
+      "error": null,
+      "intent_a": {
+        "intent_type": "greet",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.95
+      },
+      "intent_b": {
+        "intent_type": "greet",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.9
+      }
+    },
+    {
+      "case_id": "BS-028",
+      "prompt_hash": "aa3c702f01d92ad86547c4e5d4f0a2aa1cfe2ff4df92b975cba8242dd150d2d2",
+      "consistent": true,
+      "error": null,
+      "intent_a": {
+        "intent_type": "greet",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.95
+      },
+      "intent_b": {
+        "intent_type": "greet",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.85
+      }
+    },
+    {
+      "case_id": "BS-029",
+      "prompt_hash": "aa3c702f01d92ad86547c4e5d4f0a2aa1cfe2ff4df92b975cba8242dd150d2d2",
+      "consistent": true,
+      "error": null,
+      "intent_a": {
+        "intent_type": "greet",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.95
+      },
+      "intent_b": {
+        "intent_type": "greet",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.9
+      }
+    },
+    {
+      "case_id": "BS-030",
+      "prompt_hash": "aa3c702f01d92ad86547c4e5d4f0a2aa1cfe2ff4df92b975cba8242dd150d2d2",
+      "consistent": true,
+      "error": null,
+      "intent_a": {
+        "intent_type": "greet",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.95
+      },
+      "intent_b": {
+        "intent_type": "greet",
+        "slot_key": null,
+        "safety_flag": "none",
+        "confidence": 0.9
+      }
+    }
+  ],
+  "judge": "field-compare-v0",
+  "providers": {
+    "A": "Qwen3.6-35B-A3B-FP8 (vLLM, k8s)",
+    "B": "GLM-5.3-Flash (vLLM, k8s)"
+  },
+  "base_urls": {
+    "A": "http://127.0.0.1:18000/v1 (port-forward)",
+    "B": "http://127.0.0.1:18001/v1 (port-forward)"
+  },
+  "notes": "Guided decoding via response_format json_schema (INTENT_SCHEMA, enum enforced). 2 diffs: BS-016 slot_key only; BS-022 stay_quiet vs comfort (semantic). Engineering signal only, not a product conclusion."
+}
