@@ -70,13 +70,17 @@ bash scripts/gate0_check.sh --with-db  # 含 DB 层（需 Docker）
 - [x] **Gate 0 报告双人签署（2026-09-21）**：架构负责人 Jiang Haipeng + 非编写成员 Searoc 复核签署新环境 `reports/gate0_report.json`（verdict=PASS，签署记录在该文件 signatures 字段。**注意**：`gate0 report` 重跑会重新生成此文件并清掉 signatures——重跑后须把签署字段重新追加，或先备份 `gate0_report_signatures` 段）
 - [x] P2 收尾（ADR-0003，2026-09-21）：独立保留集 v0.1.0 圈定并签署——`data/goldset/holdout/holdout_v0.1.yaml`（事实 12 条 + 场景 6 个，7 类/5 情境全覆盖，确定性抽样规则可复核，id 引用不改动冻结材料）；校验 `python3 scripts/holdout_check.py`（author=AI GLM 5.3 flash / reviewer=Jiang Haipeng）
 
-> 运行环境（2026-09-16 起）：K8s 集群（ADR-0004）。宿主机 aisi-w4 一键自检：
+> 运行环境（2026-09-16 起）：K8s 集群（ADR-0004）。宿主机 dtc-w1 一键自检：
 > `PYTHON="$PWD/.venv/bin/python" bash scripts/gate0_check.sh --with-db`（自动 kubectl apply/wait + port-forward，密码取自 Secret）
 > Pod 内验证：`kubectl -n lifeos-dev exec lifeos-ai-stack-0 -- bash -lc "cd /data/LifeOS && .venv/bin/python -m pytest tests -q -m db"`
-> 本地推理端点（Provider B，2026-09-21 起全本地化、零云成本）：Qwen3.6-35B-A3B-FP8 @ `llm-dev/vllm-qwen36-35b-a3b-fp8:8000`（NodePort 30803）与 Qwen3.8-Flash-Next-FP8 @ `llm-dev/vllm-qwen38-flash-next-2gpus:8000`（NodePort 30806，2×H200），两者冒烟均通过；连接信息在 Secret `lifeos-provider-b-qwen36` / `-qwen38`；云端 Provider 已弃用（Secret 保留作应急兜底）
+> 本地推理端点（Provider B，全本地化、零云成本；部署策略 2026-09-29：候选 1 常态部署，候选 2/3 按需上线）：
+- 候选 1：Qwen3.6-35B-A3B-FP8 @ `llm-dev/vllm-qwen36-35b-a3b-fp8:8000`（NodePort 30803，单卡）——常态部署
+- 候选 2：Qwen3.8-Flash-Next-FP8 @ `llm-dev/vllm-qwen38-flash-next-2gpus:8000`（NodePort 30806，2×H200）——按需上线
+- 候选 3：GLM-5.3-Flash @ `llm-dev/vllm-glm53-flash:8000`（NodePort 30804，4×H200）——按需上线（2026-09-29 冒烟通过）
+- 连接信息在 Secret `lifeos-provider-b-qwen36` / `-qwen38` / `-b-glm53`；云端 Provider 已弃用（Secret 保留作应急兜底）
 > 材料注册后已冻结：任何修订 = 新版本号 + 重新走签署与注册（不可原地改 `v0.1.0`）。
 
-> 运行环境（2026-09-16 起）：K8s 集群（ADR-0004）。宿主机 aisi-w4 一键自检：
+> 运行环境（2026-09-16 起）：K8s 集群（ADR-0004）。宿主机 dtc-w1 一键自检：
 > `PYTHON="$PWD/.venv/bin/python" bash scripts/gate0_check.sh --with-db`（自动 kubectl apply/wait + port-forward，密码取自 Secret）
 > Pod 内验证：`kubectl -n lifeos-dev exec lifeos-ai-stack-0 -- bash -lc "cd /data/LifeOS && .venv/bin/python -m pytest tests -q -m db"`
 > 本地推理端点（Provider B）：Qwen3.6-35B-A3B-FP8 @ `llm-dev/vllm-qwen36-35b-a3b-fp8:8000`（NodePort 30803），连接信息在 Secret `lifeos-provider-b-qwen36`，2026-09-21 冒烟通过
