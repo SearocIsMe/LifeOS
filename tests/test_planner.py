@@ -13,7 +13,14 @@ from lifeos.planner import (
 
 NOW = datetime(2026, 9, 20, 10, 0, 0, tzinfo=timezone.utc)
 LID = "l1"
-NEUTRAL = {"energy": 0.5, "social_need": 0.4, "security": 0.8}
+# Phase 2 completes the frozen 5-state space (spec F2, roadmap S1 ramp).
+NEUTRAL = {
+    "energy": 0.5,
+    "social_need": 0.4,
+    "security": 0.8,
+    "curiosity": 0.3,
+    "playfulness": 0.2,
+}
 
 
 def _types(proposals):
@@ -26,16 +33,19 @@ def test_pure_determinism():
     assert a == b
 
 
-def test_all_six_proposed_sorted_desc():
+def test_all_twelve_proposed_sorted_desc():
     proposals = plan_intents(LID, NEUTRAL, created_at=NOW)
-    assert len(proposals) == 6
+    assert len(proposals) == 12
+    scores = [bi.utility_score for bi in proposals]
+    assert scores == sorted(scores, reverse=True)
+    assert len({bi.intent_type for bi in proposals}) == 12
     assert all(bi.status.value == "proposed" for bi in proposals)
     scores = [bi.utility_score for bi in proposals]
     assert scores == sorted(scores, reverse=True)
 
 
 def test_low_security_selects_comfort():
-    states = {"energy": 0.5, "social_need": 0.8, "security": 0.1}
+    states = {**NEUTRAL, "social_need": 0.8, "security": 0.1}
     best = select_best(LID, states, created_at=NOW)
     assert best.intent_type == "comfort"
     # severity = 0.4 - security = 0.3, recorded in the reason chain
@@ -44,7 +54,7 @@ def test_low_security_selects_comfort():
 
 
 def test_mild_insecurity_keeps_silence():
-    states = {"energy": 0.5, "social_need": 0.4, "security": 0.35}
+    states = {**NEUTRAL, "security": 0.35}
     proposals = plan_intents(LID, states, created_at=NOW)
     comfort = next(bi for bi in proposals if bi.intent_type == "comfort")
     quiet = next(bi for bi in proposals if bi.intent_type == "stay_quiet")
@@ -54,7 +64,7 @@ def test_mild_insecurity_keeps_silence():
 
 
 def test_high_social_need_selects_greet():
-    states = {"energy": 0.5, "social_need": 0.8, "security": 0.8}
+    states = {**NEUTRAL, "social_need": 0.8, "security": 0.8}
     best = select_best(LID, states, created_at=NOW)
     assert best.intent_type == "greet"
     assert best.reason["feature"] == pytest.approx(0.8)
@@ -69,7 +79,7 @@ def test_stay_quiet_baseline_selected():
 
 
 def test_cooldown_penalty_suppresses_greet():
-    states = {"energy": 0.5, "social_need": 0.8, "security": 0.8}
+    states = {**NEUTRAL, "social_need": 0.8, "security": 0.8}
     proposals = plan_intents(LID, states, cooldown={"greet": 1.0}, created_at=NOW)
     greet = next(bi for bi in proposals if bi.intent_type == "greet")
     # 1.0 * 0.8 - 1.0 = -0.2 -> falls below every other candidate
@@ -87,19 +97,24 @@ def test_missing_state_fails_closed():
 
 
 def test_reason_breakdown_complete():
-    states = {"energy": 0.7, "social_need": 0.6, "security": 0.2}
+    states = {**NEUTRAL, "energy": 0.7, "social_need": 0.6, "security": 0.2}
     proposals = plan_intents(
         LID, states, relationships={"alice": {"familiarity": 0.5}}, created_at=NOW
     )
     for bi in proposals:
-        assert set(bi.reason) == {"feature", "weight", "cooldown_penalty"}
+        assert set(bi.reason) == {
+            "feature",
+            "weight",
+            "cooldown_penalty",
+            "score_decomposition",
+        }
         assert "required_states" in bi.preconditions
     comfort = next(bi for bi in proposals if bi.intent_type == "comfort")
     assert comfort.utility_score == pytest.approx(0.6)  # 3.0 * 0.2
 
 
 def test_recall_shared_uses_familiarity():
-    states = {"energy": 0.5, "social_need": 0.4, "security": 0.8}
+    states = {**NEUTRAL, "social_need": 0.4, "security": 0.8}
     proposals = plan_intents(
         LID, states, relationships={"alice": {"familiarity": 0.9}}, created_at=NOW
     )
@@ -112,7 +127,7 @@ def test_ids_content_addressed_and_distinct():
     first = plan_intents(LID, NEUTRAL, created_at=NOW)
     again = plan_intents(LID, NEUTRAL, created_at=datetime(2030, 1, 1, tzinfo=timezone.utc))
     ids = {bi.intent_id for bi in first}
-    assert len(ids) == 6
+    assert len(ids) == 12
     # content-addressed over candidate identity: created_at and utility do NOT affect ids
     assert [bi.intent_id for bi in first] == [bi.intent_id for bi in again]
     # candidate identity is stable across read views (score lives in reason);
@@ -122,4 +137,4 @@ def test_ids_content_addressed_and_distinct():
     map_changed = {bi.intent_type: bi.intent_id for bi in changed}
     assert map_first == map_changed
     # but distinct candidates get distinct ids
-    assert len(set(map_first.values())) == 6
+    assert len(set(map_first.values())) == 12

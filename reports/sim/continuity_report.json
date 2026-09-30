@@ -1,0 +1,31 @@
+{
+  "schema_version": "0.1.0",
+  "throughput": {
+    "sim_time_ratio": 30.0
+  },
+  "ramp": [
+    {
+      "seed": 20260901,
+      "week": 1,
+      "memories": 21,
+      "sim_time_ratio": 30.0
+    },
+    {
+      "seed": 20260902,
+      "week": 2,
+      "memories": 45,
+      "sim_time_ratio": 30.0
+    },
+    {
+      "seed": 20260903,
+      "week": 3,
+      "memories": 66,
+      "sim_time_ratio": 30.0
+    }
+  ],
+  "total_memories": 66,
+  "validity_limits": [
+    "LLM 合成对话偏差（规格书 §4.6）",
+    "H2 结论不得超出合成分布适用范围"
+  ]
+}

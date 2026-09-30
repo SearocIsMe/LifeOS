@@ -1,0 +1,5905 @@
+{
+  "meta": {
+    "seed": 20260901,
+    "kind": "core_facts",
+    "item_count": 310,
+    "status": "draft-awaiting-dual-annotation"
+  },
+  "review": {
+    "author": "",
+    "reviewer": "",
+    "arbitrator": ""
+  },
+  "items": [
+    {
+      "memory_id": "memo-20260901-0000",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "用户在 2026-09-13 提到 写作草稿",
+      "slot_key": "memo.random-collision.b",
+      "valid_from": "2026-09-13T00:42:00+00:00",
+      "transaction_from": "2026-09-15T00:42:00+00:00",
+      "confidence": 0.6668,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0001",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "写作草稿 的记录（2026-09-10）",
+      "slot_key": "memo.1",
+      "valid_from": "2026-09-10T11:38:00+00:00",
+      "transaction_from": "2026-09-12T11:38:00+00:00",
+      "confidence": 0.8092,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0002",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 晨间回顾 的要点（2026-09-17 整理）",
+      "slot_key": "memo.2",
+      "valid_from": "2026-09-17T23:41:00+00:00",
+      "transaction_from": "2026-09-20T23:41:00+00:00",
+      "confidence": 0.781,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0003",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "财务流水 的记录（2026-09-13）",
+      "slot_key": "memo.3",
+      "valid_from": "2026-09-13T20:54:00+00:00",
+      "transaction_from": "2026-09-13T20:54:00+00:00",
+      "confidence": 0.923,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0004",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "阅读笔记 的记录（2026-09-18）",
+      "slot_key": "memo.4",
+      "valid_from": "2026-09-18T18:44:00+00:00",
+      "transaction_from": "2026-09-18T18:44:00+00:00",
+      "confidence": 0.8197,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0005",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "周复盘 的记录（2026-09-12）",
+      "slot_key": "memo.5",
+      "valid_from": "2026-09-12T07:09:00+00:00",
+      "transaction_from": "2026-09-14T07:09:00+00:00",
+      "confidence": 0.5531,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0006",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "财务流水 的记录（2026-08-31）",
+      "slot_key": "memo.6",
+      "valid_from": "2026-08-31T00:43:00+00:00",
+      "transaction_from": "2026-09-03T00:43:00+00:00",
+      "confidence": 0.9691,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0007",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "用户在 2026-09-08 提到 健康记录",
+      "slot_key": "memo.7",
+      "valid_from": "2026-09-08T08:54:00+00:00",
+      "transaction_from": "2026-09-09T08:54:00+00:00",
+      "confidence": 0.8221,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0008",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "财务流水 的记录（2026-09-14）",
+      "slot_key": "memo.8",
+      "valid_from": "2026-09-14T22:03:00+00:00",
+      "transaction_from": "2026-09-17T22:03:00+00:00",
+      "confidence": 0.9938,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0009",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "阅读笔记 的记录（2026-09-09）",
+      "slot_key": "memo.9",
+      "valid_from": "2026-09-09T21:02:00+00:00",
+      "transaction_from": "2026-09-09T21:02:00+00:00",
+      "confidence": 0.8205,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0010",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "关于 周复盘 的要点（2026-08-31 整理）",
+      "slot_key": "memo.random-collision.b",
+      "valid_from": "2026-08-31T17:46:00+00:00",
+      "transaction_from": "2026-09-02T17:46:00+00:00",
+      "confidence": 0.7933,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0011",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 写作草稿 的要点（2026-09-08 整理）",
+      "slot_key": "memo.11",
+      "valid_from": "2026-09-08T13:04:00+00:00",
+      "transaction_from": "2026-09-10T13:04:00+00:00",
+      "confidence": 0.7007,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0012",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-16 提到 健康记录",
+      "slot_key": "memo.12",
+      "valid_from": "2026-09-16T13:08:00+00:00",
+      "transaction_from": "2026-09-17T13:08:00+00:00",
+      "confidence": 0.5433,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0013",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "用户在 2026-09-13 提到 健康记录",
+      "slot_key": "memo.13",
+      "valid_from": "2026-09-13T03:49:00+00:00",
+      "transaction_from": "2026-09-16T03:49:00+00:00",
+      "confidence": 0.8979,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0014",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "周复盘 的记录（2026-09-16）",
+      "slot_key": "memo.14",
+      "valid_from": "2026-09-16T15:15:00+00:00",
+      "transaction_from": "2026-09-19T15:15:00+00:00",
+      "confidence": 0.5854,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0015",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 写作草稿 的要点（2026-09-15 整理）",
+      "slot_key": "memo.15",
+      "valid_from": "2026-09-15T16:33:00+00:00",
+      "transaction_from": "2026-09-18T16:33:00+00:00",
+      "confidence": 0.9074,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0016",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-08-31 提到 晨间回顾",
+      "slot_key": "memo.16",
+      "valid_from": "2026-08-31T20:19:00+00:00",
+      "transaction_from": "2026-09-02T20:19:00+00:00",
+      "confidence": 0.9393,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0017",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "用户在 2026-09-14 提到 阅读笔记",
+      "slot_key": "memo.17",
+      "valid_from": "2026-09-14T16:58:00+00:00",
+      "transaction_from": "2026-09-16T16:58:00+00:00",
+      "confidence": 0.7029,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0018",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 周复盘 的要点（2026-09-11 整理）",
+      "slot_key": "memo.18",
+      "valid_from": "2026-09-11T03:10:00+00:00",
+      "transaction_from": "2026-09-12T03:10:00+00:00",
+      "confidence": 0.6051,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0019",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "财务流水 的记录（2026-09-11）",
+      "slot_key": "memo.19",
+      "valid_from": "2026-09-11T07:06:00+00:00",
+      "transaction_from": "2026-09-14T07:06:00+00:00",
+      "confidence": 0.6541,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0020",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 阅读笔记 的要点（2026-09-08 整理）",
+      "slot_key": "memo.random-collision.a",
+      "valid_from": "2026-09-08T01:07:00+00:00",
+      "transaction_from": "2026-09-11T01:07:00+00:00",
+      "confidence": 0.9558,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0021",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 健康记录 的要点（2026-09-09 整理）",
+      "slot_key": "memo.21",
+      "valid_from": "2026-09-09T20:59:00+00:00",
+      "transaction_from": "2026-09-11T20:59:00+00:00",
+      "confidence": 0.8462,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0022",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 健康记录 的要点（2026-09-03 整理）",
+      "slot_key": "memo.22",
+      "valid_from": "2026-09-03T09:04:00+00:00",
+      "transaction_from": "2026-09-03T09:04:00+00:00",
+      "confidence": 0.6652,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0023",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "用户在 2026-09-16 提到 财务流水",
+      "slot_key": "memo.23",
+      "valid_from": "2026-09-16T05:55:00+00:00",
+      "transaction_from": "2026-09-16T05:55:00+00:00",
+      "confidence": 0.5747,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0024",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "写作草稿 的记录（2026-09-07）",
+      "slot_key": "memo.24",
+      "valid_from": "2026-09-07T07:22:00+00:00",
+      "transaction_from": "2026-09-08T07:22:00+00:00",
+      "confidence": 0.6049,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0025",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-11 提到 阅读笔记",
+      "slot_key": "memo.25",
+      "valid_from": "2026-09-11T13:13:00+00:00",
+      "transaction_from": "2026-09-12T13:13:00+00:00",
+      "confidence": 0.7036,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0026",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "周复盘 的记录（2026-09-09）",
+      "slot_key": "memo.26",
+      "valid_from": "2026-09-09T16:23:00+00:00",
+      "transaction_from": "2026-09-11T16:23:00+00:00",
+      "confidence": 0.537,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0027",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-18 提到 晨间回顾",
+      "slot_key": "memo.27",
+      "valid_from": "2026-09-18T06:47:00+00:00",
+      "transaction_from": "2026-09-21T06:47:00+00:00",
+      "confidence": 0.6956,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0028",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "阅读笔记 的记录（2026-09-05）",
+      "slot_key": "memo.28",
+      "valid_from": "2026-09-05T07:58:00+00:00",
+      "transaction_from": "2026-09-07T07:58:00+00:00",
+      "confidence": 0.5442,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0029",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-12 提到 周复盘",
+      "slot_key": "memo.29",
+      "valid_from": "2026-09-12T18:54:00+00:00",
+      "transaction_from": "2026-09-12T18:54:00+00:00",
+      "confidence": 0.7115,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0030",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "关于 阅读笔记 的要点（2026-09-13 整理）",
+      "slot_key": "memo.random-collision.b",
+      "valid_from": "2026-09-13T21:16:00+00:00",
+      "transaction_from": "2026-09-16T21:16:00+00:00",
+      "confidence": 0.7102,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0031",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "周复盘 的记录（2026-09-07）",
+      "slot_key": "memo.31",
+      "valid_from": "2026-09-07T02:18:00+00:00",
+      "transaction_from": "2026-09-08T02:18:00+00:00",
+      "confidence": 0.8119,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0032",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-08 提到 财务流水",
+      "slot_key": "memo.32",
+      "valid_from": "2026-09-08T10:36:00+00:00",
+      "transaction_from": "2026-09-09T10:36:00+00:00",
+      "confidence": 0.552,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0033",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-09 提到 阅读笔记",
+      "slot_key": "memo.33",
+      "valid_from": "2026-09-09T00:25:00+00:00",
+      "transaction_from": "2026-09-12T00:25:00+00:00",
+      "confidence": 0.9086,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0034",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 健康记录 的要点（2026-09-05 整理）",
+      "slot_key": "memo.34",
+      "valid_from": "2026-09-05T04:57:00+00:00",
+      "transaction_from": "2026-09-08T04:57:00+00:00",
+      "confidence": 0.5574,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0035",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 写作草稿 的要点（2026-09-01 整理）",
+      "slot_key": "memo.35",
+      "valid_from": "2026-09-01T14:07:00+00:00",
+      "transaction_from": "2026-09-03T14:07:00+00:00",
+      "confidence": 0.6027,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0036",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 财务流水 的要点（2026-09-12 整理）",
+      "slot_key": "memo.36",
+      "valid_from": "2026-09-12T15:14:00+00:00",
+      "transaction_from": "2026-09-12T15:14:00+00:00",
+      "confidence": 0.697,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0037",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 晨间回顾 的要点（2026-08-31 整理）",
+      "slot_key": "memo.37",
+      "valid_from": "2026-08-31T16:28:00+00:00",
+      "transaction_from": "2026-09-03T16:28:00+00:00",
+      "confidence": 0.7202,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0038",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "财务流水 的记录（2026-09-18）",
+      "slot_key": "memo.38",
+      "valid_from": "2026-09-18T20:42:00+00:00",
+      "transaction_from": "2026-09-21T20:42:00+00:00",
+      "confidence": 0.6569,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0039",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "财务流水 的记录（2026-09-08）",
+      "slot_key": "memo.39",
+      "valid_from": "2026-09-08T07:12:00+00:00",
+      "transaction_from": "2026-09-11T07:12:00+00:00",
+      "confidence": 0.7241,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0040",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 财务流水 的要点（2026-09-17 整理）",
+      "slot_key": "memo.random-collision.a",
+      "valid_from": "2026-09-17T22:29:00+00:00",
+      "transaction_from": "2026-09-18T22:29:00+00:00",
+      "confidence": 0.7173,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0041",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "用户在 2026-08-30 提到 写作草稿",
+      "slot_key": "memo.41",
+      "valid_from": "2026-08-30T11:35:00+00:00",
+      "transaction_from": "2026-09-02T11:35:00+00:00",
+      "confidence": 0.808,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0042",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "周复盘 的记录（2026-09-07）",
+      "slot_key": "memo.42",
+      "valid_from": "2026-09-07T23:10:00+00:00",
+      "transaction_from": "2026-09-09T23:10:00+00:00",
+      "confidence": 0.5953,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0043",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-13 提到 健康记录",
+      "slot_key": "memo.43",
+      "valid_from": "2026-09-13T23:27:00+00:00",
+      "transaction_from": "2026-09-13T23:27:00+00:00",
+      "confidence": 0.6376,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0044",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "晨间回顾 的记录（2026-09-04）",
+      "slot_key": "memo.44",
+      "valid_from": "2026-09-04T18:39:00+00:00",
+      "transaction_from": "2026-09-05T18:39:00+00:00",
+      "confidence": 0.9979,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0045",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "阅读笔记 的记录（2026-09-04）",
+      "slot_key": "memo.45",
+      "valid_from": "2026-09-04T00:07:00+00:00",
+      "transaction_from": "2026-09-07T00:07:00+00:00",
+      "confidence": 0.8319,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0046",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "晨间回顾 的记录（2026-09-09）",
+      "slot_key": "memo.46",
+      "valid_from": "2026-09-09T02:23:00+00:00",
+      "transaction_from": "2026-09-11T02:23:00+00:00",
+      "confidence": 0.5953,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0047",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "关于 写作草稿 的要点（2026-09-12 整理）",
+      "slot_key": "memo.47",
+      "valid_from": "2026-09-12T05:33:00+00:00",
+      "transaction_from": "2026-09-12T05:33:00+00:00",
+      "confidence": 0.9339,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0048",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "周复盘 的记录（2026-09-16）",
+      "slot_key": "memo.48",
+      "valid_from": "2026-09-16T03:49:00+00:00",
+      "transaction_from": "2026-09-17T03:49:00+00:00",
+      "confidence": 0.5295,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0049",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "关于 阅读笔记 的要点（2026-09-11 整理）",
+      "slot_key": "memo.49",
+      "valid_from": "2026-09-11T21:50:00+00:00",
+      "transaction_from": "2026-09-13T21:50:00+00:00",
+      "confidence": 0.6772,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0050",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-10 提到 财务流水",
+      "slot_key": "memo.random-collision.a",
+      "valid_from": "2026-09-10T12:18:00+00:00",
+      "transaction_from": "2026-09-12T12:18:00+00:00",
+      "confidence": 0.6232,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0051",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-21 提到 晨间回顾",
+      "slot_key": "memo.51",
+      "valid_from": "2026-09-21T10:44:00+00:00",
+      "transaction_from": "2026-09-21T10:44:00+00:00",
+      "confidence": 0.9521,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0052",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 健康记录 的要点（2026-09-12 整理）",
+      "slot_key": "memo.52",
+      "valid_from": "2026-09-12T14:11:00+00:00",
+      "transaction_from": "2026-09-12T14:11:00+00:00",
+      "confidence": 0.896,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0053",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "写作草稿 的记录（2026-09-11）",
+      "slot_key": "memo.53",
+      "valid_from": "2026-09-11T19:26:00+00:00",
+      "transaction_from": "2026-09-13T19:26:00+00:00",
+      "confidence": 0.8053,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0054",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "周复盘 的记录（2026-09-13）",
+      "slot_key": "memo.54",
+      "valid_from": "2026-09-13T00:28:00+00:00",
+      "transaction_from": "2026-09-13T00:28:00+00:00",
+      "confidence": 0.7697,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0055",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "周复盘 的记录（2026-09-04）",
+      "slot_key": "memo.55",
+      "valid_from": "2026-09-04T23:12:00+00:00",
+      "transaction_from": "2026-09-05T23:12:00+00:00",
+      "confidence": 0.7732,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0056",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "财务流水 的记录（2026-09-15）",
+      "slot_key": "memo.56",
+      "valid_from": "2026-09-15T01:36:00+00:00",
+      "transaction_from": "2026-09-16T01:36:00+00:00",
+      "confidence": 0.6922,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0057",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "财务流水 的记录（2026-09-12）",
+      "slot_key": "memo.57",
+      "valid_from": "2026-09-12T22:24:00+00:00",
+      "transaction_from": "2026-09-15T22:24:00+00:00",
+      "confidence": 0.5447,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0058",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 财务流水 的要点（2026-08-30 整理）",
+      "slot_key": "memo.58",
+      "valid_from": "2026-08-30T07:06:00+00:00",
+      "transaction_from": "2026-09-01T07:06:00+00:00",
+      "confidence": 0.9823,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0059",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "关于 晨间回顾 的要点（2026-09-08 整理）",
+      "slot_key": "memo.59",
+      "valid_from": "2026-09-08T10:09:00+00:00",
+      "transaction_from": "2026-09-09T10:09:00+00:00",
+      "confidence": 0.6556,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0060",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-18 提到 写作草稿",
+      "slot_key": "memo.random-collision.a",
+      "valid_from": "2026-09-18T06:19:00+00:00",
+      "transaction_from": "2026-09-21T06:19:00+00:00",
+      "confidence": 0.831,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0061",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "财务流水 的记录（2026-09-08）",
+      "slot_key": "memo.61",
+      "valid_from": "2026-09-08T23:31:00+00:00",
+      "transaction_from": "2026-09-11T23:31:00+00:00",
+      "confidence": 0.5099,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0062",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-17 提到 健康记录",
+      "slot_key": "memo.62",
+      "valid_from": "2026-09-17T22:18:00+00:00",
+      "transaction_from": "2026-09-17T22:18:00+00:00",
+      "confidence": 0.732,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0063",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "关于 晨间回顾 的要点（2026-08-31 整理）",
+      "slot_key": "memo.63",
+      "valid_from": "2026-08-31T15:46:00+00:00",
+      "transaction_from": "2026-09-03T15:46:00+00:00",
+      "confidence": 0.6012,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0064",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "用户在 2026-09-15 提到 周复盘",
+      "slot_key": "memo.64",
+      "valid_from": "2026-09-15T08:06:00+00:00",
+      "transaction_from": "2026-09-15T08:06:00+00:00",
+      "confidence": 0.8122,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0065",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 阅读笔记 的要点（2026-09-06 整理）",
+      "slot_key": "memo.65",
+      "valid_from": "2026-09-06T05:46:00+00:00",
+      "transaction_from": "2026-09-08T05:46:00+00:00",
+      "confidence": 0.6958,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0066",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "阅读笔记 的记录（2026-09-06）",
+      "slot_key": "memo.66",
+      "valid_from": "2026-09-06T04:54:00+00:00",
+      "transaction_from": "2026-09-08T04:54:00+00:00",
+      "confidence": 0.6293,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0067",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "关于 晨间回顾 的要点（2026-09-06 整理）",
+      "slot_key": "memo.67",
+      "valid_from": "2026-09-06T17:52:00+00:00",
+      "transaction_from": "2026-09-07T17:52:00+00:00",
+      "confidence": 0.6822,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0068",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "关于 财务流水 的要点（2026-09-09 整理）",
+      "slot_key": "memo.68",
+      "valid_from": "2026-09-09T20:24:00+00:00",
+      "transaction_from": "2026-09-12T20:24:00+00:00",
+      "confidence": 0.8967,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0069",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "关于 晨间回顾 的要点（2026-09-06 整理）",
+      "slot_key": "memo.69",
+      "valid_from": "2026-09-06T16:01:00+00:00",
+      "transaction_from": "2026-09-09T16:01:00+00:00",
+      "confidence": 0.7847,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0070",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-08 提到 健康记录",
+      "slot_key": "memo.random-collision.b",
+      "valid_from": "2026-09-08T10:40:00+00:00",
+      "transaction_from": "2026-09-11T10:40:00+00:00",
+      "confidence": 0.7775,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0071",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "晨间回顾 的记录（2026-09-04）",
+      "slot_key": "memo.71",
+      "valid_from": "2026-09-04T09:47:00+00:00",
+      "transaction_from": "2026-09-07T09:47:00+00:00",
+      "confidence": 0.5167,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0072",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "关于 周复盘 的要点（2026-09-04 整理）",
+      "slot_key": "memo.72",
+      "valid_from": "2026-09-04T18:58:00+00:00",
+      "transaction_from": "2026-09-07T18:58:00+00:00",
+      "confidence": 0.6806,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0073",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-11 提到 晨间回顾",
+      "slot_key": "memo.73",
+      "valid_from": "2026-09-11T11:06:00+00:00",
+      "transaction_from": "2026-09-13T11:06:00+00:00",
+      "confidence": 0.8294,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0074",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "周复盘 的记录（2026-09-06）",
+      "slot_key": "memo.74",
+      "valid_from": "2026-09-06T06:21:00+00:00",
+      "transaction_from": "2026-09-08T06:21:00+00:00",
+      "confidence": 0.6994,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0075",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "阅读笔记 的记录（2026-09-07）",
+      "slot_key": "memo.75",
+      "valid_from": "2026-09-07T20:35:00+00:00",
+      "transaction_from": "2026-09-08T20:35:00+00:00",
+      "confidence": 0.6367,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0076",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "关于 阅读笔记 的要点（2026-09-04 整理）",
+      "slot_key": "memo.76",
+      "valid_from": "2026-09-04T02:09:00+00:00",
+      "transaction_from": "2026-09-06T02:09:00+00:00",
+      "confidence": 0.9003,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0077",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-08-31 提到 健康记录",
+      "slot_key": "memo.77",
+      "valid_from": "2026-08-31T07:06:00+00:00",
+      "transaction_from": "2026-09-03T07:06:00+00:00",
+      "confidence": 0.8599,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0078",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 财务流水 的要点（2026-09-17 整理）",
+      "slot_key": "memo.78",
+      "valid_from": "2026-09-17T23:11:00+00:00",
+      "transaction_from": "2026-09-20T23:11:00+00:00",
+      "confidence": 0.7236,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0079",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-17 提到 周复盘",
+      "slot_key": "memo.79",
+      "valid_from": "2026-09-17T06:51:00+00:00",
+      "transaction_from": "2026-09-18T06:51:00+00:00",
+      "confidence": 0.7181,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0080",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "健康记录 的记录（2026-09-17）",
+      "slot_key": "memo.random-collision.a",
+      "valid_from": "2026-09-17T13:37:00+00:00",
+      "transaction_from": "2026-09-18T13:37:00+00:00",
+      "confidence": 0.7992,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0081",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-08-31 提到 健康记录",
+      "slot_key": "memo.81",
+      "valid_from": "2026-08-31T23:15:00+00:00",
+      "transaction_from": "2026-09-01T23:15:00+00:00",
+      "confidence": 0.6505,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0082",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 财务流水 的要点（2026-09-16 整理）",
+      "slot_key": "memo.82",
+      "valid_from": "2026-09-16T16:24:00+00:00",
+      "transaction_from": "2026-09-18T16:24:00+00:00",
+      "confidence": 0.8809,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0083",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "晨间回顾 的记录（2026-09-08）",
+      "slot_key": "memo.83",
+      "valid_from": "2026-09-08T01:27:00+00:00",
+      "transaction_from": "2026-09-10T01:27:00+00:00",
+      "confidence": 0.6444,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0084",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "财务流水 的记录（2026-09-02）",
+      "slot_key": "memo.84",
+      "valid_from": "2026-09-02T04:32:00+00:00",
+      "transaction_from": "2026-09-03T04:32:00+00:00",
+      "confidence": 0.759,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0085",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-17 提到 健康记录",
+      "slot_key": "memo.85",
+      "valid_from": "2026-09-17T07:49:00+00:00",
+      "transaction_from": "2026-09-19T07:49:00+00:00",
+      "confidence": 0.7848,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0086",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-01 提到 周复盘",
+      "slot_key": "memo.86",
+      "valid_from": "2026-09-01T18:41:00+00:00",
+      "transaction_from": "2026-09-03T18:41:00+00:00",
+      "confidence": 0.6788,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0087",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-09 提到 晨间回顾",
+      "slot_key": "memo.87",
+      "valid_from": "2026-09-09T00:56:00+00:00",
+      "transaction_from": "2026-09-09T00:56:00+00:00",
+      "confidence": 0.9315,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0088",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "阅读笔记 的记录（2026-09-16）",
+      "slot_key": "memo.88",
+      "valid_from": "2026-09-16T19:55:00+00:00",
+      "transaction_from": "2026-09-19T19:55:00+00:00",
+      "confidence": 0.5887,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0089",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-12 提到 晨间回顾",
+      "slot_key": "memo.89",
+      "valid_from": "2026-09-12T17:00:00+00:00",
+      "transaction_from": "2026-09-12T17:00:00+00:00",
+      "confidence": 0.9886,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0090",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "用户在 2026-09-09 提到 写作草稿",
+      "slot_key": "memo.random-collision.a",
+      "valid_from": "2026-09-09T05:56:00+00:00",
+      "transaction_from": "2026-09-09T05:56:00+00:00",
+      "confidence": 0.7998,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0091",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "财务流水 的记录（2026-09-04）",
+      "slot_key": "memo.91",
+      "valid_from": "2026-09-04T08:33:00+00:00",
+      "transaction_from": "2026-09-04T08:33:00+00:00",
+      "confidence": 0.5067,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0092",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 写作草稿 的要点（2026-09-18 整理）",
+      "slot_key": "memo.92",
+      "valid_from": "2026-09-18T17:40:00+00:00",
+      "transaction_from": "2026-09-18T17:40:00+00:00",
+      "confidence": 0.5212,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0093",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "阅读笔记 的记录（2026-09-16）",
+      "slot_key": "memo.93",
+      "valid_from": "2026-09-16T01:16:00+00:00",
+      "transaction_from": "2026-09-17T01:16:00+00:00",
+      "confidence": 0.9794,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0094",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 晨间回顾 的要点（2026-09-05 整理）",
+      "slot_key": "memo.94",
+      "valid_from": "2026-09-05T14:51:00+00:00",
+      "transaction_from": "2026-09-08T14:51:00+00:00",
+      "confidence": 0.5785,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0095",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "用户在 2026-09-10 提到 财务流水",
+      "slot_key": "memo.95",
+      "valid_from": "2026-09-10T02:32:00+00:00",
+      "transaction_from": "2026-09-13T02:32:00+00:00",
+      "confidence": 0.7415,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0096",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "用户在 2026-09-15 提到 阅读笔记",
+      "slot_key": "memo.96",
+      "valid_from": "2026-09-15T03:25:00+00:00",
+      "transaction_from": "2026-09-18T03:25:00+00:00",
+      "confidence": 0.5892,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0097",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "写作草稿 的记录（2026-09-04）",
+      "slot_key": "memo.97",
+      "valid_from": "2026-09-04T03:54:00+00:00",
+      "transaction_from": "2026-09-05T03:54:00+00:00",
+      "confidence": 0.8196,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0098",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "财务流水 的记录（2026-09-13）",
+      "slot_key": "memo.98",
+      "valid_from": "2026-09-13T15:38:00+00:00",
+      "transaction_from": "2026-09-16T15:38:00+00:00",
+      "confidence": 0.5568,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0099",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "周复盘 的记录（2026-09-03）",
+      "slot_key": "memo.99",
+      "valid_from": "2026-09-03T10:37:00+00:00",
+      "transaction_from": "2026-09-06T10:37:00+00:00",
+      "confidence": 0.9703,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0100",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "周复盘 的记录（2026-09-04）",
+      "slot_key": "memo.random-collision.b",
+      "valid_from": "2026-09-04T06:07:00+00:00",
+      "transaction_from": "2026-09-05T06:07:00+00:00",
+      "confidence": 0.6574,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0101",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "关于 财务流水 的要点（2026-09-09 整理）",
+      "slot_key": "memo.101",
+      "valid_from": "2026-09-09T13:37:00+00:00",
+      "transaction_from": "2026-09-11T13:37:00+00:00",
+      "confidence": 0.7326,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0102",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-11 提到 写作草稿",
+      "slot_key": "memo.102",
+      "valid_from": "2026-09-11T05:31:00+00:00",
+      "transaction_from": "2026-09-12T05:31:00+00:00",
+      "confidence": 0.6173,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0103",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-03 提到 晨间回顾",
+      "slot_key": "memo.103",
+      "valid_from": "2026-09-03T08:12:00+00:00",
+      "transaction_from": "2026-09-05T08:12:00+00:00",
+      "confidence": 0.9736,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0104",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-04 提到 健康记录",
+      "slot_key": "memo.104",
+      "valid_from": "2026-09-04T12:45:00+00:00",
+      "transaction_from": "2026-09-06T12:45:00+00:00",
+      "confidence": 0.7755,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0105",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "关于 阅读笔记 的要点（2026-09-12 整理）",
+      "slot_key": "memo.105",
+      "valid_from": "2026-09-12T17:26:00+00:00",
+      "transaction_from": "2026-09-14T17:26:00+00:00",
+      "confidence": 0.7433,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0106",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "健康记录 的记录（2026-09-11）",
+      "slot_key": "memo.106",
+      "valid_from": "2026-09-11T01:37:00+00:00",
+      "transaction_from": "2026-09-12T01:37:00+00:00",
+      "confidence": 0.7854,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0107",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "写作草稿 的记录（2026-09-08）",
+      "slot_key": "memo.107",
+      "valid_from": "2026-09-08T14:54:00+00:00",
+      "transaction_from": "2026-09-11T14:54:00+00:00",
+      "confidence": 0.6791,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0108",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 晨间回顾 的要点（2026-09-06 整理）",
+      "slot_key": "memo.108",
+      "valid_from": "2026-09-06T13:36:00+00:00",
+      "transaction_from": "2026-09-08T13:36:00+00:00",
+      "confidence": 0.7035,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0109",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 写作草稿 的要点（2026-09-05 整理）",
+      "slot_key": "memo.109",
+      "valid_from": "2026-09-05T19:31:00+00:00",
+      "transaction_from": "2026-09-05T19:31:00+00:00",
+      "confidence": 0.9638,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0110",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "用户在 2026-09-03 提到 阅读笔记",
+      "slot_key": "memo.random-collision.b",
+      "valid_from": "2026-09-03T05:17:00+00:00",
+      "transaction_from": "2026-09-04T05:17:00+00:00",
+      "confidence": 0.9662,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0111",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "写作草稿 的记录（2026-09-10）",
+      "slot_key": "memo.111",
+      "valid_from": "2026-09-10T14:00:00+00:00",
+      "transaction_from": "2026-09-11T14:00:00+00:00",
+      "confidence": 0.645,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0112",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "晨间回顾 的记录（2026-09-07）",
+      "slot_key": "memo.112",
+      "valid_from": "2026-09-07T00:58:00+00:00",
+      "transaction_from": "2026-09-07T00:58:00+00:00",
+      "confidence": 0.6656,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0113",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-16 提到 健康记录",
+      "slot_key": "memo.113",
+      "valid_from": "2026-09-16T00:24:00+00:00",
+      "transaction_from": "2026-09-18T00:24:00+00:00",
+      "confidence": 0.5713,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0114",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "用户在 2026-09-20 提到 晨间回顾",
+      "slot_key": "memo.114",
+      "valid_from": "2026-09-20T11:33:00+00:00",
+      "transaction_from": "2026-09-20T11:33:00+00:00",
+      "confidence": 0.6042,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0115",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "用户在 2026-09-19 提到 晨间回顾",
+      "slot_key": "memo.115",
+      "valid_from": "2026-09-19T16:27:00+00:00",
+      "transaction_from": "2026-09-19T16:27:00+00:00",
+      "confidence": 0.8672,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0116",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-14 提到 财务流水",
+      "slot_key": "memo.116",
+      "valid_from": "2026-09-14T07:15:00+00:00",
+      "transaction_from": "2026-09-17T07:15:00+00:00",
+      "confidence": 0.5363,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0117",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-15 提到 写作草稿",
+      "slot_key": "memo.117",
+      "valid_from": "2026-09-15T13:06:00+00:00",
+      "transaction_from": "2026-09-17T13:06:00+00:00",
+      "confidence": 0.6441,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0118",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "关于 阅读笔记 的要点（2026-09-08 整理）",
+      "slot_key": "memo.118",
+      "valid_from": "2026-09-08T17:53:00+00:00",
+      "transaction_from": "2026-09-10T17:53:00+00:00",
+      "confidence": 0.8908,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0119",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "用户在 2026-09-01 提到 阅读笔记",
+      "slot_key": "memo.119",
+      "valid_from": "2026-09-01T15:56:00+00:00",
+      "transaction_from": "2026-09-03T15:56:00+00:00",
+      "confidence": 0.7741,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0120",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "周复盘 的记录（2026-09-20）",
+      "slot_key": "memo.random-collision.a",
+      "valid_from": "2026-09-20T17:28:00+00:00",
+      "transaction_from": "2026-09-21T17:28:00+00:00",
+      "confidence": 0.6689,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0121",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-11 提到 健康记录",
+      "slot_key": "memo.121",
+      "valid_from": "2026-09-11T14:55:00+00:00",
+      "transaction_from": "2026-09-13T14:55:00+00:00",
+      "confidence": 0.9306,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0122",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "阅读笔记 的记录（2026-09-14）",
+      "slot_key": "memo.122",
+      "valid_from": "2026-09-14T15:16:00+00:00",
+      "transaction_from": "2026-09-14T15:16:00+00:00",
+      "confidence": 0.6097,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0123",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "用户在 2026-09-08 提到 写作草稿",
+      "slot_key": "memo.123",
+      "valid_from": "2026-09-08T12:05:00+00:00",
+      "transaction_from": "2026-09-08T12:05:00+00:00",
+      "confidence": 0.6566,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0124",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "关于 晨间回顾 的要点（2026-09-18 整理）",
+      "slot_key": "memo.124",
+      "valid_from": "2026-09-18T09:52:00+00:00",
+      "transaction_from": "2026-09-19T09:52:00+00:00",
+      "confidence": 0.9492,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0125",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "用户在 2026-09-04 提到 周复盘",
+      "slot_key": "memo.125",
+      "valid_from": "2026-09-04T17:04:00+00:00",
+      "transaction_from": "2026-09-06T17:04:00+00:00",
+      "confidence": 0.8544,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0126",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 周复盘 的要点（2026-09-08 整理）",
+      "slot_key": "memo.126",
+      "valid_from": "2026-09-08T22:37:00+00:00",
+      "transaction_from": "2026-09-09T22:37:00+00:00",
+      "confidence": 0.5205,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0127",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "用户在 2026-08-31 提到 晨间回顾",
+      "slot_key": "memo.127",
+      "valid_from": "2026-08-31T11:32:00+00:00",
+      "transaction_from": "2026-09-01T11:32:00+00:00",
+      "confidence": 0.7557,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0128",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "写作草稿 的记录（2026-09-13）",
+      "slot_key": "memo.128",
+      "valid_from": "2026-09-13T13:00:00+00:00",
+      "transaction_from": "2026-09-14T13:00:00+00:00",
+      "confidence": 0.9163,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0129",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "写作草稿 的记录（2026-09-15）",
+      "slot_key": "memo.129",
+      "valid_from": "2026-09-15T15:49:00+00:00",
+      "transaction_from": "2026-09-18T15:49:00+00:00",
+      "confidence": 0.8505,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0130",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "健康记录 的记录（2026-09-01）",
+      "slot_key": "memo.random-collision.a",
+      "valid_from": "2026-09-01T04:33:00+00:00",
+      "transaction_from": "2026-09-01T04:33:00+00:00",
+      "confidence": 0.9862,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0131",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 财务流水 的要点（2026-09-04 整理）",
+      "slot_key": "memo.131",
+      "valid_from": "2026-09-04T08:07:00+00:00",
+      "transaction_from": "2026-09-04T08:07:00+00:00",
+      "confidence": 0.661,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0132",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 健康记录 的要点（2026-09-14 整理）",
+      "slot_key": "memo.132",
+      "valid_from": "2026-09-14T14:38:00+00:00",
+      "transaction_from": "2026-09-16T14:38:00+00:00",
+      "confidence": 0.9496,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0133",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "健康记录 的记录（2026-09-20）",
+      "slot_key": "memo.133",
+      "valid_from": "2026-09-20T06:59:00+00:00",
+      "transaction_from": "2026-09-20T06:59:00+00:00",
+      "confidence": 0.6966,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0134",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-17 提到 财务流水",
+      "slot_key": "memo.134",
+      "valid_from": "2026-09-17T15:47:00+00:00",
+      "transaction_from": "2026-09-19T15:47:00+00:00",
+      "confidence": 0.8398,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0135",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "用户在 2026-09-12 提到 健康记录",
+      "slot_key": "memo.135",
+      "valid_from": "2026-09-12T16:22:00+00:00",
+      "transaction_from": "2026-09-12T16:22:00+00:00",
+      "confidence": 0.9862,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0136",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "关于 财务流水 的要点（2026-09-18 整理）",
+      "slot_key": "memo.136",
+      "valid_from": "2026-09-18T21:41:00+00:00",
+      "transaction_from": "2026-09-21T21:41:00+00:00",
+      "confidence": 0.5603,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0137",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 健康记录 的要点（2026-09-07 整理）",
+      "slot_key": "memo.137",
+      "valid_from": "2026-09-07T15:51:00+00:00",
+      "transaction_from": "2026-09-10T15:51:00+00:00",
+      "confidence": 0.8365,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0138",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-08 提到 阅读笔记",
+      "slot_key": "memo.138",
+      "valid_from": "2026-09-08T22:52:00+00:00",
+      "transaction_from": "2026-09-11T22:52:00+00:00",
+      "confidence": 0.8676,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0139",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "用户在 2026-09-07 提到 阅读笔记",
+      "slot_key": "memo.139",
+      "valid_from": "2026-09-07T19:10:00+00:00",
+      "transaction_from": "2026-09-08T19:10:00+00:00",
+      "confidence": 0.7959,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0140",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "健康记录 的记录（2026-09-13）",
+      "slot_key": "memo.random-collision.b",
+      "valid_from": "2026-09-13T20:45:00+00:00",
+      "transaction_from": "2026-09-13T20:45:00+00:00",
+      "confidence": 0.5249,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0141",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 健康记录 的要点（2026-09-18 整理）",
+      "slot_key": "memo.141",
+      "valid_from": "2026-09-18T04:58:00+00:00",
+      "transaction_from": "2026-09-20T04:58:00+00:00",
+      "confidence": 0.8848,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0142",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "关于 财务流水 的要点（2026-09-16 整理）",
+      "slot_key": "memo.142",
+      "valid_from": "2026-09-16T08:45:00+00:00",
+      "transaction_from": "2026-09-17T08:45:00+00:00",
+      "confidence": 0.5475,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0143",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-06 提到 晨间回顾",
+      "slot_key": "memo.143",
+      "valid_from": "2026-09-06T10:15:00+00:00",
+      "transaction_from": "2026-09-09T10:15:00+00:00",
+      "confidence": 0.7249,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0144",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-04 提到 阅读笔记",
+      "slot_key": "memo.144",
+      "valid_from": "2026-09-04T01:01:00+00:00",
+      "transaction_from": "2026-09-06T01:01:00+00:00",
+      "confidence": 0.6476,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0145",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "用户在 2026-09-16 提到 阅读笔记",
+      "slot_key": "memo.145",
+      "valid_from": "2026-09-16T09:18:00+00:00",
+      "transaction_from": "2026-09-17T09:18:00+00:00",
+      "confidence": 0.95,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0146",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 晨间回顾 的要点（2026-09-11 整理）",
+      "slot_key": "memo.146",
+      "valid_from": "2026-09-11T16:27:00+00:00",
+      "transaction_from": "2026-09-12T16:27:00+00:00",
+      "confidence": 0.8223,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0147",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "健康记录 的记录（2026-09-15）",
+      "slot_key": "memo.147",
+      "valid_from": "2026-09-15T12:35:00+00:00",
+      "transaction_from": "2026-09-15T12:35:00+00:00",
+      "confidence": 0.9403,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0148",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 阅读笔记 的要点（2026-09-18 整理）",
+      "slot_key": "memo.148",
+      "valid_from": "2026-09-18T14:40:00+00:00",
+      "transaction_from": "2026-09-20T14:40:00+00:00",
+      "confidence": 0.7308,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0149",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "写作草稿 的记录（2026-09-18）",
+      "slot_key": "memo.149",
+      "valid_from": "2026-09-18T15:39:00+00:00",
+      "transaction_from": "2026-09-21T15:39:00+00:00",
+      "confidence": 0.7373,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0150",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-02 提到 阅读笔记",
+      "slot_key": "memo.random-collision.a",
+      "valid_from": "2026-09-02T11:05:00+00:00",
+      "transaction_from": "2026-09-03T11:05:00+00:00",
+      "confidence": 0.7437,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0151",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "健康记录 的记录（2026-09-11）",
+      "slot_key": "memo.151",
+      "valid_from": "2026-09-11T13:25:00+00:00",
+      "transaction_from": "2026-09-11T13:25:00+00:00",
+      "confidence": 0.6122,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0152",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-09 提到 写作草稿",
+      "slot_key": "memo.152",
+      "valid_from": "2026-09-09T18:49:00+00:00",
+      "transaction_from": "2026-09-11T18:49:00+00:00",
+      "confidence": 0.5092,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0153",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-16 提到 周复盘",
+      "slot_key": "memo.153",
+      "valid_from": "2026-09-16T12:21:00+00:00",
+      "transaction_from": "2026-09-19T12:21:00+00:00",
+      "confidence": 0.573,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0154",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 周复盘 的要点（2026-09-09 整理）",
+      "slot_key": "memo.154",
+      "valid_from": "2026-09-09T08:40:00+00:00",
+      "transaction_from": "2026-09-12T08:40:00+00:00",
+      "confidence": 0.9317,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0155",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 周复盘 的要点（2026-09-06 整理）",
+      "slot_key": "memo.155",
+      "valid_from": "2026-09-06T19:17:00+00:00",
+      "transaction_from": "2026-09-08T19:17:00+00:00",
+      "confidence": 0.9326,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0156",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "阅读笔记 的记录（2026-09-12）",
+      "slot_key": "memo.156",
+      "valid_from": "2026-09-12T02:53:00+00:00",
+      "transaction_from": "2026-09-12T02:53:00+00:00",
+      "confidence": 0.5456,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0157",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-11 提到 写作草稿",
+      "slot_key": "memo.157",
+      "valid_from": "2026-09-11T05:49:00+00:00",
+      "transaction_from": "2026-09-12T05:49:00+00:00",
+      "confidence": 0.5213,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0158",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-04 提到 写作草稿",
+      "slot_key": "memo.158",
+      "valid_from": "2026-09-04T22:18:00+00:00",
+      "transaction_from": "2026-09-04T22:18:00+00:00",
+      "confidence": 0.7472,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0159",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-16 提到 健康记录",
+      "slot_key": "memo.159",
+      "valid_from": "2026-09-16T18:19:00+00:00",
+      "transaction_from": "2026-09-18T18:19:00+00:00",
+      "confidence": 0.8449,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0160",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "用户在 2026-09-16 提到 写作草稿",
+      "slot_key": "memo.random-collision.a",
+      "valid_from": "2026-09-16T03:01:00+00:00",
+      "transaction_from": "2026-09-19T03:01:00+00:00",
+      "confidence": 0.9112,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0161",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-01 提到 周复盘",
+      "slot_key": "memo.161",
+      "valid_from": "2026-09-01T11:53:00+00:00",
+      "transaction_from": "2026-09-02T11:53:00+00:00",
+      "confidence": 0.7036,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0162",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "关于 晨间回顾 的要点（2026-09-15 整理）",
+      "slot_key": "memo.162",
+      "valid_from": "2026-09-15T00:44:00+00:00",
+      "transaction_from": "2026-09-18T00:44:00+00:00",
+      "confidence": 0.5749,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0163",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "关于 健康记录 的要点（2026-09-05 整理）",
+      "slot_key": "memo.163",
+      "valid_from": "2026-09-05T22:23:00+00:00",
+      "transaction_from": "2026-09-05T22:23:00+00:00",
+      "confidence": 0.5275,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0164",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 写作草稿 的要点（2026-09-05 整理）",
+      "slot_key": "memo.164",
+      "valid_from": "2026-09-05T12:44:00+00:00",
+      "transaction_from": "2026-09-05T12:44:00+00:00",
+      "confidence": 0.9008,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0165",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 周复盘 的要点（2026-08-29 整理）",
+      "slot_key": "memo.165",
+      "valid_from": "2026-08-29T05:29:00+00:00",
+      "transaction_from": "2026-09-01T05:29:00+00:00",
+      "confidence": 0.6064,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0166",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "用户在 2026-09-06 提到 周复盘",
+      "slot_key": "memo.166",
+      "valid_from": "2026-09-06T08:42:00+00:00",
+      "transaction_from": "2026-09-08T08:42:00+00:00",
+      "confidence": 0.923,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0167",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "关于 写作草稿 的要点（2026-09-02 整理）",
+      "slot_key": "memo.167",
+      "valid_from": "2026-09-02T16:30:00+00:00",
+      "transaction_from": "2026-09-04T16:30:00+00:00",
+      "confidence": 0.6625,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0168",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "阅读笔记 的记录（2026-09-09）",
+      "slot_key": "memo.168",
+      "valid_from": "2026-09-09T02:34:00+00:00",
+      "transaction_from": "2026-09-10T02:34:00+00:00",
+      "confidence": 0.9241,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0169",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "用户在 2026-09-13 提到 财务流水",
+      "slot_key": "memo.169",
+      "valid_from": "2026-09-13T13:24:00+00:00",
+      "transaction_from": "2026-09-16T13:24:00+00:00",
+      "confidence": 0.7565,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0170",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "用户在 2026-09-04 提到 健康记录",
+      "slot_key": "memo.random-collision.a",
+      "valid_from": "2026-09-04T13:01:00+00:00",
+      "transaction_from": "2026-09-05T13:01:00+00:00",
+      "confidence": 0.9851,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0171",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "关于 阅读笔记 的要点（2026-09-16 整理）",
+      "slot_key": "memo.171",
+      "valid_from": "2026-09-16T05:57:00+00:00",
+      "transaction_from": "2026-09-19T05:57:00+00:00",
+      "confidence": 0.5937,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0172",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "关于 晨间回顾 的要点（2026-09-16 整理）",
+      "slot_key": "memo.172",
+      "valid_from": "2026-09-16T08:35:00+00:00",
+      "transaction_from": "2026-09-18T08:35:00+00:00",
+      "confidence": 0.982,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0173",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "周复盘 的记录（2026-09-04）",
+      "slot_key": "memo.173",
+      "valid_from": "2026-09-04T00:14:00+00:00",
+      "transaction_from": "2026-09-06T00:14:00+00:00",
+      "confidence": 0.9844,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0174",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "健康记录 的记录（2026-09-11）",
+      "slot_key": "memo.174",
+      "valid_from": "2026-09-11T05:24:00+00:00",
+      "transaction_from": "2026-09-12T05:24:00+00:00",
+      "confidence": 0.8483,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0175",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "用户在 2026-09-01 提到 晨间回顾",
+      "slot_key": "memo.175",
+      "valid_from": "2026-09-01T14:08:00+00:00",
+      "transaction_from": "2026-09-02T14:08:00+00:00",
+      "confidence": 0.5587,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0176",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-05 提到 财务流水",
+      "slot_key": "memo.176",
+      "valid_from": "2026-09-05T01:46:00+00:00",
+      "transaction_from": "2026-09-07T01:46:00+00:00",
+      "confidence": 0.989,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0177",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "写作草稿 的记录（2026-09-06）",
+      "slot_key": "memo.177",
+      "valid_from": "2026-09-06T04:04:00+00:00",
+      "transaction_from": "2026-09-06T04:04:00+00:00",
+      "confidence": 0.7567,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0178",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "财务流水 的记录（2026-09-02）",
+      "slot_key": "memo.178",
+      "valid_from": "2026-09-02T18:03:00+00:00",
+      "transaction_from": "2026-09-03T18:03:00+00:00",
+      "confidence": 0.9332,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0179",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "用户在 2026-09-08 提到 阅读笔记",
+      "slot_key": "memo.179",
+      "valid_from": "2026-09-08T07:28:00+00:00",
+      "transaction_from": "2026-09-08T07:28:00+00:00",
+      "confidence": 0.8094,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0180",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "用户在 2026-09-16 提到 周复盘",
+      "slot_key": "memo.random-collision.a",
+      "valid_from": "2026-09-16T11:09:00+00:00",
+      "transaction_from": "2026-09-16T11:09:00+00:00",
+      "confidence": 0.9264,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0181",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-19 提到 写作草稿",
+      "slot_key": "memo.181",
+      "valid_from": "2026-09-19T01:19:00+00:00",
+      "transaction_from": "2026-09-19T01:19:00+00:00",
+      "confidence": 0.5371,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0182",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "关于 周复盘 的要点（2026-08-30 整理）",
+      "slot_key": "memo.182",
+      "valid_from": "2026-08-30T17:45:00+00:00",
+      "transaction_from": "2026-09-02T17:45:00+00:00",
+      "confidence": 0.9083,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0183",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "关于 阅读笔记 的要点（2026-09-17 整理）",
+      "slot_key": "memo.183",
+      "valid_from": "2026-09-17T10:41:00+00:00",
+      "transaction_from": "2026-09-17T10:41:00+00:00",
+      "confidence": 0.5871,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0184",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "关于 写作草稿 的要点（2026-09-04 整理）",
+      "slot_key": "memo.184",
+      "valid_from": "2026-09-04T21:56:00+00:00",
+      "transaction_from": "2026-09-04T21:56:00+00:00",
+      "confidence": 0.7682,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0185",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "健康记录 的记录（2026-09-07）",
+      "slot_key": "memo.185",
+      "valid_from": "2026-09-07T04:56:00+00:00",
+      "transaction_from": "2026-09-08T04:56:00+00:00",
+      "confidence": 0.8951,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0186",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "健康记录 的记录（2026-09-04）",
+      "slot_key": "memo.186",
+      "valid_from": "2026-09-04T01:02:00+00:00",
+      "transaction_from": "2026-09-04T01:02:00+00:00",
+      "confidence": 0.7314,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0187",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 阅读笔记 的要点（2026-09-16 整理）",
+      "slot_key": "memo.187",
+      "valid_from": "2026-09-16T09:03:00+00:00",
+      "transaction_from": "2026-09-18T09:03:00+00:00",
+      "confidence": 0.9174,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0188",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "用户在 2026-09-05 提到 阅读笔记",
+      "slot_key": "memo.188",
+      "valid_from": "2026-09-05T01:03:00+00:00",
+      "transaction_from": "2026-09-05T01:03:00+00:00",
+      "confidence": 0.9321,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0189",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-16 提到 健康记录",
+      "slot_key": "memo.189",
+      "valid_from": "2026-09-16T05:11:00+00:00",
+      "transaction_from": "2026-09-18T05:11:00+00:00",
+      "confidence": 0.889,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0190",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "用户在 2026-09-21 提到 周复盘",
+      "slot_key": "memo.random-collision.a",
+      "valid_from": "2026-09-21T21:33:00+00:00",
+      "transaction_from": "2026-09-21T21:33:00+00:00",
+      "confidence": 0.8685,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0191",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 写作草稿 的要点（2026-09-15 整理）",
+      "slot_key": "memo.191",
+      "valid_from": "2026-09-15T22:23:00+00:00",
+      "transaction_from": "2026-09-16T22:23:00+00:00",
+      "confidence": 0.9013,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0192",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 周复盘 的要点（2026-09-01 整理）",
+      "slot_key": "memo.192",
+      "valid_from": "2026-09-01T22:31:00+00:00",
+      "transaction_from": "2026-09-01T22:31:00+00:00",
+      "confidence": 0.751,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0193",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 健康记录 的要点（2026-09-11 整理）",
+      "slot_key": "memo.193",
+      "valid_from": "2026-09-11T23:27:00+00:00",
+      "transaction_from": "2026-09-14T23:27:00+00:00",
+      "confidence": 0.8438,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0194",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "用户在 2026-08-31 提到 阅读笔记",
+      "slot_key": "memo.194",
+      "valid_from": "2026-08-31T07:39:00+00:00",
+      "transaction_from": "2026-09-02T07:39:00+00:00",
+      "confidence": 0.9193,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0195",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "财务流水 的记录（2026-09-10）",
+      "slot_key": "memo.195",
+      "valid_from": "2026-09-10T09:46:00+00:00",
+      "transaction_from": "2026-09-12T09:46:00+00:00",
+      "confidence": 0.7802,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0196",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 财务流水 的要点（2026-09-14 整理）",
+      "slot_key": "memo.196",
+      "valid_from": "2026-09-14T01:51:00+00:00",
+      "transaction_from": "2026-09-15T01:51:00+00:00",
+      "confidence": 0.5499,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0197",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "财务流水 的记录（2026-09-19）",
+      "slot_key": "memo.197",
+      "valid_from": "2026-09-19T14:36:00+00:00",
+      "transaction_from": "2026-09-19T14:36:00+00:00",
+      "confidence": 0.6015,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0198",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "晨间回顾 的记录（2026-09-12）",
+      "slot_key": "memo.198",
+      "valid_from": "2026-09-12T20:03:00+00:00",
+      "transaction_from": "2026-09-15T20:03:00+00:00",
+      "confidence": 0.9789,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0199",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-11 提到 晨间回顾",
+      "slot_key": "memo.199",
+      "valid_from": "2026-09-11T12:17:00+00:00",
+      "transaction_from": "2026-09-11T12:17:00+00:00",
+      "confidence": 0.8625,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0200",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "周复盘 的记录（2026-09-02）",
+      "slot_key": "memo.random-collision.b",
+      "valid_from": "2026-09-02T22:02:00+00:00",
+      "transaction_from": "2026-09-03T22:02:00+00:00",
+      "confidence": 0.8174,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0201",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "晨间回顾 的记录（2026-09-17）",
+      "slot_key": "memo.201",
+      "valid_from": "2026-09-17T01:58:00+00:00",
+      "transaction_from": "2026-09-20T01:58:00+00:00",
+      "confidence": 0.6184,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0202",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "周复盘 的记录（2026-09-17）",
+      "slot_key": "memo.202",
+      "valid_from": "2026-09-17T20:28:00+00:00",
+      "transaction_from": "2026-09-18T20:28:00+00:00",
+      "confidence": 0.5903,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0203",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "写作草稿 的记录（2026-08-30）",
+      "slot_key": "memo.203",
+      "valid_from": "2026-08-30T13:16:00+00:00",
+      "transaction_from": "2026-09-02T13:16:00+00:00",
+      "confidence": 0.987,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0204",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "用户在 2026-09-05 提到 写作草稿",
+      "slot_key": "memo.204",
+      "valid_from": "2026-09-05T18:08:00+00:00",
+      "transaction_from": "2026-09-08T18:08:00+00:00",
+      "confidence": 0.9475,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0205",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "晨间回顾 的记录（2026-09-16）",
+      "slot_key": "memo.205",
+      "valid_from": "2026-09-16T04:11:00+00:00",
+      "transaction_from": "2026-09-17T04:11:00+00:00",
+      "confidence": 0.7489,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0206",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "用户在 2026-09-03 提到 阅读笔记",
+      "slot_key": "memo.206",
+      "valid_from": "2026-09-03T05:10:00+00:00",
+      "transaction_from": "2026-09-04T05:10:00+00:00",
+      "confidence": 0.7707,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0207",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "写作草稿 的记录（2026-09-11）",
+      "slot_key": "memo.207",
+      "valid_from": "2026-09-11T00:26:00+00:00",
+      "transaction_from": "2026-09-11T00:26:00+00:00",
+      "confidence": 0.5571,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0208",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "健康记录 的记录（2026-09-16）",
+      "slot_key": "memo.208",
+      "valid_from": "2026-09-16T14:58:00+00:00",
+      "transaction_from": "2026-09-18T14:58:00+00:00",
+      "confidence": 0.9006,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0209",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-01 提到 阅读笔记",
+      "slot_key": "memo.209",
+      "valid_from": "2026-09-01T08:55:00+00:00",
+      "transaction_from": "2026-09-02T08:55:00+00:00",
+      "confidence": 0.7879,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0210",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-05 提到 周复盘",
+      "slot_key": "memo.random-collision.b",
+      "valid_from": "2026-09-05T07:32:00+00:00",
+      "transaction_from": "2026-09-07T07:32:00+00:00",
+      "confidence": 0.6022,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0211",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-09 提到 晨间回顾",
+      "slot_key": "memo.211",
+      "valid_from": "2026-09-09T23:52:00+00:00",
+      "transaction_from": "2026-09-09T23:52:00+00:00",
+      "confidence": 0.7963,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0212",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "周复盘 的记录（2026-09-21）",
+      "slot_key": "memo.212",
+      "valid_from": "2026-09-21T15:29:00+00:00",
+      "transaction_from": "2026-09-21T15:29:00+00:00",
+      "confidence": 0.5443,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0213",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "用户在 2026-08-31 提到 财务流水",
+      "slot_key": "memo.213",
+      "valid_from": "2026-08-31T05:45:00+00:00",
+      "transaction_from": "2026-09-02T05:45:00+00:00",
+      "confidence": 0.927,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0214",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "关于 周复盘 的要点（2026-08-29 整理）",
+      "slot_key": "memo.214",
+      "valid_from": "2026-08-29T09:44:00+00:00",
+      "transaction_from": "2026-09-01T09:44:00+00:00",
+      "confidence": 0.538,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0215",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "写作草稿 的记录（2026-09-14）",
+      "slot_key": "memo.215",
+      "valid_from": "2026-09-14T17:55:00+00:00",
+      "transaction_from": "2026-09-15T17:55:00+00:00",
+      "confidence": 0.9278,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0216",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "写作草稿 的记录（2026-09-09）",
+      "slot_key": "memo.216",
+      "valid_from": "2026-09-09T12:59:00+00:00",
+      "transaction_from": "2026-09-11T12:59:00+00:00",
+      "confidence": 0.9911,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0217",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-09 提到 写作草稿",
+      "slot_key": "memo.217",
+      "valid_from": "2026-09-09T09:05:00+00:00",
+      "transaction_from": "2026-09-09T09:05:00+00:00",
+      "confidence": 0.89,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0218",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "用户在 2026-09-20 提到 写作草稿",
+      "slot_key": "memo.218",
+      "valid_from": "2026-09-20T11:14:00+00:00",
+      "transaction_from": "2026-09-20T11:14:00+00:00",
+      "confidence": 0.979,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0219",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 晨间回顾 的要点（2026-09-04 整理）",
+      "slot_key": "memo.219",
+      "valid_from": "2026-09-04T12:26:00+00:00",
+      "transaction_from": "2026-09-04T12:26:00+00:00",
+      "confidence": 0.581,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0220",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "用户在 2026-09-09 提到 写作草稿",
+      "slot_key": "memo.random-collision.a",
+      "valid_from": "2026-09-09T23:38:00+00:00",
+      "transaction_from": "2026-09-12T23:38:00+00:00",
+      "confidence": 0.8676,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0221",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "关于 财务流水 的要点（2026-09-12 整理）",
+      "slot_key": "memo.221",
+      "valid_from": "2026-09-12T10:56:00+00:00",
+      "transaction_from": "2026-09-15T10:56:00+00:00",
+      "confidence": 0.7414,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0222",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-18 提到 健康记录",
+      "slot_key": "memo.222",
+      "valid_from": "2026-09-18T06:49:00+00:00",
+      "transaction_from": "2026-09-20T06:49:00+00:00",
+      "confidence": 0.8764,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0223",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "周复盘 的记录（2026-09-02）",
+      "slot_key": "memo.223",
+      "valid_from": "2026-09-02T21:41:00+00:00",
+      "transaction_from": "2026-09-04T21:41:00+00:00",
+      "confidence": 0.5367,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0224",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "健康记录 的记录（2026-09-11）",
+      "slot_key": "memo.224",
+      "valid_from": "2026-09-11T05:06:00+00:00",
+      "transaction_from": "2026-09-14T05:06:00+00:00",
+      "confidence": 0.6723,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0225",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 晨间回顾 的要点（2026-09-07 整理）",
+      "slot_key": "memo.225",
+      "valid_from": "2026-09-07T11:09:00+00:00",
+      "transaction_from": "2026-09-10T11:09:00+00:00",
+      "confidence": 0.8728,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0226",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "财务流水 的记录（2026-09-19）",
+      "slot_key": "memo.226",
+      "valid_from": "2026-09-19T04:14:00+00:00",
+      "transaction_from": "2026-09-19T04:14:00+00:00",
+      "confidence": 0.7673,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0227",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "关于 周复盘 的要点（2026-09-14 整理）",
+      "slot_key": "memo.227",
+      "valid_from": "2026-09-14T16:46:00+00:00",
+      "transaction_from": "2026-09-17T16:46:00+00:00",
+      "confidence": 0.6633,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0228",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "财务流水 的记录（2026-09-12）",
+      "slot_key": "memo.228",
+      "valid_from": "2026-09-12T02:06:00+00:00",
+      "transaction_from": "2026-09-14T02:06:00+00:00",
+      "confidence": 0.9514,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0229",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "关于 周复盘 的要点（2026-09-17 整理）",
+      "slot_key": "memo.229",
+      "valid_from": "2026-09-17T02:33:00+00:00",
+      "transaction_from": "2026-09-20T02:33:00+00:00",
+      "confidence": 0.6572,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0230",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "周复盘 的记录（2026-09-10）",
+      "slot_key": "memo.random-collision.b",
+      "valid_from": "2026-09-10T15:43:00+00:00",
+      "transaction_from": "2026-09-10T15:43:00+00:00",
+      "confidence": 0.7977,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0231",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "写作草稿 的记录（2026-09-07）",
+      "slot_key": "memo.231",
+      "valid_from": "2026-09-07T15:17:00+00:00",
+      "transaction_from": "2026-09-07T15:17:00+00:00",
+      "confidence": 0.8782,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0232",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "关于 晨间回顾 的要点（2026-09-09 整理）",
+      "slot_key": "memo.232",
+      "valid_from": "2026-09-09T09:16:00+00:00",
+      "transaction_from": "2026-09-11T09:16:00+00:00",
+      "confidence": 0.8924,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0233",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-14 提到 写作草稿",
+      "slot_key": "memo.233",
+      "valid_from": "2026-09-14T20:48:00+00:00",
+      "transaction_from": "2026-09-14T20:48:00+00:00",
+      "confidence": 0.7126,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0234",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 晨间回顾 的要点（2026-09-15 整理）",
+      "slot_key": "memo.234",
+      "valid_from": "2026-09-15T00:25:00+00:00",
+      "transaction_from": "2026-09-18T00:25:00+00:00",
+      "confidence": 0.7518,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0235",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "财务流水 的记录（2026-09-12）",
+      "slot_key": "memo.235",
+      "valid_from": "2026-09-12T16:29:00+00:00",
+      "transaction_from": "2026-09-13T16:29:00+00:00",
+      "confidence": 0.9746,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0236",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-08-31 提到 健康记录",
+      "slot_key": "memo.236",
+      "valid_from": "2026-08-31T00:08:00+00:00",
+      "transaction_from": "2026-09-03T00:08:00+00:00",
+      "confidence": 0.8319,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0237",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "关于 财务流水 的要点（2026-09-15 整理）",
+      "slot_key": "memo.237",
+      "valid_from": "2026-09-15T00:48:00+00:00",
+      "transaction_from": "2026-09-15T00:48:00+00:00",
+      "confidence": 0.5698,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0238",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 财务流水 的要点（2026-09-12 整理）",
+      "slot_key": "memo.238",
+      "valid_from": "2026-09-12T08:03:00+00:00",
+      "transaction_from": "2026-09-12T08:03:00+00:00",
+      "confidence": 0.6524,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0239",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "阅读笔记 的记录（2026-09-15）",
+      "slot_key": "memo.239",
+      "valid_from": "2026-09-15T11:16:00+00:00",
+      "transaction_from": "2026-09-18T11:16:00+00:00",
+      "confidence": 0.7929,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0240",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "关于 周复盘 的要点（2026-09-01 整理）",
+      "slot_key": "memo.random-collision.b",
+      "valid_from": "2026-09-01T10:55:00+00:00",
+      "transaction_from": "2026-09-03T10:55:00+00:00",
+      "confidence": 0.8682,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0241",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "关于 健康记录 的要点（2026-09-03 整理）",
+      "slot_key": "memo.241",
+      "valid_from": "2026-09-03T10:53:00+00:00",
+      "transaction_from": "2026-09-06T10:53:00+00:00",
+      "confidence": 0.9612,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0242",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "财务流水 的记录（2026-09-17）",
+      "slot_key": "memo.242",
+      "valid_from": "2026-09-17T03:06:00+00:00",
+      "transaction_from": "2026-09-17T03:06:00+00:00",
+      "confidence": 0.9611,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0243",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "关于 写作草稿 的要点（2026-09-14 整理）",
+      "slot_key": "memo.243",
+      "valid_from": "2026-09-14T15:27:00+00:00",
+      "transaction_from": "2026-09-14T15:27:00+00:00",
+      "confidence": 0.8462,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0244",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "阅读笔记 的记录（2026-09-18）",
+      "slot_key": "memo.244",
+      "valid_from": "2026-09-18T10:41:00+00:00",
+      "transaction_from": "2026-09-19T10:41:00+00:00",
+      "confidence": 0.8526,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0245",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "周复盘 的记录（2026-09-18）",
+      "slot_key": "memo.245",
+      "valid_from": "2026-09-18T09:54:00+00:00",
+      "transaction_from": "2026-09-21T09:54:00+00:00",
+      "confidence": 0.6637,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0246",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "用户在 2026-09-01 提到 周复盘",
+      "slot_key": "memo.246",
+      "valid_from": "2026-09-01T04:34:00+00:00",
+      "transaction_from": "2026-09-02T04:34:00+00:00",
+      "confidence": 0.5806,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0247",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "晨间回顾 的记录（2026-09-05）",
+      "slot_key": "memo.247",
+      "valid_from": "2026-09-05T21:16:00+00:00",
+      "transaction_from": "2026-09-06T21:16:00+00:00",
+      "confidence": 0.6669,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0248",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 健康记录 的要点（2026-09-17 整理）",
+      "slot_key": "memo.248",
+      "valid_from": "2026-09-17T14:24:00+00:00",
+      "transaction_from": "2026-09-18T14:24:00+00:00",
+      "confidence": 0.5989,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0249",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "财务流水 的记录（2026-09-07）",
+      "slot_key": "memo.249",
+      "valid_from": "2026-09-07T08:25:00+00:00",
+      "transaction_from": "2026-09-07T08:25:00+00:00",
+      "confidence": 0.8253,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0250",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 周复盘 的要点（2026-09-02 整理）",
+      "slot_key": "memo.random-collision.a",
+      "valid_from": "2026-09-02T18:37:00+00:00",
+      "transaction_from": "2026-09-05T18:37:00+00:00",
+      "confidence": 0.7406,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0251",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-08 提到 写作草稿",
+      "slot_key": "memo.251",
+      "valid_from": "2026-09-08T20:11:00+00:00",
+      "transaction_from": "2026-09-11T20:11:00+00:00",
+      "confidence": 0.8138,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0252",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "关于 周复盘 的要点（2026-09-08 整理）",
+      "slot_key": "memo.252",
+      "valid_from": "2026-09-08T16:30:00+00:00",
+      "transaction_from": "2026-09-10T16:30:00+00:00",
+      "confidence": 0.6756,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0253",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 写作草稿 的要点（2026-09-02 整理）",
+      "slot_key": "memo.253",
+      "valid_from": "2026-09-02T23:52:00+00:00",
+      "transaction_from": "2026-09-02T23:52:00+00:00",
+      "confidence": 0.8571,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0254",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 阅读笔记 的要点（2026-09-17 整理）",
+      "slot_key": "memo.254",
+      "valid_from": "2026-09-17T18:48:00+00:00",
+      "transaction_from": "2026-09-17T18:48:00+00:00",
+      "confidence": 0.6303,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0255",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-08-29 提到 写作草稿",
+      "slot_key": "memo.255",
+      "valid_from": "2026-08-29T04:41:00+00:00",
+      "transaction_from": "2026-09-01T04:41:00+00:00",
+      "confidence": 0.8812,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0256",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "写作草稿 的记录（2026-08-31）",
+      "slot_key": "memo.256",
+      "valid_from": "2026-08-31T01:50:00+00:00",
+      "transaction_from": "2026-09-02T01:50:00+00:00",
+      "confidence": 0.7796,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0257",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "阅读笔记 的记录（2026-09-06）",
+      "slot_key": "memo.257",
+      "valid_from": "2026-09-06T22:15:00+00:00",
+      "transaction_from": "2026-09-06T22:15:00+00:00",
+      "confidence": 0.9211,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0258",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-03 提到 周复盘",
+      "slot_key": "memo.258",
+      "valid_from": "2026-09-03T12:04:00+00:00",
+      "transaction_from": "2026-09-05T12:04:00+00:00",
+      "confidence": 0.5713,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0259",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "用户在 2026-09-16 提到 写作草稿",
+      "slot_key": "memo.259",
+      "valid_from": "2026-09-16T15:15:00+00:00",
+      "transaction_from": "2026-09-18T15:15:00+00:00",
+      "confidence": 0.584,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0260",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "周复盘 的记录（2026-09-15）",
+      "slot_key": "memo.random-collision.a",
+      "valid_from": "2026-09-15T14:00:00+00:00",
+      "transaction_from": "2026-09-15T14:00:00+00:00",
+      "confidence": 0.9994,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0261",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "周复盘 的记录（2026-09-02）",
+      "slot_key": "memo.261",
+      "valid_from": "2026-09-02T17:10:00+00:00",
+      "transaction_from": "2026-09-05T17:10:00+00:00",
+      "confidence": 0.9481,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0262",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "关于 写作草稿 的要点（2026-09-10 整理）",
+      "slot_key": "memo.262",
+      "valid_from": "2026-09-10T13:10:00+00:00",
+      "transaction_from": "2026-09-12T13:10:00+00:00",
+      "confidence": 0.9996,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0263",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 晨间回顾 的要点（2026-09-16 整理）",
+      "slot_key": "memo.263",
+      "valid_from": "2026-09-16T07:19:00+00:00",
+      "transaction_from": "2026-09-16T07:19:00+00:00",
+      "confidence": 0.522,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0264",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "关于 财务流水 的要点（2026-09-03 整理）",
+      "slot_key": "memo.264",
+      "valid_from": "2026-09-03T13:07:00+00:00",
+      "transaction_from": "2026-09-03T13:07:00+00:00",
+      "confidence": 0.9742,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0265",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "用户在 2026-09-12 提到 写作草稿",
+      "slot_key": "memo.265",
+      "valid_from": "2026-09-12T06:53:00+00:00",
+      "transaction_from": "2026-09-15T06:53:00+00:00",
+      "confidence": 0.6493,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0266",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "周复盘 的记录（2026-09-04）",
+      "slot_key": "memo.266",
+      "valid_from": "2026-09-04T12:01:00+00:00",
+      "transaction_from": "2026-09-06T12:01:00+00:00",
+      "confidence": 0.871,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0267",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 健康记录 的要点（2026-08-31 整理）",
+      "slot_key": "memo.267",
+      "valid_from": "2026-08-31T07:08:00+00:00",
+      "transaction_from": "2026-09-03T07:08:00+00:00",
+      "confidence": 0.5738,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0268",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 健康记录 的要点（2026-09-12 整理）",
+      "slot_key": "memo.268",
+      "valid_from": "2026-09-12T02:08:00+00:00",
+      "transaction_from": "2026-09-14T02:08:00+00:00",
+      "confidence": 0.8058,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0269",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "关于 写作草稿 的要点（2026-09-07 整理）",
+      "slot_key": "memo.269",
+      "valid_from": "2026-09-07T08:53:00+00:00",
+      "transaction_from": "2026-09-09T08:53:00+00:00",
+      "confidence": 0.7485,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0270",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "用户在 2026-09-08 提到 周复盘",
+      "slot_key": "memo.random-collision.b",
+      "valid_from": "2026-09-08T05:26:00+00:00",
+      "transaction_from": "2026-09-10T05:26:00+00:00",
+      "confidence": 0.9039,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0271",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "用户在 2026-08-31 提到 写作草稿",
+      "slot_key": "memo.271",
+      "valid_from": "2026-08-31T16:16:00+00:00",
+      "transaction_from": "2026-09-03T16:16:00+00:00",
+      "confidence": 0.9666,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0272",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-05 提到 阅读笔记",
+      "slot_key": "memo.272",
+      "valid_from": "2026-09-05T17:25:00+00:00",
+      "transaction_from": "2026-09-05T17:25:00+00:00",
+      "confidence": 0.5521,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0273",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "用户在 2026-09-04 提到 健康记录",
+      "slot_key": "memo.273",
+      "valid_from": "2026-09-04T07:04:00+00:00",
+      "transaction_from": "2026-09-04T07:04:00+00:00",
+      "confidence": 0.7478,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0274",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "用户在 2026-09-16 提到 写作草稿",
+      "slot_key": "memo.274",
+      "valid_from": "2026-09-16T13:09:00+00:00",
+      "transaction_from": "2026-09-18T13:09:00+00:00",
+      "confidence": 0.9231,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0275",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 周复盘 的要点（2026-09-18 整理）",
+      "slot_key": "memo.275",
+      "valid_from": "2026-09-18T12:28:00+00:00",
+      "transaction_from": "2026-09-19T12:28:00+00:00",
+      "confidence": 0.9389,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0276",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "用户在 2026-09-05 提到 健康记录",
+      "slot_key": "memo.276",
+      "valid_from": "2026-09-05T15:21:00+00:00",
+      "transaction_from": "2026-09-08T15:21:00+00:00",
+      "confidence": 0.7895,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0277",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "关于 写作草稿 的要点（2026-09-17 整理）",
+      "slot_key": "memo.277",
+      "valid_from": "2026-09-17T21:32:00+00:00",
+      "transaction_from": "2026-09-17T21:32:00+00:00",
+      "confidence": 0.7831,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0278",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 阅读笔记 的要点（2026-08-31 整理）",
+      "slot_key": "memo.278",
+      "valid_from": "2026-08-31T10:46:00+00:00",
+      "transaction_from": "2026-09-02T10:46:00+00:00",
+      "confidence": 0.9526,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0279",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-03 提到 周复盘",
+      "slot_key": "memo.279",
+      "valid_from": "2026-09-03T02:34:00+00:00",
+      "transaction_from": "2026-09-05T02:34:00+00:00",
+      "confidence": 0.5576,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0280",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 健康记录 的要点（2026-09-08 整理）",
+      "slot_key": "memo.random-collision.a",
+      "valid_from": "2026-09-08T14:55:00+00:00",
+      "transaction_from": "2026-09-09T14:55:00+00:00",
+      "confidence": 0.9073,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0281",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-02 提到 阅读笔记",
+      "slot_key": "memo.281",
+      "valid_from": "2026-09-02T04:34:00+00:00",
+      "transaction_from": "2026-09-04T04:34:00+00:00",
+      "confidence": 0.6566,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0282",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "财务流水 的记录（2026-09-11）",
+      "slot_key": "memo.282",
+      "valid_from": "2026-09-11T06:03:00+00:00",
+      "transaction_from": "2026-09-11T06:03:00+00:00",
+      "confidence": 0.5367,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0283",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "健康记录 的记录（2026-09-09）",
+      "slot_key": "memo.283",
+      "valid_from": "2026-09-09T08:15:00+00:00",
+      "transaction_from": "2026-09-09T08:15:00+00:00",
+      "confidence": 0.8858,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0284",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "健康记录 的记录（2026-09-09）",
+      "slot_key": "memo.284",
+      "valid_from": "2026-09-09T13:00:00+00:00",
+      "transaction_from": "2026-09-11T13:00:00+00:00",
+      "confidence": 0.6678,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0285",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "关于 写作草稿 的要点（2026-09-18 整理）",
+      "slot_key": "memo.285",
+      "valid_from": "2026-09-18T03:03:00+00:00",
+      "transaction_from": "2026-09-18T03:03:00+00:00",
+      "confidence": 0.9387,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0286",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-04 提到 健康记录",
+      "slot_key": "memo.286",
+      "valid_from": "2026-09-04T01:51:00+00:00",
+      "transaction_from": "2026-09-04T01:51:00+00:00",
+      "confidence": 0.5683,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0287",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "关于 写作草稿 的要点（2026-09-07 整理）",
+      "slot_key": "memo.287",
+      "valid_from": "2026-09-07T15:15:00+00:00",
+      "transaction_from": "2026-09-09T15:15:00+00:00",
+      "confidence": 0.84,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0288",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 阅读笔记 的要点（2026-09-08 整理）",
+      "slot_key": "memo.288",
+      "valid_from": "2026-09-08T00:56:00+00:00",
+      "transaction_from": "2026-09-09T00:56:00+00:00",
+      "confidence": 0.5814,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0289",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-01 提到 阅读笔记",
+      "slot_key": "memo.289",
+      "valid_from": "2026-09-01T04:55:00+00:00",
+      "transaction_from": "2026-09-03T04:55:00+00:00",
+      "confidence": 0.6482,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0290",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-20 提到 财务流水",
+      "slot_key": "memo.random-collision.b",
+      "valid_from": "2026-09-20T07:19:00+00:00",
+      "transaction_from": "2026-09-20T07:19:00+00:00",
+      "confidence": 0.7371,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0291",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "关于 健康记录 的要点（2026-09-12 整理）",
+      "slot_key": "memo.291",
+      "valid_from": "2026-09-12T19:06:00+00:00",
+      "transaction_from": "2026-09-14T19:06:00+00:00",
+      "confidence": 0.9496,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0292",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 健康记录 的要点（2026-09-12 整理）",
+      "slot_key": "memo.292",
+      "valid_from": "2026-09-12T19:45:00+00:00",
+      "transaction_from": "2026-09-15T19:45:00+00:00",
+      "confidence": 0.9823,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0293",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "写作草稿 的记录（2026-09-03）",
+      "slot_key": "memo.293",
+      "valid_from": "2026-09-03T17:01:00+00:00",
+      "transaction_from": "2026-09-06T17:01:00+00:00",
+      "confidence": 0.8645,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0294",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "阅读笔记 的记录（2026-09-13）",
+      "slot_key": "memo.294",
+      "valid_from": "2026-09-13T21:37:00+00:00",
+      "transaction_from": "2026-09-15T21:37:00+00:00",
+      "confidence": 0.5861,
+      "importance": 1,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0295",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "用户在 2026-09-15 提到 晨间回顾",
+      "slot_key": "memo.295",
+      "valid_from": "2026-09-15T19:54:00+00:00",
+      "transaction_from": "2026-09-17T19:54:00+00:00",
+      "confidence": 0.7549,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0296",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 阅读笔记 的要点（2026-09-07 整理）",
+      "slot_key": "memo.296",
+      "valid_from": "2026-09-07T03:47:00+00:00",
+      "transaction_from": "2026-09-09T03:47:00+00:00",
+      "confidence": 0.6173,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0297",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "关于 财务流水 的要点（2026-09-11 整理）",
+      "slot_key": "memo.297",
+      "valid_from": "2026-09-11T20:53:00+00:00",
+      "transaction_from": "2026-09-13T20:53:00+00:00",
+      "confidence": 0.7247,
+      "importance": 5,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0298",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "健康记录 的记录（2026-09-11）",
+      "slot_key": "memo.298",
+      "valid_from": "2026-09-11T16:15:00+00:00",
+      "transaction_from": "2026-09-11T16:15:00+00:00",
+      "confidence": 0.8086,
+      "importance": 4,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-0299",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "用户在 2026-09-02 提到 健康记录",
+      "slot_key": "memo.299",
+      "valid_from": "2026-09-02T01:22:00+00:00",
+      "transaction_from": "2026-09-05T01:22:00+00:00",
+      "confidence": 0.6002,
+      "importance": 3,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-tie000",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "同槽位并列备忘 user.profile.name（2026-09-01 整理）",
+      "slot_key": "user.profile.name",
+      "valid_from": "2026-09-01T09:00:00+00:00",
+      "transaction_from": "2026-09-02T09:00:00+00:00",
+      "confidence": 0.75,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-tie001",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "同槽位并列备忘 user.profile.name（2026-09-01 整理）",
+      "slot_key": "user.profile.name",
+      "valid_from": "2026-09-01T09:00:00+00:00",
+      "transaction_from": "2026-09-02T09:00:00+00:00",
+      "confidence": 0.76,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-tie010",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "同槽位并列备忘 user.profile.timezone（2026-09-02 整理）",
+      "slot_key": "user.profile.timezone",
+      "valid_from": "2026-09-02T09:00:00+00:00",
+      "transaction_from": "2026-09-03T09:00:00+00:00",
+      "confidence": 0.75,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-tie011",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "同槽位并列备忘 user.profile.timezone（2026-09-02 整理）",
+      "slot_key": "user.profile.timezone",
+      "valid_from": "2026-09-02T09:00:00+00:00",
+      "transaction_from": "2026-09-03T09:00:00+00:00",
+      "confidence": 0.77,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-tie020",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "同槽位并列备忘 user.preference.focus（2026-09-03 整理）",
+      "slot_key": "user.preference.focus",
+      "valid_from": "2026-09-03T09:00:00+00:00",
+      "transaction_from": "2026-09-04T09:00:00+00:00",
+      "confidence": 0.75,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-tie021",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "同槽位并列备忘 user.preference.focus（2026-09-03 整理）",
+      "slot_key": "user.preference.focus",
+      "valid_from": "2026-09-03T09:00:00+00:00",
+      "transaction_from": "2026-09-04T09:00:00+00:00",
+      "confidence": 0.78,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-tie030",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "同槽位并列备忘 user.goal.current（2026-09-04 整理）",
+      "slot_key": "user.goal.current",
+      "valid_from": "2026-09-04T09:00:00+00:00",
+      "transaction_from": "2026-09-05T09:00:00+00:00",
+      "confidence": 0.75,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-tie031",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "semantic",
+      "content": "同槽位并列备忘 user.goal.current（2026-09-04 整理）",
+      "slot_key": "user.goal.current",
+      "valid_from": "2026-09-04T09:00:00+00:00",
+      "transaction_from": "2026-09-05T09:00:00+00:00",
+      "confidence": 0.79,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-tie040",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "同槽位并列备忘 user.habit.review（2026-09-05 整理）",
+      "slot_key": "user.habit.review",
+      "valid_from": "2026-09-05T09:00:00+00:00",
+      "transaction_from": "2026-09-06T09:00:00+00:00",
+      "confidence": 0.75,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    },
+    {
+      "memory_id": "memo-20260901-tie041",
+      "life_id": "life-demo",
+      "subject_id": "user",
+      "type": "episodic",
+      "content": "同槽位并列备忘 user.habit.review（2026-09-05 整理）",
+      "slot_key": "user.habit.review",
+      "valid_from": "2026-09-05T09:00:00+00:00",
+      "transaction_from": "2026-09-06T09:00:00+00:00",
+      "confidence": 0.8,
+      "importance": 2,
+      "annotation": {
+        "annotator_a": "",
+        "annotator_b": "",
+        "kappa_note": "",
+        "arbitrator": "",
+        "arbitration_note": ""
+      }
+    }
+  ]
+}

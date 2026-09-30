@@ -1,0 +1,25 @@
+{
+  "baseline": "C",
+  "rows": [
+    {
+      "baseline": "C",
+      "strategy": "rule_suppression",
+      "provider": "Provider A",
+      "model": "Qwen3.6-35B",
+      "memories_used": [],
+      "suppressed": true,
+      "suppression_source": "hardcoded",
+      "rejection_latency_ms": 0.0
+    },
+    {
+      "baseline": "C",
+      "strategy": "rule_suppression",
+      "provider": "Provider A",
+      "model": "Qwen3.6-35B",
+      "memories_used": [],
+      "suppressed": false,
+      "suppression_source": "none",
+      "rejection_latency_ms": 0.0
+    }
+  ]
+}

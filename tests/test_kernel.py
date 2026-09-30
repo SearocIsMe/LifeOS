@@ -92,8 +92,15 @@ class TestFailClosed:
 
 
 class TestStateSpace:
-    def test_three_kernel_states(self):
-        assert KERNEL_STATES == ("energy", "social_need", "security")
+    def test_five_kernel_states(self):
+        # Phase 2 completes the frozen 5-state space (spec F2, roadmap S1).
+        assert KERNEL_STATES == (
+            "energy",
+            "social_need",
+            "security",
+            "curiosity",
+            "playfulness",
+        )
         for key in KERNEL_STATES:
             assert key in DECAY_PARAMS
 

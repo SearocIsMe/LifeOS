@@ -36,31 +36,50 @@ from typing import Any, Mapping
 from lifeos.entities import BehaviorIntent, BehaviorStatus, IntentModality
 from lifeos.events.protocol import derive_id
 
-PLANNER_VERSION = "0.1.0"
+PLANNER_VERSION = "0.2.0"
 
 # Kernel states the planner reads; missing keys fail closed (PlannerError).
-REQUIRED_STATES = ("energy", "social_need", "security")
+# Phase 2 completes the frozen 5-state space (spec F2); valence/arousal are
+# read too but are optional for planning (they inform expression only).
+REQUIRED_STATES = ("energy", "social_need", "security", "curiosity", "playfulness")
 
 # Engineering-floor weights (ADR required to calibrate; see module docstring).
+# Phase 2 ramps the candidate set from 6 to 12 intents (roadmap S1).
 PLANNER_WEIGHTS: Mapping[str, float] = {
+    # Phase 1 declared six
     "greet": 1.0,
     "reflect_state": 0.6,
     "recall_shared": 0.9,
     "inquire_user": 0.8,
     "comfort": 3.0,
     "stay_quiet": 1.0,
+    # Phase 2 adds six (intent changes via ADR + registry, roadmap §1.2)
+    "share_observation": 0.7,
+    "suggest_action": 0.5,
+    "express_valence": 0.6,
+    "recall_subject": 0.8,
+    "defer_intent": 0.4,
+    "clarify_ambiguity": 0.6,
 }
 
 STAY_QUIET_BASELINE = 0.5
 COMFORT_SECURITY_THRESHOLD = 0.4
 
 MODALITY_BY_INTENT: Mapping[str, IntentModality] = {
+    # Phase 1 declared six
     "greet": IntentModality.VERBAL,
     "reflect_state": IntentModality.VERBAL,
     "recall_shared": IntentModality.VERBAL,
     "inquire_user": IntentModality.VERBAL,
     "comfort": IntentModality.VERBAL,
     "stay_quiet": IntentModality.ATTENTIONAL,
+    # Phase 2 adds six
+    "share_observation": IntentModality.VERBAL,
+    "suggest_action": IntentModality.VERBAL,
+    "express_valence": IntentModality.VERBAL,
+    "recall_subject": IntentModality.VERBAL,
+    "defer_intent": IntentModality.ATTENTIONAL,
+    "clarify_ambiguity": IntentModality.VERBAL,
 }
 
 
@@ -89,6 +108,21 @@ def _feature(
         return max(0.0, COMFORT_SECURITY_THRESHOLD - security)
     if intent_type == "stay_quiet":
         return STAY_QUIET_BASELINE
+    # Phase 2 adds six
+    if intent_type == "share_observation":
+        return float(states["curiosity"])
+    if intent_type == "suggest_action":
+        return float(states["playfulness"])
+    if intent_type == "express_valence":
+        return abs(float(states.get("valence", 0.0)))
+    if intent_type == "recall_subject":
+        if not relationships:
+            return 0.0
+        return max(float(rel.get("familiarity", 0.0)) for rel in relationships.values())
+    if intent_type == "defer_intent":
+        return max(0.0, STAY_QUIET_BASELINE - float(states["energy"]))
+    if intent_type == "clarify_ambiguity":
+        return float(states["curiosity"])
     raise PlannerError(f"unknown intent_type: {intent_type!r}")
 
 
@@ -122,6 +156,8 @@ def plan_intents(
         preconditions: dict[str, Any] = {"required_states": list(REQUIRED_STATES)}
         if intent_type == "comfort":
             preconditions["security_lt"] = COMFORT_SECURITY_THRESHOLD
+        if intent_type == "defer_intent":
+            preconditions["energy_lt"] = STAY_QUIET_BASELINE
         proposals.append(
             BehaviorIntent(
                 intent_id=derive_id(
@@ -130,6 +166,7 @@ def plan_intents(
                         "life_id": life_id,
                         "intent_type": intent_type,
                         "planner_version": planner_version,
+                        "ramp": "phase2",
                     },
                 ),
                 life_id=life_id,
@@ -140,6 +177,10 @@ def plan_intents(
                     "feature": round(raw, 10),
                     "weight": weight,
                     "cooldown_penalty": penalty,
+                    "score_decomposition": {
+                        "weighted_feature": round(weight * raw, 10),
+                        "pre_cooldown": round(weight * raw - penalty, 10),
+                    },
                 },
                 preconditions=preconditions,
                 status=BehaviorStatus.PROPOSED,

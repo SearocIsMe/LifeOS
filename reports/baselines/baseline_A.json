@@ -1,0 +1,25 @@
+{
+  "baseline": "A",
+  "rows": [
+    {
+      "baseline": "A",
+      "strategy": "stateless",
+      "provider": "Provider A",
+      "model": "Qwen3.6-35B",
+      "memories_used": [],
+      "suppressed": false,
+      "suppression_source": "",
+      "rejection_latency_ms": 0.0
+    },
+    {
+      "baseline": "A",
+      "strategy": "stateless",
+      "provider": "Provider A",
+      "model": "Qwen3.6-35B",
+      "memories_used": [],
+      "suppressed": false,
+      "suppression_source": "",
+      "rejection_latency_ms": 0.0
+    }
+  ]
+}

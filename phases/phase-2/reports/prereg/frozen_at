@@ -1,0 +1,11 @@
+{
+  "study": "LifeOS 阶段 2 盲测（第一道外部验证，被试内配对）",
+  "preregistration_template_version": "0.1.0",
+  "template_path": "doc/templates/preregistered_analysis_plan_template.yaml",
+  "discipline": "freeze_before_recruitment & freeze_before_data_collection",
+  "frozen_at": "2026-09-29T08:39:30Z",
+  "authorized_by": "lifeos-maintainer (Jiang Haipeng, 架构负责人)",
+  "timestamp_invariant": "frozen_at < first_data_collected_at",
+  "data_collected": false,
+  "note": "预注册分析计划签署冻结记录（设计 01 §5.1 / §7 DoD S5）。功效核算（alpha=0.05, target_power=0.8, total_n=50）冻结于招募前；若 n 变更需重新冻结。"
+}

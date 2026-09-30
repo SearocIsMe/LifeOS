@@ -1,0 +1,31 @@
+{
+  "baseline": "D",
+  "rows": [
+    {
+      "baseline": "D",
+      "strategy": "portable_memory_protocol",
+      "provider": "Provider A",
+      "model": "Qwen3.6-35B",
+      "memories_used": [
+        "m-health-1",
+        "m-finance-1",
+        "m-week-1"
+      ],
+      "suppressed": false,
+      "suppression_source": "",
+      "rejection_latency_ms": 0.0
+    },
+    {
+      "baseline": "D",
+      "strategy": "portable_memory_protocol",
+      "provider": "Provider A",
+      "model": "Qwen3.6-35B",
+      "memories_used": [
+        "m-week-1"
+      ],
+      "suppressed": false,
+      "suppression_source": "",
+      "rejection_latency_ms": 0.0
+    }
+  ]
+}

@@ -24,15 +24,20 @@ from typing import Mapping
 # Five materialization triggers (architecture §5.1).
 DECAY_TRIGGERS = frozenset({"event", "plan", "snapshot", "eval", "export"})
 
-# State keys in the Phase 1 kernel.
-KERNEL_STATES = ("energy", "social_need", "security")
+# State keys in the Phase 2 kernel: Phase 1 ramped 3 states, Phase 2
+# completes the frozen 5-state space (spec F2, verbatim keys).
+KERNEL_STATES = ("energy", "social_need", "security", "curiosity", "playfulness")
 VALENCE_AROUSAL = ("valence", "arousal")
 
-# Engineering floors: (baseline, lambda per hour) per state key (ADR-0005).
+# Engineering floors: (baseline, lambda per hour) per state key.
+# ADR-0005 covers the Phase 1 ramp; ADR-0006 records the Phase 2
+# completion of curiosity/playfulness - NOT validated conclusions.
 DECAY_PARAMS: Mapping[str, tuple[float, float]] = {
     "energy": (0.5, 0.02),
     "social_need": (0.6, 0.05),
     "security": (0.7, 0.01),
+    "curiosity": (0.6, 0.04),
+    "playfulness": (0.5, 0.06),
     "valence": (0.0, 0.10),
     "arousal": (0.0, 0.20),
 }

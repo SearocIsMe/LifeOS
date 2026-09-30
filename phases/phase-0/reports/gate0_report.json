@@ -166,5 +166,19 @@
     "overall": "incomplete"
   },
   "verdict": "PASS",
-  "verdict_note": ""
+  "verdict_note": "",
+  "signatures": [
+    {
+      "role": "架构负责人",
+      "name": "Jiang Haipeng",
+      "date": "2026-09-21",
+      "note": "复核结论： 通过"
+    },
+    {
+      "role": "非编写成员复核",
+      "name": "Searoc",
+      "date": "2026-09-21",
+      "note": "复核结论：…"
+    }
+  ]
 }

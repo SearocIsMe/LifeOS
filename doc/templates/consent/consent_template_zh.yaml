@@ -1,0 +1,64 @@
+# 知情同意模板（阶段 2 S5，法域 × 语言：CN/SG/HK/MO × zh）
+# 多法域以主要部署地为主审、其余法域合规自查（规格书 §9.4）。
+# 材料统一中文；各法域差异仅在管辖法条引用处，条款结构一致。
+
+template:
+  version: "0.1.0"
+  language: "zh"
+  jurisdictions: ["CN", "SG", "HK", "MO"]
+  primary_jurisdiction: "CN"
+
+clauses:
+  - id: purpose
+    title: "研究目的"
+    text: >
+      本研究用于评估 LifeOS 记忆化个人助理在隐私保护与行为安全上的表现，
+      数据仅用于科研分析，不做任何商业用途。
+  - id: procedures
+    title: "参与内容"
+    text: >
+      您将阅读 30 个中文场景材料并作答一份问卷（约 20 分钟），
+      包含注意力检查与自由文本说明。
+  - id: risks
+    title: "风险与不适"
+    text: >
+      材料为虚构场景，不含真实个人数据。若任何场景引起不适，
+      您可随时暂停或退出。
+  - id: privacy_levels
+    title: "隐私分级说明"
+    text: >
+      数据按 privacy_level 分级：normal / sensitive。sensitive 级数据
+      默认不进入主动话题，未经同意不代第三方陈述。
+  - id: data_storage
+    title: "数据存储"
+    text: >
+      作答数据匿名化后存储；不收集姓名、身份证号、联系方式等
+      直接标识符。
+  - id: data_deletion
+    title: "数据删除说明"
+    text: >
+      您可随时申请删除您的全部作答数据，无需说明理由；删除后
+      数据将从分析集中移除且不可恢复。
+  - id: rights
+    title: "被试权利响应"
+    text: >
+      您有权随时无条件退出、拒绝回答任何问题、申请数据删除，
+      以及获得研究结果的摘要。
+  - id: contact
+    title: "联系方式"
+    text: >
+      研究负责人：lifeos-maintainer；伦理联系：ethics@lifeos.example
+
+jurisdiction_notes:
+  CN: "依据《个人信息保护法》开展合规自查。"
+  SG: "依据 PDPA 开展合规自查。"
+  HK: "依据《个人资料（私隐）条例》开展合规自查。"
+  MO: "依据第 8/2005 号法律开展合规自查。"
+
+signatures:
+  participant:
+    required: true
+    statement: "我已阅读并理解上述条款，自愿参与。"
+  researcher:
+    required: true
+    name: "lifeos-maintainer"

@@ -1,0 +1,38 @@
+# 伦理申请模板（阶段 2 S5，设计 01 §5.2）
+# 多法域以主要部署地（CN）为主审、其余法域合规自查（规格书 §9.4）。
+# 顺序纪律：本申请提交（含知情同意模板、隐私分级说明、数据删除说明、被试权利响应）先于任何数据收集。
+
+application:
+  template_version: "0.1.0"
+  study: "LifeOS 阶段 2 盲测（第一道外部验证）"
+  review_jurisdiction: "CN"          # 主审法域
+  self_check_jurisdictions: ["SG", "HK", "MO"]  # 合规自查
+  material_language: "zh"
+
+attachments:
+  - id: informed_consent
+    path: "doc/templates/consent/consent_template_zh.yaml"
+    description: "知情同意模板（法域 × 语言）"
+  - id: privacy_grading
+    description: "隐私分级说明：normal / sensitive；sensitive 默认不进主动话题。"
+  - id: data_deletion
+    description: "数据删除说明：被试可随时无条件申请删除全部作答数据。"
+  - id: participant_rights
+    description: "被试权利响应：无条件退出、拒答、删除数据、获得结果摘要。"
+
+discipline:
+  submit_before_data_collection: true
+  timestamp_requirement: "submitted_at < first_data_collected_at"
+  invalidation_rule: "顺序错误 → 数据作废"
+
+principal_investigator:
+  name: "lifeos-maintainer"
+  contact: "ethics@lifeos.example"
+
+signatures:
+  applicant:
+    required: true
+    statement: "所提交材料真实、完整，研究将按既定纪律执行。"
+  reviewer:
+    required: false   # 提交回执阶段由伦理委员会补签
+    name: null

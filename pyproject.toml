@@ -32,6 +32,7 @@ where = ["src"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+pythonpath = ["src"]
 markers = [
     "db: tests that require PostgreSQL via DATABASE_URL (cluster postgres: in-pod runner or kubectl port-forward)",
 ]

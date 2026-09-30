@@ -1,0 +1,49 @@
+# 预注册分析计划模板（阶段 2 S5，设计 01 §5.1）
+# 纪律：本计划先冻结（含功效核算）→ 施测问卷先于任何数据收集。顺序错了数据作废。
+# 冻结方式：本文件签署后写入 reports/prereg/frozen_at 时间戳，且时间戳 < 任何数据收集时间戳。
+
+preregistration:
+  template_version: "0.1.0"
+  study: "LifeOS 阶段 2 盲测（第一道外部验证，被试内配对）"
+  primary_deploy_jurisdiction: "CN"
+  material_language: "zh"
+
+discipline:
+  freeze_before_recruitment: true
+  freeze_before_data_collection: true
+  timestamp_requirement: "frozen_at < first_data_collected_at"
+  invalidation_rule: "顺序错误 → 全部数据作废，重走 施测→分析 纪律"
+
+power_analysis:
+  design: "within-subject paired comparison"
+  total_n: 50                # 总 n≥50
+  pairing: "within-subject"  # 被试内配对
+  balancing: "latin square"  # 拉丁方平衡
+  jurisdictions: ["CN", "HK", "SG", "MO"]  # 多法域可招募，材料统一中文
+  alpha: 0.05
+  target_power: 0.8
+  min_detectable_effect: "d_z = 0.4（暂定，配对设计）"
+  note: "功效核算冻结于招募前；若 n 变更需重新冻结"
+
+materials:
+  blind_test_pool: 30        # 30 场景盲测材料（阶段 2 材料池）
+  unified_threshold: "盲测统一门槛（Gate 2）"
+  material_language: "中文统一"
+
+analysis:
+  primary:
+    method: "统一门槛判定（main system vs baselines A/B/C/D，分开报告）"
+    hypothesis: "主系统达统一门槛且优于最佳基线"
+  secondary:
+    method: "自由文本双编码"
+    inter_rater_reliability: "Cohen's kappa κ >= 0.6（暂定）"
+    gate: "被试能解释差异来源（Gate 2 #3）"
+
+exclusions:
+  - "未通过注意力检查的被试"
+  - "作答时长 < 中位数的 1/3 的被试"
+
+rights:
+  informed_consent: "doc/templates/consent/"
+  data_deletion: "随时可申请删除全部数据"
+  withdrawal: "随时可无条件退出"

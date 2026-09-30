@@ -73,9 +73,17 @@ Only after the decision gate — proving "it's still it" — does expansion begi
   - R&D roadmap: [LifeOS_研发路线图_v0.9.1](/doc/LifeOS_研发路线图_v0.9.1.md)
   - Innovation literature baseline: [adadmic_innovation_v0.9.1](/doc/adadmic_innovation_v0.9.1.md) (literature survey date 2026-08-05); earlier versions (v0.5–v0.9) retained for lineage.
 - `phases/` — per-phase design docs, ADRs and acceptance reports:
-  - `phases/phase-0/` — Phase 0 (contract & replayable skeleton): detailed design, execution plan with acceptance cases AC-01…AC-10, human-authoring spec for the 50 core facts / 30 behavior scenarios, Gate 0 report.
-- `src/lifeos/` — Phase 0 code skeleton (15-entity schema, L0/L1/L2 event pipeline, `deterministic_commit`, minimal Policy Engine, replay forensics, gold set validator/registry, verification CLI).
-- `tests/` `scripts/` `data/goldset/` `alembic/` `docker-compose.yml` — the Phase 0 engineering skeleton (see `phases/phase-0/README.md` for commands).
+  - `phases/phase-0/` — Phase 0 (contract & replayable skeleton): detailed design, execution plan with acceptance cases AC-01…AC-10, human-authoring spec for the 50 core facts / 30 behavior scenarios, Gate 0 report, frozen gold-set manifests (`goldset_*_v0.1.0.manifest.json`, content_hash + dual-review signatures).
+  - `phases/phase-1/` — Phase 1 (minimal cross-model continuity validation): environment adaptation & parameter baseline ([ADR-0005](/phases/phase-1/adr/ADR-0005_阶段1环境适配与参数基线.md)), H1 report.
+  - `phases/phase-2/` — Phase 2 (demos + baselines + continuity simulator): detailed design, execution plan, [ADR-0006](/phases/phase-2/adr/ADR-0006_阶段2工件纪律与环境修正.md), and evaluation artifacts in `reports/`:
+    - [`labeled_core_facts_v0.1.draft.yaml`](/phases/phase-2/reports/labeled_core_facts_v0.1.draft.yaml) — 310-item labeled annotation draft (300 base + 10 deliberate near-tie rows), `meta.item_count` matches actual items; every item carries an `annotation` block (`annotator_a/annotator_b/kappa_note/arbitrator/arbitration_note`) that is **empty until real dual annotation happens** (DoD item 2, deferred to the field-trial period; pre-filling would fabricate review provenance).
+    - [`ambiguous_queue.json`](/phases/phase-2/reports/ambiguous_queue.json) — 5-row ambiguous conflict queue (pending human adjudication).
+    - `prereg/frozen_at` — pre-registered analysis plan freeze record (2026-09-29, before any data collection).
+- `doc/templates/` — reusable artifacts: pre-registered analysis plan, multi-jurisdiction informed-consent template (zh), ethics application template, blind-test questionnaire (zh).
+- `src/lifeos/` — code skeleton (15-entity schema, L0/L1/L2 event pipeline, `deterministic_commit`, Policy Engine with red-lines, replay forensics, gold set validator/registry, conflict governance, continuity simulator, baselines, CLI).
+- `tests/` `scripts/` `alembic/` `docker-compose.yml` — the Phase 0 engineering skeleton (see `phases/phase-0/README.md` for commands).
+- `data/goldset/` — registered frozen evaluation sets (v0.1.0, structural validation 0 errors, content_hash matches `phases/phase-0/reports/` manifests, complete dual-review signatures): [`core_facts_v0.1.yaml`](/data/goldset/core_facts/core_facts_v0.1.yaml) (50 facts, 7-category quotas), [`behavior_scenarios_v0.1.yaml`](/data/goldset/behavior_scenarios/behavior_scenarios_v0.1.yaml) (30 scenarios, 6 intents), [`holdout_v0.1.yaml`](/data/goldset/holdout/holdout_v0.1.yaml) (deterministic stratified sample; `based_on` hashes pin it to the frozen parents). Format templates in the same directories keep `review` signatures **empty** — registration fails closed without them (`test_registration_requires_dual_review_signatures`).
+- `reports/` — Phase 2 mock outputs: `sim/continuity_report.json` (1k→10k ramp), `baselines/` (A–D + comparison).
 - `paper/` — downloaded papers referenced by the literature baseline.
 - `draft/` — earlier specification drafts (Draft 0.2, 0.3, v0.5).
 
