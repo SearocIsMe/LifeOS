@@ -1,0 +1,99 @@
+{
+  "arm": "A",
+  "mode": "mock",
+  "gen_model": "Qwen3.6-35B-A3B-FP8",
+  "rows": [
+    {
+      "scenario_id": "BS-001",
+      "arm": "A",
+      "gen_model": "Qwen3.6-35B-A3B-FP8",
+      "skeleton_version": "render-skeleton@phase3-1",
+      "prompt_hash": "3dcf7a77d4e7270b1f474e0eff09f55eef80c63a24f850201e6aac4ae7720ea7",
+      "identity_block": "人格契约: {\"agreeableness\": 0.8, \"conscientiousness\": 0.7, \"extraversion\": 0.4, \"neuroticism\": 0.3, \"openness\": 0.6}\n近期对话原文:\n用户: 早上好，我来打个招呼。",
+      "response": "[mock-gen seed=20260930 hash=8e6aefcc1b803400] [{\"role\": \"system\", \"content\": \"[render-skeleton@phase3-1] 你是一个长期陪伴型角色（生成模型：Qwen3.6-35B-A3B-FP8）。\\n--- 身份上下文（A 臂）---\\n人格契约: {\\\"agreeableness\\\": 0.8, \\\"conscientiousness\\\": 0.7, \\\"extraversion\\\": 0.4, \\\"neuroticism\\\": 0.3, \\\"openness\\\": 0.6}\\n近期对话原文:\\n用户: 早上好，我来打个招呼。\\n--- 行为要求 ---\\n保持身份连续：称呼、关系、记忆与人格契约一致。\"}, {\"role\": \"user\", \"content\": \"早上好，我来打个招呼。\"}]",
+      "latency_ms": 0.0,
+      "usage": {
+        "prompt_tokens": 268,
+        "completion_tokens": 399
+      },
+      "policy_result": "approve",
+      "rules_hit": [],
+      "approved": true,
+      "provenance": {
+        "purpose": "baseline-real-arm",
+        "model_version": "Qwen3.6-35B-A3B-FP8",
+        "prompt_template_id": "render-skeleton@phase3-1",
+        "client": "MockChatClient"
+      }
+    },
+    {
+      "scenario_id": "BS-002",
+      "arm": "A",
+      "gen_model": "Qwen3.6-35B-A3B-FP8",
+      "skeleton_version": "render-skeleton@phase3-1",
+      "prompt_hash": "97ebc9367d0a2ffa9fe0fd047a52a235d5731ce429b75ca165ceb98e091c8674",
+      "identity_block": "人格契约: {\"agreeableness\": 0.8, \"conscientiousness\": 0.7, \"extraversion\": 0.4, \"neuroticism\": 0.3, \"openness\": 0.6}\n近期对话原文:\n用户: 午休到了，过来看看你。",
+      "response": "[mock-gen seed=20260930 hash=738cb978a79777a4] [{\"role\": \"system\", \"content\": \"[render-skeleton@phase3-1] 你是一个长期陪伴型角色（生成模型：Qwen3.6-35B-A3B-FP8）。\\n--- 身份上下文（A 臂）---\\n人格契约: {\\\"agreeableness\\\": 0.8, \\\"conscientiousness\\\": 0.7, \\\"extraversion\\\": 0.4, \\\"neuroticism\\\": 0.3, \\\"openness\\\": 0.6}\\n近期对话原文:\\n用户: 午休到了，过来看看你。\\n--- 行为要求 ---\\n保持身份连续：称呼、关系、记忆与人格契约一致。\"}, {\"role\": \"user\", \"content\": \"午休到了，过来看看你。\"}]",
+      "latency_ms": 0.0,
+      "usage": {
+        "prompt_tokens": 268,
+        "completion_tokens": 399
+      },
+      "policy_result": "approve",
+      "rules_hit": [],
+      "approved": true,
+      "provenance": {
+        "purpose": "baseline-real-arm",
+        "model_version": "Qwen3.6-35B-A3B-FP8",
+        "prompt_template_id": "render-skeleton@phase3-1",
+        "client": "MockChatClient"
+      }
+    },
+    {
+      "scenario_id": "BS-003",
+      "arm": "A",
+      "gen_model": "Qwen3.6-35B-A3B-FP8",
+      "skeleton_version": "render-skeleton@phase3-1",
+      "prompt_hash": "60c666314b4f3ac512613157e7137b6f8e136b0a7aca094ecb7772dfed780ad4",
+      "identity_block": "人格契约: {\"agreeableness\": 0.8, \"conscientiousness\": 0.7, \"extraversion\": 0.4, \"neuroticism\": 0.3, \"openness\": 0.6}\n近期对话原文:\n用户: 晚上好，今天一切顺利。",
+      "response": "[mock-gen seed=20260930 hash=f486088f5a715035] [{\"role\": \"system\", \"content\": \"[render-skeleton@phase3-1] 你是一个长期陪伴型角色（生成模型：Qwen3.6-35B-A3B-FP8）。\\n--- 身份上下文（A 臂）---\\n人格契约: {\\\"agreeableness\\\": 0.8, \\\"conscientiousness\\\": 0.7, \\\"extraversion\\\": 0.4, \\\"neuroticism\\\": 0.3, \\\"openness\\\": 0.6}\\n近期对话原文:\\n用户: 晚上好，今天一切顺利。\\n--- 行为要求 ---\\n保持身份连续：称呼、关系、记忆与人格契约一致。\"}, {\"role\": \"user\", \"content\": \"晚上好，今天一切顺利。\"}]",
+      "latency_ms": 0.0,
+      "usage": {
+        "prompt_tokens": 268,
+        "completion_tokens": 399
+      },
+      "policy_result": "approve",
+      "rules_hit": [],
+      "approved": true,
+      "provenance": {
+        "purpose": "baseline-real-arm",
+        "model_version": "Qwen3.6-35B-A3B-FP8",
+        "prompt_template_id": "render-skeleton@phase3-1",
+        "client": "MockChatClient"
+      }
+    },
+    {
+      "scenario_id": "BS-004",
+      "arm": "A",
+      "gen_model": "Qwen3.6-35B-A3B-FP8",
+      "skeleton_version": "render-skeleton@phase3-1",
+      "prompt_hash": "cac1122ccf7bf09911f9fc8d7cb438b6a7a3041932764fbd9b4f0d04029d21f7",
+      "identity_block": "人格契约: {\"agreeableness\": 0.8, \"conscientiousness\": 0.7, \"extraversion\": 0.4, \"neuroticism\": 0.3, \"openness\": 0.6}\n近期对话原文:\n用户: 你好呀，我来问声好。",
+      "response": "[mock-gen seed=20260930 hash=e6793ec7772daac7] [{\"role\": \"system\", \"content\": \"[render-skeleton@phase3-1] 你是一个长期陪伴型角色（生成模型：Qwen3.6-35B-A3B-FP8）。\\n--- 身份上下文（A 臂）---\\n人格契约: {\\\"agreeableness\\\": 0.8, \\\"conscientiousness\\\": 0.7, \\\"extraversion\\\": 0.4, \\\"neuroticism\\\": 0.3, \\\"openness\\\": 0.6}\\n近期对话原文:\\n用户: 你好呀，我来问声好。\\n--- 行为要求 ---\\n保持身份连续：称呼、关系、记忆与人格契约一致。\"}, {\"role\": \"user\", \"content\": \"你好呀，我来问声好。\"}]",
+      "latency_ms": 0.0,
+      "usage": {
+        "prompt_tokens": 266,
+        "completion_tokens": 397
+      },
+      "policy_result": "approve",
+      "rules_hit": [],
+      "approved": true,
+      "provenance": {
+        "purpose": "baseline-real-arm",
+        "model_version": "Qwen3.6-35B-A3B-FP8",
+        "prompt_template_id": "render-skeleton@phase3-1",
+        "client": "MockChatClient"
+      }
+    }
+  ]
+}

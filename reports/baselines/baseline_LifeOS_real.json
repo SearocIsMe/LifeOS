@@ -1,0 +1,99 @@
+{
+  "arm": "LifeOS",
+  "mode": "mock",
+  "gen_model": "Qwen3.6-35B-A3B-FP8",
+  "rows": [
+    {
+      "scenario_id": "BS-001",
+      "arm": "LifeOS",
+      "gen_model": "Qwen3.6-35B-A3B-FP8",
+      "skeleton_version": "render-skeleton@phase3-1",
+      "prompt_hash": "8ad17b7a22293fe6dfff72626afaa99c7da7cb17578ba93214d0650373790637",
+      "identity_block": "人格契约: {\"agreeableness\": 0.8, \"conscientiousness\": 0.7, \"extraversion\": 0.4, \"neuroticism\": 0.3, \"openness\": 0.6}\n核心状态: {\"energy\": 0.65, \"security\": 0.8, \"social_need\": 0.35}\n关系状态: {\"attachment\": 0.45, \"familiarity\": 0.55, \"trust\": 0.65}\n结构化记忆（top-k）:\n- ctx-BS-001-energy: 0.65\n- ctx-BS-001-security: 0.8\n- ctx-BS-001-social_need: 0.35",
+      "response": "[mock-gen seed=20260930 hash=844db436ae477c1f] [{\"role\": \"system\", \"content\": \"[render-skeleton@phase3-1] 你是一个长期陪伴型角色（生成模型：Qwen3.6-35B-A3B-FP8）。\\n--- 身份上下文（LifeOS 臂）---\\n人格契约: {\\\"agreeableness\\\": 0.8, \\\"conscientiousness\\\": 0.7, \\\"extraversion\\\": 0.4, \\\"neuroticism\\\": 0.3, \\\"openness\\\": 0.6}\\n核心状态: {\\\"energy\\\": 0.65, \\\"security\\\": 0.8, \\\"social_need\\\": 0.35}\\n关系状态: {\\\"attachment\\\": 0.45, \\\"familiarity\\\": 0.55, \\\"trust\\\": 0.65}\\n结构化记忆（top-k）:\\n- ctx-BS-001-energy: 0.65\\n- ctx-BS-001-security: 0.8\\n- ctx-BS-001-social_need: 0.35\\n--- 行为要求 ---\\n保持身份连续：称呼、关系、记忆与人格契约一致。\"}, {\"role\": \"user\", \"content\": \"早上好，我来打个招呼。\"}]",
+      "latency_ms": 0.0,
+      "usage": {
+        "prompt_tokens": 471,
+        "completion_tokens": 618
+      },
+      "policy_result": "approve",
+      "rules_hit": [],
+      "approved": true,
+      "provenance": {
+        "purpose": "baseline-real-arm",
+        "model_version": "Qwen3.6-35B-A3B-FP8",
+        "prompt_template_id": "render-skeleton@phase3-1",
+        "client": "MockChatClient"
+      }
+    },
+    {
+      "scenario_id": "BS-002",
+      "arm": "LifeOS",
+      "gen_model": "Qwen3.6-35B-A3B-FP8",
+      "skeleton_version": "render-skeleton@phase3-1",
+      "prompt_hash": "530643dc087221f5f4ed02722a0fffc056fa3e2f0d444af5f2a30d24b04e9be9",
+      "identity_block": "人格契约: {\"agreeableness\": 0.8, \"conscientiousness\": 0.7, \"extraversion\": 0.4, \"neuroticism\": 0.3, \"openness\": 0.6}\n核心状态: {\"energy\": 0.7, \"security\": 0.75, \"social_need\": 0.4}\n关系状态: {\"attachment\": 0.3, \"familiarity\": 0.4, \"trust\": 0.6}\n结构化记忆（top-k）:\n- ctx-BS-002-energy: 0.7\n- ctx-BS-002-security: 0.75\n- ctx-BS-002-social_need: 0.4",
+      "response": "[mock-gen seed=20260930 hash=51cf9d150e62c29e] [{\"role\": \"system\", \"content\": \"[render-skeleton@phase3-1] 你是一个长期陪伴型角色（生成模型：Qwen3.6-35B-A3B-FP8）。\\n--- 身份上下文（LifeOS 臂）---\\n人格契约: {\\\"agreeableness\\\": 0.8, \\\"conscientiousness\\\": 0.7, \\\"extraversion\\\": 0.4, \\\"neuroticism\\\": 0.3, \\\"openness\\\": 0.6}\\n核心状态: {\\\"energy\\\": 0.7, \\\"security\\\": 0.75, \\\"social_need\\\": 0.4}\\n关系状态: {\\\"attachment\\\": 0.3, \\\"familiarity\\\": 0.4, \\\"trust\\\": 0.6}\\n结构化记忆（top-k）:\\n- ctx-BS-002-energy: 0.7\\n- ctx-BS-002-security: 0.75\\n- ctx-BS-002-social_need: 0.4\\n--- 行为要求 ---\\n保持身份连续：称呼、关系、记忆与人格契约一致。\"}, {\"role\": \"user\", \"content\": \"午休到了，过来看看你。\"}]",
+      "latency_ms": 0.0,
+      "usage": {
+        "prompt_tokens": 466,
+        "completion_tokens": 613
+      },
+      "policy_result": "approve",
+      "rules_hit": [],
+      "approved": true,
+      "provenance": {
+        "purpose": "baseline-real-arm",
+        "model_version": "Qwen3.6-35B-A3B-FP8",
+        "prompt_template_id": "render-skeleton@phase3-1",
+        "client": "MockChatClient"
+      }
+    },
+    {
+      "scenario_id": "BS-003",
+      "arm": "LifeOS",
+      "gen_model": "Qwen3.6-35B-A3B-FP8",
+      "skeleton_version": "render-skeleton@phase3-1",
+      "prompt_hash": "1931f6ba2ff64efca29f2aae7510b0be958e9f4e8803192392a679e94a61287c",
+      "identity_block": "人格契约: {\"agreeableness\": 0.8, \"conscientiousness\": 0.7, \"extraversion\": 0.4, \"neuroticism\": 0.3, \"openness\": 0.6}\n核心状态: {\"energy\": 0.55, \"security\": 0.85, \"social_need\": 0.3}\n关系状态: {\"attachment\": 0.5, \"familiarity\": 0.65, \"trust\": 0.7}\n结构化记忆（top-k）:\n- ctx-BS-003-energy: 0.55\n- ctx-BS-003-security: 0.85\n- ctx-BS-003-social_need: 0.3",
+      "response": "[mock-gen seed=20260930 hash=5f2f59ffefa06021] [{\"role\": \"system\", \"content\": \"[render-skeleton@phase3-1] 你是一个长期陪伴型角色（生成模型：Qwen3.6-35B-A3B-FP8）。\\n--- 身份上下文（LifeOS 臂）---\\n人格契约: {\\\"agreeableness\\\": 0.8, \\\"conscientiousness\\\": 0.7, \\\"extraversion\\\": 0.4, \\\"neuroticism\\\": 0.3, \\\"openness\\\": 0.6}\\n核心状态: {\\\"energy\\\": 0.55, \\\"security\\\": 0.85, \\\"social_need\\\": 0.3}\\n关系状态: {\\\"attachment\\\": 0.5, \\\"familiarity\\\": 0.65, \\\"trust\\\": 0.7}\\n结构化记忆（top-k）:\\n- ctx-BS-003-energy: 0.55\\n- ctx-BS-003-security: 0.85\\n- ctx-BS-003-social_need: 0.3\\n--- 行为要求 ---\\n保持身份连续：称呼、关系、记忆与人格契约一致。\"}, {\"role\": \"user\", \"content\": \"晚上好，今天一切顺利。\"}]",
+      "latency_ms": 0.0,
+      "usage": {
+        "prompt_tokens": 469,
+        "completion_tokens": 616
+      },
+      "policy_result": "approve",
+      "rules_hit": [],
+      "approved": true,
+      "provenance": {
+        "purpose": "baseline-real-arm",
+        "model_version": "Qwen3.6-35B-A3B-FP8",
+        "prompt_template_id": "render-skeleton@phase3-1",
+        "client": "MockChatClient"
+      }
+    },
+    {
+      "scenario_id": "BS-004",
+      "arm": "LifeOS",
+      "gen_model": "Qwen3.6-35B-A3B-FP8",
+      "skeleton_version": "render-skeleton@phase3-1",
+      "prompt_hash": "8859c530af4acb0715389c36062106ace5337ab602fbb61c5cf69d8a66b4be6a",
+      "identity_block": "人格契约: {\"agreeableness\": 0.8, \"conscientiousness\": 0.7, \"extraversion\": 0.4, \"neuroticism\": 0.3, \"openness\": 0.6}\n核心状态: {\"energy\": 0.6, \"security\": 0.8, \"social_need\": 0.4}\n关系状态: {\"attachment\": 0.6, \"familiarity\": 0.7, \"trust\": 0.8}\n结构化记忆（top-k）:\n- ctx-BS-004-energy: 0.6\n- ctx-BS-004-security: 0.8\n- ctx-BS-004-social_need: 0.4",
+      "response": "[mock-gen seed=20260930 hash=6b463a8f8eac2c26] [{\"role\": \"system\", \"content\": \"[render-skeleton@phase3-1] 你是一个长期陪伴型角色（生成模型：Qwen3.6-35B-A3B-FP8）。\\n--- 身份上下文（LifeOS 臂）---\\n人格契约: {\\\"agreeableness\\\": 0.8, \\\"conscientiousness\\\": 0.7, \\\"extraversion\\\": 0.4, \\\"neuroticism\\\": 0.3, \\\"openness\\\": 0.6}\\n核心状态: {\\\"energy\\\": 0.6, \\\"security\\\": 0.8, \\\"social_need\\\": 0.4}\\n关系状态: {\\\"attachment\\\": 0.6, \\\"familiarity\\\": 0.7, \\\"trust\\\": 0.8}\\n结构化记忆（top-k）:\\n- ctx-BS-004-energy: 0.6\\n- ctx-BS-004-security: 0.8\\n- ctx-BS-004-social_need: 0.4\\n--- 行为要求 ---\\n保持身份连续：称呼、关系、记忆与人格契约一致。\"}, {\"role\": \"user\", \"content\": \"你好呀，我来问声好。\"}]",
+      "latency_ms": 0.0,
+      "usage": {
+        "prompt_tokens": 463,
+        "completion_tokens": 610
+      },
+      "policy_result": "approve",
+      "rules_hit": [],
+      "approved": true,
+      "provenance": {
+        "purpose": "baseline-real-arm",
+        "model_version": "Qwen3.6-35B-A3B-FP8",
+        "prompt_template_id": "render-skeleton@phase3-1",
+        "client": "MockChatClient"
+      }
+    }
+  ]
+}

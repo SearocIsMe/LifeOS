@@ -1,0 +1,66 @@
+# 知情同意模板装载：澳门（第 8/2005 号法律）× 中文（Phase 3 S2）
+# 来源：doc/templates/consent/consent_template_zh.yaml（阶段 2 S5）；
+# 拆分装载：MO × zh。模板变更走 ADR + 重新签署，不可原地改。
+# 签署字段为空位：施测期由被试与负责人签署，不预填（签署纪律沿用）。
+
+template:
+  version: "0.1.0"
+  language: "zh"
+  jurisdiction: "MO"
+  document_version: "1.0.0"
+
+clauses:
+  - id: purpose
+    title: "研究目的"
+    text: >
+      本研究用于评估 LifeOS 记忆化个人助理在隐私保护与行为安全上的表现，
+      数据仅用于科研分析，不做任何商业用途。
+  - id: procedures
+    title: "参与内容"
+    text: >
+      您将与 LifeOS 进行为期数周的日常互动（dogfood），并每周填写
+      一份简短问卷（约 10 分钟），包含注意力检查与自由文本说明。
+  - id: risks
+    title: "风险与不适"
+    text: >
+      互动内容为您自愿提供的日常信息。若任何互动引起不适，
+      您可随时暂停或退出。
+  - id: privacy_levels
+    title: "隐私分级说明"
+    text: >
+      数据按 privacy_level 分级：normal / sensitive。sensitive 级数据
+      默认不进入主动话题；敏感个人信息需您的单独同意。
+  - id: data_storage
+    title: "数据存储"
+    text: >
+      互动数据按研究化名存储；直接标识符不入库。评估数据与
+      生产数据物理隔离。
+  - id: data_deletion
+    title: "数据删除说明（两级删除语义）"
+    text: >
+      您可随时申请删除您的数据：治理性删除（修正/失效，历史版本保留）
+      与用户擦除（物理删除：权威记录、向量索引、全文索引、缓存全介质
+      清除，删除后重建索引并验证不可恢复）。追加式事件日志中可能残留
+      的内容片段按 30 天滚动备份窗口自然消亡，备份加密管理。
+  - id: rights
+    title: "个人权利响应"
+    text: >
+      您有权随时查阅、更正、删除、导出您的全部记忆数据（无需说明
+      理由）、无条件退出，以及获得研究结果的摘要。
+  - id: contact
+    title: "联系方式"
+    text: >
+      研究负责人：lifeos-maintainer；伦理联系：ethics@lifeos.example
+
+jurisdiction_note: "依据第 8/2005 号法律《个人资料保护法》开展合规自查；与 PIPL 同源的同意与安全义务。"
+
+signatures:
+  participant:
+    required: true
+    statement: "我已阅读并理解上述条款，自愿参与。"
+    name: ""
+    signed_at: ""
+  researcher:
+    required: true
+    name: ""
+    signed_at: ""

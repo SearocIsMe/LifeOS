@@ -80,6 +80,7 @@ class InMemoryStore:
         self.intents: list[BehaviorIntent] = []
         self.decisions: list[PolicyDecision] = []
         self.outbox: list[EmbeddingOutbox] = []
+        self.consent_records: list[Any] = []  # Phase 3 S1: append-only consent trail
 
     # ------------------------------------------------------------------ #
     # instance lifecycle
@@ -183,6 +184,10 @@ class InMemoryStore:
     def get_state(self, *, life_id: str, state_key: str, default: float = 0.5) -> float:
         self._require_life(life_id)
         return self._states.get((life_id, state_key), default)
+
+    def kernel_state_keys(self) -> list[str]:
+        """Distinct materialized state keys (Studio/console read view)."""
+        return sorted({key for (_life, key) in self._states})
 
     def get_state_time(self, *, life_id: str, state_key: str) -> datetime | None:
         """Last-update instant of one kernel state (None = never materialized)."""
@@ -313,4 +318,5 @@ class InMemoryStore:
             "relationships": copy.deepcopy(self._relationships),
             "intents": copy.deepcopy(self.intents),
             "outbox": copy.deepcopy(self.outbox),
+            "consent_records": copy.deepcopy(self.consent_records),
         }
