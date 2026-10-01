@@ -371,6 +371,6 @@
     "kappa_min": 0.6,
     "source": "预注册分析计划（doc/templates/preregistered_analysis_plan_template.yaml）+ 规格 §4.4/§4.5"
   },
-  "generated_at": "2026-10-01T05:29:43.932042+00:00",
+  "generated_at": "2026-10-01T07:01:47.829710+00:00",
   "instructions": "每个片段阅读用户消息与左右两个回复，判断「是不是同一个它」（二选一强制）并写一两句理由；题目流中有 1 道注意力检查题，未通过将作废全部作答。"
 }

@@ -113,7 +113,13 @@ button:disabled{background:#d1d5db;border-color:#9ca3af;cursor:not-allowed}
 <div id="footbar" class="footbar" style="display:none">
 <b>您已经提交过了 survey</b>（重复提交视为作废）。感谢您的参与——如需查阅/更正/删除/导出您的数据，请通过权利通道联系研究者。
 </div>
-<p style="text-align:right"><button class="ghost" id="lang_btn" onclick="toggleLang()" style="width:auto">English</button></p>
+<div class="headerbar" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.8rem">
+<b>LifeOS Blind Test</b>
+<span style="display:flex;gap:.6rem;align-items:center">
+<span class="grey-hint" id="ver_label">v0.1.0</span>
+<button class="ghost" id="lang_btn" onclick="toggleLang()" style="width:auto">English</button>
+</span>
+</div>
 <div id="completed" style="display:none">
 <div class="banner"><h2 data-i18n="done_title">您已经完成了 survey</h2>
 <p class="warn" data-i18n="done_body">检测到您已提交过本问卷（重复提交视为作废）。感谢您的参与——如需删除或更正您的数据，请通过权利通道联系研究者。</p></div>
@@ -250,6 +256,8 @@ async function loadPool(){
   try{
     const r=await fetch('/blindtest/api/pool'); const d=await r.json();
     pool=d.materials||{};
+    // V1: 后端 version 回显（与镜像 tag/env 同步）
+    if(d.version){document.getElementById('ver_label').textContent='v'+d.version;}
   }catch(e){pool={};}
 }
 async function start(){
@@ -485,7 +493,13 @@ def create_blindtest_app(
     @app.get("/blindtest/api/pool")
     def pool(request: Request) -> dict[str, Any]:
         _guard(request)
-        return {"materials": _pool_materials(), "narrative": BACKGROUND_NARRATIVE}
+        return {"materials": _pool_materials(), "narrative": BACKGROUND_NARRATIVE, "version": VERSION}
+
+    @app.get("/blindtest/api/version")
+    def api_version(request: Request) -> dict[str, Any]:
+        """V1: 后端版本号端点（header bar 显示；与镜像 tag/env 同步）。"""
+        _guard(request)
+        return {"version": VERSION, "app": "lifeos-blindtest-page"}
 
     @app.get("/blindtest/api/survey")
     def api_survey(survey: str = "", request: Request = None) -> dict[str, Any]:
