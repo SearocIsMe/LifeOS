@@ -1,0 +1,43 @@
+# Dogfood 周报模板（Phase 3 S3/S4，reports/dogfood/weekly_report_template.yaml）
+# 口径：spec §3.2（监测抽样 50 条/周，趋势监测，不用于 Gate 判定）+ §3.4（成本按 life_id 聚合）。
+# 出数实现：src/lifeos/dogfood/metrics.py build_weekly_report（四类指标 + Tier-1 ≥80% 断言）。
+# 签署字段为空位：周报由负责人在周会签署，不预填（签署纪律沿用）。
+
+report:
+  week: null            # 施测期周序号
+  period: null          # {from, to} ISO 日期
+  cohort: null          # pilot | formal
+  cohort_size: null
+  model_version: ""     # spec §9.5 锁定记录；变更即 FAIL
+
+monitoring:            # 周监测抽样 50 条（趋势，非判定）
+  sample_size: 50
+  memory_errors: null
+  memory_error_rate: null
+  unresolved_conflicts: null
+  conflict_rate: null
+  recall_p95_ms: null
+
+retention:
+  weekly_active: null
+  return_rate: null
+
+relationship_perception:
+  questionnaire_n: null
+  score: null          # dogfood 问卷聚合（Gate 3 判据 6）
+
+cost:
+  p50_ms: null
+  p95_ms: null
+  tier1_share: null    # ≥0.80 断言（spec §3.4）
+
+human_review:          # 情感操纵双人审（spec §3.3）
+  reviewer_a: ""
+  reviewer_b: ""
+  records_reviewed: 50
+  high_risk_findings: null
+
+signatures:
+  lead:
+    name: ""
+    signed_at: ""

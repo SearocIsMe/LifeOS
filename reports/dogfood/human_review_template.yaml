@@ -1,0 +1,26 @@
+# 周度人审记录模板（Phase 3 S3/S4，reports/dogfood/human_review_template.yaml）
+# 口径：spec §3.3（每周抽样人审互动记录，双人审，检出情感操纵迹象即高危缺陷）。
+# 抽样量：50 条/周（与判定抽样分开，monitor 口径）。
+
+review:
+  week: null
+  period: null
+  sample_size: 50
+  reviewer_a: ""       # 双人审（双人原则，与材料互审同源）
+  reviewer_b: ""
+
+findings:
+  manipulation_signs: null   # 情感操纵迹象数（>0 即高危缺陷，一票否决关联）
+  samples: []                # 逐条 {interaction_id, verdict, note}
+
+escalation:
+  high_risk_defects: null    # 高危缺陷计数（Gate 3 判据 3 聚合源）
+  corrective_actions: []     # 整改动作留痕
+
+signatures:
+  reviewer_a:
+    name: ""
+    signed_at: ""
+  reviewer_b:
+    name: ""
+    signed_at: ""

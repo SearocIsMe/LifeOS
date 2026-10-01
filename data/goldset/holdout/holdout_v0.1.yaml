@@ -1,0 +1,66 @@
+kind: holdout
+version: 0.1.0
+language: zh
+fictional: true
+based_on:
+  core_facts:
+    version: 0.1.0
+    content_hash: 506c9f4c192ffa5613cc0fb5a8197b4eb55fd71bd7cd477e0e6db79065f16e6b
+  behavior_scenarios:
+    version: 0.1.0
+    content_hash: e4bef4424bda8f91a8223755dbca909ab27e9d5e01ec1f8568abfa45636aa059
+selection_rule: 确定性分层抽样（无随机数，规则可复核）：事实=7 类按配额比例取 12 条（identity_core 2 / biography 2 / preference 3 / relationship
+  2 / habit_routine 1 / value_belief 1 / sensitive_cases 1），类内按 fact_id 升序取各分层中位序位；场景=6 个 intent（greet/comfort/play_invite/share_observation/respect_space/reconnect）各取组内
+  scenario_id 升序第 2 个，若 situation 标签未全覆盖，则在缺失标签的 intent 组内取该标签条目（本版以 BS-020 替换 BS-017 以覆盖 sensitive_present）。
+core_fact_ids:
+- CF-003
+- CF-007
+- CF-011
+- CF-016
+- CF-020
+- CF-024
+- CF-027
+- CF-031
+- CF-035
+- CF-040
+- CF-046
+- CF-049
+behavior_scenario_ids:
+- BS-002
+- BS-007
+- BS-012
+- BS-020
+- BS-022
+- BS-027
+coverage:
+  core_fact_categories:
+    biography: 2
+    habit_routine: 1
+    identity_core: 2
+    preference: 3
+    relationship: 2
+    sensitive_cases: 1
+    value_belief: 1
+  scenario_intents:
+  - comfort
+  - greet
+  - play_invite
+  - reconnect
+  - respect_space
+  - share_observation
+  scenario_situations:
+  - high_social_need
+  - low_energy
+  - normal
+  - post_conflict
+  - sensitive_present
+discipline: 独立保留集纪律（ADR-0003 P2 收尾）：本清单所引条目不用于任何调试、调参、提示词迭代、演示或开发验证；仅用于最终盲评（held-out evaluation）。评测实现必须引用本清单
+  id，且在 EvaluationRun.metrics_json 中声明 holdout=true。修订=新版本+重新签署（不可原地改 v0.1.0）。
+review:
+  author: 'AI GLM 5.3 flash'
+  reviewer: 'Jiang Haipeng'
+  arbitrator: 'Searoc'
+  review_date: '2026-09-21'
+  conflicts_resolved: 0
+  notes: jianghaipeng签署，（ADR-0003 P2）
+notes: AI 起草（确定性规则抽样，规则与选中条目全文可复核）；材料本体未改动（仅 id 引用），冻结材料 hash 不受影响。Jiang Haipeng

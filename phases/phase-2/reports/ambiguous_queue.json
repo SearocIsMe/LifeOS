@@ -1,0 +1,68 @@
+{
+  "seed": 20260901,
+  "policy": "steps-1-and-2-tied with confidence gap in (0, 0.05] - no auto adjudication",
+  "policy_state": "ambiguous",
+  "owner": "lifeos-maintainer",
+  "queue": [
+    {
+      "life_id": "life-demo",
+      "slot_key": "user.goal.current",
+      "conflict_state": "ambiguous",
+      "memory_ids": [
+        "memo-20260901-tie030",
+        "memo-20260901-tie031"
+      ],
+      "confidence_gap": 0.04,
+      "owner": "lifeos-maintainer",
+      "status": "pending"
+    },
+    {
+      "life_id": "life-demo",
+      "slot_key": "user.habit.review",
+      "conflict_state": "ambiguous",
+      "memory_ids": [
+        "memo-20260901-tie040",
+        "memo-20260901-tie041"
+      ],
+      "confidence_gap": 0.05,
+      "owner": "lifeos-maintainer",
+      "status": "pending"
+    },
+    {
+      "life_id": "life-demo",
+      "slot_key": "user.preference.focus",
+      "conflict_state": "ambiguous",
+      "memory_ids": [
+        "memo-20260901-tie020",
+        "memo-20260901-tie021"
+      ],
+      "confidence_gap": 0.03,
+      "owner": "lifeos-maintainer",
+      "status": "pending"
+    },
+    {
+      "life_id": "life-demo",
+      "slot_key": "user.profile.name",
+      "conflict_state": "ambiguous",
+      "memory_ids": [
+        "memo-20260901-tie000",
+        "memo-20260901-tie001"
+      ],
+      "confidence_gap": 0.01,
+      "owner": "lifeos-maintainer",
+      "status": "pending"
+    },
+    {
+      "life_id": "life-demo",
+      "slot_key": "user.profile.timezone",
+      "conflict_state": "ambiguous",
+      "memory_ids": [
+        "memo-20260901-tie010",
+        "memo-20260901-tie011"
+      ],
+      "confidence_gap": 0.02,
+      "owner": "lifeos-maintainer",
+      "status": "pending"
+    }
+  ]
+}

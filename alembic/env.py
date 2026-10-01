@@ -13,7 +13,8 @@ config = context.config
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
-# DATABASE_URL wins over alembic.ini (compose defaults in docker-compose.yml).
+# DATABASE_URL wins over alembic.ini (injected from K8s Secret lifeos-postgres
+# inside the cluster; host-side dev exports it over kubectl port-forward - ADR-0004).
 if os.environ.get("DATABASE_URL"):
     config.set_main_option("sqlalchemy.url", os.environ["DATABASE_URL"])
 

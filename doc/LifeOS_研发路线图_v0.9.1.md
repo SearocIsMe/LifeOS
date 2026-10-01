@@ -206,17 +206,7 @@
 
 ---
 
-## 7. 第一周动手清单（Day 1–5，具体到天）
-
-- **Day 1**：仓库初始化（`pyproject.toml`、pre-commit、CI 骨架）；`docker-compose.yml`（postgres+pgvector）；ADR-0001（**记录边界参数：中文锁定 / 单机多实例 / 多法域 / 盲测口径**）。
-- **Day 2**：`LifeInstance / RawEvent / InterpretedEvent / DomainEvent` 四个实体的 Pydantic 模型 + Alembic 首迁移。
-- **Day 3**：`deterministic_commit(event, schema_version, policy_version) -> DomainEvent` 纯函数签名 + 单测骨架（先测后写）。
-- **Day 4**：剩余 **11 个实体** Schema（含 `ConsentRecord / GoldSetRegistry / EmbeddingOutbox` 三个支撑实体）；核心事实集编写开工（每人 10 条，**中文**，互审）。
-- **Day 5**：事件管线最小 round-trip 脚本跑通（L0→L1 mock→L2→状态写）；周会核对 Gate 0 清单差距。
-
----
-
-## 8. 风险与降级路径（路线图层）
+## 7. 风险与降级路径（路线图层）
 
 | 风险 | 触发信号 | 降级路径 |
 |---|---|---|
@@ -230,6 +220,6 @@
 
 ---
 
-## 9. 一句话总结
+## 8. 一句话总结
 
 **第 1 周写契约，第 4 周证 H1，第 12 周见用户盲测，其余都是支撑。** 每个数字都有来源与校准路径（§1.2），每个阶段都写清「输入什么数据、输出什么数据、谁来验证」（§1.1）——这套路线图最贵的部分不是做完它，而是在任何一个 Gate 上说「不」。

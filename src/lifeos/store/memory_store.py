@@ -43,6 +43,11 @@ class Effects:
     """Staged authoritative-state changes of exactly one L2 (one transaction)."""
 
     state_updates: dict[tuple[str, str], float] = field(default_factory=dict)
+    # Injected transaction time of the staging L2 (committed_at). Recorded for
+    # every applied state key so later lazy-decay reads know their t0. States
+    # staged without a state_time (direct test tooling) are treated as
+    # never-materialized by decay reads.
+    state_time: datetime | None = None
     memory_inserts: list[MemoryRecord] = field(default_factory=list)
     memory_updates: list[MemoryRecord] = field(default_factory=list)
     relationship_upserts: list[RelationshipState] = field(default_factory=list)
@@ -69,11 +74,13 @@ class InMemoryStore:
         self.l2_events: list[DomainEvent] = []
         self._l2_by_l1: dict[str, DomainEvent] = {}
         self._states: dict[tuple[str, str], float] = {}
+        self._state_times: dict[tuple[str, str], datetime] = {}
         self.memories: list[MemoryRecord] = []
         self._relationships: dict[tuple[str, str], RelationshipState] = {}
         self.intents: list[BehaviorIntent] = []
         self.decisions: list[PolicyDecision] = []
         self.outbox: list[EmbeddingOutbox] = []
+        self.consent_records: list[Any] = []  # Phase 3 S1: append-only consent trail
 
     # ------------------------------------------------------------------ #
     # instance lifecycle
@@ -178,6 +185,15 @@ class InMemoryStore:
         self._require_life(life_id)
         return self._states.get((life_id, state_key), default)
 
+    def kernel_state_keys(self) -> list[str]:
+        """Distinct materialized state keys (Studio/console read view)."""
+        return sorted({key for (_life, key) in self._states})
+
+    def get_state_time(self, *, life_id: str, state_key: str) -> datetime | None:
+        """Last-update instant of one kernel state (None = never materialized)."""
+        self._require_life(life_id)
+        return self._state_times.get((life_id, state_key))
+
     def query_memories(
         self,
         *,
@@ -208,9 +224,13 @@ class InMemoryStore:
     # authoritative state writes - GUARDED
     # ------------------------------------------------------------------ #
 
-    def _set_state(self, life_id: str, state_key: str, value: float) -> None:
+    def _set_state(
+        self, life_id: str, state_key: str, value: float, at: datetime | None = None
+    ) -> None:
         """PRIVATE on purpose: authoritative state writes only via commit_effects."""
         self._states[(life_id, state_key)] = value
+        if at is not None:
+            self._state_times[(life_id, state_key)] = at
 
     def commit_effects(
         self,
@@ -250,7 +270,7 @@ class InMemoryStore:
 
         # ---- single application phase: nothing below may raise ----
         for (life_id, key), value in staged_states.items():
-            self._set_state(life_id, key, value)
+            self._set_state(life_id, key, value, at=effects.state_time)
         current_ids = {m.memory_id for m in self.memories}
         for m in staged_updates:
             if m.memory_id not in current_ids:
@@ -298,4 +318,5 @@ class InMemoryStore:
             "relationships": copy.deepcopy(self._relationships),
             "intents": copy.deepcopy(self.intents),
             "outbox": copy.deepcopy(self.outbox),
+            "consent_records": copy.deepcopy(self.consent_records),
         }

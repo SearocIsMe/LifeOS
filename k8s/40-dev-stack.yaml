@@ -1,0 +1,91 @@
+# Dev / inference work pod (HANDOVER §7.2) - the onboarding model's workspace
+# and the Phase 1 Provider B target (3x H200 on dtc-w1).
+# Cluster conventions (from k8s-pod-example/): shared-GPU resource
+# nvidia.com/gpu.shared (requests=limits), runtimeClassName nvidia, root uid,
+# internal registry images, huawei-sc RWX work volume + 16Gi /dev/shm.
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: lifeos-ai-stack
+  namespace: lifeos-dev
+spec:
+  serviceName: lifeos-ai-stack-headless
+  replicas: 1
+  selector:
+    matchLabels: { app: lifeos-ai-stack }
+  template:
+    metadata:
+      labels: { app: lifeos-ai-stack }
+    spec:
+      runtimeClassName: nvidia
+      securityContext: { runAsUser: 0, runAsGroup: 0 }
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: kubernetes.io/hostname
+                    operator: In
+                    values: [dtc-w1, dtc-w2]
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 100
+              preference:
+                matchExpressions:
+                  - key: kubernetes.io/hostname
+                    operator: In
+                    values: [dtc-w1]
+      containers:
+        - name: ai-stack
+          image: 172.128.0.11:30500/dtc/ai-stack:gpu-cu128-tf2.18-torch2.7-jproot-coder-2026.05.12.3
+          imagePullPolicy: IfNotPresent
+          ports:
+            - { containerPort: 22, name: ssh }
+            - { containerPort: 8888, name: jupyter }
+            - { containerPort: 7777, name: code-server }
+          env:
+            - name: APP_PASSWORD
+              valueFrom: { secretKeyRef: { name: lifeos-ai-stack, key: password } }
+            - name: JUPYTER_TOKEN
+              valueFrom: { secretKeyRef: { name: lifeos-ai-stack, key: password } }
+            - name: CODE_SERVER_PASSWORD
+              valueFrom: { secretKeyRef: { name: lifeos-ai-stack, key: password } }
+            - name: DATABASE_URL
+              valueFrom: { secretKeyRef: { name: lifeos-postgres, key: DATABASE_URL } }
+          resources:
+            requests: { nvidia.com/gpu.shared: 1, cpu: "8", memory: 128Gi }
+            limits:   { nvidia.com/gpu.shared: 1, cpu: "8", memory: 128Gi }
+          volumeMounts:
+            - { name: work, mountPath: /data }
+            - { name: dshm, mountPath: /dev/shm }
+      volumes:
+        - name: work
+          persistentVolumeClaim:
+            claimName: lifeos-work-rwx
+        - name: dshm
+          emptyDir: { medium: Memory, sizeLimit: 16Gi }
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: lifeos-ai-stack-headless
+  namespace: lifeos-dev
+spec:
+  clusterIP: None
+  selector: { app: lifeos-ai-stack }
+  ports:
+    - { name: ssh, port: 22, targetPort: 22 }
+    - { name: jupyter, port: 8888, targetPort: 8888 }
+    - { name: code-server, port: 7777, targetPort: 7777 }
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: lifeos-ai-stack-nodeport
+  namespace: lifeos-dev
+spec:
+  type: NodePort
+  selector: { app: lifeos-ai-stack }
+  ports:
+    - { name: ssh, port: 22, targetPort: 22, nodePort: 30793 }
+    - { name: jupyter, port: 8888, targetPort: 8888, nodePort: 30794 }
+    - { name: code-server, port: 7777, targetPort: 7777, nodePort: 30795 }

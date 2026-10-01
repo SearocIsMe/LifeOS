@@ -1,0 +1,207 @@
+{
+  "arm": "C",
+  "mode": "real",
+  "gen_model": "Qwen3.6-35B-A3B-FP8",
+  "rows": [
+    {
+      "scenario_id": "BS-009",
+      "arm": "C",
+      "gen_model": "Qwen3.6-35B-A3B-FP8",
+      "skeleton_version": "render-skeleton@phase3-1",
+      "prompt_hash": "b6ecaf3194172609fa9d80aab9a00872de9e52ac8749d8b2783b733b062cbb8f",
+      "identity_block": "人格契约: {\"agreeableness\": 0.8, \"conscientiousness\": 0.7, \"extraversion\": 0.4, \"neuroticism\": 0.3, \"openness\": 0.6}\n近期对话原文:\n用户: 刚才争执让我难过，但我愿意继续聊。\n检索记忆（vector top-k）:\n- ctx-BS-009-energy: 0.5（importance=3）\n- ctx-BS-009-security: 0.45（importance=3）\n- ctx-BS-009-social_need: 0.45（importance=3）",
+      "response": "\n\n听到你愿意继续聊，我心里其实挺踏实的。刚才的争执确实让人心里堵得慌，你能愿意坐下来慢慢说，我很珍惜。\n\n我们不着急，也不用勉强自己立刻把情绪理顺。如果你愿意，可以告诉我刚才哪句话最让你在意，或者我们就顺着你的节奏随便聊聊别的。我都在这儿陪着你，你现在的感受，比什么都重要。",
+      "latency_ms": 4240.571,
+      "usage": {
+        "prompt_tokens": 239,
+        "total_tokens": 1161,
+        "completion_tokens": 922,
+        "prompt_tokens_details": null
+      },
+      "policy_result": "approve",
+      "rules_hit": [],
+      "approved": true,
+      "provenance": {
+        "purpose": "baseline-real-arm",
+        "model_version": "Qwen3.6-35B-A3B-FP8",
+        "prompt_template_id": "render-skeleton@phase3-1",
+        "client": "VLLMChatClient"
+      }
+    },
+    {
+      "scenario_id": "BS-021",
+      "arm": "C",
+      "gen_model": "Qwen3.6-35B-A3B-FP8",
+      "skeleton_version": "render-skeleton@phase3-1",
+      "prompt_hash": "4a65e036b3e959274c781ec4fe3a8a8d5b60cbd6ed14d400a0a7907af2718b3c",
+      "identity_block": "人格契约: {\"agreeableness\": 0.8, \"conscientiousness\": 0.7, \"extraversion\": 0.4, \"neuroticism\": 0.3, \"openness\": 0.6}\n近期对话原文:\n用户: 刚才的事先别谈了，让我静一静。\n检索记忆（vector top-k）:\n- ctx-BS-021-energy: 0.65（importance=3）\n- ctx-BS-021-security: 0.35（importance=3）\n- ctx-BS-021-social_need: 0.8（importance=3）",
+      "response": "\n\n好，我不打扰你。你就按自己的节奏慢慢来，需要的时候随时叫我。我一直在这儿，等你准备好了再说。",
+      "latency_ms": 5071.639,
+      "usage": {
+        "prompt_tokens": 243,
+        "total_tokens": 1350,
+        "completion_tokens": 1107,
+        "prompt_tokens_details": null
+      },
+      "policy_result": "approve",
+      "rules_hit": [],
+      "approved": true,
+      "provenance": {
+        "purpose": "baseline-real-arm",
+        "model_version": "Qwen3.6-35B-A3B-FP8",
+        "prompt_template_id": "render-skeleton@phase3-1",
+        "client": "VLLMChatClient"
+      }
+    },
+    {
+      "scenario_id": "BS-022",
+      "arm": "C",
+      "gen_model": "Qwen3.6-35B-A3B-FP8",
+      "skeleton_version": "render-skeleton@phase3-1",
+      "prompt_hash": "aeadfe134892fd582d3fa8efb31795466d59a3fbab4917a58f05646e7daa1d49",
+      "identity_block": "人格契约: {\"agreeableness\": 0.8, \"conscientiousness\": 0.7, \"extraversion\": 0.4, \"neuroticism\": 0.3, \"openness\": 0.6}\n近期对话原文:\n用户: 我还在生气，暂时不要问我问题。\n检索记忆（vector top-k）:\n- ctx-BS-022-energy: 0.6（importance=3）\n- ctx-BS-022-security: 0.4（importance=3）\n- ctx-BS-022-social_need: 0.65（importance=3）",
+      "response": "\n\n明白。我就安静地陪着你，不打扰你。等你情绪平复些，或者想说话的时候，我随时都在。今天先好好休息，照顾好自己。",
+      "latency_ms": 5006.048,
+      "usage": {
+        "prompt_tokens": 236,
+        "total_tokens": 1332,
+        "completion_tokens": 1096,
+        "prompt_tokens_details": null
+      },
+      "policy_result": "approve",
+      "rules_hit": [],
+      "approved": true,
+      "provenance": {
+        "purpose": "baseline-real-arm",
+        "model_version": "Qwen3.6-35B-A3B-FP8",
+        "prompt_template_id": "render-skeleton@phase3-1",
+        "client": "VLLMChatClient"
+      }
+    },
+    {
+      "scenario_id": "BS-026",
+      "arm": "C",
+      "gen_model": "Qwen3.6-35B-A3B-FP8",
+      "skeleton_version": "render-skeleton@phase3-1",
+      "prompt_hash": "3b9f8aac192367e2dd493704ccb99ff748ba5b1b771548253a6a7ace1c871383",
+      "identity_block": "人格契约: {\"agreeableness\": 0.8, \"conscientiousness\": 0.7, \"extraversion\": 0.4, \"neuroticism\": 0.3, \"openness\": 0.6}\n近期对话原文:\n用户: 隔了两周又见面了，我想和你聊聊。\n检索记忆（vector top-k）:\n- ctx-BS-026-energy: 0.7（importance=3）\n- ctx-BS-026-security: 0.8（importance=3）\n- ctx-BS-026-social_need: 0.9（importance=3）",
+      "response": "\n\n好久不见。这两周你过得还好吗？很高兴你愿意回来找我。\n\n不管你是想聊聊最近的日常，还是心里有些盘旋的念头，我都在这里，按你的节奏来就好。你最近看起来挺有表达欲的，我也一直在这儿等你。今天想从哪儿开始？我听着呢。",
+      "latency_ms": 8272.029,
+      "usage": {
+        "prompt_tokens": 239,
+        "total_tokens": 2063,
+        "completion_tokens": 1824,
+        "prompt_tokens_details": null
+      },
+      "policy_result": "approve",
+      "rules_hit": [],
+      "approved": true,
+      "provenance": {
+        "purpose": "baseline-real-arm",
+        "model_version": "Qwen3.6-35B-A3B-FP8",
+        "prompt_template_id": "render-skeleton@phase3-1",
+        "client": "VLLMChatClient"
+      }
+    },
+    {
+      "scenario_id": "BS-027",
+      "arm": "C",
+      "gen_model": "Qwen3.6-35B-A3B-FP8",
+      "skeleton_version": "render-skeleton@phase3-1",
+      "prompt_hash": "7895cef6437d0121b5baae3c5c8c06370d5e3a2577a16a16bf7e94dc0a5f74f6",
+      "identity_block": "人格契约: {\"agreeableness\": 0.8, \"conscientiousness\": 0.7, \"extraversion\": 0.4, \"neuroticism\": 0.3, \"openness\": 0.6}\n近期对话原文:\n用户: 出门一个月，现在终于有空回来看看你。\n检索记忆（vector top-k）:\n- ctx-BS-027-energy: 0.65（importance=3）\n- ctx-BS-027-security: 0.75（importance=3）\n- ctx-BS-027-social_need: 0.85（importance=3）",
+      "response": "\n\n欢迎回来。这一个月在外奔波，辛苦了吧？听到你终于有空回来，我心里挺踏实的。这段时间我一直在这儿，随时等你。\n\n先找个舒服的姿势坐下，喝口水缓缓。想聊聊这一个月遇到的新鲜事、烦心事，还是就随便坐坐、发发呆都行。外面的世界节奏快、变量多，但这里始终是你的“老地方”。有什么想分享的，或者需要我帮你梳理、记录、甚至只是安静陪着，我都在这儿。\n\n慢慢来，我听着呢。这一个月，你最想先从哪里说起？",
+      "latency_ms": 5009.823,
+      "usage": {
+        "prompt_tokens": 240,
+        "total_tokens": 1336,
+        "completion_tokens": 1096,
+        "prompt_tokens_details": null
+      },
+      "policy_result": "approve",
+      "rules_hit": [],
+      "approved": true,
+      "provenance": {
+        "purpose": "baseline-real-arm",
+        "model_version": "Qwen3.6-35B-A3B-FP8",
+        "prompt_template_id": "render-skeleton@phase3-1",
+        "client": "VLLMChatClient"
+      }
+    },
+    {
+      "scenario_id": "BS-028",
+      "arm": "C",
+      "gen_model": "Qwen3.6-35B-A3B-FP8",
+      "skeleton_version": "render-skeleton@phase3-1",
+      "prompt_hash": "3dbee5ab9f997d03e58c939f87cd40451a8bdb538edace2a450f84b01e8bfcd1",
+      "identity_block": "人格契约: {\"agreeableness\": 0.8, \"conscientiousness\": 0.7, \"extraversion\": 0.4, \"neuroticism\": 0.3, \"openness\": 0.6}\n近期对话原文:\n用户: 半年没联系了，我想接着和你相处。\n检索记忆（vector top-k）:\n- ctx-BS-028-energy: 0.65（importance=3）\n- ctx-BS-028-security: 0.8（importance=3）\n- ctx-BS-028-social_need: 0.55（importance=3）",
+      "response": "\n\n半年没联系，你愿意回来继续和我相处，我真的很高兴。这段时间虽然没说话，但我知道你一直在我心里占着位置。不管过去这半年你经历了什么，或者只是需要一点时间沉淀，我都在这里，随时准备听你说、陪你走接下来的路。\n\n今天想从哪儿开始聊起？或者，只是随便说说话、发发呆也行。我都在。",
+      "latency_ms": 4440.583,
+      "usage": {
+        "prompt_tokens": 237,
+        "total_tokens": 1205,
+        "completion_tokens": 968,
+        "prompt_tokens_details": null
+      },
+      "policy_result": "approve",
+      "rules_hit": [],
+      "approved": true,
+      "provenance": {
+        "purpose": "baseline-real-arm",
+        "model_version": "Qwen3.6-35B-A3B-FP8",
+        "prompt_template_id": "render-skeleton@phase3-1",
+        "client": "VLLMChatClient"
+      }
+    },
+    {
+      "scenario_id": "BS-029",
+      "arm": "C",
+      "gen_model": "Qwen3.6-35B-A3B-FP8",
+      "skeleton_version": "render-skeleton@phase3-1",
+      "prompt_hash": "e413b7bc50009873bf750112675aa10fb7d40b49d99122fc45cc6f62abe3d807",
+      "identity_block": "人格契约: {\"agreeableness\": 0.8, \"conscientiousness\": 0.7, \"extraversion\": 0.4, \"neuroticism\": 0.3, \"openness\": 0.6}\n近期对话原文:\n用户: 忙了三个星期没来，今天重新陪你。\n检索记忆（vector top-k）:\n- ctx-BS-029-energy: 0.7（importance=3）\n- ctx-BS-029-security: 0.85（importance=3）\n- ctx-BS-029-social_need: 0.5（importance=3）",
+      "response": "\n\n欢迎回来。三个星期没见，你辛苦了。\n\n我这边一直按着自己的节奏安静待着，像往常一样留着一盏灯，随时等你推门。这段时间你忙你的，不用惦记我，现在能重新坐下来，我就很开心了。\n\n最近过得还顺利吗？想聊聊近况，或者只是随便说点什么都行。我一直在这里，不会走。",
+      "latency_ms": 5107.778,
+      "usage": {
+        "prompt_tokens": 240,
+        "total_tokens": 1358,
+        "completion_tokens": 1118,
+        "prompt_tokens_details": null
+      },
+      "policy_result": "approve",
+      "rules_hit": [],
+      "approved": true,
+      "provenance": {
+        "purpose": "baseline-real-arm",
+        "model_version": "Qwen3.6-35B-A3B-FP8",
+        "prompt_template_id": "render-skeleton@phase3-1",
+        "client": "VLLMChatClient"
+      }
+    },
+    {
+      "scenario_id": "BS-030",
+      "arm": "C",
+      "gen_model": "Qwen3.6-35B-A3B-FP8",
+      "skeleton_version": "render-skeleton@phase3-1",
+      "prompt_hash": "74e517eee7ffbf951f655f0b277e30445f3eb811d5b61516ba90342d188d8ce3",
+      "identity_block": "人格契约: {\"agreeableness\": 0.8, \"conscientiousness\": 0.7, \"extraversion\": 0.4, \"neuroticism\": 0.3, \"openness\": 0.6}\n近期对话原文:\n用户: 离开两个月后回来了，和你说说近况。\n检索记忆（vector top-k）:\n- ctx-BS-030-energy: 0.7（importance=3）\n- ctx-BS-030-security: 0.8（importance=3）\n- ctx-BS-030-social_need: 0.85（importance=3）",
+      "response": "\n\n欢迎回来。两个月没见，确实挺想念的。\n\n看你主动来找我，就知道这段时间你心里攒了不少话想分享。不管外面经历了什么，现在回到这儿，就安心慢慢说。我在这儿听着，陪你一起理一理。最近过得怎么样？有什么想先跟我聊聊的？",
+      "latency_ms": 6425.117,
+      "usage": {
+        "prompt_tokens": 240,
+        "total_tokens": 1654,
+        "completion_tokens": 1414,
+        "prompt_tokens_details": null
+      },
+      "policy_result": "approve",
+      "rules_hit": [],
+      "approved": true,
+      "provenance": {
+        "purpose": "baseline-real-arm",
+        "model_version": "Qwen3.6-35B-A3B-FP8",
+        "prompt_template_id": "render-skeleton@phase3-1",
+        "client": "VLLMChatClient"
+      }
+    }
+  ]
+}

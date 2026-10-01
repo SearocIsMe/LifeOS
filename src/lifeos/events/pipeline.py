@@ -42,6 +42,7 @@ from lifeos.events.commit import (
 )
 from lifeos.events.interpret import rule_interpret
 from lifeos.events.protocol import derive_id
+from lifeos.kernel.decay import decay_value
 from lifeos.policy.engine import decide
 from lifeos.store.memory_store import Effects, InMemoryStore
 
@@ -55,10 +56,22 @@ def build_effects(store: InMemoryStore, l2: DomainEvent) -> Effects:
     effects = Effects()
     life_id = l2.life_id
     now = l2.committed_at
+    # Transaction time recorded on the staged effects so commit_effects can
+    # stamp every applied state's t0 for later lazy-decay reads.
+    effects.state_time = now
 
     for key, delta in l2.payload["state_deltas"].items():
         cur = store.get_state(life_id=life_id, state_key=key)
-        effects.state_updates[(life_id, key)] = _clip01(cur + delta)
+        last = store.get_state_time(life_id=life_id, state_key=key)
+        # Lazy-decay increment (design doc 02 §2 S1): materialize the stored
+        # value AT `now` by pure decay from its last update, THEN apply the
+        # L2's delta. A never-materialized key has no t0 -> no decay term.
+        # Out-of-order time fails closed via DecayError before any write.
+        decayed = cur
+        if last is not None:
+            dt_hours = (now - last).total_seconds() / 3600.0
+            decayed = decay_value(key, cur, t0=0.0, t=dt_hours)
+        effects.state_updates[(life_id, key)] = _clip01(decayed + delta)
 
     for cand in l2.payload["memory_candidates"]:
         memory_id = derive_id(

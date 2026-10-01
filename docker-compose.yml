@@ -1,6 +1,10 @@
 # LifeOS Phase 0 - the only infrastructure is the authoritative store.
 # Architecture v0.9.1 §1: single authoritative source = PostgreSQL 16 + pgvector.
 # No app/worker/studio containers in Phase 0 (skeleton = "a bootable empty system").
+#
+# DEMOTED per ADR-0004 (2026-09-16): the Gate 0 acceptance path is now the K8s
+# cluster (k8s/ + `kubectl apply -k k8s/`). This file is a LOCAL DEV FALLBACK
+# only and is no longer the Gate 0 verification path.
 
 services:
   postgres:

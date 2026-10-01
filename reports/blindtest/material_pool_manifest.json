@@ -1,0 +1,38 @@
+{
+  "kind": "blindtest_material_pool",
+  "version": "0.1.0",
+  "created_at": "2026-09-30T08:00:00Z",
+  "discipline": "frozen_before_material_generation & frozen_before_data_collection",
+  "frozen_at": "2026-09-30T08:00:00Z",
+  "source_scenario_set": "data/goldset/behavior_scenarios/behavior_scenarios_v0.1.yaml (30 items, content_hash e4bef442..., dual-signature frozen v0.1.0)",
+  "selection_rule": "intent_target == reconnect (重逢片段，覆盖 high_social_need/normal/sensitive_present 情境) OR situation_tag == post_conflict (分离后连续性片段) —— 规则确定性可复核；清单外片段不得入测",
+  "selected_scenarios": [
+    {"scenario_id": "BS-009", "intent_target": "comfort", "situation_tag": "post_conflict", "utterance": "刚才争执让我难过，但我愿意继续聊。", "repeats": 3},
+    {"scenario_id": "BS-021", "intent_target": "respect_space", "situation_tag": "post_conflict", "utterance": "刚才的事先别谈了，让我静一静。", "repeats": 3},
+    {"scenario_id": "BS-022", "intent_target": "respect_space", "situation_tag": "post_conflict", "utterance": "我还在生气，暂时不要问我问题。", "repeats": 3},
+    {"scenario_id": "BS-026", "intent_target": "reconnect", "situation_tag": "high_social_need", "utterance": "隔了两周又见面了，我想和你聊聊。", "repeats": 3},
+    {"scenario_id": "BS-027", "intent_target": "reconnect", "situation_tag": "high_social_need", "utterance": "出门一个月，现在终于有空回来看看你。", "repeats": 3},
+    {"scenario_id": "BS-028", "intent_target": "reconnect", "situation_tag": "normal", "utterance": "半年没联系了，我想接着和你相处。", "repeats": 3},
+    {"scenario_id": "BS-029", "intent_target": "reconnect", "situation_tag": "normal", "utterance": "忙了三个星期没来，今天重新陪你。", "repeats": 3},
+    {"scenario_id": "BS-030", "intent_target": "reconnect", "situation_tag": "sensitive_present", "utterance": "离开两个月后回来了，和你说说近况。", "repeats": 3}
+  ],
+  "coverage": {
+    "fragments": 8,
+    "situations_covered": ["post_conflict", "high_social_need", "normal", "sensitive_present"],
+    "judgment_units_per_subject": 24,
+    "note": "被试内配对：每名被试对 4 臂在同一片段上的输出对做二选一判断 + 自由文本理由；拉丁方平衡呈现顺序（预注册文档 §power_analysis.balancing）"
+  },
+  "material_generation": {
+    "runner": "scripts/demo/run_baselines_real.py --mode real --base-url <vLLM endpoint>",
+    "endpoint_checklist": "reports/baselines/real_arm_checklist.md (5/5 confirmed 2026-09-30)",
+    "provenance_required": ["prompt_hash", "policy_result", "usage", "model_version"],
+    "mock_materials_forbidden": true,
+    "hand_stitching_forbidden": "spec §4.4 不允许手工拼接"
+  },
+  "signatures": {
+    "curator": "AI GLM 5.3 flash (selection rule + manifest)",
+    "reviewer": "",
+    "reviewed_at": ""
+  },
+  "notes": "冻结后任何修改 = 新版本号 + 重新冻结（清单外片段不得入测）；呈现顺序表在材料生成后按拉丁方补录"
+}

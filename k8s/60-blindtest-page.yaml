@@ -1,0 +1,61 @@
+# Blind-test subject page (B4.1 施测页) - the survey page a recruited subject
+# opens. Deployment (stateless) + NodePort 30811 (用户指定：8000::30811).
+#
+# Mirror: image built from deploy/blindtest/Dockerfile (uv venv + uvicorn 8000);
+# pushed to the internal registry (172.128.0.11:30500/dtc/...).
+# Data: responses.jsonl written to the work PVC (/data/blindtest/responses.jsonl
+# + ledgers) - same volume the ai-stack uses, so B5 分析在 ai-stack Pod 直接读。
+#
+# Apply: kubectl apply -f k8s/60-blindtest-page.yaml
+# Verify: curl http://<node>:30811/blindtest → 200 含 2026-ETH-00001
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lifeos-blindtest-page
+  namespace: lifeos-dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels: { app: lifeos-blindtest-page }
+  template:
+    metadata:
+      labels: { app: lifeos-blindtest-page }
+    spec:
+      securityContext: { runAsUser: 0, runAsGroup: 0 }
+      containers:
+        - name: blindtest-page
+          image: 172.128.0.11:30500/dtc/lifeos-blindtest-page:0.1.0
+          imagePullPolicy: Always
+          ports:
+            - { containerPort: 8000, name: http }
+          env:
+            - name: LIFEOS_BT_OUT_DIR
+              value: /data/blindtest
+            - name: LIFEOS_BT_PORT
+              value: "8000"
+            - name: LIFEOS_BT_POOL_FILE
+              value: /data/LifeOS/reports/baselines
+          resources:
+            requests: { cpu: "1", memory: 2Gi }
+            limits:   { cpu: "2", memory: 4Gi }
+          volumeMounts:
+            - { name: work, mountPath: /data }
+          readinessProbe:
+            httpGet: { path: /blindtest, port: 8000 }
+            initialDelaySeconds: 5
+            periodSeconds: 10
+      volumes:
+        - name: work
+          persistentVolumeClaim:
+            claimName: lifeos-work-rwx   # 集群实际 PVC（50Gi RWX huawei-sc，ai-stack 同卷——B5 分析直接读）
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: lifeos-blindtest-page
+  namespace: lifeos-dev
+spec:
+  type: NodePort
+  selector: { app: lifeos-blindtest-page }
+  ports:
+    - { port: 8000, targetPort: 8000, nodePort: 30811, name: http }   # 用户指定：8000::30811

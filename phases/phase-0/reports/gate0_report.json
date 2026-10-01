@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-15T13:52:32.795274+00:00",
+  "generated_at": "2026-09-29T06:03:24.374552+00:00",
   "schema_version": "0.1.0",
   "policy_version": "0.1.0",
   "rules_version": "0.1.0",
@@ -59,15 +59,6 @@
       "detail": {
         "problems": []
       }
-    },
-    {
-      "name": "db_tier",
-      "status": "pass",
-      "detail": {
-        "tables_found": 16,
-        "missing": [],
-        "append_only_privileges": "pass"
-      }
     }
   ],
   "gate_criteria": {
@@ -121,26 +112,73 @@
     }
   },
   "environment": {
-    "docker": {
-      "version": null,
-      "compose_version": null
+    "k8s": {
+      "kubectl": true,
+      "namespace": {
+        "name": "lifeos-dev",
+        "exists": true
+      },
+      "nodes": {
+        "aisi-w7": {
+          "ready": true
+        },
+        "dtc-w1": {
+          "ready": true
+        },
+        "dtc-w2": {
+          "ready": true
+        }
+      },
+      "postgres_pods": [
+        {
+          "name": "lifeos-postgres-0",
+          "phase": "Running",
+          "ready": true
+        }
+      ],
+      "postgres_pod_ready": true,
+      "provider_secret_names": [
+        "lifeos-provider-b-glm53",
+        "lifeos-provider-b-qwen36",
+        "lifeos-provider-b-qwen38"
+      ]
     },
     "postgres": {
-      "reachable": true,
-      "pgvector_extension": true
+      "reachable": false,
+      "pgvector_extension": null
     },
     "gpu": {
-      "nvidia_smi": true,
-      "gpus": "NVIDIA GeForce RTX 4060 Laptop GPU, 8188 MiB"
+      "probe": "kubectl exec lifeos-ai-stack-0 -- nvidia-smi",
+      "gpus": "NVIDIA H200 NVL, 143771 MiB",
+      "error": null
     },
     "provider_keys": {
-      "configured": [],
+      "k8s_secret_names": [
+        "lifeos-provider-b-glm53",
+        "lifeos-provider-b-qwen36",
+        "lifeos-provider-b-qwen38"
+      ],
+      "env_names": [],
       "names_only": true,
-      "note": "key VALUES are never printed"
+      "note": "key VALUES are never printed (K8s Secret existence probe, HANDOVER §5)"
     },
-    "python": "3.12.7",
+    "python": "3.12.14",
     "overall": "incomplete"
   },
   "verdict": "PASS",
-  "verdict_note": ""
+  "verdict_note": "",
+  "signatures": [
+    {
+      "role": "架构负责人",
+      "name": "Jiang Haipeng",
+      "date": "2026-09-21",
+      "note": "复核结论： 通过"
+    },
+    {
+      "role": "非编写成员复核",
+      "name": "Searoc",
+      "date": "2026-09-21",
+      "note": "复核结论：…"
+    }
+  ]
 }

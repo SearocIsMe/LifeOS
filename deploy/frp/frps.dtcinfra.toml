@@ -1,0 +1,21 @@
+# frps（公网服务器侧）配置——lifeos.dtcinfra.net 主机上运行
+#
+# 部署位置：lifeos.dtcinfra.net 解析到的公网主机（已有 30810~30820 出口对接）
+# 需要该主机防火墙放行（入站）：
+#   - 30810 (frp bind，frpc 从 NTU 出口主动连入)
+#   - 30811 (可选 TCP 隧道公网端口)
+#   - 80/443 (被试浏览器访问；HTTPS 建议用 Caddy 反代 8080)
+
+bindAddr = "0.0.0.0"
+bindPort = 30810          # 与 frpc.serverPort 一致（NTU 出口 30810~30820 段）
+
+vhostHTTPPort = 8080      # HTTP vhost（被试浏览器 → nginx/caddy 反代 443 → 8080）
+
+auth.method = "token"
+auth.token = "LIFEOS_FRP_TOKEN_CHANGE_ME"   # 部署时替换（与 frpc 一致）
+
+# 管理面板（可选，仅本机访问）
+webServer.addr = "127.0.0.1"
+webServer.port = 7500
+webServer.user = "admin"
+webServer.password = "CHANGE_ME"
