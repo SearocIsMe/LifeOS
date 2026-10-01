@@ -28,10 +28,14 @@ def _run(*args: str) -> subprocess.CompletedProcess:
     )
 
 
-def test_runner_mock_pass_30_probes():
-    r = _run("--mode", "mock")
+def test_runner_mock_pass_30_probes(tmp_path):
+    """mock 全量跑分写入 tmp 目录——不覆盖真臂素材（素材污染事件修复，2026-09-30）。"""
+    r = _run("--mode", "mock", "--out-dir", str(tmp_path))
     assert r.returncode == 0, r.stdout + r.stderr
     assert "PASS (mock, 30 probes x 4 arms" in r.stdout
+    # real 素材池未被覆盖
+    real = json.loads((REPORT_DIR / "baseline_LifeOS_real.json").read_text(encoding="utf-8"))
+    assert real.get("mode") == "real", "real material pool polluted by mock run"
 
 
 def test_runner_real_fail_closed_without_base_url():
@@ -40,11 +44,11 @@ def test_runner_real_fail_closed_without_base_url():
     assert "requires --base-url" in r.stdout
 
 
-def test_reports_written_with_provenance():
-    r = _run("--mode", "mock", "--limit", "3")
+def test_reports_written_with_provenance(tmp_path):
+    r = _run("--mode", "mock", "--limit", "3", "--out-dir", str(tmp_path))
     assert r.returncode == 0
     for arm in ("A", "B", "C", "LifeOS"):
-        path = REPORT_DIR / f"baseline_{arm}_real.json"
+        path = tmp_path / f"baseline_{arm}_real.json"
         assert path.exists()
         d = json.loads(path.read_text(encoding="utf-8"))
         assert d["arm"] == arm and d["mode"] == "mock"
@@ -57,9 +61,9 @@ def test_reports_written_with_provenance():
         assert row["skeleton_version"]
 
 
-def test_runner_deterministic():
-    _run("--mode", "mock", "--limit", "4")
-    s1 = json.loads((REPORT_DIR / "comparison_real.json").read_text(encoding="utf-8"))["summary"]
-    _run("--mode", "mock", "--limit", "4")
-    s2 = json.loads((REPORT_DIR / "comparison_real.json").read_text(encoding="utf-8"))["summary"]
+def test_runner_deterministic(tmp_path):
+    _run("--mode", "mock", "--limit", "4", "--out-dir", str(tmp_path))
+    s1 = json.loads((tmp_path / "comparison_real.json").read_text(encoding="utf-8"))["summary"]
+    _run("--mode", "mock", "--limit", "4", "--out-dir", str(tmp_path))
+    s2 = json.loads((tmp_path / "comparison_real.json").read_text(encoding="utf-8"))["summary"]
     assert s1 == s2  # same input => same summary (replay discipline)

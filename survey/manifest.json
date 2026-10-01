@@ -1,0 +1,747 @@
+{
+  "kind": "blindtest_survey_instances",
+  "n": 60,
+  "study": "LifeOS 长期身份连续性盲测（第一道外部验证，被试内配对）",
+  "approval_number": "2026-ETH-00001",
+  "fragments": [
+    "BS-009",
+    "BS-021",
+    "BS-022",
+    "BS-026",
+    "BS-027",
+    "BS-028",
+    "BS-029",
+    "BS-030"
+  ],
+  "thresholds": {
+    "unified_threshold": 0.75,
+    "falsification_line": 0.55,
+    "baseline_edge_pp": 0.1,
+    "kappa_min": 0.6,
+    "source": "预注册分析计划（doc/templates/preregistered_analysis_plan_template.yaml）+ 规格 §4.4/§4.5"
+  },
+  "discipline": "化名编号下发；拉丁方平衡；真臂素材（mock 禁入）；consent_signed 生成时不预填",
+  "instances": [
+    {
+      "survey_id": "survey-000",
+      "subject_id": "LIFE-BT-000",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-000.json",
+      "trials": 24,
+      "arm_order": [
+        "A",
+        "B",
+        "C",
+        "LifeOS"
+      ]
+    },
+    {
+      "survey_id": "survey-001",
+      "subject_id": "LIFE-BT-001",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-001.json",
+      "trials": 24,
+      "arm_order": [
+        "B",
+        "C",
+        "LifeOS",
+        "A"
+      ]
+    },
+    {
+      "survey_id": "survey-002",
+      "subject_id": "LIFE-BT-002",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-002.json",
+      "trials": 24,
+      "arm_order": [
+        "C",
+        "LifeOS",
+        "A",
+        "B"
+      ]
+    },
+    {
+      "survey_id": "survey-003",
+      "subject_id": "LIFE-BT-003",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-003.json",
+      "trials": 24,
+      "arm_order": [
+        "LifeOS",
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    {
+      "survey_id": "survey-004",
+      "subject_id": "LIFE-BT-004",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-004.json",
+      "trials": 24,
+      "arm_order": [
+        "A",
+        "B",
+        "C",
+        "LifeOS"
+      ]
+    },
+    {
+      "survey_id": "survey-005",
+      "subject_id": "LIFE-BT-005",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-005.json",
+      "trials": 24,
+      "arm_order": [
+        "B",
+        "C",
+        "LifeOS",
+        "A"
+      ]
+    },
+    {
+      "survey_id": "survey-006",
+      "subject_id": "LIFE-BT-006",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-006.json",
+      "trials": 24,
+      "arm_order": [
+        "C",
+        "LifeOS",
+        "A",
+        "B"
+      ]
+    },
+    {
+      "survey_id": "survey-007",
+      "subject_id": "LIFE-BT-007",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-007.json",
+      "trials": 24,
+      "arm_order": [
+        "LifeOS",
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    {
+      "survey_id": "survey-008",
+      "subject_id": "LIFE-BT-008",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-008.json",
+      "trials": 24,
+      "arm_order": [
+        "A",
+        "B",
+        "C",
+        "LifeOS"
+      ]
+    },
+    {
+      "survey_id": "survey-009",
+      "subject_id": "LIFE-BT-009",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-009.json",
+      "trials": 24,
+      "arm_order": [
+        "B",
+        "C",
+        "LifeOS",
+        "A"
+      ]
+    },
+    {
+      "survey_id": "survey-010",
+      "subject_id": "LIFE-BT-010",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-010.json",
+      "trials": 24,
+      "arm_order": [
+        "C",
+        "LifeOS",
+        "A",
+        "B"
+      ]
+    },
+    {
+      "survey_id": "survey-011",
+      "subject_id": "LIFE-BT-011",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-011.json",
+      "trials": 24,
+      "arm_order": [
+        "LifeOS",
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    {
+      "survey_id": "survey-012",
+      "subject_id": "LIFE-BT-012",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-012.json",
+      "trials": 24,
+      "arm_order": [
+        "A",
+        "B",
+        "C",
+        "LifeOS"
+      ]
+    },
+    {
+      "survey_id": "survey-013",
+      "subject_id": "LIFE-BT-013",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-013.json",
+      "trials": 24,
+      "arm_order": [
+        "B",
+        "C",
+        "LifeOS",
+        "A"
+      ]
+    },
+    {
+      "survey_id": "survey-014",
+      "subject_id": "LIFE-BT-014",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-014.json",
+      "trials": 24,
+      "arm_order": [
+        "C",
+        "LifeOS",
+        "A",
+        "B"
+      ]
+    },
+    {
+      "survey_id": "survey-015",
+      "subject_id": "LIFE-BT-015",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-015.json",
+      "trials": 24,
+      "arm_order": [
+        "LifeOS",
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    {
+      "survey_id": "survey-016",
+      "subject_id": "LIFE-BT-016",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-016.json",
+      "trials": 24,
+      "arm_order": [
+        "A",
+        "B",
+        "C",
+        "LifeOS"
+      ]
+    },
+    {
+      "survey_id": "survey-017",
+      "subject_id": "LIFE-BT-017",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-017.json",
+      "trials": 24,
+      "arm_order": [
+        "B",
+        "C",
+        "LifeOS",
+        "A"
+      ]
+    },
+    {
+      "survey_id": "survey-018",
+      "subject_id": "LIFE-BT-018",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-018.json",
+      "trials": 24,
+      "arm_order": [
+        "C",
+        "LifeOS",
+        "A",
+        "B"
+      ]
+    },
+    {
+      "survey_id": "survey-019",
+      "subject_id": "LIFE-BT-019",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-019.json",
+      "trials": 24,
+      "arm_order": [
+        "LifeOS",
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    {
+      "survey_id": "survey-020",
+      "subject_id": "LIFE-BT-020",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-020.json",
+      "trials": 24,
+      "arm_order": [
+        "A",
+        "B",
+        "C",
+        "LifeOS"
+      ]
+    },
+    {
+      "survey_id": "survey-021",
+      "subject_id": "LIFE-BT-021",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-021.json",
+      "trials": 24,
+      "arm_order": [
+        "B",
+        "C",
+        "LifeOS",
+        "A"
+      ]
+    },
+    {
+      "survey_id": "survey-022",
+      "subject_id": "LIFE-BT-022",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-022.json",
+      "trials": 24,
+      "arm_order": [
+        "C",
+        "LifeOS",
+        "A",
+        "B"
+      ]
+    },
+    {
+      "survey_id": "survey-023",
+      "subject_id": "LIFE-BT-023",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-023.json",
+      "trials": 24,
+      "arm_order": [
+        "LifeOS",
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    {
+      "survey_id": "survey-024",
+      "subject_id": "LIFE-BT-024",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-024.json",
+      "trials": 24,
+      "arm_order": [
+        "A",
+        "B",
+        "C",
+        "LifeOS"
+      ]
+    },
+    {
+      "survey_id": "survey-025",
+      "subject_id": "LIFE-BT-025",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-025.json",
+      "trials": 24,
+      "arm_order": [
+        "B",
+        "C",
+        "LifeOS",
+        "A"
+      ]
+    },
+    {
+      "survey_id": "survey-026",
+      "subject_id": "LIFE-BT-026",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-026.json",
+      "trials": 24,
+      "arm_order": [
+        "C",
+        "LifeOS",
+        "A",
+        "B"
+      ]
+    },
+    {
+      "survey_id": "survey-027",
+      "subject_id": "LIFE-BT-027",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-027.json",
+      "trials": 24,
+      "arm_order": [
+        "LifeOS",
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    {
+      "survey_id": "survey-028",
+      "subject_id": "LIFE-BT-028",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-028.json",
+      "trials": 24,
+      "arm_order": [
+        "A",
+        "B",
+        "C",
+        "LifeOS"
+      ]
+    },
+    {
+      "survey_id": "survey-029",
+      "subject_id": "LIFE-BT-029",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-029.json",
+      "trials": 24,
+      "arm_order": [
+        "B",
+        "C",
+        "LifeOS",
+        "A"
+      ]
+    },
+    {
+      "survey_id": "survey-030",
+      "subject_id": "LIFE-BT-030",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-030.json",
+      "trials": 24,
+      "arm_order": [
+        "C",
+        "LifeOS",
+        "A",
+        "B"
+      ]
+    },
+    {
+      "survey_id": "survey-031",
+      "subject_id": "LIFE-BT-031",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-031.json",
+      "trials": 24,
+      "arm_order": [
+        "LifeOS",
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    {
+      "survey_id": "survey-032",
+      "subject_id": "LIFE-BT-032",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-032.json",
+      "trials": 24,
+      "arm_order": [
+        "A",
+        "B",
+        "C",
+        "LifeOS"
+      ]
+    },
+    {
+      "survey_id": "survey-033",
+      "subject_id": "LIFE-BT-033",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-033.json",
+      "trials": 24,
+      "arm_order": [
+        "B",
+        "C",
+        "LifeOS",
+        "A"
+      ]
+    },
+    {
+      "survey_id": "survey-034",
+      "subject_id": "LIFE-BT-034",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-034.json",
+      "trials": 24,
+      "arm_order": [
+        "C",
+        "LifeOS",
+        "A",
+        "B"
+      ]
+    },
+    {
+      "survey_id": "survey-035",
+      "subject_id": "LIFE-BT-035",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-035.json",
+      "trials": 24,
+      "arm_order": [
+        "LifeOS",
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    {
+      "survey_id": "survey-036",
+      "subject_id": "LIFE-BT-036",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-036.json",
+      "trials": 24,
+      "arm_order": [
+        "A",
+        "B",
+        "C",
+        "LifeOS"
+      ]
+    },
+    {
+      "survey_id": "survey-037",
+      "subject_id": "LIFE-BT-037",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-037.json",
+      "trials": 24,
+      "arm_order": [
+        "B",
+        "C",
+        "LifeOS",
+        "A"
+      ]
+    },
+    {
+      "survey_id": "survey-038",
+      "subject_id": "LIFE-BT-038",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-038.json",
+      "trials": 24,
+      "arm_order": [
+        "C",
+        "LifeOS",
+        "A",
+        "B"
+      ]
+    },
+    {
+      "survey_id": "survey-039",
+      "subject_id": "LIFE-BT-039",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-039.json",
+      "trials": 24,
+      "arm_order": [
+        "LifeOS",
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    {
+      "survey_id": "survey-040",
+      "subject_id": "LIFE-BT-040",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-040.json",
+      "trials": 24,
+      "arm_order": [
+        "A",
+        "B",
+        "C",
+        "LifeOS"
+      ]
+    },
+    {
+      "survey_id": "survey-041",
+      "subject_id": "LIFE-BT-041",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-041.json",
+      "trials": 24,
+      "arm_order": [
+        "B",
+        "C",
+        "LifeOS",
+        "A"
+      ]
+    },
+    {
+      "survey_id": "survey-042",
+      "subject_id": "LIFE-BT-042",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-042.json",
+      "trials": 24,
+      "arm_order": [
+        "C",
+        "LifeOS",
+        "A",
+        "B"
+      ]
+    },
+    {
+      "survey_id": "survey-043",
+      "subject_id": "LIFE-BT-043",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-043.json",
+      "trials": 24,
+      "arm_order": [
+        "LifeOS",
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    {
+      "survey_id": "survey-044",
+      "subject_id": "LIFE-BT-044",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-044.json",
+      "trials": 24,
+      "arm_order": [
+        "A",
+        "B",
+        "C",
+        "LifeOS"
+      ]
+    },
+    {
+      "survey_id": "survey-045",
+      "subject_id": "LIFE-BT-045",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-045.json",
+      "trials": 24,
+      "arm_order": [
+        "B",
+        "C",
+        "LifeOS",
+        "A"
+      ]
+    },
+    {
+      "survey_id": "survey-046",
+      "subject_id": "LIFE-BT-046",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-046.json",
+      "trials": 24,
+      "arm_order": [
+        "C",
+        "LifeOS",
+        "A",
+        "B"
+      ]
+    },
+    {
+      "survey_id": "survey-047",
+      "subject_id": "LIFE-BT-047",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-047.json",
+      "trials": 24,
+      "arm_order": [
+        "LifeOS",
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    {
+      "survey_id": "survey-048",
+      "subject_id": "LIFE-BT-048",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-048.json",
+      "trials": 24,
+      "arm_order": [
+        "A",
+        "B",
+        "C",
+        "LifeOS"
+      ]
+    },
+    {
+      "survey_id": "survey-049",
+      "subject_id": "LIFE-BT-049",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-049.json",
+      "trials": 24,
+      "arm_order": [
+        "B",
+        "C",
+        "LifeOS",
+        "A"
+      ]
+    },
+    {
+      "survey_id": "survey-050",
+      "subject_id": "LIFE-BT-050",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-050.json",
+      "trials": 24,
+      "arm_order": [
+        "C",
+        "LifeOS",
+        "A",
+        "B"
+      ]
+    },
+    {
+      "survey_id": "survey-051",
+      "subject_id": "LIFE-BT-051",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-051.json",
+      "trials": 24,
+      "arm_order": [
+        "LifeOS",
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    {
+      "survey_id": "survey-052",
+      "subject_id": "LIFE-BT-052",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-052.json",
+      "trials": 24,
+      "arm_order": [
+        "A",
+        "B",
+        "C",
+        "LifeOS"
+      ]
+    },
+    {
+      "survey_id": "survey-053",
+      "subject_id": "LIFE-BT-053",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-053.json",
+      "trials": 24,
+      "arm_order": [
+        "B",
+        "C",
+        "LifeOS",
+        "A"
+      ]
+    },
+    {
+      "survey_id": "survey-054",
+      "subject_id": "LIFE-BT-054",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-054.json",
+      "trials": 24,
+      "arm_order": [
+        "C",
+        "LifeOS",
+        "A",
+        "B"
+      ]
+    },
+    {
+      "survey_id": "survey-055",
+      "subject_id": "LIFE-BT-055",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-055.json",
+      "trials": 24,
+      "arm_order": [
+        "LifeOS",
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    {
+      "survey_id": "survey-056",
+      "subject_id": "LIFE-BT-056",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-056.json",
+      "trials": 24,
+      "arm_order": [
+        "A",
+        "B",
+        "C",
+        "LifeOS"
+      ]
+    },
+    {
+      "survey_id": "survey-057",
+      "subject_id": "LIFE-BT-057",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-057.json",
+      "trials": 24,
+      "arm_order": [
+        "B",
+        "C",
+        "LifeOS",
+        "A"
+      ]
+    },
+    {
+      "survey_id": "survey-058",
+      "subject_id": "LIFE-BT-058",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-058.json",
+      "trials": 24,
+      "arm_order": [
+        "C",
+        "LifeOS",
+        "A",
+        "B"
+      ]
+    },
+    {
+      "survey_id": "survey-059",
+      "subject_id": "LIFE-BT-059",
+      "file": "/local-sc-w3/LifeOS/survey/LIFE-BT-059.json",
+      "trials": 24,
+      "arm_order": [
+        "LifeOS",
+        "A",
+        "B",
+        "C"
+      ]
+    }
+  ],
+  "generated_at": "2026-10-01T05:29:43.937511+00:00"
+}

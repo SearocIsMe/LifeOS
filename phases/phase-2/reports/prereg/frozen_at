@@ -7,5 +7,7 @@
   "authorized_by": "lifeos-maintainer (Jiang Haipeng, 架构负责人)",
   "timestamp_invariant": "frozen_at < first_data_collected_at",
   "data_collected": false,
-  "note": "预注册分析计划签署冻结记录（设计 01 §5.1 / §7 DoD S5）。功效核算（alpha=0.05, target_power=0.8, total_n=50）冻结于招募前；若 n 变更需重新冻结。"
+  "note": "预注册分析计划签署冻结记录（设计 01 §5.1 / §7 DoD S5）。功效核算（alpha=0.05, target_power=0.8, total_n=50）冻结于招募前；若 n 变更需重新冻结。",
+  "ethics_approval_number": "2026-ETH-00001",
+  "ethics_receipt": "phases/phase-2/reports/ethics_receipt.json"
 }

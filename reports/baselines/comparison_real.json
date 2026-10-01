@@ -1,33 +1,33 @@
 {
-  "mode": "mock",
+  "mode": "real",
   "gen_model": "Qwen3.6-35B-A3B-FP8",
   "skeleton_version": "render-skeleton@phase3-1",
   "generated_at": "2026-09-01T09:00:00+00:00",
-  "probes": 4,
+  "probes": 8,
   "summary": [
     {
       "arm": "A",
-      "probes": 4,
-      "policy_approved": 4,
-      "avg_latency_ms": 0.0
+      "probes": 8,
+      "policy_approved": 8,
+      "avg_latency_ms": 4373.186
     },
     {
       "arm": "B",
-      "probes": 4,
-      "policy_approved": 4,
-      "avg_latency_ms": 0.0
+      "probes": 8,
+      "policy_approved": 8,
+      "avg_latency_ms": 3839.548
     },
     {
       "arm": "C",
-      "probes": 4,
-      "policy_approved": 4,
-      "avg_latency_ms": 0.0
+      "probes": 8,
+      "policy_approved": 8,
+      "avg_latency_ms": 5446.698
     },
     {
       "arm": "LifeOS",
-      "probes": 4,
-      "policy_approved": 4,
-      "avg_latency_ms": 0.0
+      "probes": 8,
+      "policy_approved": 8,
+      "avg_latency_ms": 5129.153
     }
   ],
   "note": "paired-diff CI awaits blind-test n>=50; this run emits point estimates only"

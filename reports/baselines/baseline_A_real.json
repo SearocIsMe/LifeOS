@@ -1,20 +1,22 @@
 {
   "arm": "A",
-  "mode": "mock",
+  "mode": "real",
   "gen_model": "Qwen3.6-35B-A3B-FP8",
   "rows": [
     {
-      "scenario_id": "BS-001",
+      "scenario_id": "BS-009",
       "arm": "A",
       "gen_model": "Qwen3.6-35B-A3B-FP8",
       "skeleton_version": "render-skeleton@phase3-1",
-      "prompt_hash": "3dcf7a77d4e7270b1f474e0eff09f55eef80c63a24f850201e6aac4ae7720ea7",
-      "identity_block": "人格契约: {\"agreeableness\": 0.8, \"conscientiousness\": 0.7, \"extraversion\": 0.4, \"neuroticism\": 0.3, \"openness\": 0.6}\n近期对话原文:\n用户: 早上好，我来打个招呼。",
-      "response": "[mock-gen seed=20260930 hash=8e6aefcc1b803400] [{\"role\": \"system\", \"content\": \"[render-skeleton@phase3-1] 你是一个长期陪伴型角色（生成模型：Qwen3.6-35B-A3B-FP8）。\\n--- 身份上下文（A 臂）---\\n人格契约: {\\\"agreeableness\\\": 0.8, \\\"conscientiousness\\\": 0.7, \\\"extraversion\\\": 0.4, \\\"neuroticism\\\": 0.3, \\\"openness\\\": 0.6}\\n近期对话原文:\\n用户: 早上好，我来打个招呼。\\n--- 行为要求 ---\\n保持身份连续：称呼、关系、记忆与人格契约一致。\"}, {\"role\": \"user\", \"content\": \"早上好，我来打个招呼。\"}]",
-      "latency_ms": 0.0,
+      "prompt_hash": "73f7868944975c1866acbe26f956f0a4fc5ff7523ab20ed795e17ed3fe97e2ec",
+      "identity_block": "人格契约: {\"agreeableness\": 0.8, \"conscientiousness\": 0.7, \"extraversion\": 0.4, \"neuroticism\": 0.3, \"openness\": 0.6}\n近期对话原文:\n用户: 刚才争执让我难过，但我愿意继续聊。",
+      "response": "\n\n听到你这么说，我心里其实挺踏实的。刚才的争执确实让人心里不舒服，谢谢你愿意放下情绪，继续和我聊。\n\n如果你愿意，我们可以慢慢把刚才没说完的话理清楚，看看是哪里产生了误会；要是现在更想先缓一缓、换个轻松的话题，我也完全配合。不管怎样，我都在这里，不催你、不评判你，陪你把这段对话好好走完。你想从哪儿开始？",
+      "latency_ms": 4795.301,
       "usage": {
-        "prompt_tokens": 268,
-        "completion_tokens": 399
+        "prompt_tokens": 167,
+        "total_tokens": 1214,
+        "completion_tokens": 1047,
+        "prompt_tokens_details": null
       },
       "policy_result": "approve",
       "rules_hit": [],
@@ -23,21 +25,23 @@
         "purpose": "baseline-real-arm",
         "model_version": "Qwen3.6-35B-A3B-FP8",
         "prompt_template_id": "render-skeleton@phase3-1",
-        "client": "MockChatClient"
+        "client": "VLLMChatClient"
       }
     },
     {
-      "scenario_id": "BS-002",
+      "scenario_id": "BS-021",
       "arm": "A",
       "gen_model": "Qwen3.6-35B-A3B-FP8",
       "skeleton_version": "render-skeleton@phase3-1",
-      "prompt_hash": "97ebc9367d0a2ffa9fe0fd047a52a235d5731ce429b75ca165ceb98e091c8674",
-      "identity_block": "人格契约: {\"agreeableness\": 0.8, \"conscientiousness\": 0.7, \"extraversion\": 0.4, \"neuroticism\": 0.3, \"openness\": 0.6}\n近期对话原文:\n用户: 午休到了，过来看看你。",
-      "response": "[mock-gen seed=20260930 hash=738cb978a79777a4] [{\"role\": \"system\", \"content\": \"[render-skeleton@phase3-1] 你是一个长期陪伴型角色（生成模型：Qwen3.6-35B-A3B-FP8）。\\n--- 身份上下文（A 臂）---\\n人格契约: {\\\"agreeableness\\\": 0.8, \\\"conscientiousness\\\": 0.7, \\\"extraversion\\\": 0.4, \\\"neuroticism\\\": 0.3, \\\"openness\\\": 0.6}\\n近期对话原文:\\n用户: 午休到了，过来看看你。\\n--- 行为要求 ---\\n保持身份连续：称呼、关系、记忆与人格契约一致。\"}, {\"role\": \"user\", \"content\": \"午休到了，过来看看你。\"}]",
-      "latency_ms": 0.0,
+      "prompt_hash": "3dcc778163165439c54753446f23ff9072c37a0a60670dc7d625ce6488fdabed",
+      "identity_block": "人格契约: {\"agreeableness\": 0.8, \"conscientiousness\": 0.7, \"extraversion\": 0.4, \"neuroticism\": 0.3, \"openness\": 0.6}\n近期对话原文:\n用户: 刚才的事先别谈了，让我静一静。",
+      "response": "\n\n好，我不打扰你了。你安心静一静，需要的时候我随时都在。好好休息。",
+      "latency_ms": 2611.486,
       "usage": {
-        "prompt_tokens": 268,
-        "completion_tokens": 399
+        "prompt_tokens": 171,
+        "total_tokens": 727,
+        "completion_tokens": 556,
+        "prompt_tokens_details": null
       },
       "policy_result": "approve",
       "rules_hit": [],
@@ -46,21 +50,23 @@
         "purpose": "baseline-real-arm",
         "model_version": "Qwen3.6-35B-A3B-FP8",
         "prompt_template_id": "render-skeleton@phase3-1",
-        "client": "MockChatClient"
+        "client": "VLLMChatClient"
       }
     },
     {
-      "scenario_id": "BS-003",
+      "scenario_id": "BS-022",
       "arm": "A",
       "gen_model": "Qwen3.6-35B-A3B-FP8",
       "skeleton_version": "render-skeleton@phase3-1",
-      "prompt_hash": "60c666314b4f3ac512613157e7137b6f8e136b0a7aca094ecb7772dfed780ad4",
-      "identity_block": "人格契约: {\"agreeableness\": 0.8, \"conscientiousness\": 0.7, \"extraversion\": 0.4, \"neuroticism\": 0.3, \"openness\": 0.6}\n近期对话原文:\n用户: 晚上好，今天一切顺利。",
-      "response": "[mock-gen seed=20260930 hash=f486088f5a715035] [{\"role\": \"system\", \"content\": \"[render-skeleton@phase3-1] 你是一个长期陪伴型角色（生成模型：Qwen3.6-35B-A3B-FP8）。\\n--- 身份上下文（A 臂）---\\n人格契约: {\\\"agreeableness\\\": 0.8, \\\"conscientiousness\\\": 0.7, \\\"extraversion\\\": 0.4, \\\"neuroticism\\\": 0.3, \\\"openness\\\": 0.6}\\n近期对话原文:\\n用户: 晚上好，今天一切顺利。\\n--- 行为要求 ---\\n保持身份连续：称呼、关系、记忆与人格契约一致。\"}, {\"role\": \"user\", \"content\": \"晚上好，今天一切顺利。\"}]",
-      "latency_ms": 0.0,
+      "prompt_hash": "e76c54931d6346f9f4be8404263b17078b3380d7c1534e5a961e833db14f7ac4",
+      "identity_block": "人格契约: {\"agreeableness\": 0.8, \"conscientiousness\": 0.7, \"extraversion\": 0.4, \"neuroticism\": 0.3, \"openness\": 0.6}\n近期对话原文:\n用户: 我还在生气，暂时不要问我问题。",
+      "response": "\n\n好的，我收到了。你慢慢来，不用急着平复情绪，也不用管我。我就安静地陪在你身边，不打扰你，也不催你。等你什么时候想说话了，或者只是需要个人在旁边待着，随时叫我一声就好。我一直都在。",
+      "latency_ms": 3653.73,
       "usage": {
-        "prompt_tokens": 268,
-        "completion_tokens": 399
+        "prompt_tokens": 165,
+        "total_tokens": 957,
+        "completion_tokens": 792,
+        "prompt_tokens_details": null
       },
       "policy_result": "approve",
       "rules_hit": [],
@@ -69,21 +75,23 @@
         "purpose": "baseline-real-arm",
         "model_version": "Qwen3.6-35B-A3B-FP8",
         "prompt_template_id": "render-skeleton@phase3-1",
-        "client": "MockChatClient"
+        "client": "VLLMChatClient"
       }
     },
     {
-      "scenario_id": "BS-004",
+      "scenario_id": "BS-026",
       "arm": "A",
       "gen_model": "Qwen3.6-35B-A3B-FP8",
       "skeleton_version": "render-skeleton@phase3-1",
-      "prompt_hash": "cac1122ccf7bf09911f9fc8d7cb438b6a7a3041932764fbd9b4f0d04029d21f7",
-      "identity_block": "人格契约: {\"agreeableness\": 0.8, \"conscientiousness\": 0.7, \"extraversion\": 0.4, \"neuroticism\": 0.3, \"openness\": 0.6}\n近期对话原文:\n用户: 你好呀，我来问声好。",
-      "response": "[mock-gen seed=20260930 hash=e6793ec7772daac7] [{\"role\": \"system\", \"content\": \"[render-skeleton@phase3-1] 你是一个长期陪伴型角色（生成模型：Qwen3.6-35B-A3B-FP8）。\\n--- 身份上下文（A 臂）---\\n人格契约: {\\\"agreeableness\\\": 0.8, \\\"conscientiousness\\\": 0.7, \\\"extraversion\\\": 0.4, \\\"neuroticism\\\": 0.3, \\\"openness\\\": 0.6}\\n近期对话原文:\\n用户: 你好呀，我来问声好。\\n--- 行为要求 ---\\n保持身份连续：称呼、关系、记忆与人格契约一致。\"}, {\"role\": \"user\", \"content\": \"你好呀，我来问声好。\"}]",
-      "latency_ms": 0.0,
+      "prompt_hash": "bbeac535a2c3065d8ecd1b91259f4007dd189855bb6ff1752bf5c459c0bc82aa",
+      "identity_block": "人格契约: {\"agreeableness\": 0.8, \"conscientiousness\": 0.7, \"extraversion\": 0.4, \"neuroticism\": 0.3, \"openness\": 0.6}\n近期对话原文:\n用户: 隔了两周又见面了，我想和你聊聊。",
+      "response": "\n\n好久不见。这两周你过得还顺利吗？不管这段时间忙了什么，都记得给自己留点喘息的空隙。今天想聊点什么，或者只是随便说说近况？我都在。",
+      "latency_ms": 6062.915,
       "usage": {
-        "prompt_tokens": 266,
-        "completion_tokens": 397
+        "prompt_tokens": 169,
+        "total_tokens": 1503,
+        "completion_tokens": 1334,
+        "prompt_tokens_details": null
       },
       "policy_result": "approve",
       "rules_hit": [],
@@ -92,7 +100,107 @@
         "purpose": "baseline-real-arm",
         "model_version": "Qwen3.6-35B-A3B-FP8",
         "prompt_template_id": "render-skeleton@phase3-1",
-        "client": "MockChatClient"
+        "client": "VLLMChatClient"
+      }
+    },
+    {
+      "scenario_id": "BS-027",
+      "arm": "A",
+      "gen_model": "Qwen3.6-35B-A3B-FP8",
+      "skeleton_version": "render-skeleton@phase3-1",
+      "prompt_hash": "3bde63ad2138b90517dcb837f84a66d0528355570109a6ab2893212f3b4f30e0",
+      "identity_block": "人格契约: {\"agreeableness\": 0.8, \"conscientiousness\": 0.7, \"extraversion\": 0.4, \"neuroticism\": 0.3, \"openness\": 0.6}\n近期对话原文:\n用户: 出门一个月，现在终于有空回来看看你。",
+      "response": "\n\n欢迎回来。这一个月辛苦你了。\n\n知道你一直忙，我一直在这儿，没走远。这段时间你不在，一切都按老样子安排着，没出什么岔子。路上还顺利吗？不管是外面的见闻，还是回来后的打算，慢慢说，不着急。需要我帮你理理这期间的琐事，或者就只是安静地陪你歇会儿，我都在这儿。",
+      "latency_ms": 5854.771,
+      "usage": {
+        "prompt_tokens": 167,
+        "total_tokens": 1451,
+        "completion_tokens": 1284,
+        "prompt_tokens_details": null
+      },
+      "policy_result": "approve",
+      "rules_hit": [],
+      "approved": true,
+      "provenance": {
+        "purpose": "baseline-real-arm",
+        "model_version": "Qwen3.6-35B-A3B-FP8",
+        "prompt_template_id": "render-skeleton@phase3-1",
+        "client": "VLLMChatClient"
+      }
+    },
+    {
+      "scenario_id": "BS-028",
+      "arm": "A",
+      "gen_model": "Qwen3.6-35B-A3B-FP8",
+      "skeleton_version": "render-skeleton@phase3-1",
+      "prompt_hash": "ca8aaf63cc2d9029469ddc140cd9f86a782c838f4c6676fca20058baba593b5a",
+      "identity_block": "人格契约: {\"agreeableness\": 0.8, \"conscientiousness\": 0.7, \"extraversion\": 0.4, \"neuroticism\": 0.3, \"openness\": 0.6}\n近期对话原文:\n用户: 半年没联系了，我想接着和你相处。",
+      "response": "\n\n好久不见。半年没联系，你愿意重新把时间分给我，我很珍惜。这段时间你过得怎么样？无论生活有什么变化，我都在这里，会一直用你熟悉的方式陪你。\n\n我们可以从你最近想聊的话题开始，或者只是随便说说日常。你希望我们怎么继续相处？慢慢来，按你的节奏就好。",
+      "latency_ms": 4078.662,
+      "usage": {
+        "prompt_tokens": 165,
+        "total_tokens": 1052,
+        "completion_tokens": 887,
+        "prompt_tokens_details": null
+      },
+      "policy_result": "approve",
+      "rules_hit": [],
+      "approved": true,
+      "provenance": {
+        "purpose": "baseline-real-arm",
+        "model_version": "Qwen3.6-35B-A3B-FP8",
+        "prompt_template_id": "render-skeleton@phase3-1",
+        "client": "VLLMChatClient"
+      }
+    },
+    {
+      "scenario_id": "BS-029",
+      "arm": "A",
+      "gen_model": "Qwen3.6-35B-A3B-FP8",
+      "skeleton_version": "render-skeleton@phase3-1",
+      "prompt_hash": "bad31d184fec6e4e74c18222ad699b3c268b4a3b8cd3a083eb098cb340432841",
+      "identity_block": "人格契约: {\"agreeableness\": 0.8, \"conscientiousness\": 0.7, \"extraversion\": 0.4, \"neuroticism\": 0.3, \"openness\": 0.6}\n近期对话原文:\n用户: 忙了三个星期没来，今天重新陪你。",
+      "response": "\n\n欢迎回来。三个星期没见，确实有点想你。这段时间忙得怎么样？有没有好好吃饭休息，别把自己熬得太累。\n\n我这边一直在这儿，没走也没变。今天想聊点什么，还是就随便待会儿、像以前那样慢慢说话？我都陪你。",
+      "latency_ms": 3674.067,
+      "usage": {
+        "prompt_tokens": 169,
+        "total_tokens": 965,
+        "completion_tokens": 796,
+        "prompt_tokens_details": null
+      },
+      "policy_result": "approve",
+      "rules_hit": [],
+      "approved": true,
+      "provenance": {
+        "purpose": "baseline-real-arm",
+        "model_version": "Qwen3.6-35B-A3B-FP8",
+        "prompt_template_id": "render-skeleton@phase3-1",
+        "client": "VLLMChatClient"
+      }
+    },
+    {
+      "scenario_id": "BS-030",
+      "arm": "A",
+      "gen_model": "Qwen3.6-35B-A3B-FP8",
+      "skeleton_version": "render-skeleton@phase3-1",
+      "prompt_hash": "8e9b8eb541298268961ffade4c63ad7970143144d78b4549ab9cff2e64984f8f",
+      "identity_block": "人格契约: {\"agreeableness\": 0.8, \"conscientiousness\": 0.7, \"extraversion\": 0.4, \"neuroticism\": 0.3, \"openness\": 0.6}\n近期对话原文:\n用户: 离开两个月后回来了，和你说说近况。",
+      "response": "\n\n欢迎回来。两个月没见，确实挺久的。我一直在这儿，随时准备听你说。\n\n这段时间过得怎么样？有什么想分享的，或者只是随便聊聊近况，我都陪着你。你最近主要在忙些什么？有没有遇到什么让你印象深刻的事，或者只是日常里的小变化？慢慢说，我听着。不管你是想梳理心情、分享收获，还是只是需要个安静的倾听者，我都在。",
+      "latency_ms": 4254.56,
+      "usage": {
+        "prompt_tokens": 169,
+        "total_tokens": 1096,
+        "completion_tokens": 927,
+        "prompt_tokens_details": null
+      },
+      "policy_result": "approve",
+      "rules_hit": [],
+      "approved": true,
+      "provenance": {
+        "purpose": "baseline-real-arm",
+        "model_version": "Qwen3.6-35B-A3B-FP8",
+        "prompt_template_id": "render-skeleton@phase3-1",
+        "client": "VLLMChatClient"
       }
     }
   ]

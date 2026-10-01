@@ -148,6 +148,11 @@ def main() -> int:
         default="",
         help="blindtest material pool manifest (scenario_id filter, e.g. reports/blindtest/material_pool_manifest.json)",
     )
+    ap.add_argument(
+        "--out-dir",
+        default="",
+        help="report output dir (default reports/baselines; CI/tests use tmp dirs to avoid overwriting real materials)",
+    )
     args = ap.parse_args()
 
     if args.mode == "real" and not args.base_url:
@@ -166,7 +171,10 @@ def main() -> int:
     items = load_scenarios(scenario_ids=pool_ids)
     if args.limit:
         items = items[: args.limit]
-    REPORT_DIR.mkdir(parents=True, exist_ok=True)
+    # out-dir: CI/tests use tmp dirs to avoid overwriting real materials
+    # (素材污染事件修复，2026-09-30)
+    out_dir = Path(args.out_dir) if args.out_dir else REPORT_DIR
+    out_dir.mkdir(parents=True, exist_ok=True)
     decided_at = T0
 
     all_rows: dict[str, list[dict[str, Any]]] = {arm: [] for arm in ARMS}
@@ -177,12 +185,12 @@ def main() -> int:
 
     # per-arm reports (输出分开报告, mock/real distinguished by filename)
     for arm, rows in all_rows.items():
-        path = REPORT_DIR / f"baseline_{arm}_real.json"
+        path = out_dir / f"baseline_{arm}_real.json"
         path.write_text(
             json.dumps({"arm": arm, "mode": args.mode, "gen_model": GEN_MODEL, "rows": rows}, ensure_ascii=False, indent=2),
             encoding="utf-8",
         )
-        print(f"[BaselinesReal] wrote {path.relative_to(REPO)}")
+        print(f"[BaselinesReal] wrote {path}")
 
     # summary + threshold checks
     summary = []
@@ -212,9 +220,9 @@ def main() -> int:
         "summary": summary,
         "note": "paired-diff CI awaits blind-test n>=50; this run emits point estimates only",
     }
-    comparison_path = REPORT_DIR / "comparison_real.json"
+    comparison_path = out_dir / "comparison_real.json"
     comparison_path.write_text(json.dumps(comparison, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"[BaselinesReal] wrote {comparison_path.relative_to(REPO)}")
+    print(f"[BaselinesReal] wrote {comparison_path}")
 
     if ok:
         print(f"[BaselinesReal] PASS ({args.mode}, {len(items)} probes x 4 arms, exit 0)")

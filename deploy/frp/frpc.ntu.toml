@@ -1,0 +1,40 @@
+# frpc（NTU 内网侧）反向穿透配置——把本机 8200 施测页暴露到公网 frps
+#
+# 拓扑（NTU 内网 → 公网）：
+#   [被试浏览器] → https://lifeos.dtcinfra.net/blindtest
+#     → [frps 公网服务器] (bind 7000, vhost 443/8080)
+#       → [frpc 本机] (NTU 内网, 经网关 10.97.176.242 出口 30810~30820 主动外连)
+#         → [uvicorn 8200 施测页]
+#
+# NTU 出网说明：网关 10.97.176.242 允许出口 30810~30820 端口 → frpc 的
+# ``server_port`` 选 30810 段内的端口（如 30810）；frpc 是**主动外连**（出站），
+# 不需要在 NTU 内网开入站端口——这是反向穿透的核心优势。
+#
+# 启动（本机，uv venv 已有依赖即可）：
+#   /root/.local/bin/uv pip install --python .venv/bin/python frp  # 或下载 frp 二进制
+#   .venv/bin/python scripts/serve_blindtest.py &                  # 先起施测页 8200
+#   frpc -c deploy/frp/frpc.ntu.toml                               # 起穿透
+#
+# 验收：见 deploy/frp/README.md 检查清单
+
+serverAddr = "lifeos.dtcinfra.net"   # 公网 frps 地址（DNS A 记录指向 frps 主机）
+serverPort = 30810                    # NTU 出口允许的 30810~30820 段内选一个
+
+auth.method = "token"
+auth.token = "LIFEOS_FRP_TOKEN_CHANGE_ME"   # 部署时替换（与 frps 一致；不入仓库的正式值走 env/secret）
+
+# 隧道 1：施测页 HTTP（vhost 按域名路由）
+[[proxies]]
+name = "lifeos-blindtest-http"
+type = "http"
+localIP = "127.0.0.1"
+localPort = 8200
+customDomains = ["lifeos.dtcinfra.net"]
+
+# 隧道 2（可选）：直连 TCP（调试用；生产走 HTTP vhost）
+[[proxies]]
+name = "lifeos-blindtest-tcp"
+type = "tcp"
+localIP = "127.0.0.1"
+localPort = 8200
+remotePort = 30811   # 公网 frps 上暴露的端口（30810~30820 段内，DNS 主机防火墙需放行）

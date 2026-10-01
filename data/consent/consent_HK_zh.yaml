@@ -8,6 +8,7 @@ template:
   language: "zh"
   jurisdiction: "HK"
   document_version: "1.0.0"
+  approval_number: "2026-ETH-00001"  # 伦理委员会批准号（phases/phase-2/reports/ethics_receipt.json）
 
 clauses:
   - id: purpose
@@ -47,6 +48,12 @@ clauses:
     text: >
       您有权随时查阅、更正、删除、导出您的全部记忆数据（无需说明
       理由）、无条件退出，以及获得研究结果的摘要。
+  - id: anti_duplication
+    title: "防重复提交说明"
+    text: >
+      为防止重复提交，系统对您的 email 计算单向哈希值用于重复检测；
+      email 原文不保存、不进入作答数据，哈希值不可反推 email。
+      重复提交的作答视为作废。
   - id: contact
     title: "联系方式"
     text: >

@@ -9,6 +9,7 @@ Case map (design doc 02 §2 S2):
 
 from __future__ import annotations
 
+import json
 from pathlib import Path
 
 import yaml
@@ -47,7 +48,19 @@ def test_template_jurisdictions_complete():
         assert t["document_version"] == "1.0.0"
         # clause ids consistent across all four packs
         ids = {c["id"] for c in doc["clauses"]}
-        assert ids == REQUIRED_CLAUSES, f"{juris} clause mismatch: {ids ^ REQUIRED_CLAUSES}"
+        assert ids == REQUIRED_CLAUSES_WITH_ANTI_DUP, f"{juris} clause mismatch: {ids ^ REQUIRED_CLAUSES_WITH_ANTI_DUP}"
+
+
+def test_anti_duplication_disclosure():
+    """T3: email 单向哈希防重披露（方案 A，用户已确认）——原文不保存、不可反推。"""
+    packs = _packs()
+    for juris, doc in packs.items():
+        clause = next(c for c in doc["clauses"] if c["id"] == "anti_duplication")
+        text = clause["title"] + clause["text"]
+        assert "单向哈希" in text, f"{juris}: one-way hash wording missing"
+        assert "原文不保存" in text, f"{juris}: no-persist wording missing"
+        assert "不可反推" in text, f"{juris}: non-invertible wording missing"
+        assert "作废" in text, f"{juris}: duplicate-void wording missing"
 
 
 def test_two_tier_deletion_disclosure():
@@ -75,6 +88,28 @@ def test_signatures_empty_discipline():
         assert sig["participant"]["signed_at"] == "", f"{juris}: participant date pre-filled"
         assert sig["researcher"]["name"] == "", f"{juris}: researcher name pre-filled"
         assert sig["researcher"]["signed_at"] == "", f"{juris}: researcher date pre-filled"
+
+
+ETHICS_RECEIPT = REPO / "phases" / "phase-2" / "reports" / "ethics_receipt.json"
+
+REQUIRED_CLAUSES_WITH_ANTI_DUP = REQUIRED_CLAUSES | {"anti_duplication"}
+
+
+def test_approval_number_present_and_matches_receipt():
+    """B1.2: 四份模板必须含批准编号字段且与回执一致（fail-closed，不可预填后丢失）。"""
+    receipt = json.loads(ETHICS_RECEIPT.read_text(encoding="utf-8"))
+    expected = receipt["approval_number"]
+    assert receipt["decision"] == "approved"
+    packs = _packs()
+    for juris, doc in packs.items():
+        t = doc["template"]
+        assert "approval_number" in t, f"{juris}: approval_number field missing"
+        assert t["approval_number"] == expected, f"{juris}: approval_number != receipt"
+    # prereg record carries the same number (先批准、后收数顺序关联)
+    prereg = json.loads((REPO / "phases" / "phase-2" / "reports" / "prereg" / "frozen_at").read_text(encoding="utf-8"))
+    assert prereg["ethics_approval_number"] == expected
+    # 顺序不变量: submitted_at < approved_at < first_data_collected_at
+    assert receipt["submitted_at"] < receipt["approved_at"]
 
 
 def test_jurisdiction_notes_distinct():
