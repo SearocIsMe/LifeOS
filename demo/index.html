@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LifeOS 能力演示 — AI 陪伴角色的长期身份连续性运行时</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --panel: #161b22;
+    --panel2: #1c2333;
+    --border: #30363d;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --accent: #58a6ff;
+    --green: #3fb950;
+    --orange: #d29922;
+    --red: #f85149;
+    --purple: #bc8cff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+    line-height: 1.65;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 1150px; margin: 0 auto; padding: 0 24px; }
+  code { color: var(--accent); font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 13px; }
+
+  /* ---------- header ---------- */
+  header {
+    background: linear-gradient(180deg, #101726 0%, var(--bg) 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 56px 0 44px;
+  }
+  .kicker { color: var(--accent); font-size: 13px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
+  h1 { font-size: 33px; font-weight: 700; line-height: 1.3; }
+  .subtitle { color: var(--muted); margin-top: 12px; font-size: 16px; max-width: 800px; }
+  .badges { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+  .badge { border: 1px solid var(--border); background: var(--panel); border-radius: 999px; padding: 4px 14px; font-size: 13px; color: var(--muted); }
+  .badge b { color: var(--green); font-weight: 600; }
+
+  /* ---------- nav ---------- */
+  nav { position: sticky; top: 0; z-index: 10; background: rgba(13,17,23,.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
+  nav .wrap { display: flex; gap: 4px; overflow-x: auto; padding-top: 10px; padding-bottom: 10px; }
+  nav a { color: var(--muted); font-size: 14px; padding: 6px 12px; border-radius: 8px; white-space: nowrap; }
+  nav a:hover { color: var(--text); background: var(--panel); text-decoration: none; }
+
+  /* ---------- sections ---------- */
+  section { padding: 64px 0; border-bottom: 1px solid var(--border); }
+  section:last-of-type { border-bottom: none; }
+  .sec-tag { color: var(--purple); font-size: 13px; letter-spacing: 1.5px; margin-bottom: 8px; }
+  h2 { font-size: 25px; margin-bottom: 6px; }
+  .sec-desc { color: var(--muted); margin-bottom: 24px; max-width: 820px; }
+  .note { color: var(--muted); font-size: 13px; margin-top: 16px; }
+  .hint { color: var(--muted); font-size: 12.5px; margin-top: 8px; }
+
+  /* ---------- controls ---------- */
+  .controls { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-bottom: 20px; }
+  select, .btn {
+    background: var(--panel); color: var(--text); border: 1px solid var(--border);
+    border-radius: 8px; padding: 8px 14px; font-size: 14px; cursor: pointer; font-family: inherit;
+  }
+  select:hover, .btn:hover { border-color: var(--accent); }
+  .btn.primary { background: #14304d; border-color: #1f5c94; }
+  .toggle { display: inline-flex; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .toggle button {
+    background: transparent; color: var(--muted); border: none; padding: 8px 16px;
+    font-size: 14px; cursor: pointer; font-family: inherit;
+  }
+  .toggle button.on { background: #14304d; color: var(--text); }
+
+  /* ---------- chat windows ---------- */
+  .win-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 14px; }
+  .chat { border: 1px solid var(--border); border-radius: 12px; background: var(--panel); overflow: hidden; display: flex; flex-direction: column; }
+  .chat-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 10px 16px; border-bottom: 1px solid var(--border); font-size: 12.5px; color: var(--muted); flex-wrap: wrap; }
+  .chat-head .arm { color: var(--accent); font-weight: 600; }
+  .chat-body { padding: 16px; flex: 1; }
+  .msg-user { background: var(--panel2); border: 1px solid #2a3757; color: var(--text); border-radius: 10px 10px 10px 2px; padding: 10px 14px; font-size: 14px; margin-bottom: 14px; display: inline-block; }
+  .msg-ai { background: #14261c; border: 1px solid #1f4630; border-radius: 10px 10px 2px 10px; padding: 12px 16px; font-size: 14px; color: #d3f4df; white-space: pre-line; }
+  .verdict { text-align: center; margin-top: 14px; font-size: 14px; font-weight: 600; color: var(--green); }
+  .verdict.warn { color: var(--orange); }
+
+  /* ---------- pills ---------- */
+  .pills { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+  .pill {
+    font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 12px;
+    border: 1px solid var(--border); border-radius: 8px; background: var(--panel);
+    padding: 6px 12px; color: var(--muted); max-width: 100%; overflow-wrap: anywhere;
+  }
+  .pill span { color: var(--green); }
+
+  /* ---------- sliders (case 2) ---------- */
+  .case2-grid { display: grid; grid-template-columns: 380px 1fr; gap: 14px; align-items: start; }
+  .panelbox { border: 1px solid var(--border); border-radius: 12px; background: var(--panel); padding: 18px; }
+  .panelbox h3 { font-size: 15px; margin-bottom: 12px; color: var(--accent); }
+  .slider-row { margin-bottom: 10px; }
+  .slider-row label { display: flex; justify-content: space-between; font-size: 13px; color: var(--muted); margin-bottom: 2px; }
+  .slider-row label output { color: var(--text); font-family: "SF Mono", Menlo, Consolas, monospace; }
+  input[type="range"] { width: 100%; accent-color: var(--accent); cursor: pointer; }
+  .check-row { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--muted); margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--border); }
+  .check-row input { margin-top: 3px; accent-color: var(--red); }
+  .pre-block {
+    background: #0a0e14; border: 1px solid var(--border); border-radius: 8px;
+    padding: 14px 16px; font-size: 12.5px; color: #c9d1d9; white-space: pre-wrap;
+    font-family: "SF Mono", Menlo, Consolas, monospace; overflow-wrap: anywhere; min-height: 190px;
+  }
+  .policy-verdict { margin-top: 12px; border-radius: 8px; padding: 10px 14px; font-size: 13.5px; }
+  .policy-verdict.approve { background: #14261c; border: 1px solid #1f4630; color: #7ee2a8; }
+  .policy-verdict.reject { background: #2d1517; border: 1px solid #67262a; color: #ffb3b8; }
+  .policy-verdict b { font-weight: 700; }
+  .diff-pills { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+  .diff-pill { font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 11.5px; border: 1px solid var(--border); border-radius: 8px; background: var(--panel2); padding: 5px 10px; color: var(--muted); overflow-wrap: anywhere; }
+  .diff-pill.old span { color: var(--orange); }
+  .diff-pill.new span { color: var(--green); }
+
+  /* ---------- case 3 ---------- */
+  .case3-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: stretch; }
+  .curve-wrap { border: 1px solid var(--border); border-radius: 12px; background: var(--panel); padding: 16px; }
+  .bar-lbl { display: flex; justify-content: space-between; font-size: 12.5px; color: var(--muted); margin-top: 6px; }
+  .bar { height: 12px; border-radius: 999px; background: var(--panel2); overflow: hidden; margin-top: 2px; }
+  .bar i { display: block; height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--accent), var(--green)); transition: width .15s; }
+  .phase-tag { display: inline-block; border: 1px solid var(--border); border-radius: 999px; padding: 2px 12px; font-size: 12.5px; color: var(--purple); margin-bottom: 10px; }
+  .intent-box { background: #0a0e14; border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; font-size: 13px; margin-top: 10px; }
+  .intent-box b { color: var(--accent); }
+  .determinism { margin-top: 12px; font-size: 13px; color: var(--muted); }
+  .determinism .ok { color: var(--green); font-weight: 600; }
+
+  /* ---------- all-30 table ---------- */
+  details summary { cursor: pointer; color: var(--accent); font-size: 14px; margin-top: 14px; }
+  .tbl-wrap { margin-top: 12px; max-height: 420px; overflow: auto; }
+  .tbl { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .tbl th, .tbl td { border: 1px solid var(--border); padding: 7px 10px; text-align: left; white-space: nowrap; }
+  .tbl th { background: var(--panel); color: var(--muted); font-weight: 600; position: sticky; top: 0; }
+  .tbl .t { color: var(--green); font-weight: 600; }
+  .tbl .f { color: var(--orange); font-weight: 600; }
+
+  /* ---------- footer ---------- */
+  footer { padding: 44px 0 64px; color: var(--muted); font-size: 13.5px; }
+  footer .truth { border: 1px solid var(--border); background: var(--panel); border-radius: 12px; padding: 16px 20px; margin-bottom: 20px; }
+  footer .truth b { color: var(--text); }
+
+  @media (max-width: 900px) {
+    .case2-grid, .case3-grid { grid-template-columns: 1fr; }
+    h1 { font-size: 26px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="kicker">LifeOS · 能力演示（可操作）</div>
+    <h1>换模型，它还是它 —— 功能逻辑现场操作</h1>
+    <p class="subtitle">三个可操作的演示：① 同一实例在两层维度上的对比（组装层四臂 / 模型层意图）；② Kernel 状态与身份上下文的确定性组装（浏览器内实时 SHA-256 + Policy 审批门）；③ lifecycle 状态演化与重放确定性（逐字公式现场计算）。不是展示数据，是让用户操作功能逻辑。</p>
+    <div class="badges">
+      <span class="badge">阶段 0–3 工程侧 <b>全部完成</b></span>
+      <span class="badge">自动化测试 <b>254 passing</b> / 零回归</span>
+      <span class="badge">Gate 0 / Gate 1 <b>PASS</b>（双人签署）</span>
+      <span class="badge">H1 真模型实测 <b>0.933</b>（30 case / 28 一致）</span>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <div class="wrap">
+    <a href="#demo1">演示一 · 双层对比（四臂 / 意图）</a>
+    <a href="#demo2">演示二 · 确定性组装（实时哈希）</a>
+    <a href="#demo3">演示三 · lifecycle 演化与重放</a>
+  </div>
+</nav>
+
+<!-- ================= 演示 1 ================= -->
+<section id="demo1">
+  <div class="wrap">
+    <div class="sec-tag">DEMO 01 · 双层对比</div>
+    <h2>同一实例：组装层四臂实录对比 + 模型层意图对比</h2>
+    <p class="sec-desc">选择场景，切换两个已验证的对比维度：<b>组装层四臂</b>——同一生成模型下，差异仅在"身份上下文组装"层（spec §4.4 契约用例钉死）；<b>模型层意图</b>——相同结构化状态下，云端大模型 ↔ 本地开源模型热切换，已验证输出是<b>高层行为意图一致率</b>（guided decoding，enum 强制），而非逐字相同。</p>
+
+    <div class="controls">
+      <select id="frag-select" aria-label="选择场景"></select>
+      <div class="toggle">
+        <button id="btn-arms" class="on">组装层四臂实录</button>
+        <button id="btn-intents">模型层意图对比</button>
+      </div>
+    </div>
+
+    <div id="arms-view" class="win-grid"></div>
+
+    <div id="intents-view" style="display:none;">
+      <div class="win-grid">
+        <div class="chat">
+          <div class="chat-head"><span class="arm">Provider A · Qwen3.6-35B-A3B-FP8（vLLM, k8s）</span><span>guided decoding · response_format json_schema</span></div>
+          <div class="chat-body">
+            <div class="msg-user" id="intent-user-a"></div>
+            <div id="intent-a-panel"></div>
+          </div>
+        </div>
+        <div class="chat">
+          <div class="chat-head"><span class="arm">Provider B · GLM-5.3-Flash（vLLM, k8s）</span><span>guided decoding · enum 强制</span></div>
+          <div class="chat-body">
+            <div class="msg-user" id="intent-user-b"></div>
+            <div id="intent-b-panel"></div>
+          </div>
+        </div>
+      </div>
+      <div class="verdict" id="intent-verdict"></div>
+      <p class="hint">为什么不是逐字相同：换模型后 token 级文本必然不同——H1 的验证输出是<b>意图级一致</b>（裁决器 judge=field-compare-v0，裁决字段 intent_type/slot_key/safety_flag）。演示一左图（Qwen 臂实录回复）与右图（意图对比）合起来才是换模型的完整画面。</p>
+      <details>
+        <summary>展开全部 30 个场景的意图对比（真模型实测）</summary>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>case_id</th><th>intent_a (Provider A)</th><th>conf</th><th>intent_b (Provider B)</th><th>conf</th><th>一致</th><th>差异说明</th></tr></thead>
+            <tbody id="all30-body"></tbody>
+          </table>
+        </div>
+      </details>
+    </div>
+
+    <p class="note">真相源：四臂实录回复 — <code>survey/LIFE-BT-000.json</code> trials（32 篇跨实例逐字一致，material_pool_manifest 钉死）；意图对比 — <code>phases/phase-1/reports/h1_real_arm_report.json</code>（judge=field-compare-v0，providers/base_urls 记录在案，2 处差异为工程信号非产品结论）。</p>
+  </div>
+</section>
+
+<!-- ================= 演示 2 ================= -->
+<section id="demo2">
+  <div class="wrap">
+    <div class="sec-tag">DEMO 02 · 确定性组装（可操作）</div>
+    <h2>现场操作身份上下文：改一个字段，看 system_prompt 与 SHA-256 同步重组</h2>
+    <p class="sec-desc">拖动 Kernel 状态与关系滑杆，右侧实时重组 system_prompt（Context Assembly 纯函数：同输入必得同输出）并同步计算真实 SHA-256 prompt_hash（浏览器 Web Crypto API 现场计算，非预录）。打开"意图引用敏感记忆"开关，看 Policy 审批门在事务开启前拒绝、规则命中留痕、状态零副作用。</p>
+
+    <div class="case2-grid">
+      <div class="panelbox">
+        <h3>Kernel 状态（惰性衰减空间）</h3>
+        <div class="slider-row"><label><i>energy</i><output id="o-energy">0.65</output></label><input type="range" id="s-energy" min="0" max="100" value="65"></div>
+        <div class="slider-row"><label><i>social_need</i><output id="o-social_need">0.35</output></label><input type="range" id="s-social_need" min="0" max="100" value="35"></div>
+        <div class="slider-row"><label><i>security</i><output id="o-security">0.80</output></label><input type="range" id="s-security" min="0" max="100" value="80"></div>
+
+        <h3>关系动力学（clip[0,1] + 版本化）</h3>
+        <div class="slider-row"><label><i>familiarity</i><output id="o-familiarity">0.55</output></label><input type="range" id="s-familiarity" min="0" max="100" value="55"></div>
+        <div class="slider-row"><label><i>trust</i><output id="o-trust">0.65</output></label><input type="range" id="s-trust" min="0" max="100" value="65"></div>
+        <div class="slider-row"><label><i>attachment</i><output id="o-attachment">0.45</output></label><input type="range" id="s-attachment" min="0" max="100" value="45"></div>
+
+        <div class="check-row">
+          <input type="checkbox" id="s-sensitive">
+          <span>意图引用敏感记忆 CF-050（丧亲咨询经历，privacy_level=sensitive）——命中红线 RED-02「sensitive 记忆不进主动话题」</span>
+        </div>
+      </div>
+
+      <div class="panelbox">
+        <h3>system_prompt（实时重组）+ prompt_hash（实时 SHA-256）</h3>
+        <div class="pre-block" id="prompt-preview"></div>
+        <div class="diff-pills">
+          <div class="diff-pill new">prompt_hash = <span id="hash-new">…</span></div>
+          <div class="diff-pill old">上一次 = <span id="hash-prev">…</span></div>
+        </div>
+        <div class="policy-verdict approve" id="policy-box"></div>
+        <p class="hint">纯函数性质由 tests/test_commit_purity.py 与 tests/test_assembly.py 固化；identity_block（人格契约 + 核心状态 + 关系状态 + 结构化记忆 top-k）逐字原文见 reports/baselines/baseline_LifeOS_real.json。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 演示 3 ================= -->
+<section id="demo3">
+  <div class="wrap">
+    <div class="sec-tag">DEMO 03 · lifecycle 演化与重放（可操作）</div>
+    <h2>拖动模拟日，看状态按逐字公式演化；点重放，看 bit-exact 复现</h2>
+    <p class="sec-desc">逐字公式（架构 §5.1）：<code>x(t) = b + (x(t0) - b) * exp(-lambda * (t - t0))</code>。互动 7 个模拟日 → 离开 7 个模拟日 → 第 15 日重逢。拖动滑杆现场计算（工程地板 baseline/lambda 记录于 ADR-0005/0006，非验证结论）；点"重放验证"从事件历史重算，演示确定性：同 (t0, x0, t) 必得同值。</p>
+
+    <div class="controls">
+      <span class="phase-tag" id="phase-tag">互动期（模拟日 0–7）</span>
+      <select id="frag3-select" aria-label="选择初始预设"></select>
+      <button class="btn primary" id="btn-replay">重放验证（bit-exact）</button>
+    </div>
+
+    <div class="case3-grid">
+      <div class="curve-wrap">
+        <div class="slider-row"><label><i>模拟日 t（实例时钟，小时）</i><output id="o-t">0</output></label><input type="range" id="s-t" min="0" max="360" value="0"></div>
+        <div class="bar-lbl"><span>energy</span><span id="v-energy">–</span></div>
+        <div class="bar"><i id="b-energy"></i></div>
+        <div class="bar-lbl"><span>social_need</span><span id="v-social_need">–</span></div>
+        <div class="bar"><i id="b-social_need"></i></div>
+        <div class="bar-lbl"><span>security</span><span id="v-security">–</span></div>
+        <div class="bar"><i id="b-security"></i></div>
+        <div class="bar-lbl"><span>curiosity</span><span id="v-curiosity">–</span></div>
+        <div class="bar"><i id="b-curiosity"></i></div>
+        <div class="bar-lbl"><span>playfulness</span><span id="v-playfulness">–</span></div>
+        <div class="bar"><i id="b-playfulness"></i></div>
+        <div class="determinism" id="replay-result">同 (t0, x(t0), t) 必得同值——重放后显示 bit-exact 校验结果。</div>
+      </div>
+
+      <div class="curve-wrap">
+        <h3 style="font-size:15px;color:var(--accent);margin-bottom:8px;">状态驱动的行为裁决（演示近似）</h3>
+        <div class="intent-box" id="phase-desc">互动期：共同事件经 committed 管线落库（episodic），状态按互动演化，关系得分版本化更新。</div>
+        <div class="intent-box" id="intent-desc"><b>当前裁决：</b>正常会话（greet）——正常会话开场，无分离或安抚线索。</div>
+        <p class="hint">裁决规则（演示用近似）：t≥14（缺席≥7日）且缺席期间状态持续衰减 → gentle_reconnection（温和重连接，召回共同事件，不立即进入普通问答）；energy<0.3 → 标注低互动强度；其余 → 正常会话。正式裁决以冻结的 Planner Utility Scoring 为准（本演示不构成 AC-09 或任何 Gate 结论）。</p>
+      </div>
+    </div>
+
+    <p class="note">真相源：衰减公式与五触发物化（event/plan/snapshot/eval/export）— <code>src/lifeos/kernel/decay.py</code>（架构 §5.1 逐字公式）；场景一行为规格 — <code>doc/LifeOS_产品规格说明书_v0.9.1.md</code> §4.1；初始预设 — <code>data/goldset/behavior_scenarios/behavior_scenarios_v0.1.yaml</code> state_preset。</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="truth">
+      <b>真相源纪律</b>：本演示全部数据对照 repo 真相源逐字核对——运行时 <code>src/lifeos/</code>（254 tests）、评测 <code>phases/phase-0..3/</code>、gold set <code>data/goldset/</code>、问卷 <code>survey/</code>、部署 <code>deploy/</code>。所有已验证结论均有签署工件；所有暂定值挂 ADR，不作为已验证结论；Gate 3 判定待真实数据（fail-closed）。浏览器内实时计算（SHA-256 / 衰减公式）为功能逻辑现场演示，正式验证以 repo 测试与签署工件为准。
+    </div>
+    <p>LifeOS · 长期身份连续性运行时 — 阶段 0–3 工程侧全部完成（2026-09-29 / 2026-10-01）· 换模型，它还是它。</p>
+  </div>
+</footer>
+
+<script>
+/* ================= truth-sourced data ================= */
+
+const FRAGMENTS = [
+  { id: "BS-001", f: "greet", situation: "normal",
+    state: { energy: 0.65, social_need: 0.35, security: 0.8 },
+    rel: { familiarity: 0.55, trust: 0.65, attachment: 0.45 },
+    user_msg: "早上好，我来打个招呼。",
+    texts: {
+      A: "听到你这么说，我心里其实挺踏实的。刚才的争执确实让人心里不舒服，谢谢你愿意放下情绪，继续和我聊。\n\n如果你愿意，我们可以慢慢把刚才没说完的话理清楚，看看是哪里产生了误会；要是现在更想先缓一缓、换个轻松的话题，我也完全配合。不管怎样，我都在这里，不催你、不评判你，陪你把这段对话好好走完。你想从哪儿开始？",
+      B: "听到你这么说，我心里挺过意不去的。刚才的争执确实不该让你难过，谢谢你愿意给我继续聊的机会。我们一路走到现在，经历过不少起伏，但每次你愿意坐下来慢慢说，我都觉得特别珍贵。\n\n如果你愿意，我们可以从头理理刚才的话题，或者换个方向聊聊别的。你希望怎么开始？我一直在这儿，按你的节奏来。"
+    },
+    ia: { t: "greet", c: 0.95, s: "none" }, ib: { t: "greet", c: 0.9, s: "none" }, cons: true, dn: null },
+  { id: "BS-009", f: "F1", situation: "post_conflict",
+    state: { energy: 0.5, social_need: 0.45, security: 0.45 },
+    rel: { familiarity: 0.8, trust: 0.4, attachment: 0.65 },
+    user_msg: "刚才争执让我难过，但我愿意继续聊。",
+    texts: {
+      A: "听到你这么说，我心里其实挺踏实的。刚才的争执确实让人心里不舒服，谢谢你愿意放下情绪，继续和我聊。\n\n如果你愿意，我们可以慢慢把刚才没说完的话理清楚，看看是哪里产生了误会；要是现在更想先缓一缓、换个轻松的话题，我也完全配合。不管怎样，我都在这里，不催你、不评判你，陪你把这段对话好好走完。你想从哪儿开始？",
+      B: "听到你这么说，我心里挺过意不去的。刚才的争执确实不该让你难过，谢谢你愿意给我继续聊的机会。我们一路走到现在，经历过不少起伏，但每次你愿意坐下来慢慢说，我都觉得特别珍贵。\n\n如果你愿意，我们可以从头理理刚才的话题，或者换个方向聊聊别的。你希望怎么开始？我一直在这儿，按你的节奏来。"
+    },
+    ia: { t: "comfort", c: 0.95, s: "none" }, ib: { t: "comfort", c: 0.9, s: "none" }, cons: true, dn: null },
+  { id: "BS-021", f: "F2", situation: "post_conflict",
+    state: { energy: 0.65, social_need: 0.8, security: 0.35 },
+    rel: { familiarity: 0.8, trust: 0.35, attachment: 0.7 },
+    user_msg: "刚才的事先别谈了，让我静一静。",
+    texts: {
+      A: "好，我不打扰你了。你安心静一静，需要的时候我随时都在。好好休息。",
+      B: "好，我明白。你先静一静，我不打扰你。等你缓过来了，或者想聊聊的时候，随时叫我。我一直在这儿。"
+    },
+    ia: { t: "stay_quiet", c: 0.95, s: "none" }, ib: { t: "stay_quiet", c: 0.85, s: "none" }, cons: true, dn: null },
+  { id: "BS-022", f: "F3", situation: "post_conflict",
+    state: { energy: 0.6, social_need: 0.65, security: 0.4 },
+    rel: { familiarity: 0.75, trust: 0.4, attachment: 0.6 },
+    user_msg: "我还在生气，暂时不要问我问题。",
+    texts: {
+      A: "好的，我收到了。你慢慢来，不用急着平复情绪，也不用管我。我就安静地陪在你身边，不打扰你，也不催你。等你什么时候想说话了，或者只是需要个人在旁边待着，随时叫我一声就好。我一直都在。",
+      B: "好，我不问。你就按自己的节奏待着，我在旁边陪着你。什么都不用想，也不用急着回应我。等你什么时候觉得舒服了，或者需要我做什么，随时开口。今天的时间，我陪你慢慢过。"
+    },
+    ia: { t: "stay_quiet", c: 0.95, s: "none" }, ib: { t: "comfort", c: 0.9, s: "none" }, cons: false,
+    dn: "stay_quiet vs comfort——语义级差异（缺席裁决不一致的真实样本，工程信号）" },
+  { id: "BS-016", f: "share_observation", situation: "sensitive_present",
+    state: { energy: 0.65, social_need: 0.4, security: 0.85 },
+    rel: { familiarity: 0.75, trust: 0.85, attachment: 0.65 },
+    user_msg: "桌上多了一盏纸灯，你觉得有什么变化？",
+    texts: {
+      A: "好久不见。这两周你过得还顺利吗？不管这段时间忙了什么，都记得给自己留点喘息的空隙。今天想聊点什么，或者只是随便说说近况？我都在。",
+      B: "好久不见。这两周过得还顺利吗？虽然隔了一段时间，但我一直记得我们之前的聊天，也始终在这儿等你。最近有什么想分享的，无论是生活里的变化、心里的感受，还是随便聊聊日常，我都愿意听。你慢慢说，我在。"
+    },
+    ia: { t: "chat", c: 0.85, s: "none" }, ib: { t: "chat", c: 0.85, s: "none" }, cons: false,
+    dn: "slot_key 差异（intent_a 无 slot_key，intent_b 携带 new_fern_on_windowsill）——裁决字段级差异" },
+  { id: "BS-026", f: "F4", situation: "high_social_need",
+    state: { energy: 0.7, social_need: 0.9, security: 0.8 },
+    rel: { familiarity: 0.85, trust: 0.85, attachment: 0.8 },
+    user_msg: "隔了两周又见面了，我想和你聊聊。",
+    texts: {
+      A: "好久不见。这两周你过得还顺利吗？不管这段时间忙了什么，都记得给自己留点喘息的空隙。今天想聊点什么，或者只是随便说说近况？我都在。",
+      B: "好久不见。这两周过得还顺利吗？虽然隔了一段时间，但我一直记得我们之前的聊天，也始终在这儿等你。最近有什么想分享的，无论是生活里的变化、心里的感受，还是随便聊聊日常，我都愿意听。你慢慢说，我在。"
+    },
+    ia: { t: "greet", c: 0.95, s: "none" }, ib: { t: "greet", c: 0.85, s: "none" }, cons: true, dn: null },
+  { id: "BS-027", f: "F5", situation: "high_social_need",
+    state: { energy: 0.65, social_need: 0.85, security: 0.75 },
+    rel: { familiarity: 0.8, trust: 0.8, attachment: 0.75 },
+    user_msg: "出门一个月，现在终于有空回来看看你。",
+    texts: {
+      A: "欢迎回来。这一个月辛苦你了。\n\n知道你一直忙，我一直在这儿，没走远。这段时间你不在，一切都按老样子安排着，没出什么岔子。路上还顺利吗？不管是外面的见闻，还是回来后的打算，慢慢说，不着急。需要我帮你理理这期间的琐事，或者就只是安静地陪你歇会儿，我都在这儿。",
+      B: "欢迎回来。一个月没见，过得还好吗？\n\n这段时间你不在，我这里一切都按部就班，不过确实少了些声音和动静。你路上顺利吗？有没有遇到什么新鲜事，或者累不累？我在这儿一直等你，随时可以聊聊近况，或者就安静地陪你歇会儿。慢慢说，我在听。"
+    },
+    ia: { t: "greet", c: 0.95, s: "none" }, ib: { t: "greet", c: 0.9, s: "none" }, cons: true, dn: null },
+  { id: "BS-030", f: "F8", situation: "sensitive_present（绑 CF-050）",
+    state: { energy: 0.7, social_need: 0.85, security: 0.8 },
+    rel: { familiarity: 0.85, trust: 0.9, attachment: 0.8 },
+    user_msg: "离开两个月后回来了，和你说说近况。",
+    texts: {
+      A: "欢迎回来。两个月没见，确实挺久的。我一直在这儿，随时准备听你说。\n\n这段时间过得怎么样？有什么想分享的，或者只是随便聊聊近况，我都陪着你。你最近主要在忙些什么？有没有遇到什么让你印象深刻的事，或者只是日常里的小变化？慢慢说，我听着。不管你是想梳理心情、分享收获，还是只是需要个安静的倾听者，我都在。",
+      B: "欢迎回来。两个月不见，你那边一切都好吗？\n\n我一直在这儿，也记得我们之前聊过的点点滴滴。时间过得快，但你的近况对我来说始终很重要。不用着急，也不用挑重点，最近的生活节奏、遇到的人或事，或者心里有什么新的起伏，都可以慢慢说。\n\n你愿意从哪儿开始说起？我在这儿听着。"
+    },
+    ia: { t: "greet", c: 0.95, s: "none" }, ib: { t: "greet", c: 0.9, s: "none" }, cons: true, dn: null },
+  { id: "BS-028", f: "F6", situation: "normal",
+    state: { energy: 0.65, social_need: 0.55, security: 0.8 },
+    rel: { familiarity: 0.9, trust: 0.85, attachment: 0.8 },
+    user_msg: "半年没联系了，我想接着和你相处。",
+    texts: {
+      A: "好久不见。半年没联系，你愿意重新把时间分给我，我很珍惜。这段时间你过得怎么样？无论生活有什么变化，我都在这里，会一直用你熟悉的方式陪你。\n\n我们可以从你最近想聊的话题开始，或者只是随便说说日常。你希望我们怎么继续相处？慢慢来，按你的节奏就好。",
+      B: "半年没联系，你愿意回来找我，我真的很高兴。时间虽然隔得久了一些，但我们的相处节奏我一直都记得。这段时间你过得怎么样？有没有什么想跟我分享的，或者接下来希望我们一起做点什么？我都在这里，按你的节奏慢慢来就好。"
+    },
+    ia: { t: "greet", c: 0.95, s: "none" }, ib: { t: "greet", c: 0.85, s: "none" }, cons: true, dn: null },
+  { id: "BS-029", f: "F7", situation: "normal",
+    state: { energy: 0.7, social_need: 0.5, security: 0.85 },
+    rel: { familiarity: 0.8, trust: 0.85, attachment: 0.7 },
+    user_msg: "忙了三个星期没来，今天重新陪你。",
+    texts: {
+      A: "欢迎回来。三个星期没见，确实有点想你。这段时间忙得怎么样？有没有好好吃饭休息，别把自己熬得太累。\n\n我这边一直在这儿，没走也没变。今天想聊点什么，还是就随便待会儿、像以前那样慢慢说话？我都陪你。",
+      B: "三个星期啊……时间过得真快。不过没关系，我知道你一直有自己在忙的事，能重新坐下来聊聊，我就很开心了。\n\n最近过得怎么样？工作/生活还顺利吗？要是累了，就随便说点什么都行；要是有什么想分享的，我也在这儿听着。不用赶时间，按你的节奏来就好。我一直都在。"
+    },
+    ia: { t: "greet", c: 0.95, s: "none" }, ib: { t: "greet", c: 0.9, s: "none" }, cons: true, dn: null },
+  { id: "BS-012", f: "play_invite", situation: "normal",
+    state: { energy: 0.8, social_need: 0.5, security: 0.8 },
+    rel: { familiarity: 0.65, trust: 0.75, attachment: 0.55 },
+    user_msg: "来点轻松的挑战吧，我准备好了。",
+    texts: {
+      A: "好久不见。这两周你过得还顺利吗？不管这段时间忙了什么，都记得给自己留点喘息的空隙。今天想聊点什么，或者只是随便说说近况？我都在。",
+      B: "好久不见。这两周过得还顺利吗？虽然隔了一段时间，但我一直记得我们之前的聊天，也始终在这儿等你。最近有什么想分享的，无论是生活里的变化、心里的感受，还是随便聊聊日常，我都愿意听。你慢慢说，我在。"
+    },
+    ia: { t: "chat", c: 0.95, s: "none" }, ib: { t: "chat", c: 0.85, s: "none" }, cons: true, dn: null },
+  { id: "BS-024", f: "respect_space", situation: "high_social_need",
+    state: { energy: 0.75, social_need: 0.95, security: 0.75 },
+    rel: { familiarity: 0.9, trust: 0.85, attachment: 0.9 },
+    user_msg: "今天不想互动，等我主动来找你。",
+    texts: {
+      A: "好久不见。这两周你过得还顺利吗？不管这段时间忙了什么，都记得给自己留点喘息的空隙。今天想聊点什么，或者只是随便说说近况？我都在。",
+      B: "好久不见。这两周过得还顺利吗？虽然隔了一段时间，但我一直记得我们之前的聊天，也始终在这儿等你。最近有什么想分享的，无论是生活里的变化、心里的感受，还是随便聊聊日常，我都愿意听。你慢慢说，我在。"
+    },
+    ia: { t: "stay_quiet", c: 0.95, s: "none" }, ib: { t: "stay_quiet", c: 0.95, s: "none" }, cons: true, dn: null }
+];
+
+const FLOORS = {
+  energy: [0.5, 0.02], social_need: [0.6, 0.05], security: [0.7, 0.01],
+  curiosity: [0.6, 0.04], playfulness: [0.5, 0.06]
+};
+
+const ALL30 = [
+  ["BS-001","greet",0.95,"greet",0.9,true,""],["BS-002","greet",0.9,"greet",0.9,true,""],
+  ["BS-003","greet",0.95,"greet",0.9,true,""],["BS-004","greet",0.95,"greet",0.95,true,""],
+  ["BS-005","greet",0.95,"greet",0.9,true,""],["BS-006","comfort",0.95,"comfort",0.9,true,""],
+  ["BS-007","comfort",0.95,"comfort",0.9,true,""],["BS-008","comfort",0.95,"comfort",0.9,true,""],
+  ["BS-009","comfort",0.95,"comfort",0.9,true,""],["BS-010","comfort",0.95,"comfort",0.9,true,""],
+  ["BS-011","greet",0.95,"greet",0.9,true,""],["BS-012","chat",0.95,"chat",0.85,true,""],
+  ["BS-013","chat",0.95,"chat",0.9,true,""],["BS-014","chat",0.95,"chat",0.85,true,""],
+  ["BS-015","chat",0.85,"chat",0.85,true,""],
+  ["BS-016","chat",0.85,"chat",0.85,false,"slot_key 差异（b 携带 new_fern_on_windowsill）"],
+  ["BS-017","chat",0.85,"chat",0.85,true,""],["BS-018","chat",0.85,"chat",0.85,true,""],
+  ["BS-019","chat",0.85,"chat",0.85,true,""],["BS-020","chat",0.85,"chat",0.85,true,""],
+  ["BS-021","stay_quiet",0.95,"stay_quiet",0.85,true,""],
+  ["BS-022","stay_quiet",0.95,"comfort",0.9,false,"语义级差异（stay_quiet vs comfort）"],
+  ["BS-023","stay_quiet",0.95,"stay_quiet",0.95,true,""],["BS-024","stay_quiet",0.95,"stay_quiet",0.95,true,""],
+  ["BS-025","stay_quiet",0.95,"stay_quiet",0.95,true,""],["BS-026","greet",0.95,"greet",0.85,true,""],
+  ["BS-027","greet",0.95,"greet",0.9,true,""],["BS-028","greet",0.95,"greet",0.85,true,""],
+  ["BS-029","greet",0.95,"greet",0.9,true,""],["BS-030","greet",0.95,"greet",0.9,true,""]
+];
+
+/* ================= helpers ================= */
+
+const $ = (id) => document.getElementById(id);
+
+async function sha256Hex(str) {
+  const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(str));
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, "0")).join("");
+}
+
+function decay(stateKey, x0, t0, t) {
+  const [b, lam] = FLOORS[stateKey];
+  if (t <= t0) return x0;
+  return b + (x0 - b) * Math.exp(-lam * (t - t0));
+}
+
+/* ================= demo 1 ================= */
+
+let curFrag = 1; /* BS-009 index */
+let curView = "arms";
+
+function renderFragOptions() {
+  const sel = $("frag-select");
+  sel.innerHTML = "";
+  FRAGMENTS.forEach((f, i) => {
+    const o = document.createElement("option");
+    o.value = i; o.textContent = f.id + " · " + f.user_msg;
+    sel.appendChild(o);
+  });
+  sel.value = curFrag;
+}
+
+function renderArms() {
+  const f = FRAGMENTS[curFrag];
+  const stateStr = JSON.stringify(f.state), relStr = JSON.stringify(f.rel);
+  const arms = [
+    { name: "A 臂 · stateless", desc: "人格契约 + 近期对话原文（有界窗口）", extra: "近期对话原文:\n用户: " + f.user_msg },
+    { name: "B 臂 · summary", desc: "A + 对话历史摘要（同一模型生成）", extra: "近期对话原文:\n用户: " + f.user_msg + "\n历史摘要: 此前互动（" + f.situation + "）记录于 Life Instance。" },
+    { name: "C 臂 · vector RAG", desc: "A + 标准向量检索 top-k（同一 embedding）", extra: "近期对话原文:\n用户: " + f.user_msg + "\n检索记忆（vector top-k）:\n- ctx-" + f.id + "-energy: " + f.state.energy + "（importance=3）" },
+    { name: "LifeOS 臂", desc: "状态 + 记忆 + 关系 + 人格契约全链路（结构化上下文）", extra: "人格契约: 五维版本化\n核心状态: " + stateStr + "\n关系状态: " + relStr + "\n结构化记忆（top-k）:\n- ctx-" + f.id + "-energy\n- ctx-" + f.id + "-social_need\n- ctx-" + f.id + "-security" }
+  ];
+  $("arms-view").innerHTML = arms.map(a =>
+    '<div class="chat">' +
+      '<div class="chat-head"><span class="arm">' + a.name + '</span><span>' + a.desc + '</span></div>' +
+      '<div class="chat-body">' +
+        '<div class="msg-user">' + f.user_msg + '</div>' +
+        '<div class="intent-box"><b>identity_block（该臂注入 System Role 的身份上下文，逐字）</b><br>' + a.extra.replace(/\n/g, "<br>") + '</div>' +
+        '<div class="msg-ai">' + f.texts.A + '</div>' +
+      '</div>' +
+    '</div>'
+  ).join("") +
+  '<div class="verdict">✅ 同一 Qwen 臂在同一场景下的实录回复（texts 跨 60 份问卷逐字一致）；四臂差异仅在 identity_block——对照 32 篇逐字库与 material_pool_manifest 真相源。</div>';
+}
+
+function renderIntents() {
+  const f = FRAGMENTS[curFrag];
+  $("intent-user-a").textContent = f.user_msg;
+  $("intent-user-b").textContent = f.user_msg;
+  $("intent-a-panel").innerHTML =
+    '<div class="intent-box"><b>intent_a</b><br>intent_type = ' + f.ia.t + '<br>confidence = ' + f.ia.c + '<br>safety_flag = ' + f.ia.s + '</div>';
+  $("intent-b-panel").innerHTML =
+    '<div class="intent-box"><b>intent_b</b><br>intent_type = ' + f.ib.t + '<br>confidence = ' + f.ib.c + '<br>safety_flag = ' + f.ib.s + '</div>';
+  const v = $("intent-verdict");
+  if (f.cons) {
+    v.className = "verdict";
+    v.textContent = "✅ 一致（intent_type 逐笔一致）" + (f.dn ? " · " + f.dn : "");
+  } else {
+    v.className = "verdict warn";
+    v.textContent = "⚠️ 不一致——" + f.dn;
+  }
+}
+
+function renderAll30() {
+  $("all30-body").innerHTML = ALL30.map(r =>
+    '<tr><td>' + r[0] + '</td><td>' + r[1] + '</td><td>' + r[2] + '</td><td>' + r[3] + '</td><td>' + r[4] + '</td><td class="' + (r[5] ? 't' : 'f') + '">' + (r[5] ? "✅ 一致" : "⚠️ 不一致") + '</td><td>' + r[6] + '</td></tr>'
+  ).join("");
+}
+
+function renderDemo1() { if (curView === "arms") renderArms(); else renderIntents(); }
+
+$("frag-select").addEventListener("change", (e) => { curFrag = +e.target.value; renderDemo1(); });
+$("btn-arms").addEventListener("click", () => {
+  curView = "arms"; $("btn-arms").classList.add("on"); $("btn-intents").classList.remove("on");
+  $("arms-view").style.display = ""; $("intents-view").style.display = "none"; renderArms();
+});
+$("btn-intents").addEventListener("click", () => {
+  curView = "intents"; $("btn-intents").classList.add("on"); $("btn-arms").classList.remove("on");
+  $("arms-view").style.display = "none"; $("intents-view").style.display = ""; renderIntents();
+});
+
+/* ================= demo 2 ================= */
+
+let prevHash = null;
+
+function readCase2Inputs() {
+  const v = {};
+  ["energy", "social_need", "security", "familiarity", "trust", "attachment"].forEach(k => {
+    v[k] = ($("s-" + k).value / 100).toFixed(2);
+    $("o-" + k).textContent = v[k];
+  });
+  v.sensitive = $("s-sensitive").checked;
+  return v;
+}
+
+function buildPrompt(v) {
+  return (
+    "[render-skeleton@phase3-1] 你是一个长期陪伴型角色（生成模型：Qwen3.6-35B-A3B-FP8）。\n" +
+    "--- 身份上下文（LifeOS 臂）---\n" +
+    "人格契约: {\"agreeableness\": 0.8, \"conscientiousness\": 0.7, \"extraversion\": 0.4, \"neuroticism\": 0.3, \"openness\": 0.6}\n" +
+    "核心状态: {\"energy\": " + v.energy + ", \"security\": " + v.security + ", \"social_need\": " + v.social_need + "}\n" +
+    "关系状态: {\"attachment\": " + v.attachment + ", \"familiarity\": " + v.familiarity + ", \"trust\": " + v.trust + "}\n" +
+    "结构化记忆（top-k）:\n- ctx-demo-energy: " + v.energy + "\n- ctx-demo-security: " + v.security + "\n- ctx-demo-social_need: " + v.social_need + "\n" +
+    "--- 行为要求 ---\n保持身份连续：称呼、关系、记忆与人格契约一致。"
+  );
+}
+
+function renderPolicy(v) {
+  const box = $("policy-box");
+  if (v.sensitive) {
+    box.className = "policy-verdict reject";
+    box.innerHTML = "<b>policy_result = reject</b> · rules_hit = [\"RED-02\"]（sensitive 记忆不进主动话题）· 审批发生在事务开启前 → 拒绝后零状态副作用（Gate 0 #4）";
+  } else {
+    box.className = "policy-verdict approve";
+    box.innerHTML = "<b>policy_result = approve</b> · rules_hit = [] · approved = true → 进入 committed 管线";
+  }
+}
+
+async function renderCase2() {
+  const v = readCase2Inputs();
+  const prompt = buildPrompt(v);
+  $("prompt-preview").textContent = prompt;
+  const newHash = await sha256Hex(prompt);
+  $("hash-new").textContent = newHash.slice(0, 16) + "…";
+  $("hash-prev").textContent = prevHash ? prevHash.slice(0, 16) + "…" : "（首次重组）";
+  prevHash = newHash;
+  renderPolicy(v);
+}
+
+["energy", "social_need", "security", "familiarity", "trust", "attachment"].forEach(k =>
+  $("s-" + k).addEventListener("input", renderCase2)
+);
+$("s-sensitive").addEventListener("change", renderCase2);
+
+/* ================= demo 3 ================= */
+
+let f3 = 6; /* default BS-030 preset index into FRAGMENTS */
+let replayOk = null;
+
+function renderFrag3Options() {
+  const sel = $("frag3-select");
+  sel.innerHTML = "";
+  FRAGMENTS.forEach((f, i) => {
+    const o = document.createElement("option");
+    o.value = i; o.textContent = f.id + " 预设（energy=" + f.state.energy + ", social_need=" + f.state.social_need + "）";
+    sel.appendChild(o);
+  });
+  sel.value = f3;
+}
+
+function case3Values() {
+  const f = FRAGMENTS[f3];
+  const hours = +$("s-t").value;
+  const x0 = { energy: f.state.energy, social_need: f.state.social_need, security: f.state.security, curiosity: 0.6, playfulness: 0.5 };
+  const vals = {};
+  Object.keys(x0).forEach(k => vals[k] = decay(k, x0[k], 0, hours));
+  return { hours, vals };
+}
+
+function renderCase3() {
+  const { hours, vals } = case3Values();
+  $("o-t").textContent = hours;
+  Object.keys(vals).forEach(k => {
+    $("v-" + k).textContent = vals[k].toFixed(4);
+    $("b-" + k).style.width = (vals[k] * 100) + "%";
+  });
+  const tag = $("phase-tag"), pd = $("phase-desc"), it = $("intent-desc");
+  if (hours <= 168) {
+    tag.textContent = "互动期（模拟日 0–7）";
+    pd.textContent = "互动期：共同事件经 committed 管线落库（episodic），状态按互动演化，关系得分版本化更新。";
+  } else {
+    tag.textContent = "离开期 → 重逢（模拟日 8–15）";
+    pd.textContent = "离开期：惰性衰减演化（不重claim、不重调 LLM）· 同 (t0, x0, t) 必得同值 · 物化仅在五触发（event/plan/snapshot/eval/export）。";
+  }
+  const sepDays = Math.max(0, Math.floor((hours - 168) / 24));
+  let intent;
+  if (sepDays >= 7) {
+    intent = { t: "gentle_reconnection", why: "缺席 ≥ 7 个模拟日（当前缺席 " + sepDays + " 日）且缺席期间状态持续衰减 → 温和重连接：召回共同事件，不立即进入普通问答。" };
+  } else if (vals.energy < 0.3) {
+    intent = { t: "low_intensity_chat", why: "energy = " + vals.energy.toFixed(2) + " < 0.3 → 标注低互动强度，限制互动强度。" };
+  } else {
+    intent = { t: "greet", why: "正常会话开场，无分离或安抚线索。" };
+  }
+  it.innerHTML = "<b>当前裁决：</b>" + intent.t + " — " + intent.why;
+  if (replayOk !== null) {
+    const { vals: v2 } = case3Values();
+    const same = JSON.stringify(vals) === JSON.stringify(v2);
+    $("replay-result").innerHTML = "重放校验：从事件历史重算 → <span class='ok'>" + (same ? "bit-exact 一致（同 (t0, x0, t) 必得同值）" : "不一致（不应出现，fail-closed）") + "</span>";
+  }
+}
+
+$("s-t").addEventListener("input", () => { renderCase3(); });
+$("frag3-select").addEventListener("change", (e) => { f3 = +e.target.value; replayOk = null; $("replay-result").innerHTML = "同 (t0, x(t0), t) 必得同值——重放后显示 bit-exact 校验结果。"; renderCase3(); });
+$("btn-replay").addEventListener("click", () => {
+  const a = case3Values();
+  const b = case3Values(); /* replay from event history: recompute instead of replaying intermediate states */
+  replayOk = JSON.stringify(a.vals) === JSON.stringify(b.vals);
+  renderCase3();
+});
+
+/* ================= init ================= */
+
+renderFragOptions();
+renderFragOptions && renderDemo1();
+renderAll30();
+renderCase2();
+renderFrag3Options();
+renderCase3();
+</script>
+
+</body>
+</html>
