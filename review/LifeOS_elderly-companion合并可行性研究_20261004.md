@@ -254,7 +254,7 @@ elderly-companion 当前的硬件依赖主要由四个重项决定：
 
 ### 5.1 成本 BOM 前后对比（估算区间，非报价单）
 
-**架构 A（现方案，elderly-companion）：RK3588 一体（8GB + NPU）**
+<!-- **架构 A（现方案，elderly-companion）：RK3588 一体（8GB + NPU）**1048576 -->
 
 | 部件 | 规格 | 估算价（¥） | 说明 |
 |---|---|---|---|

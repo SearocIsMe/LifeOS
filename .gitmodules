@@ -1,3 +1,9 @@
 [submodule "demo/elderly-companion"]
 	path = demo/elderly-companion
 	url = https://github.com/SearocIsMe/elderly-companion.git
+[submodule "demo/esp32-s3-materials/xiaozhi-server/xiaozhi-esp32-server"]
+	path = demo/esp32-s3-materials/xiaozhi-server/xiaozhi-esp32-server
+	url = https://github.com/SearocIsMe/xiaozhi-esp32-server.git
+[submodule "demo/esp32-s3-materials/xiaozhi-esp32-server"]
+	path = demo/esp32-s3-materials/xiaozhi-esp32-server
+	url = https://github.com/SearocIsMe/xiaozhi-esp32-server.git

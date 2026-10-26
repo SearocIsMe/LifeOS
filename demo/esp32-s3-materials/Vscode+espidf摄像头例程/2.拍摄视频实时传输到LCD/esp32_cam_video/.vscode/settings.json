@@ -1,0 +1,32 @@
+{
+  "C_Cpp.intelliSenseEngine": "default",
+  "idf.espIdfPathWin": "d:\\Espressif\\frameworks\\esp-idf-v5.4.1",
+  "idf.pythonInstallPath": "d:\\Espressif\\tools\\tools\\idf-python\\3.11.2\\python.exe",
+  "idf.openOcdConfigs": [
+    "board/esp32s3-builtin.cfg"
+  ],
+  "idf.portWin": "COM7",
+  "idf.toolsPathWin": "d:\\Espressif\\tools",
+  "idf.customExtraVars": {
+    "IDF_TARGET": "esp32s3"
+  },
+  "files.associations": {
+    "freertos.h": "c",
+    "esp_psram.h": "c",
+    "unistd.h": "c",
+    "camera.h": "c",
+    "queue.h": "c",
+    "esp_camera.h": "c",
+    "led.h": "c",
+    "esp_lcd_panel_io.h": "c",
+    "esp_timer.h": "c",
+    "array": "c",
+    "bitset": "c",
+    "string_view": "c",
+    "format": "c",
+    "initializer_list": "c",
+    "span": "c",
+    "regex": "c",
+    "esp_log.h": "c"
+  }
+}
