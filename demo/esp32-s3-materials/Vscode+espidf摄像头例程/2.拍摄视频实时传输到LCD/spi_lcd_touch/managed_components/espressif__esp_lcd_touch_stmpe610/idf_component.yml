@@ -1,0 +1,12 @@
+dependencies:
+  esp_lcd_touch:
+    public: true
+    version: ^1.0.4
+  idf: '>=5.0'
+description: ESP LCD Touch STMPE610 - touch controller STMPE610
+repository: git://github.com/espressif/esp-bsp.git
+repository_info:
+  commit_sha: e5daac9acdfecafa1f56bc64b670543cb4d76d94
+  path: components/lcd_touch/esp_lcd_touch_stmpe610
+url: https://github.com/espressif/esp-bsp/tree/master/components/esp_lcd_touch_stmpe610
+version: 1.0.7
