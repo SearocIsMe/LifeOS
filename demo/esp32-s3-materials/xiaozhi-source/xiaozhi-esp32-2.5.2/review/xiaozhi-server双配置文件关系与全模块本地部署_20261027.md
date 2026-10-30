@@ -997,3 +997,62 @@ AX1675x 是**单射频**，当前以 **5GHz + WPA2-Enterprise** 锁定在 NTUSEC
 - 已实测：NTUSECURE = WPA2-Enterprise/5GHz/ch100；仅一块物理 Wi-Fi；`192.168.137.1` 存在但服务仅回环可达；热点 IP 无法直接 bind（10049）。
 - **未实测**：不同硬件（USB 网卡/路由）下的成功率；方案 A 的 R 是否有；`portproxy` 在授权后是否彻底打通（本会话无管理员权限）。
 - 本轮**未改动任何固件/服务配置**；仅新增用户态转发脚本 [`scripts/hotspot_port_forward.py`](../../scripts/hotspot_port_forward.py) 供方案 A/B 复用。
+
+---
+
+## 13. §12.5 方案 A 落地实测：WSL mirrored + 服务修复（2026-10-29 第六轮）
+
+> **执行结论**：方案 A 已打通。WSL 启用 mirrored 后**不需要 `netsh portproxy`**——局域网设备经
+> `192.168.1.3` 可直达 8000/8002/8003。过程中还发现并修复了两个与网络无关的真实故障。
+
+### 13.1 动作与实测结果
+
+| # | 动作 | 结果（实测） |
+|---|---|---|
+| ① | 创建 `%UserProfile%\.wslconfig`：`networkingMode=mirrored`、`firewall=false`、`dnsTunneling=true`、`autoProxy=true` | 此文件此前**不存在** |
+| ② | `wsl --shutdown` 使配置生效 | WSL 获得 `eth2 = 192.168.1.3/24`（与主机 Wi-Fi 同 IP），不再是 NAT 的 172.25.x |
+| ③ | 等待 systemd 拉起 Docker + 容器 | `/etc/wsl.conf` 为 `systemd=true`；4 容器 `restart=always`，自动恢复 |
+| ④ | **修复崩溃循环**：`xiaozhi-esp32-server` 反复重启，日志 `IsADirectoryError: models/SenseVoiceSmall/model.pt` | 该路径曾是**空目录**；下载正确 model.pt（936,291,369 B）后，旧容器挂载元数据仍为「目录」→ `restart`/`--force-recreate` 均失败；**`docker rm -f` 后按实际使用的 `docker-compose_all_local.yml` 重建成功** |
+| ⑤ | **修复 vision_explain**：原值 `http:/192.168.1.3:8003/...` 少一个斜杠 | 改为 `http://192.168.1.3:8003/mcp/vision/explain`；重启后视觉接口可用 |
+| ⑥ | **补 `server.ota` / `server.websocket` / `server.fronted_url`** | 三者原值为 **null**（设备拿不到 OTA/WS 地址 → 永远等不到激活码）；已写入 `http://192.168.1.3:8002/xiaozhi/ota/`、`ws://192.168.1.3:8000/xiaozhi/v1/`、`http://192.168.1.3:8002` |
+| ⑦ | LAN 可达性验证 | 见 13.2 |
+
+### 13.2 可达性（权威测法：在 WSL 内经 eth2 发起）
+
+```
+$ wsl bash -c "curl --interface 192.168.1.3 -o /dev/null -w '%{http_code}' <url>"
+http://192.168.1.3:8002/                         -> 200
+http://192.168.1.3:8002/xiaozhi/ota/             -> 200
+http://192.168.1.3:8000/xiaozhi/v1/              -> 200
+http://192.168.1.3:8003/mcp/vision/explain       -> 200
+```
+
+工具：`scripts/probe_ports.ps1`（本机回环 + 经 WSL eth2 的 LAN 两项）。
+
+### 13.3 重要纠正（本轮最值得记录的一条）
+
+**mirrored 模式下"主机访问自己的 LAN IP"是无效判据。** 本轮实测：
+
+- Windows 侧 `netstat` **没有** 8000/8002/8003 监听记录；
+- 主机 `curl http://192.168.1.3:8002/` → `NO_RESPONSE`；
+- 但 **WSL 经 eth2 访问同一地址 → 200**，且 Windows 防火墙三个配置文件全部 `Enabled=False`。
+
+即：主机到自身 LAN IP 的回环不成立，**不代表局域网设备不可达**。诊断此类问题必须以 WSL 内 eth2
+探针或"第二台同网段设备"为准，否则会误判为需要 portproxy。
+
+### 13.4 本轮未做 / 待用户完成
+
+- **未**执行 `netsh portproxy`（经证实不需要；如需强制桥接，用 `scripts/apply_wsl_lan_forward.ps1`，
+  管理员权限必需，本会话无 UAC）；
+- **未实测**：真机 ESP32 是否已在同一 `192.168.1.0/24` 网络并成功激活（需用户侧设备复位观察 COM5）；
+- **未验证**：智控台【模型配置】里的 LLM/ASR/TTS key 是否已绑定到智能体（S-C 下 YAML 模型段失效）。
+
+### 13.5 建议的设备侧操作（按顺序）
+
+1. 确认主机与 ESP32 接入**同一个普通 WPA2 路由器**（192.168.1.0/24；主机 = 192.168.1.3）；
+2. 给主机 Wi-Fi 配 **DHCP 保留/静态 IP**，避免 DHCP 换址后 `server.ota` 失效（§10 曾反复踩此坑）；
+3. 设备复位 → 门户填 OTA `http://192.168.1.3:8002/xiaozhi/ota/` → 保存；
+4. COM5 期望：`Ota: ... HTTP 200` → `activating` → 6 位码 + 数字播报；
+5. 智控台【设备管理】输入 6 位码绑定；
+6. 智控台【模型配置】补 LLM/ASR/TTS 并绑定智能体。
+
