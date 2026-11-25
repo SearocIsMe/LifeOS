@@ -1,0 +1,29 @@
+chain certs: 4
+
+[0]
+  subject : CN=tokynflow.com
+  issuer  : C=US, O=Let's Encrypt, CN=YE2
+  serial  : 487842597745414242536448748765646999090033
+  ski     : 70150cbaafad96ee0b06b4d675f89d04f5cc8c8b
+  aki     : b959f28ecf22f086d33748ff761418ba82d85587
+
+[1]
+  subject : C=US, O=Let's Encrypt, CN=YE2
+  issuer  : C=US, O=ISRG, CN=Root YE
+  serial  : 103615881233243919450438579527522644245
+  ski     : b959f28ecf22f086d33748ff761418ba82d85587
+  aki     : a3c8265a8ea14cd03563fc9b23c83aae56f34f56
+
+[2]
+  subject : C=US, O=ISRG, CN=Root YE
+  issuer  : C=US, O=Internet Security Research Group, CN=ISRG Root X2
+  serial  : 179619193732476545641173103431506703674
+  ski     : a3c8265a8ea14cd03563fc9b23c83aae56f34f56
+  aki     : 7c4296aede4b483bfa92f89e8ccf6d8ba9723795
+
+[3]
+  subject : C=US, O=Internet Security Research Group, CN=ISRG Root X2
+  issuer  : C=US, O=Internet Security Research Group, CN=ISRG Root X1
+  serial  : 144299725964134815114551462777128548813
+  ski     : 7c4296aede4b483bfa92f89e8ccf6d8ba9723795
+  aki     : 79b459e67bb6e5e40173800888c81a58f6e99b6e
