@@ -5,11 +5,18 @@
 > **命名说明**：**Idensona = Identity + Persona**（域名 `idensona.com` 已注册）。本文档原代号为 **LifeOS**——该代号已降级为**项目历史代号**，仅保留在历史版本文件名（`LifeOS_*_v0.9.1.md`）与代码路径（`src/lifeos/`）中，以维持版本可追溯性与 183 项测试可用性。正文统一使用 **Idensona**。
 > ⚠️ **Persona 语义纪律**：Idensona 的 Persona 指**冻结的人格契约**（`PersonalityContract`，生成后不可随意改动、可回放重算），**不是** AI 行业常见的"角色扮演人设"——详见 [`Idensona_命名方案建议_20261125.md`](Idensona_命名方案建议_20261125.md) §8。
 
-**配套文档集**（v0.9.2 拆分交付，见 §1.4）：
-- [`Idensona_生态交付与商业合作_v0.9.2.md`](Idensona_生态交付与商业合作_v0.9.2.md)
-- [`Idensona_竞品与市场分析_v0.9.2.md`](Idensona_竞品与市场分析_v0.9.2.md)
-- [`Idensona_阶段拆解与任务进度_v0.9.2.md`](Idensona_阶段拆解与任务进度_v0.9.2.md)
-- 继承：[`LifeOS_架构设计_v0.9.1.md`](LifeOS_架构设计_v0.9.1.md)、[`LifeOS_产品规格说明书_v0.9.1.md`](LifeOS_产品规格说明书_v0.9.1.md)
+**v0.9.2 文档集（五份，互相约束）**：
+
+| 文档 | 职责 | 关系 |
+|---|---|---|
+| **[`Idensona_产品规格说明书_v0.9.2.md`](Idensona_产品规格说明书_v0.9.2.md)** | **做什么/不做什么/如何验收**（本文档的**上游约束**） | 阈值与红线以它为准 |
+| **本文档（架构设计 v0.9.2）** | 怎么实现：分层、模块、接缝、接口契约 | 受规格书约束 |
+| [`Idensona_生态交付与商业合作_v0.9.2.md`](Idensona_生态交付与商业合作_v0.9.2.md) | 交付什么/卖给谁/四条商业路径 | 受规格书 §14 约束 |
+| [`Idensona_竞品与市场分析_v0.9.2.md`](Idensona_竞品与市场分析_v0.9.2.md) | 市场类型/功能位竞品/消费者画像 | 受规格书 §1 边界约束 |
+| [`Idensona_阶段拆解与任务进度_v0.9.2.md`](Idensona_阶段拆解与任务进度_v0.9.2.md) | 六阶段/任务分解/进度与风险 | 受规格书 §10 约束 |
+
+- 命名决策记录：[`Idensona_命名方案建议_20261125.md`](Idensona_命名方案建议_20261125.md)
+- 历史版本（保持原名）：[`LifeOS_架构设计_v0.9.1.md`](LifeOS_架构设计_v0.9.1.md)、[`LifeOS_产品规格说明书_v0.9.1.md`](LifeOS_产品规格说明书_v0.9.1.md)
 
 > **本文档回答**：Idensona 作为**软件生态**的架构是什么、边界在哪、模块如何协作、如何与已验证的前端/语音链路（小智 xiaozhi-esp32 + xiaozhi-server）对接。
 > **本文档不回答**：验收阈值（规格书为准）、商业定价（生态交付文档为准）、论文议题（已按指示忽略）。
@@ -38,7 +45,7 @@
 - **单一权威数据源**：PostgreSQL 16 + pgvector；其他存储只做可重建派生缓存；
 - **所有写路径经 L0→L1→L2 管线**，无后门写入；
 - **全开源依赖**（Apache-2.0 / MIT / BSD / PostgreSQL License）；
-- **部署形态**：单机 Docker Compose，多 Life Instance 共库共存，每实例串行事件队列；不上 K8s、不做跨机分布式（决策门前）；
+- **部署形态**：**开发与客户私有化**用单机 Docker Compose（多 Instance 共库、每实例串行队列）；**多租户云（CH-A）与 Helm 编排（CH-B）已列入交付范围**（2026-11-26 裁决 1A/2C，见 §6.4/§6.5）；**仍不做微服务拆分**；
 - **v0.9.2 新增**：**Idensona 不拥有任何硬件**——硬件只是"可选载体（carrier）"，Idensona 对其暴露**唯一窄接口**（§3.4、§5.1）。
 
 ### 1.3 边界清单（"清晰的边界"——本项目最容易被模糊的地方）
@@ -422,9 +429,71 @@ flowchart LR
 |---|---|---|
 | **F1 SDK（嵌入式库）** | Python 包 + 本地 sqlite，随客户后端进程运行 | 硬件厂私有化、边缘设备 |
 | **F2 服务（Docker 容器）** | FastAPI 单体 + PostgreSQL + pgvector | 家庭网关、私有云、SaaS 后端 |
-| **F3 引擎（纯 API 托管）** | 只暴露 `lifeos-core` 的 HTTP/gRPC，客户自管存储 | 平台型客户、大型合作方 |
+| **F3 引擎（多租户共享云）** | 暴露内核 + 接缝 API，**内置租户隔离**；存储由我们托管 | 平台型客户、自助开通 |
 
 > **三形态共用同一内核代码**——不是三套实现。差异只在"存储在哪、进程边界在哪"。这是"软件形式存在"的工程含义。
+
+---
+
+### 6.4 租户层（v0.9.2 新增，2026-11-26 裁决 1A）
+
+> **背景**：Idensona 要卖软件，CH-A 通道为**多租户共享云**。这要求 `tenant_id` 成为一等隔离维度——**与 `life_id` 同级**，而不是外层封装。
+
+**四层标识与隔离强度**：
+
+```
+Tenant（tenant_id）      ← 计费/配额/SLA 边界；最强隔离
+  └─ Project（project_id，可空）  ← 同客户多产品线
+      └─ Instance（life_id）      ← 一个"它"（P0 已实现谓词）
+          └─ Subject（subject_id） ← 关系主体（P0 已实现谓词）
+```
+
+| 隔离要求 | 断言 | 强度 |
+|---|---|---|
+| 跨 `tenant_id` 读写 | **必为空**（覆盖全部端点） | 一票否决级 |
+| 跨 `life_id`（同 tenant 内） | 必为空（已实现） | 一票否决级 |
+| 跨 `subject_id`（同 instance 内） | 必为空（已实现） | 高 |
+
+**三条硬纪律**：
+
+| # | 纪律 | 理由 |
+|---|---|---|
+| **TL-1** | **`tenant_id` 必须写入全部权威表（12 核心 + 3 支撑）** | 仅靠应用层过滤无法保证（漏一处即事故） |
+| **TL-2** | **API key 绑定 tenant；禁止 key 指定任意 `life_id`** | 防越权跨实例 |
+| **TL-3** | **Instance 不可跨 tenant 迁移**（迁移 = F11 导出/导入） | 保持"身份-租户"绑定清晰 |
+
+**⚠️ 最紧急的提前量**：`tenant_id` 与 `RequestContext{tenant_id, life_id, subject_id}` **必须在 P1 之前加入**（单租户阶段恒为 `'default'`）——P0 已完成 183+ 测试与全部 SQL 谓词，**越晚加改造面越大**（详见部署与分发设计 §1.5、§4.1 F-1/F-6）。
+
+### 6.5 编排与分发拓扑（v0.9.2 新增，裁决 2C/3C）
+
+```mermaid
+flowchart TB
+    subgraph CLOUD["CH-A 多租户云（我们运维）"]
+        LB["入口 / API 网关<br/>api_key → tenant"]
+        API1["idensona-api × N<br/>（模块化单体，多副本）"]
+        PG1[("PostgreSQL + pgvector<br/>（tenant_id 谓词）")]
+        WK1["embedding-worker"]
+        MET["计量与配额<br/>（复用 ModelInvocation + tenant_id）"]
+        LB --> API1 --> PG1
+        API1 --> MET
+        WK1 --> PG1
+    end
+    subgraph CUST["CH-B 客户环境（客户运维）"]
+        H["Helm / compose"]
+        API2["idensona-api"]
+        PG2[("PostgreSQL / sqlite")]
+        VFY["idensona-verify（Job）"]
+        DEMO["idensona-demo（默认关）"]
+        H --> API2 --> PG2
+        VFY --> API2
+        DEMO --> API2
+    end
+```
+
+**镜像分层（F-4，必须现在定）**：`core`（内核+接缝）/ `full`（+worker+exporter+migrate）/ `demo`（+演示页面）。**Demo 默认关闭且独立鉴权**（攻击面）。
+**License（F-5）**：**离线签名校验**（Ed25519，公钥内置）——**不得因授权校验回传数据**（与隐私封闭默认一致）。
+
+> 完整设计（三粒度 Lite/Standard/Full、K-1~K-4 编排必做项、Verify 三份报告）见 [`Idensona_部署与分发设计_v0.9.2.md`](Idensona_部署与分发设计_v0.9.2.md)。
 
 ### 6.2 两个整机部署档位（架构 A / B 都可行，Idensona 无感）
 
@@ -551,7 +620,7 @@ flowchart LR
 | X5 | 硬件设计 / BOM / 结构 | 生态分工 | 永不 |
 | X6 | 论文实验与投稿 | 用户明确排除 | 不适用 |
 | X7 | 自研 ASR/TTS/LLM 推理引擎 | 用现成（云/边缘） | 永不 |
-| X8 | 多租户 SaaS / K8s / 微服务拆分 | 决策门前 | 规模化后再评审 |
+| X8 | ~~多租户 SaaS / K8s~~ / 微服务拆分 | **2026-11-26 修订**：多租户与容器编排**已列入交付范围**（用户裁决 1A/2C，见 §6.4/§6.5）；**仍不做微服务拆分**（保持模块化单体 + 多副本） | 微服务仅在单体能效不足时评审 |
 | X9 | 在线学习 / 个体参数学习 | 与回放确定性冲突 | ADR 才能推翻 |
 | X10 | 自研评估框架与观测栈 | 用 DeepEval/Ragas/Promptfoo/Langfuse | 永不 |
 
