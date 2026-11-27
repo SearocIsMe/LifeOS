@@ -68,7 +68,7 @@ def test_import_events_runs_committed_pipeline():
         assert r.interpreted.interpreted_at
     # L2 committed; sim instance created by the importer
     assert all(r.domain is not None for r in results)
-    assert LIFE in store.instances
+    assert store.get_instance(life_id=LIFE) is not None
 
 
 def test_roundtrip_identical_sequences():

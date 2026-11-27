@@ -55,14 +55,17 @@ def build_effects(store: InMemoryStore, l2: DomainEvent) -> Effects:
     """Compute the authoritative-state effects of one L2 (pure given the store read view)."""
     effects = Effects()
     life_id = l2.life_id
+    tenant_id = l2.tenant_id  # tenant travels with the event, never inferred
     now = l2.committed_at
     # Transaction time recorded on the staged effects so commit_effects can
     # stamp every applied state's t0 for later lazy-decay reads.
     effects.state_time = now
 
     for key, delta in l2.payload["state_deltas"].items():
-        cur = store.get_state(life_id=life_id, state_key=key)
-        last = store.get_state_time(life_id=life_id, state_key=key)
+        cur = store.get_state(life_id=life_id, state_key=key, tenant_id=tenant_id)
+        last = store.get_state_time(
+            life_id=life_id, state_key=key, tenant_id=tenant_id
+        )
         # Lazy-decay increment (design doc 02 §2 S1): materialize the stored
         # value AT `now` by pure decay from its last update, THEN apply the
         # L2's delta. A never-materialized key has no t0 -> no decay term.
@@ -71,7 +74,7 @@ def build_effects(store: InMemoryStore, l2: DomainEvent) -> Effects:
         if last is not None:
             dt_hours = (now - last).total_seconds() / 3600.0
             decayed = decay_value(key, cur, t0=0.0, t=dt_hours)
-        effects.state_updates[(life_id, key)] = _clip01(decayed + delta)
+        effects.state_updates[(tenant_id, life_id, key)] = _clip01(decayed + delta)
 
     for cand in l2.payload["memory_candidates"]:
         memory_id = derive_id(

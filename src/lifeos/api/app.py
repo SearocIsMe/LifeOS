@@ -25,7 +25,7 @@ from fastapi import FastAPI, HTTPException, Request
 
 from lifeos import SCHEMA_VERSION
 from lifeos.consent import record_consent, require_consent, revoke_and_erase
-from lifeos.entities import ConsentRecord, EventSource, LifeStatus
+from lifeos.entities import DEFAULT_TENANT, ConsentRecord, EventSource, LifeStatus
 from lifeos.rights import RejectedError, export_user_data, query_user_memories
 from lifeos.store.erase import user_erase
 from lifeos.store.memory_store import InMemoryStore
@@ -60,7 +60,16 @@ def create_app(
         if not auth.startswith("Bearer ") or auth[len("Bearer ") :] != app.state.bearer_token:
             raise HTTPException(status_code=401, detail="missing or invalid bearer token")
 
-    def _parse_dt(value: Any) -> datetime:
+    def _tenant_of(request: Request) -> str:
+        """Tenant for this request (CH-A multi-tenant, default keeps single-tenant).
+
+        Phase P1 wires this to the API-key -> tenant lookup; until then the
+        header (if present) wins, else ``DEFAULT_TENANT``. Keeping it in one
+        function means the seam work later touches exactly one place.
+        """
+        return request.headers.get("X-Idensona-Tenant", DEFAULT_TENANT)
+
+    def _parse_dt(value: Any) -> datetime:  # noqa: D401 - local helper
         dt = datetime.fromisoformat(str(value).replace("Z", "+00:00"))
         if dt.tzinfo is None:
             dt = dt.replace(tzinfo=timezone.utc)
@@ -75,8 +84,13 @@ def create_app(
             personality_seed=body["personality_seed"],
             born_at=_parse_dt(body["born_at"]),
             schema_version=body.get("schema_version", SCHEMA_VERSION),
+            tenant_id=_tenant_of(request),
         )
-        return {"life_id": inst.life_id, "status": inst.status.value}
+        return {
+            "life_id": inst.life_id,
+            "tenant_id": inst.tenant_id,
+            "status": inst.status.value,
+        }
 
     @app.post("/events")
     def ingest_event(body: dict[str, Any], request: Request):
@@ -113,16 +127,18 @@ def create_app(
     @app.get("/state/{life_id}")
     def get_state(life_id: str, request: Request):
         _guard(request)
+        tenant_id = _tenant_of(request)
         try:
-            store._require_life(life_id)
+            store._require_life(life_id, tenant_id)
         except StoreIsolationError as exc:
             raise HTTPException(status_code=404, detail=str(exc)) from exc
-        mems = store.query_memories(life_id=life_id)
+        mems = store.query_memories(life_id=life_id, tenant_id=tenant_id)
+        inst = store.get_instance(life_id=life_id, tenant_id=tenant_id)
         return {
             "life_id": life_id,
-            "status": store.instances[life_id].status.value,
+            "status": inst.status.value,
             "memory_count": len(mems),
-            "active_provider": store.instances[life_id].active_provider,
+            "active_provider": inst.active_provider,
         }
 
     @app.post("/memories/{op}")
@@ -170,8 +186,11 @@ def create_app(
             store._require_life(life_id)
         except StoreIsolationError as exc:
             raise HTTPException(status_code=404, detail=str(exc)) from exc
-        before = store.instances[life_id].active_provider
-        store.instances[life_id] = store.instances[life_id].model_copy(update={"active_provider": target})
+        tenant_id = _tenant_of(request)
+        before = store.instances[(tenant_id, life_id)].active_provider
+        store.instances[(tenant_id, life_id)] = store.instances[
+            (tenant_id, life_id)
+        ].model_copy(update={"active_provider": target})
         return {"life_id": life_id, "from": before, "to": target, "snapshot_equal": True}
 
     @app.post("/replay/{life_id}")

@@ -42,7 +42,7 @@ def test_inject_bundle_injected_truth():
     n = inject_bundle(store, bundle)
     assert n == len(bundle["memories"])
     assert len(store.memories) == n
-    assert "life-sim" in store.instances
+    assert store.get_instance(life_id="life-sim") is not None
     m = store.memories[0]
     assert m.type in (MemoryType.EPISODIC, MemoryType.SEMANTIC)
     assert m.conflict_state == ConflictState.CURRENT

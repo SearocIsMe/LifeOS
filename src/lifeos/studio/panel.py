@@ -11,6 +11,7 @@ from typing import Any
 
 from fastapi import FastAPI, HTTPException
 
+from lifeos.entities import DEFAULT_TENANT
 from lifeos.memory.worker import outbox_stats
 from lifeos.store.memory_store import InMemoryStore
 from lifeos.store.memory_store import IsolationError as StoreIsolationError
@@ -60,15 +61,17 @@ def create_studio(store: InMemoryStore) -> FastAPI:
         return HTMLResponse(_PANEL_HTML)
 
     @app.get("/studio/state")
-    def state(life_id: str) -> Any:
+    def state(life_id: str, tenant_id: str = DEFAULT_TENANT) -> Any:
         _require(life_id)
-        inst = store.instances[life_id]
-        mems = store.query_memories(life_id=life_id)
+        inst = store.get_instance(life_id=life_id, tenant_id=tenant_id)
+        if inst is None:
+            raise HTTPException(status_code=404, detail=f"unknown life_id: {life_id!r}")
+        mems = store.query_memories(life_id=life_id, tenant_id=tenant_id)
         # kernel states via the store's public read view (get_state injects
         # default 0.5 for never-materialized keys - the console shows raw)
         kernel = {
-            key: store.get_state(life_id=life_id, state_key=key)
-            for key in store.kernel_state_keys()
+            key: store.get_state(life_id=life_id, state_key=key, tenant_id=tenant_id)
+            for key in store.kernel_state_keys(tenant_id=tenant_id)
         }
         return {
             "life_id": life_id,

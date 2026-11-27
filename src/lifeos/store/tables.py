@@ -28,8 +28,22 @@ from sqlalchemy import JSON as SAJSON
 
 metadata = MetaData()
 
+#: Tenant column definition, reused by every table (TL-1: no entity may omit it).
+#: Added 2026-11-27 (distribution decision 1A). ``server_default='default'`` lets
+#: the migration backfill existing rows without a data-rewrite step.
+def _tenant_col() -> Column:
+    return Column(
+        "tenant_id",
+        String(64),
+        nullable=False,
+        server_default="default",
+        index=False,
+    )
+
+
 _TABLE_ARGS: dict[str, list[Column]] = {
     "life_instances": [
+        _tenant_col(),
         Column("life_id", String(64), primary_key=True),
         Column("born_at", DateTime(timezone=True), nullable=False),
         Column("personality_seed", String(128), nullable=False),
@@ -38,6 +52,7 @@ _TABLE_ARGS: dict[str, list[Column]] = {
         Column("status", String(16), nullable=False, default="active"),
     ],
     "personality_contracts": [
+        _tenant_col(),
         Column("contract_id", String(80), primary_key=True),
         Column("life_id", String(64), nullable=False),
         Column("big_five_params", SAJSON, nullable=False),
@@ -45,6 +60,7 @@ _TABLE_ARGS: dict[str, list[Column]] = {
         Column("frozen_at", DateTime(timezone=True), nullable=False),
     ],
     "raw_events": [
+        _tenant_col(),
         Column("event_id", String(80), primary_key=True),
         Column("life_id", String(64), nullable=False),
         Column("source", String(16), nullable=False),
@@ -53,6 +69,7 @@ _TABLE_ARGS: dict[str, list[Column]] = {
         Column("occurred_at", DateTime(timezone=True), nullable=False),
     ],
     "interpreted_events": [
+        _tenant_col(),
         Column("event_id", String(80), primary_key=True),
         Column("life_id", String(64), nullable=False),
         Column("raw_event_id", String(80), nullable=False),
@@ -69,6 +86,7 @@ _TABLE_ARGS: dict[str, list[Column]] = {
         Column("interpreted_at", DateTime(timezone=True), nullable=False),
     ],
     "domain_events": [
+        _tenant_col(),
         Column("event_id", String(80), primary_key=True),
         Column("life_id", String(64), nullable=False),
         Column("l1_event_id", String(80), nullable=False),
@@ -81,6 +99,7 @@ _TABLE_ARGS: dict[str, list[Column]] = {
         Column("ingested_at", DateTime(timezone=True)),  # wall clock, NON-semantic
     ],
     "life_states": [
+        _tenant_col(),
         Column("life_id", String(64), primary_key=True),
         Column("state_key", String(32), primary_key=True),
         Column("value_at_last_update", Float, nullable=False),
@@ -91,6 +110,7 @@ _TABLE_ARGS: dict[str, list[Column]] = {
         Column("kernel_version", String(32), nullable=False, default=""),
     ],
     "memory_records": [
+        _tenant_col(),
         Column("memory_id", String(80), primary_key=True),
         Column("life_id", String(64), nullable=False),
         Column("subject_id", String(64)),
@@ -110,6 +130,7 @@ _TABLE_ARGS: dict[str, list[Column]] = {
         Column("version", Integer, nullable=False, default=1),
     ],
     "relationship_states": [
+        _tenant_col(),
         Column("life_id", String(64), primary_key=True),
         Column("subject_id", String(64), primary_key=True),
         Column("familiarity", Float, nullable=False, default=0.2),
@@ -119,6 +140,7 @@ _TABLE_ARGS: dict[str, list[Column]] = {
         Column("version", Integer, nullable=False, default=1),
     ],
     "behavior_intents": [
+        _tenant_col(),
         Column("intent_id", String(80), primary_key=True),
         Column("life_id", String(64), nullable=False),
         Column("intent_type", String(64), nullable=False),
@@ -130,6 +152,7 @@ _TABLE_ARGS: dict[str, list[Column]] = {
         Column("created_at", DateTime(timezone=True), nullable=False),
     ],
     "policy_decisions": [
+        _tenant_col(),
         Column("decision_id", String(80), primary_key=True),
         Column("intent_id", String(80), nullable=False),
         Column("life_id", String(64), nullable=False),
@@ -140,6 +163,7 @@ _TABLE_ARGS: dict[str, list[Column]] = {
         Column("decided_at", DateTime(timezone=True), nullable=False),
     ],
     "model_invocations": [
+        _tenant_col(),
         Column("invocation_id", String(80), primary_key=True),
         Column("life_id", String(64), nullable=False),
         Column("provider", String(64), nullable=False),
@@ -152,6 +176,7 @@ _TABLE_ARGS: dict[str, list[Column]] = {
         Column("called_at", DateTime(timezone=True), nullable=False),
     ],
     "evaluation_runs": [
+        _tenant_col(),
         Column("run_id", String(80), primary_key=True),
         Column("life_id", String(64), nullable=False),
         Column("gold_set_id", String(64), nullable=False),
@@ -162,6 +187,7 @@ _TABLE_ARGS: dict[str, list[Column]] = {
         Column("ran_at", DateTime(timezone=True), nullable=False),
     ],
     "consent_records": [
+        _tenant_col(),
         Column("consent_id", String(80), primary_key=True),
         Column("external_user_id", String(64), nullable=False),
         Column("life_id", String(64), nullable=False),
@@ -174,6 +200,7 @@ _TABLE_ARGS: dict[str, list[Column]] = {
         Column("revoked_at", DateTime(timezone=True)),
     ],
     "gold_set_registry": [
+        _tenant_col(),
         Column("gold_set_id", String(64), primary_key=True),
         Column("kind", String(32), nullable=False),
         Column("version", String(32), primary_key=True),
@@ -183,6 +210,7 @@ _TABLE_ARGS: dict[str, list[Column]] = {
         Column("notes", Text, nullable=False, default=""),
     ],
     "embedding_outbox": [
+        _tenant_col(),
         Column("outbox_id", String(80), primary_key=True),
         Column("life_id", String(64), nullable=False),
         Column("memory_id", String(80), nullable=False),
@@ -197,11 +225,18 @@ _TABLE_ARGS: dict[str, list[Column]] = {
 tables: dict[str, Table] = {}
 for name, columns in _TABLE_ARGS.items():
     table = Table(name, metadata, *columns)
-    # Multi-instance isolation: every table carries a life_id-leading index
-    # (design doc 01 §8). gold_set_registry / life_instances are global.
+    # Isolation indexes now lead with tenant_id (TL-1: tenant is the outermost
+    # scope; a query that skips it is a bug, so the planner should be told).
+    # Tables carrying both tenant+life get the composite; the rest get tenant
+    # alone. gold_set_registry / life_instances still get a tenant index because
+    # both are tenant-scoped in CH-A (multi-tenant cloud).
     if "life_id" in table.c and name not in ("life_instances",):
         table.append_constraint(
-            Index(f"ix_{name}_life_id", table.c.life_id)
+            Index(f"ix_{name}_tenant_life", table.c.tenant_id, table.c.life_id)
+        )
+    else:
+        table.append_constraint(
+            Index(f"ix_{name}_tenant", table.c.tenant_id)
         )
     tables[name] = metadata.tables[name]
 

@@ -169,7 +169,7 @@ def inject_bundle(
     """
     at = at or SIM_EPOCH
     # instance must exist (mandatory life_id predicate)
-    if bundle["seed"] and "life-sim" not in store.instances:
+    if bundle["seed"] and store.get_instance(life_id="life-sim") is None:
         store.create_instance(
             life_id="life-sim",
             personality_seed=str(bundle["seed"]),

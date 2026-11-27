@@ -15,11 +15,14 @@
 
 ### 0.1 实测基线（代码级核查，非文档推断）
 
+> **2026-11-27 实测更新**：完成 S0（依赖清单）+ S0b（RequestContext）+ S0c（tenant_id 全库）+ S0d（隔离测试）后，基线为 **269 passed / 0 failed / 覆盖率 74%**（此前 241 passed / 74%）。详见 [`Idensona_P1开工方案与基线实测_20261126.md`](Idensona_P1开工方案与基线实测_20261126.md) §7。
+
 | 指标 | 实测值 | 核查方式 |
 |---|---|---|
-| `src/lifeos/` 模块数 | **21 个包/模块** | `dir src\lifeos` |
-| 测试文件数 | **37 个** | `tests/test_*.py` |
-| 测试函数数 | **183 个** | 正则统计 `^def test_` |
+| `src/lifeos/` 模块数 | **22 个包/模块**（新增 `context.py`） | `dir src\lifeos` |
+| 测试文件数 | **39 个**（新增 `test_context.py`、`test_tenant_isolation.py`） | `tests/test_*.py` |
+| 测试函数数 | **269 个通过**（含 13 skipped / 2 deselected） | `pytest -q` 实测 |
+| **`tenant_id` 隔离** | **已实现**（15 实体 + 全谓词 + 迁移 0002） | `entities.py` / `store/tables.py` / `alembic/versions/0002` |
 | 10 红线 | **全部实现**（RED-01~RED-10） | [`src/lifeos/policy/engine.py:37-171`](../src/lifeos/policy/engine.py:37) |
 | 三级事件模型 | **已实现**（L0/L1/L2 + provenance） | `src/lifeos/events/` |
 | 确定性提交 | **已实现** | [`events/commit.py:120`](../src/lifeos/events/commit.py:120) |
@@ -78,7 +81,7 @@
 
 | ID | 任务 | 依赖 | 产出 | 验收标准 | 估算 |
 |---|---|---|---|---|---|
-| **T-101** | **S1 LLM 接缝**：Idensona 暴露 OpenAI 兼容 `/v1/chat/completions`（含 SSE 流式） | T-008/T-009 | 端点 + 内部"组装→路由→审批→渲染"链路 | xiaozhi-server 配 `base_url` 后能返回对话；`ModelInvocation` 逐笔落库 | 3–5 人日 |
+| **T-101** | **S1 LLM 接缝**（**tenant-aware**）：OpenAI 兼容 `/v1/chat/completions`（含 SSE）+ api_key→tenant + 映射带 tenant 谓词 + 跨租户越权拒绝 | T-008/T-009；**T-601/T-602 前置** | 端点 + 内部链路 + `tenant_auth.py` | xiaozhi 配 `base_url` 返回对话；`ModelInvocation` 带 `tenant_id`；跨 tenant 越权必被拒 | **6–9 人日** |
 | **T-102** | **S2 上下文接缝**：`GET /seam/context` | T-008 | 摘要端点 | xiaozhi `context_providers` 能注入；P95 < 150ms | 2–3 人日 |
 | **T-103** | **S3 记忆接缝**：把 `POST /memories/{op}` 对接到 xiaozhi 编排 | T-007 | 记忆写入/召回通路 | 一轮对话产生记忆 → 下一轮召回出现 | 2–3 人日 |
 | **T-104** | **身份映射**：`{device_id, client_id} → life_id` | T-101 | 映射表 + 鉴权 | 同一设备恒定映射；未映射设备拒绝 | 1–2 人日 |

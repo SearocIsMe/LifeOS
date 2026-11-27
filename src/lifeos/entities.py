@@ -112,9 +112,20 @@ class LifeStatus(str, Enum):
 # Contract base
 # --------------------------------------------------------------------------- #
 
+#: Tenant of every row produced by a single-tenant deployment or by pre-cloud
+#: data. Added 2026-11-27 (Idensona v0.9.2 distribution decision 1A): CH-A is a
+#: multi-tenant cloud, so ``tenant_id`` has to be a real column, not an outer
+#: wrapper. Defaulting to "default" keeps every P0 call site working unchanged.
+DEFAULT_TENANT = "default"
+
 
 class _Contract(BaseModel):
     model_config = ConfigDict(extra="forbid", validate_assignment=True)
+
+    # Tenant is declared once on the base and inherited by all 15 entities, so
+    # it cannot be forgotten on a newly added entity (TL-1). It is deliberately
+    # the FIRST field: migration and index prefixes assume (tenant_id, life_id).
+    tenant_id: str = Field(default=DEFAULT_TENANT, min_length=1)
 
 
 # --------------------------------------------------------------------------- #

@@ -10,9 +10,11 @@ introduction (登记 ADR，不阻塞 Gate).
 
 from __future__ import annotations
 
+from datetime import datetime, timezone
 from typing import Any
 
 from lifeos.adapters.engines import get_adapter
+from lifeos.entities import DEFAULT_TENANT
 from lifeos.events.pipeline import EventPipeline
 from lifeos.store.memory_store import InMemoryStore
 
@@ -24,6 +26,7 @@ def import_events(
     life_id: str,
     store: InMemoryStore,
     pipeline: EventPipeline | None = None,
+    tenant_id: str = DEFAULT_TENANT,
 ) -> list[Any]:
     """Import engine episodes through the committed pipeline (sim source).
 
@@ -32,13 +35,17 @@ def import_events(
     """
     adapter = get_adapter(engine)
     pipe = pipeline if pipeline is not None else EventPipeline(store)
-    # the sim instance must exist (mandatory life_id predicate)
-    if life_id not in store.instances:
+    # the sim instance must exist (mandatory life_id predicate).
+    # Tenant-aware since 2026-11-27: instances is keyed (tenant_id, life_id), and
+    # the previous ``store.instances.get(life_id)`` always returned None - a
+    # latent bug that only survived because create_instance raised first.
+    if store.get_instance(life_id=life_id, tenant_id=tenant_id) is None:
         store.create_instance(
             life_id=life_id,
             personality_seed=f"sim:{engine}",
-            born_at=store.instances.get(life_id) or __import__("datetime").datetime.now(__import__("datetime").timezone.utc),
+            born_at=datetime.now(timezone.utc),
             schema_version=pipe.schema_version,
+            tenant_id=tenant_id,
         )
     results = []
     for ep in episodes:

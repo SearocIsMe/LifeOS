@@ -17,6 +17,7 @@ from datetime import datetime
 from typing import Any, Iterable
 
 from lifeos.entities import (
+    DEFAULT_TENANT,
     BehaviorIntent,
     BehaviorStatus,
     ConflictState,
@@ -64,19 +65,37 @@ class Effects:
 
 
 class InMemoryStore:
+    """Authoritative in-memory store, keyed on (tenant_id, life_id) everywhere.
+
+    Tenant scoping (2026-11-27, Idensona v0.9.2 decision 1A): the SAME
+    ``life_id`` string may exist in two tenants (``life-1`` in tenant A and in
+    tenant B are different lives). Every dict key therefore carries the tenant
+    prefix, and every read takes ``tenant_id`` as a required-or-defaulted
+    keyword. A read that names the wrong tenant raises ``IsolationError``
+    instead of silently returning ``None`` - a silent ``None`` would let a
+    caller proceed as if the instance were merely absent.
+
+    ``tenant_id`` defaults to ``"default"`` so all pre-cloud call sites keep
+    working unchanged (this is what preserves P0's test suite).
+    """
+
     def __init__(self) -> None:
-        self.instances: dict[str, LifeInstance] = {}
+        # Key = (tenant_id, life_id)
+        self.instances: dict[tuple[str, str], LifeInstance] = {}
         self.raw_events: list[RawEvent] = []
         self._raw_by_id: dict[str, RawEvent] = {}
         self.l1_events: list[InterpretedEvent] = []
         self._l1_by_id: dict[str, InterpretedEvent] = {}
-        self._l1_order: dict[str, list[str]] = {}
+        # Key = (tenant_id, life_id) -> ordered L1 ids
+        self._l1_order: dict[tuple[str, str], list[str]] = {}
         self.l2_events: list[DomainEvent] = []
         self._l2_by_l1: dict[str, DomainEvent] = {}
-        self._states: dict[tuple[str, str], float] = {}
-        self._state_times: dict[tuple[str, str], datetime] = {}
+        # Key = (tenant_id, life_id, state_key)
+        self._states: dict[tuple[str, str, str], float] = {}
+        self._state_times: dict[tuple[str, str, str], datetime] = {}
         self.memories: list[MemoryRecord] = []
-        self._relationships: dict[tuple[str, str], RelationshipState] = {}
+        # Key = (tenant_id, life_id, subject_id)
+        self._relationships: dict[tuple[str, str, str], RelationshipState] = {}
         self.intents: list[BehaviorIntent] = []
         self.decisions: list[PolicyDecision] = []
         self.outbox: list[EmbeddingOutbox] = []
@@ -87,23 +106,41 @@ class InMemoryStore:
     # ------------------------------------------------------------------ #
 
     def create_instance(
-        self, *, life_id: str, personality_seed: str, born_at: datetime, schema_version: str
+        self,
+        *,
+        life_id: str,
+        personality_seed: str,
+        born_at: datetime,
+        schema_version: str,
+        tenant_id: str = DEFAULT_TENANT,
     ) -> LifeInstance:
-        if life_id in self.instances:
-            raise ValueError(f"life instance already exists: {life_id}")
+        key = (tenant_id, life_id)
+        if key in self.instances:
+            raise ValueError(
+                f"life instance already exists: tenant={tenant_id!r} life={life_id!r}"
+            )
         inst = LifeInstance(
+            tenant_id=tenant_id,
             life_id=life_id,
             born_at=born_at,
             personality_seed=personality_seed,
             schema_version=schema_version,
             status=LifeStatus.ACTIVE,
         )
-        self.instances[life_id] = inst
+        self.instances[key] = inst
         return inst
 
-    def _require_life(self, life_id: str) -> None:
-        if life_id not in self.instances:
-            raise IsolationError(f"unknown life_id: {life_id!r}")
+    def get_instance(
+        self, *, life_id: str, tenant_id: str = DEFAULT_TENANT
+    ) -> LifeInstance | None:
+        """Tenant-scoped instance read (no exception when simply absent)."""
+        return self.instances.get((tenant_id, life_id))
+
+    def _require_life(self, life_id: str, tenant_id: str = DEFAULT_TENANT) -> None:
+        if (tenant_id, life_id) not in self.instances:
+            raise IsolationError(
+                f"unknown life_id: {life_id!r} in tenant {tenant_id!r}"
+            )
 
     # ------------------------------------------------------------------ #
     # event tables (append-only: insert methods only, no update/delete API)
@@ -117,14 +154,19 @@ class InMemoryStore:
         payload: dict[str, Any],
         occurred_at: datetime,
         modality: str = "text",
+        tenant_id: str = DEFAULT_TENANT,
     ) -> RawEvent | None:
         """Normalize + dedupe an incoming L0 event. Returns None on duplicate."""
-        self._require_life(life_id)
+        self._require_life(life_id, tenant_id)
         from lifeos.events.protocol import derive_id
 
         event_id = derive_id(
             "L0",
             {
+                # tenant is part of the hash: the same utterance arriving in two
+                # tenants must not produce one shared event id (would collide in
+                # the append-only tables' primary keys).
+                "tenant_id": tenant_id,
                 "life_id": life_id,
                 "source": source.value,
                 "modality": modality,
@@ -135,6 +177,7 @@ class InMemoryStore:
         if event_id in self._raw_by_id:
             return None  # idempotent re-ingest
         raw = RawEvent(
+            tenant_id=tenant_id,
             event_id=event_id,
             life_id=life_id,
             source=source,
@@ -154,45 +197,89 @@ class InMemoryStore:
             raise ValueError(f"L1 already archived: {l1.event_id}")
         if self._raw_by_id.get(l1.raw_event_id) is None:
             raise ValueError(f"L1 references unknown raw event: {l1.raw_event_id}")
+        raw = self._raw_by_id[l1.raw_event_id]
+        if raw.tenant_id != l1.tenant_id:
+            # Cross-tenant stitching would let a handler launder provenance.
+            raise IsolationError(
+                f"L1 tenant {l1.tenant_id!r} does not match raw event tenant "
+                f"{raw.tenant_id!r}"
+            )
         self.l1_events.append(l1)
         self._l1_by_id[l1.event_id] = l1
-        self._l1_order.setdefault(l1.life_id, []).append(l1.event_id)
+        self._l1_order.setdefault((l1.tenant_id, l1.life_id), []).append(l1.event_id)
 
     def archive_l2(self, l2: DomainEvent) -> None:
-        if self._l1_by_id.get(l2.l1_event_id) is None:
+        l1 = self._l1_by_id.get(l2.l1_event_id)
+        if l1 is None:
             raise ValueError(f"L2 references unknown L1 event: {l2.l1_event_id}")
+        if l1.tenant_id != l2.tenant_id:
+            raise IsolationError(
+                f"L2 tenant {l2.tenant_id!r} does not match L1 tenant {l1.tenant_id!r}"
+            )
         if l2.l1_event_id in self._l2_by_l1:
             raise ValueError(f"L2 already archived for L1: {l2.l1_event_id}")
         self.l2_events.append(l2)
         self._l2_by_l1[l2.l1_event_id] = l2
 
     def range_l1(
-        self, *, life_id: str, from_seq: int = 0, to_seq: int | None = None
+        self,
+        *,
+        life_id: str,
+        from_seq: int = 0,
+        to_seq: int | None = None,
+        tenant_id: str = DEFAULT_TENANT,
     ) -> list[InterpretedEvent]:
         """L1 archive in ingestion order (replay order, architecture §3.3)."""
-        self._require_life(life_id)
-        ids = self._l1_order.get(life_id, [])[from_seq:to_seq]
+        self._require_life(life_id, tenant_id)
+        ids = self._l1_order.get((tenant_id, life_id), [])[from_seq:to_seq]
         return [self._l1_by_id[i] for i in ids]
 
-    def get_l2_by_l1(self, l1_event_id: str) -> DomainEvent | None:
-        return self._l2_by_l1.get(l1_event_id)
+    def get_l2_by_l1(
+        self, l1_event_id: str, *, tenant_id: str = DEFAULT_TENANT
+    ) -> DomainEvent | None:
+        l2 = self._l2_by_l1.get(l1_event_id)
+        if l2 is not None and l2.tenant_id != tenant_id:
+            raise IsolationError(
+                f"L2 {l1_event_id!r} belongs to tenant {l2.tenant_id!r}, "
+                f"not {tenant_id!r}"
+            )
+        return l2
 
     # ------------------------------------------------------------------ #
     # authoritative state reads (life_id is a REQUIRED keyword everywhere)
     # ------------------------------------------------------------------ #
 
-    def get_state(self, *, life_id: str, state_key: str, default: float = 0.5) -> float:
-        self._require_life(life_id)
-        return self._states.get((life_id, state_key), default)
+    def get_state(
+        self,
+        *,
+        life_id: str,
+        state_key: str,
+        default: float = 0.5,
+        tenant_id: str = DEFAULT_TENANT,
+    ) -> float:
+        self._require_life(life_id, tenant_id)
+        return self._states.get((tenant_id, life_id, state_key), default)
 
-    def kernel_state_keys(self) -> list[str]:
-        """Distinct materialized state keys (Studio/console read view)."""
-        return sorted({key for (_life, key) in self._states})
+    def kernel_state_keys(self, *, tenant_id: str | None = None) -> list[str]:
+        """Distinct materialized state keys (Studio/console read view).
 
-    def get_state_time(self, *, life_id: str, state_key: str) -> datetime | None:
+        ``tenant_id=None`` means "all tenants" and exists solely for the
+        operator view (CH-A usage rollups). Application code must pass it.
+        """
+        return sorted(
+            {
+                key
+                for (t, _life, key) in self._states
+                if tenant_id is None or t == tenant_id
+            }
+        )
+
+    def get_state_time(
+        self, *, life_id: str, state_key: str, tenant_id: str = DEFAULT_TENANT
+    ) -> datetime | None:
         """Last-update instant of one kernel state (None = never materialized)."""
-        self._require_life(life_id)
-        return self._state_times.get((life_id, state_key))
+        self._require_life(life_id, tenant_id)
+        return self._state_times.get((tenant_id, life_id, state_key))
 
     def query_memories(
         self,
@@ -201,11 +288,13 @@ class InMemoryStore:
         subject_id: str | None = None,
         slot_key: str | None = None,
         conflict_state: ConflictState | None = None,
+        tenant_id: str = DEFAULT_TENANT,
     ) -> list[MemoryRecord]:
-        self._require_life(life_id)
+        self._require_life(life_id, tenant_id)
         out: list[MemoryRecord] = []
         for m in self.memories:
-            if m.life_id != life_id:  # hard predicate - never scan across lives
+            # Hard predicates: never scan across tenants, never across lives.
+            if m.tenant_id != tenant_id or m.life_id != life_id:
                 continue
             if subject_id is not None and m.subject_id != subject_id:
                 continue
@@ -216,21 +305,28 @@ class InMemoryStore:
             out.append(m)
         return out
 
-    def get_relationship(self, *, life_id: str, subject_id: str) -> RelationshipState | None:
-        self._require_life(life_id)
-        return self._relationships.get((life_id, subject_id))
+    def get_relationship(
+        self, *, life_id: str, subject_id: str, tenant_id: str = DEFAULT_TENANT
+    ) -> RelationshipState | None:
+        self._require_life(life_id, tenant_id)
+        return self._relationships.get((tenant_id, life_id, subject_id))
 
     # ------------------------------------------------------------------ #
     # authoritative state writes - GUARDED
     # ------------------------------------------------------------------ #
 
     def _set_state(
-        self, life_id: str, state_key: str, value: float, at: datetime | None = None
+        self,
+        life_id: str,
+        state_key: str,
+        value: float,
+        at: datetime | None = None,
+        tenant_id: str = DEFAULT_TENANT,
     ) -> None:
         """PRIVATE on purpose: authoritative state writes only via commit_effects."""
-        self._states[(life_id, state_key)] = value
+        self._states[(tenant_id, life_id, state_key)] = value
         if at is not None:
-            self._state_times[(life_id, state_key)] = at
+            self._state_times[(tenant_id, life_id, state_key)] = at
 
     def commit_effects(
         self,
@@ -269,8 +365,10 @@ class InMemoryStore:
             raise RuntimeError("injected failure before apply (atomicity test hook)")
 
         # ---- single application phase: nothing below may raise ----
-        for (life_id, key), value in staged_states.items():
-            self._set_state(life_id, key, value, at=effects.state_time)
+        for (tenant_id, life_id, key), value in staged_states.items():
+            self._set_state(
+                life_id, key, value, at=effects.state_time, tenant_id=tenant_id
+            )
         current_ids = {m.memory_id for m in self.memories}
         for m in staged_updates:
             if m.memory_id not in current_ids:
@@ -281,7 +379,7 @@ class InMemoryStore:
         for m in staged_inserts:
             self.memories.append(m)
         for r in staged_rels:
-            self._relationships[(r.life_id, r.subject_id)] = r
+            self._relationships[(r.tenant_id, r.life_id, r.subject_id)] = r
         self.intents.extend(staged_intents)
         self.decisions.extend(staged_decisions)
         self.outbox.extend(staged_outbox)
